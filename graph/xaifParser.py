@@ -15,44 +15,22 @@ class XAIFParser(object):
     self.parser = make_parser()
     self.handler = XAIFContentHandler(self)
     self.parser.setContentHandler(self.handler)
-    self.attributes = {'CallGraph':['program_name', 'toplevel_routine_name'],
-		       'ScopeHierarchy':[],
-		       'Scope':['vertex_id'],
-		       'SymbolTable':[],
-                       'Symbol':['symbol_id', 'kind', 'type'],
-		       'ArgumentReference':['argument'],
-		       'ControlFlowGraph':['vertex_id', 'subroutine_name'],
-		       'ArgumentSymbolReference':['position', 'symbol_id', 'scope_id'],
-		       'Entry':['vertex_id'],
-		       'BasicBlock':['vertex_id'],
-		       'Assignment':['statement_id'],
-		       'ForLoop':['vertex_id'],
-		       'VariableReference':['vertex_id'],
-		       'SymbolReference':['vertex_id', 'symbol_id', 'scope_id'],
-		       'Constant':['vertex_id', 'type', 'value'],
-		       'Initialization':['statement_id'],
-		       'Condition':[],
-		       'Update':['statement_id'],
-		       'BooleanOperation':['vertex_id','name'],
-		       'ExpressionEdge':['edge_id','source','target','position']
-		       }
-
-    return
+    pass
 
   def parse(self, xmlfile):
     self.parser.parse(open(xmlfile))
-    return
+    pass
 
   def validate(self, xmlfile, schema_list=["xaif.xsd"]):
     runitAndShow(xmlfile, schema_list)
-    return
+    pass
 
   def displayGraph(self):
     print '======== Call Graph =========='
     self.callGraph.displaySorted()
     print '~~~~~~ Scope Hierarchy ~~~~~~~'
     self.callGraph.scopeGraph.displaySorted()
-    return
+    pass
 
 
 class XAIFContentHandler(ContentHandler):
@@ -69,7 +47,7 @@ class XAIFContentHandler(ContentHandler):
     self.feature_validation = 1
     self.feature_external_ges = 1
     self.featuer_external_pes = 1
-    return
+    pass
 
   def startElement(self, name, attrs):
     self.nonsname = re.match(r'xaif:(\w+)', name).group(1)
@@ -86,7 +64,8 @@ class XAIFContentHandler(ContentHandler):
       self.edgeList = []
 
     if self.nonsname == 'Scope':
-      v = self.parseVertexElement(attrs, attrs.get('vertex_id','-1'), self.parser.callGraph.scopeGraph)
+      v = self.parseElement(attrs) 
+      self.parser.callGraph.scopeGraph.addVertex(v)
       self.currentScopeId = attrs.get('vertex_id','-1')
       self.parentVertex = v
 
@@ -104,55 +83,49 @@ class XAIFContentHandler(ContentHandler):
       
     ''' Control flow graph '''
     if self.nonsname == 'ControlFlowGraph':
-      self.cfg = self.parseVertexElement(attrs,attrs.get('vertex_id'), self.parser.callGraph)
-      #self.parser.callGraph.addVertex(v)
-      self.parentVertex = v
+      self.cfg = self.parseVertexElement(attrs)
+      self.parser.callGraph.addVertex(self.cfg)
+      self.parentVertex = self.cfg
 
     if self.nonsname == 'ArgumentSymbolReference':
       v = self.parseElement(attrs)
-      self.parentVertex.argumentList.append(v)
+      self.parentVertex.getArgumentList().append(v)
 
     if self.nonsname == 'Assignment':
-      v = self.parseVertexElement(attrs,attrs.get('statement_id'))
+      v = self.parseElement(attrs)
       self.parentVertex = v
  
     if self.nonsname == 'AssignmentLHS' or self.nonsname == 'AssignmentRHS':
       v = self.parentVertex
       
     if self.nonsname == 'VariableReference':
-      v = self.parseVertexElement(attrs,attrs.get('vertex_id'))
+      v = self.parseElement(attrs)
       if self.context == 'AssignmentRHS':
         self.parentVertex.getRHS().addVertex(v)
 
     if self.nonsname == 'SymbolReference':
-      v = self.parseVertexElement(attrs,attrs.get('vertex_id'))
+      v = self.parseElement(attrs)
       if self.context == 'AssignmentLHS':
         self.parentVertex.setLHS(v)
 
     if self.nonsname == 'ForLoop':
-      v = self.parseVertexElement(attrs,attrs.get('vertex_id'))
+      v = self.parseElement(attrs)
       self.cfg.addVertex(v)
       self.parentVertex = v
 
     if self.nonsname == 'Initialization' and self.parentVertex.type == 'ForLoop':
-      v = self.parseVertexElement(attrs,attrs.get('statement_id'))
+      v = self.parseElement(attrs)
       self.parentVertex.setInit(v)
       self.parentVertex = v
 
     if self.nonsname == 'Update' and self.parentVertex.type == 'ForLoop':
-      v = self.parseVertexElement(attrs,attrs.get('statement_id'))
+      v = self.parseElement(attrs)
       self.parentVertex.setUpdate(v)
       self.parentVertex = v
 
-    
-    
 
     self.context = self.current
     return 
-
-
-
-    return
 
   def endElement(self, name):
     self.nonsname = re.match(r'xaif:(\w+)', name).group(1)
@@ -165,38 +138,28 @@ class XAIFContentHandler(ContentHandler):
         self.parser.callGraph.scopeGraph.addEdge(edge)
       self.edgeList = []
 
-    return
-
-  def parseVertexElement(self, attrs, id='-1', graph=None):
-    ''' 
-    Return an XAIFVertex corresponding to the element with (no-namespace) name
-    self.nonsname, setting all attributes accordingly
-    '''
-    v = eval('XAIF' + self.nonsname + '(\'' + id + '\')')
-    v.setAttributes(self.parser.attributes[self.nonsname], attrs)
-    if not graph == None:
-      graph.addVertex(v)
-    return v
+    pass
 
   def parseElement(self, attrs):
     '''
-    Parse an element that's not a vertex, graph, or edge, instantiate
-    proper XAIF object and set its attributes
+    Parse an element that is not a vertex, graph, or edge, instantiate
+    proper XAIF object and set its attributes.
     '''
-    el = eval('XAIF' + self.nonsname + '()')
-    el.setAttributes(self.parser.attributes[self.nonsname], attrs)
+    el = eval('XAIF' + self.nonsname + '(attributes=attrs)')
+    #el.setAttributes(attrs)
     return el 
 
   def parseEdge(self, attrs):
     ''' 
     Return an XAIFEdge corresponding to the edge element
     '''
-    e = XAIFEdge(attrs.get('edge_id','-1'), attrs.get('source',''), attrs.get('target',''))
+    e = XAIFEdge(attrs.get('edge_id','-1'), attrs.get('source',''), attrs.get('target',''), attrs)
+    print 'Parsed edge', e
     return e
   
   def parseExpressionEdge(self, attrs):
     '''
     Return an XAIFExpressionEdge corresponding to the ExpressionEdge element
     '''
-    e = XAIFExpressionEdge(attrs.get('edge_id','-1'), attrs.get('source',''), attrs.get('target',''), attrs.get('position','1'))
+    e = XAIFExpressionEdge(attrs.get('edge_id','-1'), attrs.get('source',''), attrs.get('target',''), attrs)
     return e

@@ -1,72 +1,102 @@
 from __future__ import generators
 import types
 
-class XAIFVertex (object):
-  def __init__(self, id='-1', type='NoType'):
-    self.id = id
-    self.type = type
-    self.attr = {}
-    self.__level = 0
-    return
- 
-  def __str__(self):
-    return 'vertex <%s:%s:%s>' % (self.type, self.id, self.attr)
+class XAIFObject (object):
+  def __init__(self, attributes=None):
+    type = 'Object'
+    self.attrs = {}
+    self.unique_id_key = ''
+    if not attributes is None: self.setAttributes(attributes)
+    pass
 
   def getAttributes(self):
     return self.attr
   
-  def setAttributes(self, names, attrs):
+  def setAttributes(self, attrs):
     ''' names: string list
     attrs: xml.sax attribute structure, must have get(name) method'''
-    for attr_name in names:
+    for attr_name in self.attrs.keys():
       self.attr[attr_name] = attrs.get(attr_name)
-    return
+    pass
+
+  def getAttribute(self, key):
+    if key in self.attr: 
+      return self.attr[key]
+    else:
+      return None
+
+  def setAttribute(self, key, value):
+    self.attr[key] = value
+    pass  
+
+class XAIFVertex (XAIFObject):
+  def __init__(self, attributes=None, type='NoType'):
+    self.attr = {'vertex_id':''}
+    XAIFObject.__init__(self, attributes)
+    self.unique_id_key = 'vertex_id'
+    self.id = id
+    self.type = type
+    self.__level = 0
+    pass
+ 
+  def __str__(self):
+    return 'vertex <%s:%s:%s>' % (self.type, self.id, self.attr)
 
   def getId(self):
     return self.id
   def setId(self, id):
     self.id = id
-    return
+    pass
 
   def getType(self):
     return self.type
   def setType(self, type):
     self.type = type
-    return
+    pass
 
   def getLevel(self):
     return self.__level
   def setLevel(self, lev=0):
     self.__level = lev
-    return
+    pass
   def incrementLevel(self):
     self.__level = self.__level + 1
     return self.__level
 
-class XAIFEdge(object):
-  def __init__(self, id, src, tgt):
-    self.id = id
+class XAIFEdge(XAIFObject):
+  def __init__(self, id, src, tgt, attributes):
+    self.attr = {'edge_id':id, 'source':src, 'target':tgt, 'position':'1'}
+    XAIFObject.__init__(self, attributes)
+    self.type = 'Edge'
     self.source = src
     self.target = tgt
-    return
+    self.unique_id_key = 'edge_id'
+    self.id = id
+    pass
 
   def __str__(self):
-    return 'id: %s, source: %s, target: %s' % (self.id, self.source, self.target)
+    return 'id: %s, source: %s, target: %s' % (self.attr['edge_id'], self.attr['source'], self.attr['target'])
 
   def getSource(self):
     return self.source
+    
   def setSource(self, srcvertex):
+    self.attr['source'] = srcvertex
     self.source = srcvertex
-    return
+    pass
 
   def getTarget(self):
     return self.target
+    
   def setTarget(self, tgtvertex):
+    self.attr['target'] = tgtvertex
     self.target = tgtvertex
-    return
+    pass
 
-class XAIFGraph(object):
-  def __init__(self, vertices = {}):
+class XAIFGraph(XAIFObject):
+  def __init__(self, vertices = {}, attributes=None):
+    self.attrs = {}
+    XAIFObject.__init__(self, attributes)
     '''Create a graph'''
     self.vertices = {}
     '''Edges are dictionaries with start vertex keys, and values that are dictionaries
@@ -77,21 +107,10 @@ class XAIFGraph(object):
     self.roots = []
     self.leaves = []
     map(self.addVertex, vertices)
-    self.attr = {}
-    return
+    pass
 
   def __str__(self):
     return 'XAIFGraph with '+str(len(self.vertices))+' vertices and '+str(reduce(lambda k,l: k+l, [len(edgeList) for edgeList in self.inEdges.values()], 0))+' edges'
-
-  def getAttributes(self):
-    return self.attr
-  
-  def setAttributes(self, names, attrs):
-    ''' names: string list
-    attrs: xml.sax attribute structure, must have get(name) method'''
-    for attr_name in names:
-      self.attr[attr_name] = attrs.get(attr_name)
-    return
 
   def addVertex(self, vertex):
     '''Add a vertex if it does not already exist in the vertex list
@@ -100,7 +119,7 @@ class XAIFGraph(object):
     if not vertex.getId() in self.vertices.keys():
       self.vertices[vertex.getId()] = vertex
       self.clearEdges(vertex)
-    return
+    pass
 
   def addEdge(self, edge):
     '''Add an XAIFEdge to the graph'''
@@ -108,7 +127,7 @@ class XAIFGraph(object):
     tgt = self.vertices[edge.getTarget()]
     if not src in self.inEdges[tgt].keys(): self.inEdges[tgt][src] = None
     if not tgt in self.outEdges[src].keys(): self.outEdges[src][tgt] = None
-    return
+    pass
   
   def addEdges(self, vertex, inputs = [], outputs = []):
     '''Define the in and out edges for a vertex by listing the other vertices defining the edges
@@ -124,7 +143,7 @@ class XAIFGraph(object):
       if not vertex is None and not output is None:
         if not vertex in self.inEdges[output]:  self.inEdges[output][vertex] = None
         if not output in self.outEdges[vertex]: self.outEdges[vertex][output] = None
-    return
+    pass
 
   def getEdges(self, vertex):
     '''vertex is of type XAIFVertex'''
@@ -133,7 +152,7 @@ class XAIFGraph(object):
   def clearEdges(self, vertex):
     self.inEdges[vertex]  = {}
     self.outEdges[vertex] = {}
-    return
+    pass
 
   def annotateEdge(self, srcVertex, tgtVertex, data = None):
     self.addVertex(srcVertex)
@@ -141,12 +160,12 @@ class XAIFGraph(object):
     self.addEdges(srcVertex,[],[tgtVertex])
     self.outEdges[srcVertex][tgtVertex] = data
     self.inEdges[tgtVertex][srcVertex] = data
-    return
+    pass
 
   def clearEdgeAnnotations(self, srcVertex, tgtVertex):
     self.outEdges[srcVertex][tgtVertex] = None
     self.inEdges[tgtVertex][srcVertex] = None
-    return
+    pass
 
   def getEdgeData(self, srcVertex, tgtVertex):
     return self.outEdges[srcVertex][tgtVertex]
@@ -162,18 +181,18 @@ class XAIFGraph(object):
       for v in self.vertices:
         if vertex in self.inEdges[v]:  self.inEdges[v].remove(vertex)
         if vertex in self.outEdges[v]: self.outEdges[v].remove(vertex)
-    return
+    pass
 
   def addSubgraph(self, graph):
     '''Add the vertices and edges of another graph into this one'''
     map(self.addVertex, graph.vertices)
     map(lambda v: apply(self.addEdges, (v,)+graph.getEdges(v)), graph.vertices)
-    return
+    pass
 
   def removeSubgraph(self, graph):
     '''Remove the vertices and edges of a subgraph, and all the edges connected to it'''
     map(self.removeVertex, graph.vertices)
-    return
+    pass
 
   def printIndent(self, indent):
     import sys
@@ -187,7 +206,7 @@ class XAIFGraph(object):
       print '    ' + str(self.inEdges[vertex])
       print '  outEdges: '
       print '    ' + str(self.outEdges[vertex])
-    return
+    pass
   
   def displaySorted(self, init_level=0):
     #print 'I am an XAIFGraph with '+str(len(self.vertices))+' vertices'
@@ -208,7 +227,7 @@ class XAIFGraph(object):
 ##      for v in self.outEdges[vertex]: outedges.append(str(v))
 ##      print vertex, ' in: ', inedges, ' out: ', outedges
       #print '('+str(self.vertices.index(vertex))+') '+str(vertex)+' in: '+str(map(self.vertices.index, self.inEdges[vertex]))+' out: '+str(map(self.vertices.index, self.outEdges[vertex]))
-    return
+    pass
 
   def appendGraph(self, graph):
     '''Join every leaf of this graph to every root of the input graph, leaving the result in this graph'''
@@ -316,222 +335,223 @@ class XAIFGraph(object):
   topologicalSort = staticmethod(topologicalSort)
 
 
-
-''' =================== Call graph ==================== '''
+''' =========================================================== '''
+'''                           Call graph                        '''
+''' =========================================================== '''
 
 class XAIFCallGraph(XAIFGraph):
-  def __init__(self):
-    XAIFGraph.__init__(self)
+  def __init__(self, vertices={}, attributes=None):
+    self.attr = {'program_name':'', 'toplevel_routine_name':''}
+    XAIFGraph.__init__(self, vertices, attributes)
     self.type = 'CallGraph'
-    self.program_name = ''
-    self.toplevel_routine_name = ''
+    self.unique_id_key = 'program_name'
     self.controlFlowGraphs = []
     self.scopeGraph = XAIFScopeHierarchy()
     self.indepVars = []
     self.depVars = []
-    return
+    pass
 
-  def getProgramName(self):
-    return self.program_name
-  def setProgramName(self, prog):
-    self.program_name = prog
-    return
 
-  def getTopLevelRoutineName(self):
-    return self.toplevel_routine_name
-  def setTopLevelRoutineName(self, top):
-    self.toplevel_routine_name = top
-    return
   
-''' =================== Scoping and symbol tables ===================== '''
+''' =========================================================== '''
+'''                     Scoping and symbols                     '''
+''' =========================================================== '''
 
 class XAIFScopeHierarchy(XAIFGraph):
-  def __init__(self):
-    XAIFGraph.__init__(self)
+  def __init__(self, vertices={}, attributes=None):
+    self.attr = {}
+    XAIFGraph.__init__(self, vertices, attributes)
     self.type = 'ScopeHierarchy'
-    return
+    pass
 
 class XAIFScope(XAIFVertex):
-  def __init__(self, id):
-    XAIFVertex.__init__(self, id)
+  def __init__(self, attributes=None):
+    self.attr = {'vertex_id':''}
+    XAIFVertex.__init__(self, attributes)
     self.type = 'Scope'
+    self.unique_id_key = 'vertex_id'
     self.symbolTable = None
-    return
+    pass
 
   def getSymbolTable(self):
     return self.symbolTable
 
   def setSymbolTable(self, st):
     self.symbolTable = st
-    return
+    pass
 
 class XAIFSymbolTable(XAIFVertex):
-  def __init__(self):
-    XAIFVertex.__init__(self, -1)
+  def __init__(self, attributes=None):
+    self.attr = {}
+    XAIFVertex.__init__(self, attributes)
     self.type = 'XAIFSymbolTable'
+    self.unique_id_key = ''
     self.symbols = {}
     self.scope_id = -1
-    return
+    pass
 
   def getScopeId(self):
     return self.scope_id
   def setScopeId(self, scope_id):
     self.scope_id = scope_id
-    return
+    pass
   
-class XAIFSymbol(object):
-  def __init__(self):
+class XAIFSymbol(XAIFObject):
+  def __init__(self, attributes=None):
+    self.attr = {'symbol_id':'', 'kind':'variable', 'type':'real', 'shape':'scalar', 'annotation':''}
+    XAIFObject.__init__(self, attributes)
     self.type = 'Symbol'
-    self.attr = {'symbol_id':'', 'kind':'variable', 'type':'real', 'shape':'scalar', 'frontend_tag':''}
-    return
+    self.unique_id_key = 'symbol_id'
+    pass
 
-  def getAttributes(self):
-    return self.attr
-  
-  def setAttributes(self, names, attrs):
-    ''' names: string list
-    attrs: xml.sax attribute structure, must have get(name) method'''
-    for attr_name in names:
-      self.attr[attr_name] = attrs.get(attr_name)
-    return
 
-''' =================== Control flow graph  ==================== '''
+class XAIFSymbolReference(XAIFVertex):
+  def __init__(self, attributes=None):
+    self.attr = {'vertex_id':'', 'symbol_id':'', 'scope_id':''}
+    XAIFVertex.__init__(self, attributes)
+    self.type = 'SymbolReference'
+    self.unique_id_key = 'vertex_id'
+    pass
+
+class XAIFVariableReference(XAIFVertex):
+  def __init__(self, attributes=None):
+    self.attr = {'vertex_id':''}
+    XAIFVertex.__init__(self, attributes)
+    self.type = 'VariableReference'
+    self.unique_id_key = 'vertex_id'
+    pass
+
+''' =========================================================== '''
+'''                     Control flow graph                      '''
+''' =========================================================== '''
 
 class XAIFControlFlowGraph(XAIFVertex,XAIFGraph):
-  def __init__(self, id):
-    XAIFGraph.__init__(self)
-    XAIFVertex.__init__(self, id)
-    self.type = 'ControlFlowGraph'    
-    self.subroutine_name = ''
+  def __init__(self, vertices={}, attributes=None):
+    self.attr = {'vertex_id':'', 'subroutine_name':''}    
+    XAIFGraph.__init__(self, vertices, attributes)
+    XAIFVertex.__init__(self)
+    self.type = 'ControlFlowGraph'
+    self.unique_id_key = 'vertex_id'
     self.argument_list = []  # List of XAIFArgumentSymbolReference instances
-    return
+    pass
   
   def getArgumentList(self):
     return self.argument_list
   def setArgumentList(self, args):
     self.argument_list = args
-    return
+    pass
   
-
-class XAIFArgumentSymbolReference(object):
-  def __init__(self):
+class XAIFArgumentSymbolReference(XAIFObject):
+  def __init__(self, attributes=None):
+    self.attr = {'position':'1', 'symbol_id':'', 'scope_id':''}
+    XAIFObject.__init__(self, attributes)
     self.type = 'ArgumentSymbolReference'
-    self.symbol_id = ''
-    self.scope_id = ''
-    return
- 
-  def getSymbolId(self):
-    return symbol_id
-  def setSymbolId(self, id):
-    self.symbol_id = id
-    return
- 
-  def getScopeId(self):
-    return self.scope_id
-  def setScopeId(self, id):
-    self.scope_id = id
-    return
+    self.unique_id_key = 'symbol_id'  # within a given scope
+    pass
 
-
-''' ================ Basic block elements =============== '''
+''' =========================================================== '''
+'''                    Basic block elements                     '''
+''' =========================================================== '''
 
 class XAIFBasicBlock(XAIFVertex):
-  def __init__(self, id):
-    XAIFVertex.__init__(self, id)
+  def __init__(self, attributes=None):
+    XAIFVertex.__init__(self, attributes)
     self.type = 'BasicBlock'
-    return
+    pass
 
 class XAIFBasicBlockElement(XAIFVertex):
-  def __init__(self, id):
-    XAIFVertex.__init__(self, id)
+  def __init__(self, attributes=None):
+    XAIFVertex.__init__(self, attributes)
     self.type = 'BasicBlockElement'
-    return
+    pass
   
 class XAIFAssignment(XAIFBasicBlockElement): 
-  def __init__(self, id):
-    XAIFBasicBlockElement.__init__(self, id)
+  def __init__(self, attributes=None):
+    self.attr = {'statement_id':''}
+    XAIFBasicBlockElement.__init__(self, attributes)
     self.type = 'Assignment'
+    self.unique_id_key = 'statement_id'
     self.lhs = None                    # A Symbol reference
     self.rhs = XAIFExpressionGraph()   # An expression graph
-    return
+    pass
 
   def setLHS(self, lhs):
     self.lhs = lhs
-    return
+    pass
 
   def getRHS(self):
     return self.rhs
 
   def setRHS(self, rhs):
     self.rhs = rhs
-    return
+    pass
  
-class XAIFSymbolReference(XAIFVertex):
-  def __init__(self, id):
-    XAIFVertex.__init__(self, id)
-    self.type = 'SymbolReference'
-    return
-
-class XAIFVariableReference(XAIFVertex):
-  def __init__(self, id):
-    XAIFVertex.__init__(self, id)
-    self.type = 'VariableReference'
-    return
-
 class XAIFForLoop(XAIFVertex):
-  def __init__(self, id):
-    XAIFVertex.__init__(self, id)
+  def __init__(self, attributes=None):
+    XAIFVertex.__init__(self, attributes)
     self.type = 'ForLoop'
-    self.id = id
+    self.id = self.attr[self.unique_id_key]
     self.init = None
     self.cond = None
     self.update = None
-    return
+    pass
 
   def setInit(self, init):
     self.init = init
-    return
+    pass
 
   def setCondition(self, cond):
     self.cond = cond
-    return
+    pass
 
   def setUpdate(self, update):
     self.update = update
-    return
+    pass
 
 
 class XAIFInitialization(XAIFAssignment):
-  def __init__(self,id):
-    XAIFAssignment.__init__(self, id)
+  def __init__(self, attributes = None):
+    self.attr = {'statement_id':id}
+    XAIFAssignment.__init__(self, attributes)
     self.type = 'Initialization'
+    self.unique_id_key = 'statement_id'
     self.lhs = None          # A Symbol reference
     self.rhs = XAIFExpressionGraph()   # An expression graph
-    return
+    pass
  
-class XAIFForLoopCondition(object):
-  def __init__(self, id):
-    self.id = id
+class XAIFForLoopCondition(XAIFObject):
+  def __init__(self, attributes=None):
+    self.attr = {}
+    XAIFObject.__init__(self, attributes)
     self.type = 'ForLoopCondition'
     self.lhs = None                    # A Symbol reference
     self.rhs = XAIFExpressionGraph()   # An expression graph
-    return
+    pass
 
 class XAIFUpdate(XAIFAssignment):
-  def __init__(self,id):
-    XAIFAssignment.__init__(self, id)
+  def __init__(self, attributes = None):
+    self.attr = {'statement_id':''}
+    XAIFAssignment.__init__(self, attributes)
     self.type = 'Update'
+    self.unique_id_key = 'statement_id'
     self.lhs = None          # A Symbol reference
     self.rhs = XAIFExpressionGraph()   # An expression graph
-    return
+    pass
  
  
-class XAIFExpressionGraph(XAIFGraph):
-  def __init__(self, vertices={}):
-    XAIFGraph.__init__(self, vertices)
-    return
+''' =========================================================== '''
+'''                    Expression elements                      '''
+''' =========================================================== '''
 
-class XAIFExpressionEdge(object):
-  def __init__(self, id, src, tgt):
-    XAIFEdge.__init__(self,id,src,tgt)
-    return
+class XAIFExpressionGraph(XAIFGraph):
+  def __init__(self, vertices={}, attributes = None):
+    self.attr = {}
+    XAIFGraph.__init__(self, vertices, attributes)
+    self.type = 'ExpressionGraph'
+    pass
+
+class XAIFExpressionEdge(XAIFEdge):
+  def __init__(self, id, src, tgt, attributes = None):
+    XAIFEdge.__init__(self, id, src, tgt, attributes)
+    self.type = 'ExpressionEdge'
+    pass
