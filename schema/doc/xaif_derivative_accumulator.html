@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>XAIF Noninlinable Intrinsics Example Schema</title>
+    <title>XAIF Derivative Accumulator Schema</title>
     <meta http-equiv="Content-Type" content="text/xml; charset=iso-8859-1"/>
     <style type="text/css">
 	  /* General */
@@ -255,9 +255,9 @@
     <script type="text/javascript">
 <!--
 /* IDs of XML Instance Representation boxes */
-var xiBoxes = new Array('type_NonInlinableIntrinsicDefinitionType_xibox', 'element_NonInlinableIntrinsicDefinitions_xibox');
+var xiBoxes = new Array('type_DerivativeAccumulatorElementType_xibox', 'type_DerivativeAccumulatorType_xibox', 'element_DerivativeAccumulator_xibox');
 /* IDs of Schema Component Representation boxes */
-var scBoxes = new Array('schema_scbox', 'type_NonInlinableIntrinsicDefinitionType_scbox', 'element_NonInlinableIntrinsicDefinitions_scbox');
+var scBoxes = new Array('schema_scbox', 'type_DerivativeAccumulatorElementType_scbox', 'type_DerivativeAccumulatorType_scbox', 'element_DerivativeAccumulator_scbox');
 
 /**
  * Can get the ID of the button controlling
@@ -560,7 +560,7 @@ function viewDocumentation(compDesc, compName, docTextArray) {
   </head>
   <body>
     <h1>
-      <a name="top">XAIF Noninlinable Intrinsics Example Schema</a>
+      <a name="top">XAIF Derivative Accumulator Schema</a>
     </h1>
     <div id="printerControls" style="display:none;"><input type="checkbox" onclick="displayMode(this.checked)"/>Printer-friendly Version</div>
     <script type="text/javascript">
@@ -601,10 +601,13 @@ function viewDocumentation(compDesc, compName, docTextArray) {
         <a href="#SchemaProperties">Schema Document Properties</a>
       </li>
       <li>
+        <a href="#Redefinitions">Redefined Schema Components</a>
+      </li>
+      <li>
         <a href="#SchemaDeclarations">Global Declarations</a>
         <ul>
           <li>
-            <a href="#element_NonInlinableIntrinsicDefinitions">Element: <strong>NonInlinableIntrinsicDefinitions</strong></a>
+            <a href="#element_DerivativeAccumulator">Element: <strong>DerivativeAccumulator</strong></a>
           </li>
         </ul>
       </li>
@@ -612,7 +615,10 @@ function viewDocumentation(compDesc, compName, docTextArray) {
         <a href="#SchemaDefinitions">Global Definitions</a>
         <ul>
           <li>
-            <a href="#type_NonInlinableIntrinsicDefinitionType">Complex Type: <strong>NonInlinableIntrinsicDefinitionType</strong></a>
+            <a href="#type_DerivativeAccumulatorElementType">Complex Type: <strong>DerivativeAccumulatorElementType</strong></a>
+          </li>
+          <li>
+            <a href="#type_DerivativeAccumulatorType">Complex Type: <strong>DerivativeAccumulatorType</strong></a>
           </li>
         </ul>
       </li>
@@ -640,12 +646,12 @@ function viewDocumentation(compDesc, compName, docTextArray) {
           <a title="Look up 'Target Namespace' in glossary" href="#term_TargetNS">Target Namespace</a>
         </th>
         <td>
-          <span class="targetNS">http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics</span>
+          <span class="targetNS">http://www.mcs.anl.gov/XAIF</span>
         </td>
       </tr>
       <tr>
         <th>Version</th>
-        <td>xaif (noninlinable intrinsics) 1.0</td>
+        <td>xaif 1.0 (derivative accumulation)</td>
       </tr>
       <tr>
         <th>Element and Attribute Namespaces</th>
@@ -654,6 +660,14 @@ function viewDocumentation(compDesc, compName, docTextArray) {
             <li>Global element and attribute declarations belong to this schema's target namespace.</li>
             <li>By default, local element declarations belong to this schema's target namespace.</li>
             <li>By default, local attribute declarations have no namespace.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Schema Composition</th>
+        <td>
+          <ul>
+            <li>This schema includes components from the following schema document(s), where some of the components have been redefined:<ul><li>xaif_base.xsd</li></ul>See <a href="#Redefinitions">Redefined Schema Components</a> section.</li>
           </ul>
         </td>
       </tr>
@@ -672,10 +686,10 @@ function viewDocumentation(compDesc, compName, docTextArray) {
       </tr>
       <tr>
         <td>
-          <a name="ns_xaifnii">xaifnii</a>
+          <a name="ns_xaif">xaif</a>
         </td>
         <td>
-          <span class="targetNS">http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics</span>
+          <span class="targetNS">http://www.mcs.anl.gov/XAIF</span>
         </td>
       </tr>
       <tr>
@@ -692,7 +706,7 @@ function viewDocumentation(compDesc, compName, docTextArray) {
       <tr>
         <td>
           <div id="schema_scbox" class="box">
-            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:schema</span> <span class="scTag">targetNamespace</span>=&quot;<span class="scContent">http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics</span>&quot; <span class="scTag">version</span>=&quot;<span class="scContent">xaif (noninlinable intrinsics) 1.0</span>&quot; <span class="scTag">elementFormDefault</span>=&quot;<span class="scContent">qualified</span>&quot; <span class="scTag">attributeFormDefault</span>=&quot;<span class="scContent">unqualified</span>&quot;&gt;<div class="scContent" style="margin-left: 1.5em">...</div>&lt;/<span class="scTag">xsd:schema</span>&gt;</div>
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:schema</span> <span class="scTag">targetNamespace</span>=&quot;<span class="scContent">http://www.mcs.anl.gov/XAIF</span>&quot; <span class="scTag">version</span>=&quot;<span class="scContent">xaif 1.0 (derivative accumulation)</span>&quot; <span class="scTag">elementFormDefault</span>=&quot;<span class="scContent">qualified</span>&quot; <span class="scTag">attributeFormDefault</span>=&quot;<span class="scContent">unqualified</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:redefine</span> <span class="scTag">schemaLocation</span>=&quot;<span class="scContent">xaif_base.xsd</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:group</span> <span class="scTag">name</span>=&quot;<span class="scContent">BasicBlockBody</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:choice</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:group</span> <span class="scTag">ref</span>=&quot;<span class="scContent"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="Jump to &quot;BasicBlockBody&quot; group definition." href="#group_BasicBlockBody">BasicBlockBody</a></span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">ref</span>=&quot;<span class="scContent"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="Jump to &quot;DerivativeAccumulator&quot; element declaration." href="#element_DerivativeAccumulator">DerivativeAccumulator</a></span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:choice</span>&gt;</div>&lt;/<span class="scTag">xsd:group</span>&gt;</div>&lt;/<span class="scTag">xsd:redefine</span>&gt;</div><div class="scContent" style="margin-left: 1.5em">...</div>&lt;/<span class="scTag">xsd:schema</span>&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -707,17 +721,72 @@ setState('schema_scbox', false);
     </div>
     <hr/>
     <h2>
-      <a name="SchemaDeclarations">Global Declarations</a>
+      <a name="Redefinitions">Redefined Schema Components</a>
     </h2>
-    <h3>Element: <a name="element_NonInlinableIntrinsicDefinitions" class="name">NonInlinableIntrinsicDefinitions</a></h3>
+    <h3>Model Group: <a name="group_BasicBlockBody" class="name">BasicBlockBody</a></h3>
     <table class="properties">
       <tr>
         <th>Name</th>
-        <td>NonInlinableIntrinsicDefinitions</td>
+        <td>BasicBlockBody</td>
+      </tr>
+    </table>
+    <table class="sample">
+      <tr>
+        <th><input type="button" id="group_BasicBlockBody_xibox_button" class="boxControl" onclick="switchState('group_BasicBlockBody_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
+      </tr>
+      <tr>
+        <td>
+          <div id="group_BasicBlockBody_xibox" class="box">
+            <span class="group" style="margin-left: 0em">Start <a title="Look up 'Choice' in glossary" href="#term_Choice">Choice</a> <span class="occurs">[1]</span></span>
+            <br/>
+            <div class="other" style="margin-left: 1.5em">Recursive model group reference: <a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="Jump to &quot;BasicBlockBody&quot; group definition." href="#group_BasicBlockBody">BasicBlockBody</a> <span class="occurs">[1]</span></div>
+            <div style="margin-left: 1.5em">&lt;<a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="Jump to &quot;DerivativeAccumulator&quot; element declaration." href="#element_DerivativeAccumulator">DerivativeAccumulator</a>&gt; ... &lt;/<a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="Jump to &quot;DerivativeAccumulator&quot; element declaration." href="#element_DerivativeAccumulator">DerivativeAccumulator</a>&gt; <span class="occurs">[1]</span></div>
+            <span class="group" style="margin-left: 0em">End Choice</span>
+            <br/>
+          </div>
+          <script type="text/javascript">
+<!--
+setState('group_BasicBlockBody_xibox', true);
+// -->
+</script>
+        </td>
+      </tr>
+    </table>
+    <table class="schemaComponent">
+      <tr>
+        <th><input type="button" id="group_BasicBlockBody_scbox_button" class="boxControl" onclick="switchState('group_BasicBlockBody_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
+      </tr>
+      <tr>
+        <td>
+          <div id="group_BasicBlockBody_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:group</span> <span class="scTag">name</span>=&quot;<span class="scContent">BasicBlockBody</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:choice</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:group</span> <span class="scTag">ref</span>=&quot;<span class="scContent"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="Jump to &quot;BasicBlockBody&quot; group definition." href="#group_BasicBlockBody">BasicBlockBody</a></span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">ref</span>=&quot;<span class="scContent"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="Jump to &quot;DerivativeAccumulator&quot; element declaration." href="#element_DerivativeAccumulator">DerivativeAccumulator</a></span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:choice</span>&gt;</div>&lt;/<span class="scTag">xsd:group</span>&gt;</div>
+          </div>
+          <script type="text/javascript">
+<!--
+setState('group_BasicBlockBody_scbox', false);
+// -->
+</script>
+        </td>
+      </tr>
+    </table>
+    <div style="text-align:right">
+      <a href="#top">top</a>
+    </div>
+    <hr/>
+    <h2>
+      <a name="SchemaDeclarations">Global Declarations</a>
+    </h2>
+    <h3>Element: <a name="element_DerivativeAccumulator" class="name">DerivativeAccumulator</a></h3>
+    <table class="properties">
+      <tr>
+        <th>Name</th>
+        <td>DerivativeAccumulator</td>
       </tr>
       <tr>
         <th>Type</th>
-        <td>Locally-defined complex type</td>
+        <td>
+          <span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="Jump to &quot;DerivativeAccumulatorType&quot; type definition." href="#type_DerivativeAccumulatorType">DerivativeAccumulatorType</a></span>
+        </td>
       </tr>
       <tr>
         <th>
@@ -734,16 +803,16 @@ setState('schema_scbox', false);
     </table>
     <table class="sample">
       <tr>
-        <th><input type="button" id="element_NonInlinableIntrinsicDefinitions_xibox_button" class="boxControl" onclick="switchState('element_NonInlinableIntrinsicDefinitions_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
+        <th><input type="button" id="element_DerivativeAccumulator_xibox_button" class="boxControl" onclick="switchState('element_DerivativeAccumulator_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="element_NonInlinableIntrinsicDefinitions_xibox" class="box">
-            <div style="margin-left: 0em">&lt;<a href="#ns_xaifnii" title="Find out namespace of 'xaifnii' prefix">xaifnii</a>:NonInlinableIntrinsicDefinitions&gt; <div class="other" style="margin-left: 1.5em">&lt;!-- <br/><a title="Look up 'Uniqueness' in glossary" href="#term_Unique">Uniqueness</a> Constraint - <strong><a name="key_nii_unique">nii_unique</a></strong><br/>Selector - <strong>xaifnii:NonInlinableIntrinsic</strong><br/>Field(s) - <strong>@function</strong><br/>--&gt;</div><br/><div style="margin-left: 1.5em">&lt;<a href="#ns_xaifnii" title="Find out namespace of 'xaifnii' prefix">xaifnii</a>:NonInlinableIntrinsic&gt; <span class="type"><a href="#ns_xaifnii" title="Find out namespace of 'xaifnii' prefix">xaifnii</a>:<a title="Jump to &quot;NonInlinableIntrinsicDefinitionType&quot; type definition." href="#type_NonInlinableIntrinsicDefinitionType">NonInlinableIntrinsicDefinitionType</a></span> &lt;/<a href="#ns_xaifnii" title="Find out namespace of 'xaifnii' prefix">xaifnii</a>:NonInlinableIntrinsic&gt; <span class="occurs">[1..*]</span></div>&lt;/<a href="#ns_xaifnii" title="Find out namespace of 'xaifnii' prefix">xaifnii</a>:NonInlinableIntrinsicDefinitions&gt;</div>
+          <div id="element_DerivativeAccumulator_xibox" class="box">
+            <div style="margin-left: 0em">&lt;<a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:DerivativeAccumulator&gt; <br/><div style="margin-left: 1.5em">&lt;<a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:Derivative&gt; <span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="Jump to &quot;DerivativeAccumulatorElementType&quot; type definition." href="#type_DerivativeAccumulatorElementType">DerivativeAccumulatorElementType</a></span> &lt;/<a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:Derivative&gt; <span class="occurs">[1..*]</span></div>&lt;/<a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:DerivativeAccumulator&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
-setState('element_NonInlinableIntrinsicDefinitions_xibox', true);
+setState('element_DerivativeAccumulator_xibox', true);
 // -->
 </script>
         </td>
@@ -751,16 +820,16 @@ setState('element_NonInlinableIntrinsicDefinitions_xibox', true);
     </table>
     <table class="schemaComponent">
       <tr>
-        <th><input type="button" id="element_NonInlinableIntrinsicDefinitions_scbox_button" class="boxControl" onclick="switchState('element_NonInlinableIntrinsicDefinitions_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
+        <th><input type="button" id="element_DerivativeAccumulator_scbox_button" class="boxControl" onclick="switchState('element_DerivativeAccumulator_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="element_NonInlinableIntrinsicDefinitions_scbox" class="box">
-            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>=&quot;<span class="scContent">NonInlinableIntrinsicDefinitions</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:complexType</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>=&quot;<span class="scContent">NonInlinableIntrinsic</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaifnii" title="Find out namespace of 'xaifnii' prefix">xaifnii</a>:<a title="Jump to &quot;NonInlinableIntrinsicDefinitionType&quot; type definition." href="#type_NonInlinableIntrinsicDefinitionType">NonInlinableIntrinsicDefinitionType</a></span></span>&quot; <span class="scTag">minOccurs</span>=&quot;<span class="scContent">1</span>&quot; <span class="scTag">maxOccurs</span>=&quot;<span class="scContent">unbounded</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:sequence</span>&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:unique</span> <span class="scTag">name</span>=&quot;<span class="scContent">nii_unique</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:selector</span> <span class="scTag">xpath</span>=&quot;<span class="scContent">xaifnii:NonInlinableIntrinsic</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:field</span> <span class="scTag">xpath</span>=&quot;<span class="scContent">@function</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:unique</span>&gt;</div>&lt;/<span class="scTag">xsd:element</span>&gt;</div>
+          <div id="element_DerivativeAccumulator_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>=&quot;<span class="scContent">DerivativeAccumulator</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="Jump to &quot;DerivativeAccumulatorType&quot; type definition." href="#type_DerivativeAccumulatorType">DerivativeAccumulatorType</a></span></span>&quot;/&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
-setState('element_NonInlinableIntrinsicDefinitions_scbox', false);
+setState('element_DerivativeAccumulator_scbox', false);
 // -->
 </script>
         </td>
@@ -773,7 +842,7 @@ setState('element_NonInlinableIntrinsicDefinitions_scbox', false);
     <h2>
       <a name="SchemaDefinitions">Global Definitions</a>
     </h2>
-    <h3>Complex Type: <a name="type_NonInlinableIntrinsicDefinitionType" class="name">NonInlinableIntrinsicDefinitionType</a></h3>
+    <h3>Complex Type: <a name="type_DerivativeAccumulatorElementType" class="name">DerivativeAccumulatorElementType</a></h3>
     <table class="hierarchy">
       <tr>
         <th>Super-types:</th>
@@ -787,7 +856,7 @@ setState('element_NonInlinableIntrinsicDefinitions_scbox', false);
     <table class="properties">
       <tr>
         <th>Name</th>
-        <td>NonInlinableIntrinsicDefinitionType</td>
+        <td>DerivativeAccumulatorElementType</td>
       </tr>
       <tr>
         <th>
@@ -798,16 +867,16 @@ setState('element_NonInlinableIntrinsicDefinitions_scbox', false);
     </table>
     <table class="sample">
       <tr>
-        <th><input type="button" id="type_NonInlinableIntrinsicDefinitionType_xibox_button" class="boxControl" onclick="switchState('type_NonInlinableIntrinsicDefinitionType_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
+        <th><input type="button" id="type_DerivativeAccumulatorElementType_xibox_button" class="boxControl" onclick="switchState('type_DerivativeAccumulatorElementType_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="type_NonInlinableIntrinsicDefinitionType_xibox" class="box">
-            <div style="margin-left: 0em">&lt;...<br/><span style="margin-left: 0.5em"> function=&quot;<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> <span class="occurs">[1]</span>&quot;</span><br/><span style="margin-left: 0.5em"> jacobian=&quot;<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> <span class="occurs">[1]</span>&quot;</span>&gt; <br/><div style="margin-left: 1.5em">&lt;<a href="#ns_xaifnii" title="Find out namespace of 'xaifnii' prefix">xaifnii</a>:Partial<br/><span style="margin-left: 0.5em"> dep=&quot;<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>&quot;</span><br/><span style="margin-left: 0.5em"> indep=&quot;<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>&quot;</span><br/><span style="margin-left: 0.5em"> partial=&quot;<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>&quot;</span>/&gt;  <span class="occurs">[1..*]</span></div>&lt;/...&gt;</div>
+          <div id="type_DerivativeAccumulatorElementType_xibox" class="box">
+            <div style="margin-left: 0em">&lt;...&gt; <br/><div style="margin-left: 1.5em">&lt;<a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:PartialDerivative&gt; <span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ExpressionType&quot; type definition could not be found.');">ExpressionType</a></span> &lt;/<a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:PartialDerivative&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em">&lt;<a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:Dependent&gt; <span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VariableReferenceType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;VariableReferenceType&quot; type definition could not be found.');">VariableReferenceType</a></span> &lt;/<a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:Dependent&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em">&lt;<a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:Independent&gt; <span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VariableReferenceType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;VariableReferenceType&quot; type definition could not be found.');">VariableReferenceType</a></span> &lt;/<a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:Independent&gt; <span class="occurs">[1]</span></div>&lt;/...&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
-setState('type_NonInlinableIntrinsicDefinitionType_xibox', true);
+setState('type_DerivativeAccumulatorElementType_xibox', true);
 // -->
 </script>
         </td>
@@ -815,16 +884,77 @@ setState('type_NonInlinableIntrinsicDefinitionType_xibox', true);
     </table>
     <table class="schemaComponent">
       <tr>
-        <th><input type="button" id="type_NonInlinableIntrinsicDefinitionType_scbox_button" class="boxControl" onclick="switchState('type_NonInlinableIntrinsicDefinitionType_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
+        <th><input type="button" id="type_DerivativeAccumulatorElementType_scbox_button" class="boxControl" onclick="switchState('type_DerivativeAccumulatorElementType_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="type_NonInlinableIntrinsicDefinitionType_scbox" class="box">
-            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>=&quot;<span class="scContent">NonInlinableIntrinsicDefinitionType</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>=&quot;<span class="scContent">Partial</span>&quot; <span class="scTag">minOccurs</span>=&quot;<span class="scContent">1</span>&quot; <span class="scTag">maxOccurs</span>=&quot;<span class="scContent">unbounded</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:complexType</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>=&quot;<span class="scContent">dep</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>&quot; <span class="scTag">use</span>=&quot;<span class="scContent">required</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>=&quot;<span class="scContent">indep</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>&quot; <span class="scTag">use</span>=&quot;<span class="scContent">required</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>=&quot;<span class="scContent">partial</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>&quot; <span class="scTag">use</span>=&quot;<span class="scContent">required</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>&lt;/<span class="scTag">xsd:element</span>&gt;</div>&lt;/<span class="scTag">xsd:sequence</span>&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>=&quot;<span class="scContent">function</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span></span>&quot; <span class="scTag">use</span>=&quot;<span class="scContent">required</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>=&quot;<span class="scContent">jacobian</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span></span>&quot; <span class="scTag">use</span>=&quot;<span class="scContent">required</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
+          <div id="type_DerivativeAccumulatorElementType_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>=&quot;<span class="scContent">DerivativeAccumulatorElementType</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>=&quot;<span class="scContent">PartialDerivative</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ExpressionType&quot; type definition could not be found.');">ExpressionType</a></span></span>&quot; <span class="scTag">minOccurs</span>=&quot;<span class="scContent">1</span>&quot; <span class="scTag">maxOccurs</span>=&quot;<span class="scContent">1</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>=&quot;<span class="scContent">Dependent</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VariableReferenceType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;VariableReferenceType&quot; type definition could not be found.');">VariableReferenceType</a></span></span>&quot; <span class="scTag">minOccurs</span>=&quot;<span class="scContent">1</span>&quot; <span class="scTag">maxOccurs</span>=&quot;<span class="scContent">1</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>=&quot;<span class="scContent">Independent</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VariableReferenceType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;VariableReferenceType&quot; type definition could not be found.');">VariableReferenceType</a></span></span>&quot; <span class="scTag">minOccurs</span>=&quot;<span class="scContent">1</span>&quot; <span class="scTag">maxOccurs</span>=&quot;<span class="scContent">1</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:sequence</span>&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
-setState('type_NonInlinableIntrinsicDefinitionType_scbox', false);
+setState('type_DerivativeAccumulatorElementType_scbox', false);
+// -->
+</script>
+        </td>
+      </tr>
+    </table>
+    <div style="text-align:right">
+      <a href="#top">top</a>
+    </div>
+    <hr/>
+    <h3>Complex Type: <a name="type_DerivativeAccumulatorType" class="name">DerivativeAccumulatorType</a></h3>
+    <table class="hierarchy">
+      <tr>
+        <th>Super-types:</th>
+        <td>None</td>
+      </tr>
+      <tr>
+        <th>Sub-types:</th>
+        <td>None</td>
+      </tr>
+    </table>
+    <table class="properties">
+      <tr>
+        <th>Name</th>
+        <td>DerivativeAccumulatorType</td>
+      </tr>
+      <tr>
+        <th>
+          <a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+        </th>
+        <td>no</td>
+      </tr>
+    </table>
+    <table class="sample">
+      <tr>
+        <th><input type="button" id="type_DerivativeAccumulatorType_xibox_button" class="boxControl" onclick="switchState('type_DerivativeAccumulatorType_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
+      </tr>
+      <tr>
+        <td>
+          <div id="type_DerivativeAccumulatorType_xibox" class="box">
+            <div style="margin-left: 0em">&lt;...&gt; <br/><div style="margin-left: 1.5em">&lt;<a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:Derivative&gt; <span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="Jump to &quot;DerivativeAccumulatorElementType&quot; type definition." href="#type_DerivativeAccumulatorElementType">DerivativeAccumulatorElementType</a></span> &lt;/<a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:Derivative&gt; <span class="occurs">[1..*]</span></div>&lt;/...&gt;</div>
+          </div>
+          <script type="text/javascript">
+<!--
+setState('type_DerivativeAccumulatorType_xibox', true);
+// -->
+</script>
+        </td>
+      </tr>
+    </table>
+    <table class="schemaComponent">
+      <tr>
+        <th><input type="button" id="type_DerivativeAccumulatorType_scbox_button" class="boxControl" onclick="switchState('type_DerivativeAccumulatorType_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
+      </tr>
+      <tr>
+        <td>
+          <div id="type_DerivativeAccumulatorType_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>=&quot;<span class="scContent">DerivativeAccumulatorType</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>=&quot;<span class="scContent">Derivative</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="Jump to &quot;DerivativeAccumulatorElementType&quot; type definition." href="#type_DerivativeAccumulatorElementType">DerivativeAccumulatorElementType</a></span></span>&quot; <span class="scTag">minOccurs</span>=&quot;<span class="scContent">1</span>&quot; <span class="scTag">maxOccurs</span>=&quot;<span class="scContent">unbounded</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:sequence</span>&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
+          </div>
+          <script type="text/javascript">
+<!--
+setState('type_DerivativeAccumulatorType_scbox', false);
 // -->
 </script>
         </td>

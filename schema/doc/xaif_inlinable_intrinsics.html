@@ -1,6 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>XAIF Inlinable Intrinsics Schema Documentation</title>
-    
-    <meta http-equiv="Content-Type" content="text/xml; charset=iso-8859-1">
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>XAIF Inlinable Intrinsics Example Schema</title>
+    <meta http-equiv="Content-Type" content="text/xml; charset=iso-8859-1"/>
     <style type="text/css">
 	  /* General */
 	  body, p, li, span, th, td, div {
@@ -252,9 +255,9 @@
     <script type="text/javascript">
 <!--
 /* IDs of XML Instance Representation boxes */
-var xiBoxes = new Array('type_InlinableIntrinsicType_xibox', 'type_FunctionType_xibox', 'element_Function_xibox', 'type_ArgumentReferenceType_xibox', 'element_ArgumentReference_xibox', 'type_ResultReferenceType_xibox', 'element_ResultReference_xibox', 'type_PartialReferenceType_xibox', 'element_PartialReference_xibox', 'type_IntermediateFunctionReferenceType_xibox', 'element_IntermediateFunctionReference_xibox', 'type_IntermediatePartialReferenceType_xibox', 'element_IntermediatePartialReference_xibox', 'type_PartialType_xibox', 'element_Partial_xibox', 'type_InlinableIntrinsicDefinitionType_xibox', 'type_LanguageType_xibox', 'element_InlinableIntrinsic_xibox', 'type_InlinableIntrinsicDefinitionsType_xibox', 'element_InlinableIntrinsicDefinitions_xibox');
+var xiBoxes = new Array('type_InlinableIntrinsicType_xibox', 'type_FunctionType_xibox', 'element_Function_xibox', 'type_ArgumentReferenceType_xibox', 'element_ArgumentReference_xibox', 'type_PartialTypeType_xibox', 'type_PartialType_xibox', 'element_Partial_xibox', 'type_InlinableIntrinsicDefinitionType_xibox', 'type_LanguageType_xibox', 'element_InlinableIntrinsic_xibox', 'type_InlinableIntrinsicDefinitionsType_xibox', 'element_InlinableIntrinsicDefinitions_xibox');
 /* IDs of Schema Component Representation boxes */
-var scBoxes = new Array('schema_scbox', 'type_InlinableIntrinsicType_scbox', 'type_FunctionType_scbox', 'element_Function_scbox', 'type_ArgumentReferenceType_scbox', 'element_ArgumentReference_scbox', 'type_ResultReferenceType_scbox', 'element_ResultReference_scbox', 'type_PartialReferenceType_scbox', 'element_PartialReference_scbox', 'type_IntermediateFunctionReferenceType_scbox', 'element_IntermediateFunctionReference_scbox', 'type_IntermediatePartialReferenceType_scbox', 'element_IntermediatePartialReference_scbox', 'type_PartialType_scbox', 'element_Partial_scbox', 'type_InlinableIntrinsicDefinitionType_scbox', 'type_LanguageType_scbox', 'element_InlinableIntrinsic_scbox', 'type_InlinableIntrinsicDefinitionsType_scbox', 'element_InlinableIntrinsicDefinitions_scbox');
+var scBoxes = new Array('schema_scbox', 'type_InlinableIntrinsicType_scbox', 'type_FunctionType_scbox', 'element_Function_scbox', 'type_ArgumentReferenceType_scbox', 'element_ArgumentReference_scbox', 'type_PartialTypeType_scbox', 'type_PartialType_scbox', 'element_Partial_scbox', 'type_InlinableIntrinsicDefinitionType_scbox', 'type_LanguageType_scbox', 'element_InlinableIntrinsic_scbox', 'type_InlinableIntrinsicDefinitionsType_scbox', 'element_InlinableIntrinsicDefinitions_scbox');
 
 /**
  * Can get the ID of the button controlling
@@ -553,14 +556,13 @@ function viewDocumentation(compDesc, compName, docTextArray) {
 }
 
 // -->
-</script></head>
-
-
+</script>
+  </head>
   <body>
     <h1>
-      <a name="top">XAIF Inlinable Intrinsics Schema Documentation</a>
+      <a name="top">XAIF Inlinable Intrinsics Example Schema</a>
     </h1>
-    <div id="printerControls" style="display: block;"><input type="checkbox" onclick="displayMode(this.checked)">Printer-friendly Version</div>
+    <div id="printerControls" style="display:none;"><input type="checkbox" onclick="displayMode(this.checked)"/>Printer-friendly Version</div>
     <script type="text/javascript">
 <!--
 
@@ -571,16 +573,16 @@ function viewDocumentation(compDesc, compName, docTextArray) {
 				
 // -->
 </script>
-    <div id="globalControls" style="display: block;">
+    <div id="globalControls" style="display:none">
       <p>
         <strong>XML Instance Representation:</strong>
-        <br>
-        <span style="margin-left: 1em; white-space: nowrap;">[ <a href="javascript:void(0)" onclick="expandAll(xiBoxes)">Expand All</a> | <a href="javascript:void(0)" onclick="collapseAll(xiBoxes)">Collapse All</a> ]</span>
+        <br/>
+        <span style="margin-left: 1em; white-space: nowrap">[ <a href="javascript:void(0)" onclick="expandAll(xiBoxes)">Expand All</a> | <a href="javascript:void(0)" onclick="collapseAll(xiBoxes)">Collapse All</a> ]</span>
       </p>
       <p>
         <strong>Schema Component Representation:</strong>
-        <br>
-        <span style="margin-left: 1em; white-space: nowrap;">[ <a href="javascript:void(0)" onclick="expandAll(scBoxes)">Expand All</a> | <a href="javascript:void(0)" onclick="collapseAll(scBoxes)">Collapse All</a> ]</span>
+        <br/>
+        <span style="margin-left: 1em; white-space: nowrap">[ <a href="javascript:void(0)" onclick="expandAll(scBoxes)">Expand All</a> | <a href="javascript:void(0)" onclick="collapseAll(scBoxes)">Collapse All</a> ]</span>
       </p>
     </div>
     <script type="text/javascript">
@@ -614,19 +616,7 @@ function viewDocumentation(compDesc, compName, docTextArray) {
             <a href="#element_InlinableIntrinsicDefinitions">Element: <strong>InlinableIntrinsicDefinitions</strong></a>
           </li>
           <li>
-            <a href="#element_IntermediateFunctionReference">Element: <strong>IntermediateFunctionReference</strong></a>
-          </li>
-          <li>
-            <a href="#element_IntermediatePartialReference">Element: <strong>IntermediatePartialReference</strong></a>
-          </li>
-          <li>
             <a href="#element_Partial">Element: <strong>Partial</strong></a>
-          </li>
-          <li>
-            <a href="#element_PartialReference">Element: <strong>PartialReference</strong></a>
-          </li>
-          <li>
-            <a href="#element_ResultReference">Element: <strong>ResultReference</strong></a>
           </li>
         </ul>
       </li>
@@ -646,19 +636,7 @@ function viewDocumentation(compDesc, compName, docTextArray) {
             <a href="#type_InlinableIntrinsicDefinitionsType">Complex Type: <strong>InlinableIntrinsicDefinitionsType</strong></a>
           </li>
           <li>
-            <a href="#type_IntermediateFunctionReferenceType">Complex Type: <strong>IntermediateFunctionReferenceType</strong></a>
-          </li>
-          <li>
-            <a href="#type_IntermediatePartialReferenceType">Complex Type: <strong>IntermediatePartialReferenceType</strong></a>
-          </li>
-          <li>
-            <a href="#type_PartialReferenceType">Complex Type: <strong>PartialReferenceType</strong></a>
-          </li>
-          <li>
             <a href="#type_PartialType">Complex Type: <strong>PartialType</strong></a>
-          </li>
-          <li>
-            <a href="#type_ResultReferenceType">Complex Type: <strong>ResultReferenceType</strong></a>
           </li>
           <li>
             <a href="#type_InlinableIntrinsicType">Simple Type: <strong>InlinableIntrinsicType</strong></a>
@@ -666,28 +644,31 @@ function viewDocumentation(compDesc, compName, docTextArray) {
           <li>
             <a href="#type_LanguageType">Simple Type: <strong>LanguageType</strong></a>
           </li>
+          <li>
+            <a href="#type_PartialTypeType">Simple Type: <strong>PartialTypeType</strong></a>
+          </li>
         </ul>
       </li>
     </ul>
-    <ul id="legendTOC" style="margin-top: 0em;">
+    <ul id="legendTOC" style="margin-top: 0em">
       <li>
         <a href="#Legend">Legend</a>
       </li>
     </ul>
-    <ul id="glossaryTOC" style="margin-top: 0em;">
+    <ul id="glossaryTOC" style="margin-top: 0em">
       <li>
         <a href="#Glossary">Glossary</a>
       </li>
     </ul>
-    <div style="text-align: right;">
+    <div style="text-align:right">
       <a href="#top">top</a>
     </div>
-    <hr>
+    <hr/>
     <h2>
       <a name="SchemaProperties">Schema Document Properties</a>
     </h2>
     <table class="properties">
-      <tbody><tr>
+      <tr>
         <th>
           <a title="Look up 'Target Namespace' in glossary" href="#term_TargetNS">Target Namespace</a>
         </th>
@@ -717,10 +698,10 @@ function viewDocumentation(compDesc, compName, docTextArray) {
           </ul>
         </td>
       </tr>
-    </tbody></table>
+    </table>
     <h3>Declared Namespaces</h3>
     <table class="namespaces">
-      <tbody><tr>
+      <tr>
         <th>Prefix</th>
         <th>Namespace</th>
       </tr>
@@ -750,15 +731,15 @@ function viewDocumentation(compDesc, compName, docTextArray) {
         </td>
         <td>http://www.w3.org/2001/XMLSchema</td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="schema_scbox_button" class="boxControl" onclick="switchState('schema_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
+      <tr>
+        <th><input type="button" id="schema_scbox_button" class="boxControl" onclick="switchState('schema_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="schema_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:schema</span> <span class="scTag">targetNamespace</span>="<span class="scContent">http://www.mcs.anl.gov/XAIFInlinableIntrinsics</span>" <span class="scTag">version</span>="<span class="scContent">xaif version 1.0 (inlinable intrinsics)</span>" <span class="scTag">elementFormDefault</span>="<span class="scContent">qualified</span>" <span class="scTag">attributeFormDefault</span>="<span class="scContent">unqualified</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:import</span> <span class="scTag">namespace</span>="<span class="scContent">http://www.mcs.anl.gov/XAIF</span>" <span class="scTag">schemaLocation</span>="<span class="scContent">xaif.xsd</span>"/&gt;</div><div class="scContent" style="margin-left: 1.5em;">...</div>&lt;/<span class="scTag">xsd:schema</span>&gt;</div>
+          <div id="schema_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:schema</span> <span class="scTag">targetNamespace</span>=&quot;<span class="scContent">http://www.mcs.anl.gov/XAIFInlinableIntrinsics</span>&quot; <span class="scTag">version</span>=&quot;<span class="scContent">xaif version 1.0 (inlinable intrinsics)</span>&quot; <span class="scTag">elementFormDefault</span>=&quot;<span class="scContent">qualified</span>&quot; <span class="scTag">attributeFormDefault</span>=&quot;<span class="scContent">unqualified</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:import</span> <span class="scTag">namespace</span>=&quot;<span class="scContent">http://www.mcs.anl.gov/XAIF</span>&quot; <span class="scTag">schemaLocation</span>=&quot;<span class="scContent">xaif.xsd</span>&quot;/&gt;</div><div class="scContent" style="margin-left: 1.5em">...</div>&lt;/<span class="scTag">xsd:schema</span>&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -767,31 +748,31 @@ setState('schema_scbox', false);
 </script>
         </td>
       </tr>
-    </tbody></table>
-    <div style="text-align: right;">
+    </table>
+    <div style="text-align:right">
       <a href="#top">top</a>
     </div>
-    <hr>
+    <hr/>
     <h2>
       <a name="SchemaDeclarations">Global Declarations</a>
     </h2>
     <h3>Element: <a name="element_ArgumentReference" class="name">ArgumentReference</a></h3>
     <table class="hierarchy">
-      <tbody><tr>
+      <tr>
         <td>
           <ul>
             <li>
               <em>This element can be used wherever the following element is referenced:</em>
               <ul>
-                <li><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionVertex&quot; element declaration could not be found." href="javascript:void(0)" onclick="alert('"ExpressionVertex" element declaration could not be found.');">ExpressionVertex</a></li>
+                <li><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionVertex&quot; element declaration could not be found." href="javascript:void(0)" onclick="alert('&quot;ExpressionVertex&quot; element declaration could not be found.');">ExpressionVertex</a></li>
               </ul>
             </li>
           </ul>
         </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="properties">
-      <tbody><tr>
+      <tr>
         <th>Name</th>
         <td>ArgumentReference</td>
       </tr>
@@ -813,15 +794,15 @@ setState('schema_scbox', false);
         </th>
         <td>no</td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="element_ArgumentReference_xibox_button" class="boxControl" onclick="switchState('element_ArgumentReference_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
+      <tr>
+        <th><input type="button" id="element_ArgumentReference_xibox_button" class="boxControl" onclick="switchState('element_ArgumentReference_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="element_ArgumentReference_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:ArgumentReference<br><span style="margin-left: 0.5em;"> argument="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span>&gt; <br><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:ArgumentReference&gt;</div>
+          <div id="element_ArgumentReference_xibox" class="box">
+            <div style="margin-left: 0em">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:ArgumentReference<br/><span style="margin-left: 0.5em"> argument=&quot;<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>&quot;</span>&gt; <br/><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;VertexType&quot; type definition could not be found.');">VertexType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:ArgumentReference&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -830,15 +811,15 @@ setState('element_ArgumentReference_xibox', true);
 </script>
         </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="element_ArgumentReference_scbox_button" class="boxControl" onclick="switchState('element_ArgumentReference_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
+      <tr>
+        <th><input type="button" id="element_ArgumentReference_scbox_button" class="boxControl" onclick="switchState('element_ArgumentReference_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="element_ArgumentReference_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>="<span class="scContent">ArgumentReference</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;ArgumentReferenceType&quot; type definition." href="#type_ArgumentReferenceType">ArgumentReferenceType</a></span></span>" <span class="scTag">substitutionGroup</span>="<span class="scContent">xaif:ExpressionVertex</span>"/&gt;</div>
+          <div id="element_ArgumentReference_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>=&quot;<span class="scContent">ArgumentReference</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;ArgumentReferenceType&quot; type definition." href="#type_ArgumentReferenceType">ArgumentReferenceType</a></span></span>&quot; <span class="scTag">substitutionGroup</span>=&quot;<span class="scContent">xaif:ExpressionVertex</span>&quot;/&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -847,14 +828,14 @@ setState('element_ArgumentReference_scbox', false);
 </script>
         </td>
       </tr>
-    </tbody></table>
-    <div style="text-align: right;">
+    </table>
+    <div style="text-align:right">
       <a href="#top">top</a>
     </div>
-    <hr>
+    <hr/>
     <h3>Element: <a name="element_Function" class="name">Function</a></h3>
     <table class="properties">
-      <tbody><tr>
+      <tr>
         <th>Name</th>
         <td>Function</td>
       </tr>
@@ -876,15 +857,15 @@ setState('element_ArgumentReference_scbox', false);
         </th>
         <td>no</td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="element_Function_xibox_button" class="boxControl" onclick="switchState('element_Function_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
+      <tr>
+        <th><input type="button" id="element_Function_xibox_button" class="boxControl" onclick="switchState('element_Function_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="element_Function_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:Function<br><span style="margin-left: 0.5em;"> type="<span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsicType&quot; type definition." href="#type_InlinableIntrinsicType">InlinableIntrinsicType</a></span> <span class="occurs">[0..1]</span>"</span>&gt; <br><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"ExpressionType" type definition could not be found.');">ExpressionType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:Function&gt;</div>
+          <div id="element_Function_xibox" class="box">
+            <div style="margin-left: 0em">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:Function<br/><span style="margin-left: 0.5em"> type=&quot;<span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsicType&quot; type definition." href="#type_InlinableIntrinsicType">InlinableIntrinsicType</a></span> <span class="occurs">[0..1]</span>&quot;</span><br/><span style="margin-left: 0.5em"> builtin_name=&quot;<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> <span class="occurs">[0..1]</span>&quot;</span>&gt; <br/><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ExpressionType&quot; type definition could not be found.');">ExpressionType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:Function&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -893,15 +874,15 @@ setState('element_Function_xibox', true);
 </script>
         </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="element_Function_scbox_button" class="boxControl" onclick="switchState('element_Function_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
+      <tr>
+        <th><input type="button" id="element_Function_scbox_button" class="boxControl" onclick="switchState('element_Function_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="element_Function_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>="<span class="scContent">Function</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;FunctionType&quot; type definition." href="#type_FunctionType">FunctionType</a></span></span>"/&gt;</div>
+          <div id="element_Function_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>=&quot;<span class="scContent">Function</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;FunctionType&quot; type definition." href="#type_FunctionType">FunctionType</a></span></span>&quot;/&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -910,14 +891,14 @@ setState('element_Function_scbox', false);
 </script>
         </td>
       </tr>
-    </tbody></table>
-    <div style="text-align: right;">
+    </table>
+    <div style="text-align:right">
       <a href="#top">top</a>
     </div>
-    <hr>
+    <hr/>
     <h3>Element: <a name="element_InlinableIntrinsic" class="name">InlinableIntrinsic</a></h3>
     <table class="properties">
-      <tbody><tr>
+      <tr>
         <th>Name</th>
         <td>InlinableIntrinsic</td>
       </tr>
@@ -939,15 +920,15 @@ setState('element_Function_scbox', false);
         </th>
         <td>no</td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="element_InlinableIntrinsic_xibox_button" class="boxControl" onclick="switchState('element_InlinableIntrinsic_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
+      <tr>
+        <th><input type="button" id="element_InlinableIntrinsic_xibox_button" class="boxControl" onclick="switchState('element_InlinableIntrinsic_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="element_InlinableIntrinsic_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:InlinableIntrinsic<br><span style="margin-left: 0.5em;"> name="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> <span class="occurs">[1]</span>"</span><br><span style="margin-left: 0.5em;"> nr_arguments="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span>&gt; <br><div style="margin-left: 1.5em;">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Function&quot; element declaration." href="#element_Function">Function</a>&gt; ... &lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Function&quot; element declaration." href="#element_Function">Function</a>&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em;">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Partial&quot; element declaration." href="#element_Partial">Partial</a>&gt; ... &lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Partial&quot; element declaration." href="#element_Partial">Partial</a>&gt; <span class="occurs">[1..*]</span></div>&lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:InlinableIntrinsic&gt;</div>
+          <div id="element_InlinableIntrinsic_xibox" class="box">
+            <div style="margin-left: 0em">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:InlinableIntrinsic<br/><span style="margin-left: 0.5em"> name=&quot;<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> <span class="occurs">[1]</span>&quot;</span><br/><span style="margin-left: 0.5em"> nr_arguments=&quot;<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>&quot;</span>&gt; <br/><div style="margin-left: 1.5em">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Function&quot; element declaration." href="#element_Function">Function</a>&gt; ... &lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Function&quot; element declaration." href="#element_Function">Function</a>&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Partial&quot; element declaration." href="#element_Partial">Partial</a>&gt; ... &lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Partial&quot; element declaration." href="#element_Partial">Partial</a>&gt; <span class="occurs">[1..*]</span></div>&lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:InlinableIntrinsic&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -956,15 +937,15 @@ setState('element_InlinableIntrinsic_xibox', true);
 </script>
         </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="element_InlinableIntrinsic_scbox_button" class="boxControl" onclick="switchState('element_InlinableIntrinsic_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
+      <tr>
+        <th><input type="button" id="element_InlinableIntrinsic_scbox_button" class="boxControl" onclick="switchState('element_InlinableIntrinsic_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="element_InlinableIntrinsic_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>="<span class="scContent">InlinableIntrinsic</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsicDefinitionType&quot; type definition." href="#type_InlinableIntrinsicDefinitionType">InlinableIntrinsicDefinitionType</a></span></span>"/&gt;</div>
+          <div id="element_InlinableIntrinsic_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>=&quot;<span class="scContent">InlinableIntrinsic</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsicDefinitionType&quot; type definition." href="#type_InlinableIntrinsicDefinitionType">InlinableIntrinsicDefinitionType</a></span></span>&quot;/&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -973,14 +954,14 @@ setState('element_InlinableIntrinsic_scbox', false);
 </script>
         </td>
       </tr>
-    </tbody></table>
-    <div style="text-align: right;">
+    </table>
+    <div style="text-align:right">
       <a href="#top">top</a>
     </div>
-    <hr>
+    <hr/>
     <h3>Element: <a name="element_InlinableIntrinsicDefinitions" class="name">InlinableIntrinsicDefinitions</a></h3>
     <table class="properties">
-      <tbody><tr>
+      <tr>
         <th>Name</th>
         <td>InlinableIntrinsicDefinitions</td>
       </tr>
@@ -1002,15 +983,15 @@ setState('element_InlinableIntrinsic_scbox', false);
         </th>
         <td>no</td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="element_InlinableIntrinsicDefinitions_xibox_button" class="boxControl" onclick="switchState('element_InlinableIntrinsicDefinitions_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
+      <tr>
+        <th><input type="button" id="element_InlinableIntrinsicDefinitions_xibox_button" class="boxControl" onclick="switchState('element_InlinableIntrinsicDefinitions_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="element_InlinableIntrinsicDefinitions_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:InlinableIntrinsicDefinitions<br><span style="margin-left: 0.5em;"> language="<span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;LanguageType&quot; type definition." href="#type_LanguageType">LanguageType</a></span> <span class="occurs">[1]</span>"</span>&gt; <div class="other" style="margin-left: 1.5em;">&lt;!-- <br><a title="Look up 'Uniqueness' in glossary" href="#term_Unique">Uniqueness</a> Constraint - <strong><a name="key_ii_unique">ii_unique</a></strong><br>Selector - <strong>xaifii:InlinableIntrinsic</strong><br>Field(s) - <strong>@name</strong><br>--&gt;</div><br><div style="margin-left: 1.5em;">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsic&quot; element declaration." href="#element_InlinableIntrinsic">InlinableIntrinsic</a>&gt; ... &lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsic&quot; element declaration." href="#element_InlinableIntrinsic">InlinableIntrinsic</a>&gt; <span class="occurs">[1..*]</span></div>&lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:InlinableIntrinsicDefinitions&gt;</div>
+          <div id="element_InlinableIntrinsicDefinitions_xibox" class="box">
+            <div style="margin-left: 0em">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:InlinableIntrinsicDefinitions<br/><span style="margin-left: 0.5em"> language=&quot;<span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;LanguageType&quot; type definition." href="#type_LanguageType">LanguageType</a></span> <span class="occurs">[1]</span>&quot;</span>&gt; <div class="other" style="margin-left: 1.5em">&lt;!-- <br/><a title="Look up 'Uniqueness' in glossary" href="#term_Unique">Uniqueness</a> Constraint - <strong><a name="key_ii_unique">ii_unique</a></strong><br/>Selector - <strong>xaifii:InlinableIntrinsic</strong><br/>Field(s) - <strong>@name</strong><br/>--&gt;</div><br/><div style="margin-left: 1.5em">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsic&quot; element declaration." href="#element_InlinableIntrinsic">InlinableIntrinsic</a>&gt; ... &lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsic&quot; element declaration." href="#element_InlinableIntrinsic">InlinableIntrinsic</a>&gt; <span class="occurs">[1..*]</span></div>&lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:InlinableIntrinsicDefinitions&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -1019,15 +1000,15 @@ setState('element_InlinableIntrinsicDefinitions_xibox', true);
 </script>
         </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="element_InlinableIntrinsicDefinitions_scbox_button" class="boxControl" onclick="switchState('element_InlinableIntrinsicDefinitions_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
+      <tr>
+        <th><input type="button" id="element_InlinableIntrinsicDefinitions_scbox_button" class="boxControl" onclick="switchState('element_InlinableIntrinsicDefinitions_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="element_InlinableIntrinsicDefinitions_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>="<span class="scContent">InlinableIntrinsicDefinitions</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsicDefinitionsType&quot; type definition." href="#type_InlinableIntrinsicDefinitionsType">InlinableIntrinsicDefinitionsType</a></span></span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:unique</span> <span class="scTag">name</span>="<span class="scContent">ii_unique</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:selector</span> <span class="scTag">xpath</span>="<span class="scContent">xaifii:InlinableIntrinsic</span>"/&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:field</span> <span class="scTag">xpath</span>="<span class="scContent">@name</span>"/&gt;</div>&lt;/<span class="scTag">xsd:unique</span>&gt;</div>&lt;/<span class="scTag">xsd:element</span>&gt;</div>
+          <div id="element_InlinableIntrinsicDefinitions_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>=&quot;<span class="scContent">InlinableIntrinsicDefinitions</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsicDefinitionsType&quot; type definition." href="#type_InlinableIntrinsicDefinitionsType">InlinableIntrinsicDefinitionsType</a></span></span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:unique</span> <span class="scTag">name</span>=&quot;<span class="scContent">ii_unique</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:selector</span> <span class="scTag">xpath</span>=&quot;<span class="scContent">xaifii:InlinableIntrinsic</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:field</span> <span class="scTag">xpath</span>=&quot;<span class="scContent">@name</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:unique</span>&gt;</div>&lt;/<span class="scTag">xsd:element</span>&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -1036,168 +1017,14 @@ setState('element_InlinableIntrinsicDefinitions_scbox', false);
 </script>
         </td>
       </tr>
-    </tbody></table>
-    <div style="text-align: right;">
+    </table>
+    <div style="text-align:right">
       <a href="#top">top</a>
     </div>
-    <hr>
-    <h3>Element: <a name="element_IntermediateFunctionReference" class="name">IntermediateFunctionReference</a></h3>
-    <table class="hierarchy">
-      <tbody><tr>
-        <td>
-          <ul>
-            <li>
-              <em>This element can be used wherever the following element is referenced:</em>
-              <ul>
-                <li><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionVertex&quot; element declaration could not be found." href="javascript:void(0)" onclick="alert('"ExpressionVertex" element declaration could not be found.');">ExpressionVertex</a></li>
-              </ul>
-            </li>
-          </ul>
-        </td>
-      </tr>
-    </tbody></table>
-    <table class="properties">
-      <tbody><tr>
-        <th>Name</th>
-        <td>IntermediateFunctionReference</td>
-      </tr>
-      <tr>
-        <th>Type</th>
-        <td>
-          <span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;IntermediateFunctionReferenceType&quot; type definition." href="#type_IntermediateFunctionReferenceType">IntermediateFunctionReferenceType</a></span>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          <a title="Look up 'Nillable' in glossary" href="#term_Nillable">Nillable</a>
-        </th>
-        <td>no</td>
-      </tr>
-      <tr>
-        <th>
-          <a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
-        </th>
-        <td>no</td>
-      </tr>
-    </tbody></table>
-    <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="element_IntermediateFunctionReference_xibox_button" class="boxControl" onclick="switchState('element_IntermediateFunctionReference_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="element_IntermediateFunctionReference_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:IntermediateFunctionReference<br><span style="margin-left: 0.5em;"> vertex_reference="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span>&gt; <br><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:IntermediateFunctionReference&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('element_IntermediateFunctionReference_xibox', true);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="element_IntermediateFunctionReference_scbox_button" class="boxControl" onclick="switchState('element_IntermediateFunctionReference_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="element_IntermediateFunctionReference_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>="<span class="scContent">IntermediateFunctionReference</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;IntermediateFunctionReferenceType&quot; type definition." href="#type_IntermediateFunctionReferenceType">IntermediateFunctionReferenceType</a></span></span>" <span class="scTag">substitutionGroup</span>="<span class="scContent">xaif:ExpressionVertex</span>"/&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('element_IntermediateFunctionReference_scbox', false);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <div style="text-align: right;">
-      <a href="#top">top</a>
-    </div>
-    <hr>
-    <h3>Element: <a name="element_IntermediatePartialReference" class="name">IntermediatePartialReference</a></h3>
-    <table class="hierarchy">
-      <tbody><tr>
-        <td>
-          <ul>
-            <li>
-              <em>This element can be used wherever the following element is referenced:</em>
-              <ul>
-                <li><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionVertex&quot; element declaration could not be found." href="javascript:void(0)" onclick="alert('"ExpressionVertex" element declaration could not be found.');">ExpressionVertex</a></li>
-              </ul>
-            </li>
-          </ul>
-        </td>
-      </tr>
-    </tbody></table>
-    <table class="properties">
-      <tbody><tr>
-        <th>Name</th>
-        <td>IntermediatePartialReference</td>
-      </tr>
-      <tr>
-        <th>Type</th>
-        <td>
-          <span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;IntermediatePartialReferenceType&quot; type definition." href="#type_IntermediatePartialReferenceType">IntermediatePartialReferenceType</a></span>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          <a title="Look up 'Nillable' in glossary" href="#term_Nillable">Nillable</a>
-        </th>
-        <td>no</td>
-      </tr>
-      <tr>
-        <th>
-          <a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
-        </th>
-        <td>no</td>
-      </tr>
-    </tbody></table>
-    <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="element_IntermediatePartialReference_xibox_button" class="boxControl" onclick="switchState('element_IntermediatePartialReference_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="element_IntermediatePartialReference_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:IntermediatePartialReference<br><span style="margin-left: 0.5em;"> partial_id="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span><br><span style="margin-left: 0.5em;"> vertex_reference="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span>&gt; <br><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:IntermediatePartialReference&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('element_IntermediatePartialReference_xibox', true);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="element_IntermediatePartialReference_scbox_button" class="boxControl" onclick="switchState('element_IntermediatePartialReference_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="element_IntermediatePartialReference_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>="<span class="scContent">IntermediatePartialReference</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;IntermediatePartialReferenceType&quot; type definition." href="#type_IntermediatePartialReferenceType">IntermediatePartialReferenceType</a></span></span>" <span class="scTag">substitutionGroup</span>="<span class="scContent">xaif:ExpressionVertex</span>"/&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('element_IntermediatePartialReference_scbox', false);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <div style="text-align: right;">
-      <a href="#top">top</a>
-    </div>
-    <hr>
+    <hr/>
     <h3>Element: <a name="element_Partial" class="name">Partial</a></h3>
     <table class="properties">
-      <tbody><tr>
+      <tr>
         <th>Name</th>
         <td>Partial</td>
       </tr>
@@ -1219,15 +1046,15 @@ setState('element_IntermediatePartialReference_scbox', false);
         </th>
         <td>no</td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="element_Partial_xibox_button" class="boxControl" onclick="switchState('element_Partial_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
+      <tr>
+        <th><input type="button" id="element_Partial_xibox_button" class="boxControl" onclick="switchState('element_Partial_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="element_Partial_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:Partial<br><span style="margin-left: 0.5em;"> partial_id="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span>&gt; <br><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"ExpressionType" type definition could not be found.');">ExpressionType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:Partial&gt;</div>
+          <div id="element_Partial_xibox" class="box">
+            <div style="margin-left: 0em">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:Partial<br/><span style="margin-left: 0.5em"> partial_id=&quot;<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>&quot;</span><br/><span style="margin-left: 0.5em"> partial_type=&quot;<span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;PartialTypeType&quot; type definition." href="#type_PartialTypeType">PartialTypeType</a></span> <span class="occurs">[0..1]</span>&quot;</span>&gt; <br/><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ExpressionType&quot; type definition could not be found.');">ExpressionType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:Partial&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -1236,15 +1063,15 @@ setState('element_Partial_xibox', true);
 </script>
         </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="element_Partial_scbox_button" class="boxControl" onclick="switchState('element_Partial_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
+      <tr>
+        <th><input type="button" id="element_Partial_scbox_button" class="boxControl" onclick="switchState('element_Partial_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="element_Partial_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>="<span class="scContent">Partial</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;PartialType&quot; type definition." href="#type_PartialType">PartialType</a></span></span>"/&gt;</div>
+          <div id="element_Partial_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>=&quot;<span class="scContent">Partial</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;PartialType&quot; type definition." href="#type_PartialType">PartialType</a></span></span>&quot;/&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -1253,181 +1080,27 @@ setState('element_Partial_scbox', false);
 </script>
         </td>
       </tr>
-    </tbody></table>
-    <div style="text-align: right;">
+    </table>
+    <div style="text-align:right">
       <a href="#top">top</a>
     </div>
-    <hr>
-    <h3>Element: <a name="element_PartialReference" class="name">PartialReference</a></h3>
-    <table class="hierarchy">
-      <tbody><tr>
-        <td>
-          <ul>
-            <li>
-              <em>This element can be used wherever the following element is referenced:</em>
-              <ul>
-                <li><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionVertex&quot; element declaration could not be found." href="javascript:void(0)" onclick="alert('"ExpressionVertex" element declaration could not be found.');">ExpressionVertex</a></li>
-              </ul>
-            </li>
-          </ul>
-        </td>
-      </tr>
-    </tbody></table>
-    <table class="properties">
-      <tbody><tr>
-        <th>Name</th>
-        <td>PartialReference</td>
-      </tr>
-      <tr>
-        <th>Type</th>
-        <td>
-          <span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;PartialReferenceType&quot; type definition." href="#type_PartialReferenceType">PartialReferenceType</a></span>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          <a title="Look up 'Nillable' in glossary" href="#term_Nillable">Nillable</a>
-        </th>
-        <td>no</td>
-      </tr>
-      <tr>
-        <th>
-          <a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
-        </th>
-        <td>no</td>
-      </tr>
-    </tbody></table>
-    <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="element_PartialReference_xibox_button" class="boxControl" onclick="switchState('element_PartialReference_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="element_PartialReference_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:PartialReference<br><span style="margin-left: 0.5em;"> partial_id="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span>&gt; <br><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:PartialReference&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('element_PartialReference_xibox', true);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="element_PartialReference_scbox_button" class="boxControl" onclick="switchState('element_PartialReference_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="element_PartialReference_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>="<span class="scContent">PartialReference</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;PartialReferenceType&quot; type definition." href="#type_PartialReferenceType">PartialReferenceType</a></span></span>" <span class="scTag">substitutionGroup</span>="<span class="scContent">xaif:ExpressionVertex</span>"/&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('element_PartialReference_scbox', false);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <div style="text-align: right;">
-      <a href="#top">top</a>
-    </div>
-    <hr>
-    <h3>Element: <a name="element_ResultReference" class="name">ResultReference</a></h3>
-    <table class="hierarchy">
-      <tbody><tr>
-        <td>
-          <ul>
-            <li>
-              <em>This element can be used wherever the following element is referenced:</em>
-              <ul>
-                <li><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionVertex&quot; element declaration could not be found." href="javascript:void(0)" onclick="alert('"ExpressionVertex" element declaration could not be found.');">ExpressionVertex</a></li>
-              </ul>
-            </li>
-          </ul>
-        </td>
-      </tr>
-    </tbody></table>
-    <table class="properties">
-      <tbody><tr>
-        <th>Name</th>
-        <td>ResultReference</td>
-      </tr>
-      <tr>
-        <th>Type</th>
-        <td>
-          <span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;ResultReferenceType&quot; type definition." href="#type_ResultReferenceType">ResultReferenceType</a></span>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          <a title="Look up 'Nillable' in glossary" href="#term_Nillable">Nillable</a>
-        </th>
-        <td>no</td>
-      </tr>
-      <tr>
-        <th>
-          <a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
-        </th>
-        <td>no</td>
-      </tr>
-    </tbody></table>
-    <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="element_ResultReference_xibox_button" class="boxControl" onclick="switchState('element_ResultReference_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="element_ResultReference_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:ResultReference<br><span style="margin-left: 0.5em;"> ref="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[0..1]</span>"</span>&gt; <br><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:ResultReference&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('element_ResultReference_xibox', true);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="element_ResultReference_scbox_button" class="boxControl" onclick="switchState('element_ResultReference_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="element_ResultReference_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>="<span class="scContent">ResultReference</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;ResultReferenceType&quot; type definition." href="#type_ResultReferenceType">ResultReferenceType</a></span></span>" <span class="scTag">substitutionGroup</span>="<span class="scContent">xaif:ExpressionVertex</span>"/&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('element_ResultReference_scbox', false);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <div style="text-align: right;">
-      <a href="#top">top</a>
-    </div>
-    <hr>
+    <hr/>
     <h2>
       <a name="SchemaDefinitions">Global Definitions</a>
     </h2>
     <h3>Complex Type: <a name="type_ArgumentReferenceType" class="name">ArgumentReferenceType</a></h3>
     <table class="hierarchy">
-      <tbody><tr>
+      <tr>
         <th>Super-types:</th>
-        <td><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span> &lt; <strong>ArgumentReferenceType</strong> (by extension)</td>
+        <td><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;VertexType&quot; type definition could not be found.');">VertexType</a></span> &lt; <strong>ArgumentReferenceType</strong> (by extension)</td>
       </tr>
       <tr>
         <th>Sub-types:</th>
         <td>None</td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="properties">
-      <tbody><tr>
+      <tr>
         <th>Name</th>
         <td>ArgumentReferenceType</td>
       </tr>
@@ -1443,15 +1116,15 @@ setState('element_ResultReference_scbox', false);
       Reference to one of the arguments of an intrinsic function.
     </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="type_ArgumentReferenceType_xibox_button" class="boxControl" onclick="switchState('type_ArgumentReferenceType_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
+      <tr>
+        <th><input type="button" id="type_ArgumentReferenceType_xibox_button" class="boxControl" onclick="switchState('type_ArgumentReferenceType_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="type_ArgumentReferenceType_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;...<br><span style="margin-left: 0.5em;" class="newFields"> argument="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span>&gt; <br><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/...&gt;</div>
+          <div id="type_ArgumentReferenceType_xibox" class="box">
+            <div style="margin-left: 0em">&lt;...<br/><span style="margin-left: 0.5em" class="newFields"> argument=&quot;<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>&quot;</span>&gt; <br/><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;VertexType&quot; type definition could not be found.');">VertexType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/...&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -1460,15 +1133,15 @@ setState('type_ArgumentReferenceType_xibox', true);
 </script>
         </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="type_ArgumentReferenceType_scbox_button" class="boxControl" onclick="switchState('type_ArgumentReferenceType_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
+      <tr>
+        <th><input type="button" id="type_ArgumentReferenceType_scbox_button" class="boxControl" onclick="switchState('type_ArgumentReferenceType_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="type_ArgumentReferenceType_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>="<span class="scContent">ArgumentReferenceType</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:complexContent</span>&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span></span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">argument</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div>&lt;/<span class="scTag">xsd:extension</span>&gt;</div>&lt;/<span class="scTag">xsd:complexContent</span>&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
+          <div id="type_ArgumentReferenceType_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>=&quot;<span class="scContent">ArgumentReferenceType</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:complexContent</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:extension</span> <span class="scTag">base</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;VertexType&quot; type definition could not be found.');">VertexType</a></span></span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>=&quot;<span class="scContent">argument</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>&quot; <span class="scTag">use</span>=&quot;<span class="scContent">required</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:extension</span>&gt;</div>&lt;/<span class="scTag">xsd:complexContent</span>&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -1477,24 +1150,24 @@ setState('type_ArgumentReferenceType_scbox', false);
 </script>
         </td>
       </tr>
-    </tbody></table>
-    <div style="text-align: right;">
+    </table>
+    <div style="text-align:right">
       <a href="#top">top</a>
     </div>
-    <hr>
+    <hr/>
     <h3>Complex Type: <a name="type_FunctionType" class="name">FunctionType</a></h3>
     <table class="hierarchy">
-      <tbody><tr>
+      <tr>
         <th>Super-types:</th>
-        <td><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"ExpressionType" type definition could not be found.');">ExpressionType</a></span> &lt; <strong>FunctionType</strong> (by extension)</td>
+        <td><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ExpressionType&quot; type definition could not be found.');">ExpressionType</a></span> &lt; <strong>FunctionType</strong> (by extension)</td>
       </tr>
       <tr>
         <th>Sub-types:</th>
         <td>None</td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="properties">
-      <tbody><tr>
+      <tr>
         <th>Name</th>
         <td>FunctionType</td>
       </tr>
@@ -1511,15 +1184,15 @@ setState('type_ArgumentReferenceType_scbox', false);
       is only calls to inlinable functions can be used).
     </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="type_FunctionType_xibox_button" class="boxControl" onclick="switchState('type_FunctionType_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
+      <tr>
+        <th><input type="button" id="type_FunctionType_xibox_button" class="boxControl" onclick="switchState('type_FunctionType_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="type_FunctionType_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;...<br><span style="margin-left: 0.5em;" class="newFields"> type="<span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsicType&quot; type definition." href="#type_InlinableIntrinsicType">InlinableIntrinsicType</a></span> <span class="occurs">[0..1]</span>"</span>&gt; <br><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"ExpressionType" type definition could not be found.');">ExpressionType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/...&gt;</div>
+          <div id="type_FunctionType_xibox" class="box">
+            <div style="margin-left: 0em">&lt;...<br/><span style="margin-left: 0.5em" class="newFields"> type=&quot;<span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsicType&quot; type definition." href="#type_InlinableIntrinsicType">InlinableIntrinsicType</a></span> <span class="occurs">[0..1]</span>&quot;</span><br/><span style="margin-left: 0.5em" class="newFields"> builtin_name=&quot;<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> <span class="occurs">[0..1]</span>&quot;</span>&gt; <br/><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ExpressionType&quot; type definition could not be found.');">ExpressionType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/...&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -1528,15 +1201,15 @@ setState('type_FunctionType_xibox', true);
 </script>
         </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="type_FunctionType_scbox_button" class="boxControl" onclick="switchState('type_FunctionType_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
+      <tr>
+        <th><input type="button" id="type_FunctionType_scbox_button" class="boxControl" onclick="switchState('type_FunctionType_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="type_FunctionType_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>="<span class="scContent">FunctionType</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:complexContent</span>&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"ExpressionType" type definition could not be found.');">ExpressionType</a></span></span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">type</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsicType&quot; type definition." href="#type_InlinableIntrinsicType">InlinableIntrinsicType</a></span></span>" <span class="scTag">use</span>="<span class="scContent">optional</span>"/&gt;</div>&lt;/<span class="scTag">xsd:extension</span>&gt;</div>&lt;/<span class="scTag">xsd:complexContent</span>&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
+          <div id="type_FunctionType_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>=&quot;<span class="scContent">FunctionType</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:complexContent</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:extension</span> <span class="scTag">base</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ExpressionType&quot; type definition could not be found.');">ExpressionType</a></span></span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>=&quot;<span class="scContent">type</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsicType&quot; type definition." href="#type_InlinableIntrinsicType">InlinableIntrinsicType</a></span></span>&quot; <span class="scTag">use</span>=&quot;<span class="scContent">optional</span>&quot; <span class="scTag">default</span>=&quot;<span class="scContent">user_defined</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>=&quot;<span class="scContent">builtin_name</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span></span>&quot; <span class="scTag">use</span>=&quot;<span class="scContent">optional</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:extension</span>&gt;</div>&lt;/<span class="scTag">xsd:complexContent</span>&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -1545,14 +1218,14 @@ setState('type_FunctionType_scbox', false);
 </script>
         </td>
       </tr>
-    </tbody></table>
-    <div style="text-align: right;">
+    </table>
+    <div style="text-align:right">
       <a href="#top">top</a>
     </div>
-    <hr>
+    <hr/>
     <h3>Complex Type: <a name="type_InlinableIntrinsicDefinitionType" class="name">InlinableIntrinsicDefinitionType</a></h3>
     <table class="hierarchy">
-      <tbody><tr>
+      <tr>
         <th>Super-types:</th>
         <td>None</td>
       </tr>
@@ -1560,9 +1233,9 @@ setState('type_FunctionType_scbox', false);
         <th>Sub-types:</th>
         <td>None</td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="properties">
-      <tbody><tr>
+      <tr>
         <th>Name</th>
         <td>InlinableIntrinsicDefinitionType</td>
       </tr>
@@ -1572,15 +1245,15 @@ setState('type_FunctionType_scbox', false);
         </th>
         <td>no</td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="type_InlinableIntrinsicDefinitionType_xibox_button" class="boxControl" onclick="switchState('type_InlinableIntrinsicDefinitionType_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
+      <tr>
+        <th><input type="button" id="type_InlinableIntrinsicDefinitionType_xibox_button" class="boxControl" onclick="switchState('type_InlinableIntrinsicDefinitionType_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="type_InlinableIntrinsicDefinitionType_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;...<br><span style="margin-left: 0.5em;"> name="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> <span class="occurs">[1]</span>"</span><br><span style="margin-left: 0.5em;"> nr_arguments="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span>&gt; <br><div style="margin-left: 1.5em;">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Function&quot; element declaration." href="#element_Function">Function</a>&gt; ... &lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Function&quot; element declaration." href="#element_Function">Function</a>&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em;">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Partial&quot; element declaration." href="#element_Partial">Partial</a>&gt; ... &lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Partial&quot; element declaration." href="#element_Partial">Partial</a>&gt; <span class="occurs">[1..*]</span></div>&lt;/...&gt;</div>
+          <div id="type_InlinableIntrinsicDefinitionType_xibox" class="box">
+            <div style="margin-left: 0em">&lt;...<br/><span style="margin-left: 0.5em"> name=&quot;<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> <span class="occurs">[1]</span>&quot;</span><br/><span style="margin-left: 0.5em"> nr_arguments=&quot;<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>&quot;</span>&gt; <br/><div style="margin-left: 1.5em">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Function&quot; element declaration." href="#element_Function">Function</a>&gt; ... &lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Function&quot; element declaration." href="#element_Function">Function</a>&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Partial&quot; element declaration." href="#element_Partial">Partial</a>&gt; ... &lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Partial&quot; element declaration." href="#element_Partial">Partial</a>&gt; <span class="occurs">[1..*]</span></div>&lt;/...&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -1589,15 +1262,15 @@ setState('type_InlinableIntrinsicDefinitionType_xibox', true);
 </script>
         </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="type_InlinableIntrinsicDefinitionType_scbox_button" class="boxControl" onclick="switchState('type_InlinableIntrinsicDefinitionType_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
+      <tr>
+        <th><input type="button" id="type_InlinableIntrinsicDefinitionType_scbox_button" class="boxControl" onclick="switchState('type_InlinableIntrinsicDefinitionType_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="type_InlinableIntrinsicDefinitionType_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>="<span class="scContent">InlinableIntrinsicDefinitionType</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:sequence</span>&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:element</span> <span class="scTag">ref</span>="<span class="scContent"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Function&quot; element declaration." href="#element_Function">Function</a></span>" <span class="scTag">minOccurs</span>="<span class="scContent">1</span>" <span class="scTag">maxOccurs</span>="<span class="scContent">1</span>"/&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:element</span> <span class="scTag">ref</span>="<span class="scContent"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Partial&quot; element declaration." href="#element_Partial">Partial</a></span>" <span class="scTag">minOccurs</span>="<span class="scContent">1</span>" <span class="scTag">maxOccurs</span>="<span class="scContent">unbounded</span>"/&gt;</div>&lt;/<span class="scTag">xsd:sequence</span>&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">name</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">nr_arguments</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
+          <div id="type_InlinableIntrinsicDefinitionType_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>=&quot;<span class="scContent">InlinableIntrinsicDefinitionType</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">ref</span>=&quot;<span class="scContent"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Function&quot; element declaration." href="#element_Function">Function</a></span>&quot; <span class="scTag">minOccurs</span>=&quot;<span class="scContent">1</span>&quot; <span class="scTag">maxOccurs</span>=&quot;<span class="scContent">1</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">ref</span>=&quot;<span class="scContent"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;Partial&quot; element declaration." href="#element_Partial">Partial</a></span>&quot; <span class="scTag">minOccurs</span>=&quot;<span class="scContent">1</span>&quot; <span class="scTag">maxOccurs</span>=&quot;<span class="scContent">unbounded</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:sequence</span>&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>=&quot;<span class="scContent">name</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span></span>&quot; <span class="scTag">use</span>=&quot;<span class="scContent">required</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>=&quot;<span class="scContent">nr_arguments</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>&quot; <span class="scTag">use</span>=&quot;<span class="scContent">required</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -1606,14 +1279,14 @@ setState('type_InlinableIntrinsicDefinitionType_scbox', false);
 </script>
         </td>
       </tr>
-    </tbody></table>
-    <div style="text-align: right;">
+    </table>
+    <div style="text-align:right">
       <a href="#top">top</a>
     </div>
-    <hr>
+    <hr/>
     <h3>Complex Type: <a name="type_InlinableIntrinsicDefinitionsType" class="name">InlinableIntrinsicDefinitionsType</a></h3>
     <table class="hierarchy">
-      <tbody><tr>
+      <tr>
         <th>Super-types:</th>
         <td>None</td>
       </tr>
@@ -1621,9 +1294,9 @@ setState('type_InlinableIntrinsicDefinitionType_scbox', false);
         <th>Sub-types:</th>
         <td>None</td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="properties">
-      <tbody><tr>
+      <tr>
         <th>Name</th>
         <td>InlinableIntrinsicDefinitionsType</td>
       </tr>
@@ -1633,15 +1306,15 @@ setState('type_InlinableIntrinsicDefinitionType_scbox', false);
         </th>
         <td>no</td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="type_InlinableIntrinsicDefinitionsType_xibox_button" class="boxControl" onclick="switchState('type_InlinableIntrinsicDefinitionsType_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
+      <tr>
+        <th><input type="button" id="type_InlinableIntrinsicDefinitionsType_xibox_button" class="boxControl" onclick="switchState('type_InlinableIntrinsicDefinitionsType_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="type_InlinableIntrinsicDefinitionsType_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;...<br><span style="margin-left: 0.5em;"> language="<span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;LanguageType&quot; type definition." href="#type_LanguageType">LanguageType</a></span> <span class="occurs">[1]</span>"</span>&gt; <br><div style="margin-left: 1.5em;">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsic&quot; element declaration." href="#element_InlinableIntrinsic">InlinableIntrinsic</a>&gt; ... &lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsic&quot; element declaration." href="#element_InlinableIntrinsic">InlinableIntrinsic</a>&gt; <span class="occurs">[1..*]</span></div>&lt;/...&gt;</div>
+          <div id="type_InlinableIntrinsicDefinitionsType_xibox" class="box">
+            <div style="margin-left: 0em">&lt;...<br/><span style="margin-left: 0.5em"> language=&quot;<span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;LanguageType&quot; type definition." href="#type_LanguageType">LanguageType</a></span> <span class="occurs">[1]</span>&quot;</span>&gt; <br/><div style="margin-left: 1.5em">&lt;<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsic&quot; element declaration." href="#element_InlinableIntrinsic">InlinableIntrinsic</a>&gt; ... &lt;/<a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsic&quot; element declaration." href="#element_InlinableIntrinsic">InlinableIntrinsic</a>&gt; <span class="occurs">[1..*]</span></div>&lt;/...&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -1650,15 +1323,15 @@ setState('type_InlinableIntrinsicDefinitionsType_xibox', true);
 </script>
         </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="type_InlinableIntrinsicDefinitionsType_scbox_button" class="boxControl" onclick="switchState('type_InlinableIntrinsicDefinitionsType_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
+      <tr>
+        <th><input type="button" id="type_InlinableIntrinsicDefinitionsType_scbox_button" class="boxControl" onclick="switchState('type_InlinableIntrinsicDefinitionsType_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="type_InlinableIntrinsicDefinitionsType_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>="<span class="scContent">InlinableIntrinsicDefinitionsType</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:sequence</span>&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:element</span> <span class="scTag">ref</span>="<span class="scContent"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsic&quot; element declaration." href="#element_InlinableIntrinsic">InlinableIntrinsic</a></span>" <span class="scTag">minOccurs</span>="<span class="scContent">1</span>" <span class="scTag">maxOccurs</span>="<span class="scContent">unbounded</span>"/&gt;</div>&lt;/<span class="scTag">xsd:sequence</span>&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">language</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;LanguageType&quot; type definition." href="#type_LanguageType">LanguageType</a></span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
+          <div id="type_InlinableIntrinsicDefinitionsType_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>=&quot;<span class="scContent">InlinableIntrinsicDefinitionsType</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:element</span> <span class="scTag">ref</span>=&quot;<span class="scContent"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;InlinableIntrinsic&quot; element declaration." href="#element_InlinableIntrinsic">InlinableIntrinsic</a></span>&quot; <span class="scTag">minOccurs</span>=&quot;<span class="scContent">1</span>&quot; <span class="scTag">maxOccurs</span>=&quot;<span class="scContent">unbounded</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:sequence</span>&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>=&quot;<span class="scContent">language</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;LanguageType&quot; type definition." href="#type_LanguageType">LanguageType</a></span></span>&quot; <span class="scTag">use</span>=&quot;<span class="scContent">required</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -1667,227 +1340,24 @@ setState('type_InlinableIntrinsicDefinitionsType_scbox', false);
 </script>
         </td>
       </tr>
-    </tbody></table>
-    <div style="text-align: right;">
+    </table>
+    <div style="text-align:right">
       <a href="#top">top</a>
     </div>
-    <hr>
-    <h3>Complex Type: <a name="type_IntermediateFunctionReferenceType" class="name">IntermediateFunctionReferenceType</a></h3>
-    <table class="hierarchy">
-      <tbody><tr>
-        <th>Super-types:</th>
-        <td><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span> &lt; <strong>IntermediateFunctionReferenceType</strong> (by extension)</td>
-      </tr>
-      <tr>
-        <th>Sub-types:</th>
-        <td>None</td>
-      </tr>
-    </tbody></table>
-    <table class="properties">
-      <tbody><tr>
-        <th>Name</th>
-        <td>IntermediateFunctionReferenceType</td>
-      </tr>
-      <tr>
-        <th>
-          <a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
-        </th>
-        <td>no</td>
-      </tr>
-      <tr>
-        <th>Documentation</th>
-        <td>
-      Reference to one of the intermediate values computed by the 
-      function evaluation .
-    </td>
-      </tr>
-    </tbody></table>
-    <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="type_IntermediateFunctionReferenceType_xibox_button" class="boxControl" onclick="switchState('type_IntermediateFunctionReferenceType_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="type_IntermediateFunctionReferenceType_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;...<br><span style="margin-left: 0.5em;" class="newFields"> vertex_reference="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span>&gt; <br><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/...&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('type_IntermediateFunctionReferenceType_xibox', true);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="type_IntermediateFunctionReferenceType_scbox_button" class="boxControl" onclick="switchState('type_IntermediateFunctionReferenceType_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="type_IntermediateFunctionReferenceType_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>="<span class="scContent">IntermediateFunctionReferenceType</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:complexContent</span>&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span></span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">vertex_reference</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div>&lt;/<span class="scTag">xsd:extension</span>&gt;</div>&lt;/<span class="scTag">xsd:complexContent</span>&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('type_IntermediateFunctionReferenceType_scbox', false);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <div style="text-align: right;">
-      <a href="#top">top</a>
-    </div>
-    <hr>
-    <h3>Complex Type: <a name="type_IntermediatePartialReferenceType" class="name">IntermediatePartialReferenceType</a></h3>
-    <table class="hierarchy">
-      <tbody><tr>
-        <th>Super-types:</th>
-        <td><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span> &lt; <strong>IntermediatePartialReferenceType</strong> (by extension)</td>
-      </tr>
-      <tr>
-        <th>Sub-types:</th>
-        <td>None</td>
-      </tr>
-    </tbody></table>
-    <table class="properties">
-      <tbody><tr>
-        <th>Name</th>
-        <td>IntermediatePartialReferenceType</td>
-      </tr>
-      <tr>
-        <th>
-          <a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
-        </th>
-        <td>no</td>
-      </tr>
-      <tr>
-        <th>Documentation</th>
-        <td>
-      Reference to one of the intermediate values computed by one of the  
-      partial evaluations.
-    </td>
-      </tr>
-    </tbody></table>
-    <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="type_IntermediatePartialReferenceType_xibox_button" class="boxControl" onclick="switchState('type_IntermediatePartialReferenceType_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="type_IntermediatePartialReferenceType_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;...<br><span style="margin-left: 0.5em;" class="newFields"> partial_id="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span><br><span style="margin-left: 0.5em;" class="newFields"> vertex_reference="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span>&gt; <br><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/...&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('type_IntermediatePartialReferenceType_xibox', true);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="type_IntermediatePartialReferenceType_scbox_button" class="boxControl" onclick="switchState('type_IntermediatePartialReferenceType_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="type_IntermediatePartialReferenceType_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>="<span class="scContent">IntermediatePartialReferenceType</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:complexContent</span>&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span></span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">partial_id</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">vertex_reference</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div>&lt;/<span class="scTag">xsd:extension</span>&gt;</div>&lt;/<span class="scTag">xsd:complexContent</span>&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('type_IntermediatePartialReferenceType_scbox', false);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <div style="text-align: right;">
-      <a href="#top">top</a>
-    </div>
-    <hr>
-    <h3>Complex Type: <a name="type_PartialReferenceType" class="name">PartialReferenceType</a></h3>
-    <table class="hierarchy">
-      <tbody><tr>
-        <th>Super-types:</th>
-        <td><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span> &lt; <strong>PartialReferenceType</strong> (by extension)</td>
-      </tr>
-      <tr>
-        <th>Sub-types:</th>
-        <td>None</td>
-      </tr>
-    </tbody></table>
-    <table class="properties">
-      <tbody><tr>
-        <th>Name</th>
-        <td>PartialReferenceType</td>
-      </tr>
-      <tr>
-        <th>
-          <a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
-        </th>
-        <td>no</td>
-      </tr>
-      <tr>
-        <th>Documentation</th>
-        <td>
-      Reference to one of the partials of an intrinsic function.
-    </td>
-      </tr>
-    </tbody></table>
-    <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="type_PartialReferenceType_xibox_button" class="boxControl" onclick="switchState('type_PartialReferenceType_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="type_PartialReferenceType_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;...<br><span style="margin-left: 0.5em;" class="newFields"> partial_id="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span>&gt; <br><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/...&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('type_PartialReferenceType_xibox', true);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="type_PartialReferenceType_scbox_button" class="boxControl" onclick="switchState('type_PartialReferenceType_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="type_PartialReferenceType_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>="<span class="scContent">PartialReferenceType</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:complexContent</span>&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span></span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">partial_id</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div>&lt;/<span class="scTag">xsd:extension</span>&gt;</div>&lt;/<span class="scTag">xsd:complexContent</span>&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('type_PartialReferenceType_scbox', false);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <div style="text-align: right;">
-      <a href="#top">top</a>
-    </div>
-    <hr>
+    <hr/>
     <h3>Complex Type: <a name="type_PartialType" class="name">PartialType</a></h3>
     <table class="hierarchy">
-      <tbody><tr>
+      <tr>
         <th>Super-types:</th>
-        <td><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"ExpressionType" type definition could not be found.');">ExpressionType</a></span> &lt; <strong>PartialType</strong> (by extension)</td>
+        <td><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ExpressionType&quot; type definition could not be found.');">ExpressionType</a></span> &lt; <strong>PartialType</strong> (by extension)</td>
       </tr>
       <tr>
         <th>Sub-types:</th>
         <td>None</td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="properties">
-      <tbody><tr>
+      <tr>
         <th>Name</th>
         <td>PartialType</td>
       </tr>
@@ -1903,15 +1373,15 @@ setState('type_PartialReferenceType_scbox', false);
       Specification of partial evaluation routine.
     </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="type_PartialType_xibox_button" class="boxControl" onclick="switchState('type_PartialType_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
+      <tr>
+        <th><input type="button" id="type_PartialType_xibox_button" class="boxControl" onclick="switchState('type_PartialType_xibox'); return false;" style="display: none"/> XML Instance Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="type_PartialType_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;...<br><span style="margin-left: 0.5em;" class="newFields"> partial_id="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span>&gt; <br><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"ExpressionType" type definition could not be found.');">ExpressionType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/...&gt;</div>
+          <div id="type_PartialType_xibox" class="box">
+            <div style="margin-left: 0em">&lt;...<br/><span style="margin-left: 0.5em" class="newFields"> partial_id=&quot;<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>&quot;</span><br/><span style="margin-left: 0.5em" class="newFields"> partial_type=&quot;<span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;PartialTypeType&quot; type definition." href="#type_PartialTypeType">PartialTypeType</a></span> <span class="occurs">[0..1]</span>&quot;</span>&gt; <br/><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ExpressionType&quot; type definition could not be found.');">ExpressionType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/...&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -1920,15 +1390,15 @@ setState('type_PartialType_xibox', true);
 </script>
         </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="type_PartialType_scbox_button" class="boxControl" onclick="switchState('type_PartialType_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
+      <tr>
+        <th><input type="button" id="type_PartialType_scbox_button" class="boxControl" onclick="switchState('type_PartialType_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="type_PartialType_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>="<span class="scContent">PartialType</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:complexContent</span>&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"ExpressionType" type definition could not be found.');">ExpressionType</a></span></span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">partial_id</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div>&lt;/<span class="scTag">xsd:extension</span>&gt;</div>&lt;/<span class="scTag">xsd:complexContent</span>&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
+          <div id="type_PartialType_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>=&quot;<span class="scContent">PartialType</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:complexContent</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:extension</span> <span class="scTag">base</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;ExpressionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ExpressionType&quot; type definition could not be found.');">ExpressionType</a></span></span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>=&quot;<span class="scContent">partial_id</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>&quot; <span class="scTag">use</span>=&quot;<span class="scContent">required</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>=&quot;<span class="scContent">partial_type</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xaifii" title="Find out namespace of 'xaifii' prefix">xaifii</a>:<a title="Jump to &quot;PartialTypeType&quot; type definition." href="#type_PartialTypeType">PartialTypeType</a></span></span>&quot; <span class="scTag">use</span>=&quot;<span class="scContent">optional</span>&quot; <span class="scTag">default</span>=&quot;<span class="scContent">nonlinear</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:extension</span>&gt;</div>&lt;/<span class="scTag">xsd:complexContent</span>&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -1937,81 +1407,14 @@ setState('type_PartialType_scbox', false);
 </script>
         </td>
       </tr>
-    </tbody></table>
-    <div style="text-align: right;">
+    </table>
+    <div style="text-align:right">
       <a href="#top">top</a>
     </div>
-    <hr>
-    <h3>Complex Type: <a name="type_ResultReferenceType" class="name">ResultReferenceType</a></h3>
-    <table class="hierarchy">
-      <tbody><tr>
-        <th>Super-types:</th>
-        <td><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span> &lt; <strong>ResultReferenceType</strong> (by extension)</td>
-      </tr>
-      <tr>
-        <th>Sub-types:</th>
-        <td>None</td>
-      </tr>
-    </tbody></table>
-    <table class="properties">
-      <tbody><tr>
-        <th>Name</th>
-        <td>ResultReferenceType</td>
-      </tr>
-      <tr>
-        <th>
-          <a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
-        </th>
-        <td>no</td>
-      </tr>
-      <tr>
-        <th>Documentation</th>
-        <td>
-      Reference to one of the results an intrinsic function.
-    </td>
-      </tr>
-    </tbody></table>
-    <table class="sample">
-      <tbody><tr>
-        <th><input type="button" id="type_ResultReferenceType_xibox_button" class="boxControl" onclick="switchState('type_ResultReferenceType_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="type_ResultReferenceType_xibox" class="box" style="display: block;">
-            <div style="margin-left: 0em;">&lt;...<br><span style="margin-left: 0.5em;" class="newFields"> ref="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[0..1]</span>"</span>&gt; <br><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div>&lt;/...&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('type_ResultReferenceType_xibox', true);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="type_ResultReferenceType_scbox_button" class="boxControl" onclick="switchState('type_ResultReferenceType_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
-      </tr>
-      <tr>
-        <td>
-          <div id="type_ResultReferenceType_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>="<span class="scContent">ResultReferenceType</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:complexContent</span>&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a href="#ns_xaif" title="Find out namespace of 'xaif' prefix">xaif</a>:<a title="&quot;VertexType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('"VertexType" type definition could not be found.');">VertexType</a></span></span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">ref</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>" <span class="scTag">use</span>="<span class="scContent">optional</span>" <span class="scTag">default</span>="<span class="scContent">1</span>"/&gt;</div>&lt;/<span class="scTag">xsd:extension</span>&gt;</div>&lt;/<span class="scTag">xsd:complexContent</span>&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
-          </div>
-          <script type="text/javascript">
-<!--
-setState('type_ResultReferenceType_scbox', false);
-// -->
-</script>
-        </td>
-      </tr>
-    </tbody></table>
-    <div style="text-align: right;">
-      <a href="#top">top</a>
-    </div>
-    <hr>
+    <hr/>
     <h3>Simple Type: <a name="type_InlinableIntrinsicType" class="name">InlinableIntrinsicType</a></h3>
     <table class="hierarchy">
-      <tbody><tr>
+      <tr>
         <th>Super-types:</th>
         <td><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> &lt; <strong>InlinableIntrinsicType</strong> (by restriction)</td>
       </tr>
@@ -2019,9 +1422,9 @@ setState('type_ResultReferenceType_scbox', false);
         <th>Sub-types:</th>
         <td>None</td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="properties">
-      <tbody><tr>
+      <tr>
         <th>Name</th>
         <td>InlinableIntrinsicType</td>
       </tr>
@@ -2032,7 +1435,7 @@ setState('type_ResultReferenceType_scbox', false);
             <li>Built-in XSD Type: string</li>
           </ul>
           <ul>
-            <li><em>value</em> = {'builtin'}</li>
+            <li><em>value</em> = {'builtin'|'user_defined'}</li>
           </ul>
         </td>
       </tr>
@@ -2042,15 +1445,15 @@ setState('type_ResultReferenceType_scbox', false);
       Types of intrinsic functions known in XAIF.
     </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="type_InlinableIntrinsicType_scbox_button" class="boxControl" onclick="switchState('type_InlinableIntrinsicType_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
+      <tr>
+        <th><input type="button" id="type_InlinableIntrinsicType_scbox_button" class="boxControl" onclick="switchState('type_InlinableIntrinsicType_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="type_InlinableIntrinsicType_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:simpleType</span> <span class="scTag">name</span>="<span class="scContent">InlinableIntrinsicType</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:restriction</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span></span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>="<span class="scContent">builtin</span>"/&gt;</div>&lt;/<span class="scTag">xsd:restriction</span>&gt;</div>&lt;/<span class="scTag">xsd:simpleType</span>&gt;</div>
+          <div id="type_InlinableIntrinsicType_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:simpleType</span> <span class="scTag">name</span>=&quot;<span class="scContent">InlinableIntrinsicType</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:restriction</span> <span class="scTag">base</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span></span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>=&quot;<span class="scContent">builtin</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>=&quot;<span class="scContent">user_defined</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:restriction</span>&gt;</div>&lt;/<span class="scTag">xsd:simpleType</span>&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -2059,14 +1462,14 @@ setState('type_InlinableIntrinsicType_scbox', false);
 </script>
         </td>
       </tr>
-    </tbody></table>
-    <div style="text-align: right;">
+    </table>
+    <div style="text-align:right">
       <a href="#top">top</a>
     </div>
-    <hr>
+    <hr/>
     <h3>Simple Type: <a name="type_LanguageType" class="name">LanguageType</a></h3>
     <table class="hierarchy">
-      <tbody><tr>
+      <tr>
         <th>Super-types:</th>
         <td><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> &lt; <strong>LanguageType</strong> (by restriction)</td>
       </tr>
@@ -2074,9 +1477,9 @@ setState('type_InlinableIntrinsicType_scbox', false);
         <th>Sub-types:</th>
         <td>None</td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="properties">
-      <tbody><tr>
+      <tr>
         <th>Name</th>
         <td>LanguageType</td>
       </tr>
@@ -2097,15 +1500,15 @@ setState('type_InlinableIntrinsicType_scbox', false);
       Programming languages known in XAIF
     </td>
       </tr>
-    </tbody></table>
+    </table>
     <table class="schemaComponent">
-      <tbody><tr>
-        <th><input type="button" id="type_LanguageType_scbox_button" class="boxControl" onclick="switchState('type_LanguageType_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
+      <tr>
+        <th><input type="button" id="type_LanguageType_scbox_button" class="boxControl" onclick="switchState('type_LanguageType_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
       </tr>
       <tr>
         <td>
-          <div id="type_LanguageType_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:simpleType</span> <span class="scTag">name</span>="<span class="scContent">LanguageType</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:restriction</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span></span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>="<span class="scContent">C</span>"/&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>="<span class="scContent">CPP</span>"/&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>="<span class="scContent">F77</span>"/&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>="<span class="scContent">F90</span>"/&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>="<span class="scContent">F95</span>"/&gt;</div>&lt;/<span class="scTag">xsd:restriction</span>&gt;</div>&lt;/<span class="scTag">xsd:simpleType</span>&gt;</div>
+          <div id="type_LanguageType_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:simpleType</span> <span class="scTag">name</span>=&quot;<span class="scContent">LanguageType</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:restriction</span> <span class="scTag">base</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span></span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>=&quot;<span class="scContent">C</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>=&quot;<span class="scContent">CPP</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>=&quot;<span class="scContent">F77</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>=&quot;<span class="scContent">F90</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>=&quot;<span class="scContent">F95</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:restriction</span>&gt;</div>&lt;/<span class="scTag">xsd:simpleType</span>&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
@@ -2114,17 +1517,72 @@ setState('type_LanguageType_scbox', false);
 </script>
         </td>
       </tr>
-    </tbody></table>
-    <div style="text-align: right;">
+    </table>
+    <div style="text-align:right">
       <a href="#top">top</a>
     </div>
-    <hr>
+    <hr/>
+    <h3>Simple Type: <a name="type_PartialTypeType" class="name">PartialTypeType</a></h3>
+    <table class="hierarchy">
+      <tr>
+        <th>Super-types:</th>
+        <td><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> &lt; <strong>PartialTypeType</strong> (by restriction)</td>
+      </tr>
+      <tr>
+        <th>Sub-types:</th>
+        <td>None</td>
+      </tr>
+    </table>
+    <table class="properties">
+      <tr>
+        <th>Name</th>
+        <td>PartialTypeType</td>
+      </tr>
+      <tr>
+        <th>Content</th>
+        <td>
+          <ul>
+            <li>Built-in XSD Type: string</li>
+          </ul>
+          <ul>
+            <li><em>value</em> = {'passive'|'linear_one'|'linear_minus_one'|'linear'|'nonlinear'}</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Documentation</th>
+        <td>
+      Types of local partial derivatives
+    </td>
+      </tr>
+    </table>
+    <table class="schemaComponent">
+      <tr>
+        <th><input type="button" id="type_PartialTypeType_scbox_button" class="boxControl" onclick="switchState('type_PartialTypeType_scbox'); return false;" style="display: none"/> Schema Component Representation</th>
+      </tr>
+      <tr>
+        <td>
+          <div id="type_PartialTypeType_scbox" class="box">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xsd:simpleType</span> <span class="scTag">name</span>=&quot;<span class="scContent">PartialTypeType</span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:restriction</span> <span class="scTag">base</span>=&quot;<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span></span>&quot;&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>=&quot;<span class="scContent">passive</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>=&quot;<span class="scContent">linear_one</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>=&quot;<span class="scContent">linear_minus_one</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>=&quot;<span class="scContent">linear</span>&quot;/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xsd:enumeration</span> <span class="scTag">value</span>=&quot;<span class="scContent">nonlinear</span>&quot;/&gt;</div>&lt;/<span class="scTag">xsd:restriction</span>&gt;</div>&lt;/<span class="scTag">xsd:simpleType</span>&gt;</div>
+          </div>
+          <script type="text/javascript">
+<!--
+setState('type_PartialTypeType_scbox', false);
+// -->
+</script>
+        </td>
+      </tr>
+    </table>
+    <div style="text-align:right">
+      <a href="#top">top</a>
+    </div>
+    <hr/>
     <div id="legend">
       <h2>
         <a name="Legend">Legend</a>
       </h2>
-      <table style="padding: 0px;">
-        <tbody><tr>
+      <table style="padding:0px">
+        <tr>
           <td>
             <span class="header">Complex Type:</span>
           </td>
@@ -2134,30 +1592,30 @@ setState('type_LanguageType_scbox', false);
         </tr>
         <tr>
           <td>
-            <span class="legendhint" style="margin-left: 0em; white-space: nowrap;">Schema Component Type</span>
+            <span class="legendhint" style="margin-left: 0em; white-space: nowrap">Schema Component Type</span>
           </td>
           <td>
-            <span class="legendhint" style="margin-left: 0em; white-space: nowrap;">Schema Component Name</span>
+            <span class="legendhint" style="margin-left: 0em; white-space: nowrap">Schema Component Name</span>
           </td>
         </tr>
-      </tbody></table>
+      </table>
       <table class="hierarchy">
-        <tbody><tr>
+        <tr>
           <th>Super-types:</th>
-          <td><span class="type" style="color: rgb(0, 0, 255); text-decoration: underline;">Address</span> &lt; <span class="current">AusAddress</span> (by extension)</td>
+          <td><span class="type" style="color: #0000FF; text-decoration:underline;">Address</span> &lt; <span class="current">AusAddress</span> (by extension)</td>
         </tr>
         <tr>
           <th>Sub-types:</th>
           <td>
             <ul>
-              <li><span class="type" style="color: rgb(0, 0, 255); text-decoration: underline;">QLDAddress</span> (by restriction)</li>
+              <li><span class="type" style="color: #0000FF; text-decoration:underline;">QLDAddress</span> (by restriction)</li>
             </ul>
           </td>
         </tr>
-      </tbody></table>
+      </table>
       <div class="legendhint">If this schema component is a type definition, its type hierarchy is shown in a gray-bordered box.</div>
       <table class="properties">
-        <tbody><tr>
+        <tr>
           <th>Name</th>
           <td>AusAddress</td>
         </tr>
@@ -2167,147 +1625,112 @@ setState('type_LanguageType_scbox', false);
           </th>
           <td>no</td>
         </tr>
-      </tbody></table>
+      </table>
       <div class="legendhint">The table above displays the properties of this schema component.</div>
       <table class="sample">
-        <tbody><tr>
+        <tr>
           <th>XML Instance Representation</th>
         </tr>
         <tr>
           <td>
-            <div class="box"><span style="margin-left: 0em;">&lt;...</span><span class="newFields"><span> country="<span class="fixed">Australia</span>"</span></span>&gt; <br><span style="margin-left: 1.5em;" class="inherited">&lt;unitNo&gt; <span class="type">string</span> &lt;/unitNo&gt; <span class="occurs">[0..1]</span></span><br><span style="margin-left: 1.5em;" class="inherited">&lt;houseNo&gt; <span class="type">string</span> &lt;/houseNo&gt; <span class="occurs">[1]</span></span><br><span style="margin-left: 1.5em;" class="inherited">&lt;street&gt; <span class="type">string</span> &lt;/street&gt; <span class="occurs">[1]</span></span><br><span class="group" style="margin-left: 1.5em;">Start <a title="Look up 'Choice' in glossary" href="#term_Choice">Choice</a><span class="occurs">[1]</span></span><br><span style="margin-left: 3em;" class="inherited">&lt;city&gt; <span class="type">string</span> &lt;/city&gt; <span class="occurs">[1]</span></span><br><span style="margin-left: 3em;" class="inherited">&lt;town&gt; <span class="type">string</span> &lt;/town&gt; <span class="occurs">[1]</span></span><br><span class="group" style="margin-left: 1.5em;">End Choice</span><br><span class="newFields"><span style="margin-left: 1.5em;">&lt;state&gt; <span class="type" style="text-decoration: underline;">AusStates</span> &lt;/state&gt; <span class="occurs">[1]</span></span><br><span style="margin-left: 1.5em;">&lt;postcode&gt; <span class="constraint">string &lt;&lt;<em>pattern</em> = [1-9][0-9]{3}&gt;&gt;</span> &lt;/postcode&gt; <span class="occurs">[1]</span><a href="javascript:void(0)" title="View Documentation" class="documentation" onclick="docArray = new Array('Post code must be a four-digit number.'); viewDocumentation('Element', 'postcode', docArray);">?</a></span><br></span><span style="margin-left: 0em;">&lt;/...&gt;</span><br></div>
+            <div class="box"><span style="margin-left: 0em">&lt;...</span><span class="newFields"><span> country=&quot;<span class="fixed">Australia</span>&quot;</span></span>&gt; <br/><span style="margin-left: 1.5em" class="inherited">&lt;unitNo&gt; <span class="type">string</span> &lt;/unitNo&gt; <span class="occurs">[0..1]</span></span><br/><span style="margin-left: 1.5em" class="inherited">&lt;houseNo&gt; <span class="type">string</span> &lt;/houseNo&gt; <span class="occurs">[1]</span></span><br/><span style="margin-left: 1.5em" class="inherited">&lt;street&gt; <span class="type">string</span> &lt;/street&gt; <span class="occurs">[1]</span></span><br/><span class="group" style="margin-left: 1.5em">Start <a title="Look up 'Choice' in glossary" href="#term_Choice">Choice</a><span class="occurs">[1]</span></span><br/><span style="margin-left: 3em" class="inherited">&lt;city&gt; <span class="type">string</span> &lt;/city&gt; <span class="occurs">[1]</span></span><br/><span style="margin-left: 3em" class="inherited">&lt;town&gt; <span class="type">string</span> &lt;/town&gt; <span class="occurs">[1]</span></span><br/><span class="group" style="margin-left: 1.5em">End Choice</span><br/><span class="newFields"><span style="margin-left: 1.5em">&lt;state&gt; <span class="type" style="text-decoration:underline;">AusStates</span> &lt;/state&gt; <span class="occurs">[1]</span></span><br/><span style="margin-left: 1.5em">&lt;postcode&gt; <span class="constraint">string &lt;&lt;<em>pattern</em> = [1-9][0-9]{3}&gt;&gt;</span> &lt;/postcode&gt; <span class="occurs">[1]</span><a href="javascript:void(0)" title="View Documentation" class="documentation" onclick="docArray = new Array('Post code must be a four-digit number.'); viewDocumentation('Element', 'postcode', docArray);">?</a></span><br/></span><span style="margin-left: 0em">&lt;/...&gt;</span><br/></div>
           </td>
         </tr>
-      </tbody></table>
+      </table>
       <div class="legendhint">
         <p>The XML Instance Representation table above shows the schema component's content as an XML instance.</p>
         <ul>
           <li>The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].</li>
           <li>Model group information are shown in gray, e.g. Start Choice ... End Choice.</li>
-          <li>For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in <span style="font-weight: bold;">bold</span>.</li>
-          <li>If an element/attribute has a fixed value, the fixed value is shown in green, e.g. country="Australia".</li>
+          <li>For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in <span style="font-weight: bold">bold</span>.</li>
+          <li>If an element/attribute has a fixed value, the fixed value is shown in green, e.g. country=&quot;Australia&quot;.</li>
           <li>Otherwise, the type of the element/attribute is displayed.<ul><li>If the element/attribute's type is in the schema, a link is provided to it.</li><li>For local simple type definitions, the constraints are displayed in angle brackets, e.g. &lt;&lt;<em>pattern</em> = [1-9][0-9]{3}&gt;&gt;.</li></ul></li>
-          <li>If
-a local element/attribute has documentation, it will be displayed in a
-window that pops up when the question mark inside the attribute or next
-to the element is clicked, e.g. &lt;postcode&gt;.</li>
+          <li>If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked, e.g. &lt;postcode&gt;.</li>
         </ul>
       </div>
       <table class="schemaComponent">
-        <tbody><tr>
+        <tr>
           <th>Schema Component Representation</th>
         </tr>
         <tr>
           <td>
             <div class="box">
-              <span style="margin-left: 0em;">&lt;<span class="scTag">complexType</span><span class="scTag">name</span>="<span class="scContent">AusAddress</span>"&gt;</span>
-              <br>
-              <span style="margin-left: 1.5em;">&lt;<span class="scTag">complexContent</span>&gt;</span>
-              <br>
-              <span style="margin-left: 3em;">&lt;<span class="scTag">extension</span><span class="scTag">base</span>="<span class="scContent"><span class="type" style="text-decoration: underline;">Address</span></span>"&gt;</span>
-              <br>
-              <span style="margin-left: 4.5em;">&lt;<span class="scTag">sequence</span>&gt;</span>
-              <br>
-              <span style="margin-left: 6em;">&lt;<span class="scTag">element</span><span class="scTag">name</span>="<span class="scContent">state</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type" style="text-decoration: underline;">AusStates</span></span>"/&gt;</span>
-              <br>
-              <span style="margin-left: 6em;">&lt;<span class="scTag">element</span><span class="scTag">name</span>="<span class="scContent">postcode</span>"&gt;</span>
-              <br>
-              <span style="margin-left: 7.5em;">&lt;<span class="scTag">simpleType</span>&gt;</span>
-              <br>
-              <span style="margin-left: 9em;">&lt;<span class="scTag">restriction</span><span class="scTag">base</span>="<span class="scContent"><span class="type">string</span></span>"&gt;</span>
-              <br>
-              <span style="margin-left: 10.5em;">&lt;<span class="scTag">pattern</span><span class="scTag">value</span>="<span class="scContent">[1-9][0-9]{3}</span>"/&gt;</span>
-              <br>
-              <span style="margin-left: 9em;">&lt;/<span class="scTag">restriction</span>&gt;</span>
-              <br>
-              <span style="margin-left: 7.5em;">&lt;/<span class="scTag">simpleType</span>&gt;</span>
-              <br>
-              <span style="margin-left: 6em;">&lt;/<span class="scTag">element</span>&gt;</span>
-              <br>
-              <span style="margin-left: 4.5em;">&lt;/<span class="scTag">sequence</span>&gt;</span>
-              <br>
-              <span style="margin-left: 4.5em;">&lt;<span class="scTag">attribute</span><span class="scTag">name</span>="<span class="scContent">country</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type">string</span></span>" <span class="scTag">fixed</span>="<span class="scContent">Australia</span>"/&gt;</span>
-              <br>
-              <span style="margin-left: 3em;">&lt;/<span class="scTag">extension</span>&gt;</span>
-              <br>
-              <span style="margin-left: 1.5em;">&lt;/<span class="scTag">complexContent</span>&gt;</span>
-              <br>
-              <span style="margin-left: 0em;">&lt;/<span class="scTag">complexType</span>&gt;</span>
-              <br>
+              <span style="margin-left: 0em">&lt;<span class="scTag">complexType</span><span class="scTag">name</span>=&quot;<span class="scContent">AusAddress</span>&quot;&gt;</span>
+              <br/>
+              <span style="margin-left: 1.5em">&lt;<span class="scTag">complexContent</span>&gt;</span>
+              <br/>
+              <span style="margin-left: 3em">&lt;<span class="scTag">extension</span><span class="scTag">base</span>=&quot;<span class="scContent"><span class="type" style="text-decoration:underline;">Address</span></span>&quot;&gt;</span>
+              <br/>
+              <span style="margin-left: 4.5em">&lt;<span class="scTag">sequence</span>&gt;</span>
+              <br/>
+              <span style="margin-left: 6em">&lt;<span class="scTag">element</span><span class="scTag">name</span>=&quot;<span class="scContent">state</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type" style="text-decoration:underline;">AusStates</span></span>&quot;/&gt;</span>
+              <br/>
+              <span style="margin-left: 6em">&lt;<span class="scTag">element</span><span class="scTag">name</span>=&quot;<span class="scContent">postcode</span>&quot;&gt;</span>
+              <br/>
+              <span style="margin-left: 7.5em">&lt;<span class="scTag">simpleType</span>&gt;</span>
+              <br/>
+              <span style="margin-left: 9em">&lt;<span class="scTag">restriction</span><span class="scTag">base</span>=&quot;<span class="scContent"><span class="type">string</span></span>&quot;&gt;</span>
+              <br/>
+              <span style="margin-left: 10.5em">&lt;<span class="scTag">pattern</span><span class="scTag">value</span>=&quot;<span class="scContent">[1-9][0-9]{3}</span>&quot;/&gt;</span>
+              <br/>
+              <span style="margin-left: 9em">&lt;/<span class="scTag">restriction</span>&gt;</span>
+              <br/>
+              <span style="margin-left: 7.5em">&lt;/<span class="scTag">simpleType</span>&gt;</span>
+              <br/>
+              <span style="margin-left: 6em">&lt;/<span class="scTag">element</span>&gt;</span>
+              <br/>
+              <span style="margin-left: 4.5em">&lt;/<span class="scTag">sequence</span>&gt;</span>
+              <br/>
+              <span style="margin-left: 4.5em">&lt;<span class="scTag">attribute</span><span class="scTag">name</span>=&quot;<span class="scContent">country</span>&quot; <span class="scTag">type</span>=&quot;<span class="scContent"><span class="type">string</span></span>&quot; <span class="scTag">fixed</span>=&quot;<span class="scContent">Australia</span>&quot;/&gt;</span>
+              <br/>
+              <span style="margin-left: 3em">&lt;/<span class="scTag">extension</span>&gt;</span>
+              <br/>
+              <span style="margin-left: 1.5em">&lt;/<span class="scTag">complexContent</span>&gt;</span>
+              <br/>
+              <span style="margin-left: 0em">&lt;/<span class="scTag">complexType</span>&gt;</span>
+              <br/>
             </div>
           </td>
         </tr>
-      </tbody></table>
-      <div class="legendhint">The
-Schema Component Representation table above displays the underlying XML
-representation of the schema component. (Annotations are not shown.)</div>
-      <div style="text-align: right;">
+      </table>
+      <div class="legendhint">The Schema Component Representation table above displays the underlying XML representation of the schema component. (Annotations are not shown.)</div>
+      <div style="text-align:right">
         <a href="#top">top</a>
       </div>
-      <hr>
+      <hr/>
     </div>
     <div id="glossary">
       <h2>
         <a name="Glossary">Glossary</a>
       </h2>
-      <p><span class="glossaryTerm"><a name="term_Abstract">Abstract</a> </span>(Applies
-to complex type definitions and element declarations). An abstract
-element or complex type cannot used to validate an element instance. If
-there is a reference to an abstract element, only element declarations
-that can substitute the abstract element can be used to validate the
-instance. For references to abstract type definitions, only derived
-types can be used.</p>
+      <p><span class="glossaryTerm"><a name="term_Abstract">Abstract</a> </span>(Applies to complex type definitions and element declarations). An abstract element or complex type cannot used to validate an element instance. If there is a reference to an abstract element, only element declarations that can substitute the abstract element can be used to validate the instance. For references to abstract type definitions, only derived types can be used.</p>
       <p><span class="glossaryTerm"><a name="term_All">All Model Group</a> </span>Child elements can be provided <em>in any order</em> in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-all" href="http://www.w3.org/TR/xmlschema-1/#element-all">http://www.w3.org/TR/xmlschema-1/#element-all</a>.</p>
       <p><span class="glossaryTerm"><a name="term_Choice">Choice Model Group</a> </span><em>Only one</em> from the list of child elements and model groups can be provided in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-choice" href="http://www.w3.org/TR/xmlschema-1/#element-choice">http://www.w3.org/TR/xmlschema-1/#element-choice</a>.</p>
-      <p><span class="glossaryTerm"><a name="term_CollapseWS">Collapse Whitespace Policy</a> </span>Replace
-tab, line feed, and carriage return characters with space character
-(Unicode character 32). Then, collapse contiguous sequences of space
-characters into single space character, and remove leading and trailing
-space characters.</p>
-      <p><span class="glossaryTerm"><a name="term_ElemBlock">Disallowed Substitutions</a> </span>(Applies to element declarations). If <em>substitution</em> is specified, then <a title="Look up 'substitution group' in glossary" href="#term_SubGroup">substitution group</a> members cannot be used in place of the given element declaration to validate element instances. If <em>derivation methods</em>,
-e.g. extension, restriction, are specified, then the given element
-declaration will not validate element instances that have types derived
-from the element declaration's type using the specified derivation
-methods. Normally, element instances can override their declaration's
-type by specifying an <code>xsi:type</code> attribute.</p>
+      <p><span class="glossaryTerm"><a name="term_CollapseWS">Collapse Whitespace Policy</a> </span>Replace tab, line feed, and carriage return characters with space character (Unicode character 32). Then, collapse contiguous sequences of space characters into single space character, and remove leading and trailing space characters.</p>
+      <p><span class="glossaryTerm"><a name="term_ElemBlock">Disallowed Substitutions</a> </span>(Applies to element declarations). If <em>substitution</em> is specified, then <a title="Look up 'substitution group' in glossary" href="#term_SubGroup">substitution group</a> members cannot be used in place of the given element declaration to validate element instances. If <em>derivation methods</em>, e.g. extension, restriction, are specified, then the given element declaration will not validate element instances that have types derived from the element declaration's type using the specified derivation methods. Normally, element instances can override their declaration's type by specifying an <code>xsi:type</code> attribute.</p>
       <p><span class="glossaryTerm"><a name="term_Key">Key Constraint</a> </span>Like <a title="Look up 'Uniqueness Constraint' in glossary" href="#term_Unique">Uniqueness Constraint</a>, but additionally requires that the specified value(s) must be provided. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p>
       <p><span class="glossaryTerm"><a name="term_KeyRef">Key Reference Constraint</a> </span>Ensures that the specified value(s) must match value(s) from a <a title="Look up 'Key Constraint' in glossary" href="#term_Key">Key Constraint</a> or <a title="Look up 'Uniqueness Constraint' in glossary" href="#term_Unique">Uniqueness Constraint</a>. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p>
-      <p><span class="glossaryTerm"><a name="term_ModelGroup">Model Group</a> </span>Groups
-together element content, specifying the order in which the element
-content can occur and the number of times the group of element content
-may be repeated. See: <a title="http://www.w3.org/TR/xmlschema-1/#Model_Groups" href="http://www.w3.org/TR/xmlschema-1/#Model_Groups">http://www.w3.org/TR/xmlschema-1/#Model_Groups</a>.</p>
+      <p><span class="glossaryTerm"><a name="term_ModelGroup">Model Group</a> </span>Groups together element content, specifying the order in which the element content can occur and the number of times the group of element content may be repeated. See: <a title="http://www.w3.org/TR/xmlschema-1/#Model_Groups" href="http://www.w3.org/TR/xmlschema-1/#Model_Groups">http://www.w3.org/TR/xmlschema-1/#Model_Groups</a>.</p>
       <p><span class="glossaryTerm"><a name="term_Nillable">Nillable</a> </span>(Applies to element declarations). If an element declaration is nillable, instances can use the <code>xsi:nil</code> attribute. The <code>xsi:nil</code> attribute is the boolean attribute, <em>nil</em>, from the <em>http://www.w3.org/2001/XMLSchema-instance</em> namespace. If an element instance has an <code>xsi:nil</code> attribute set to true, it can be left empty, even though its element declaration may have required content.</p>
-      <p><span class="glossaryTerm"><a name="term_Notation">Notation</a> </span>A
-notation is used to identify the format of a piece of data. Values of
-elements and attributes that are of type, NOTATION, must come from the
-names of declared notations. See: <a title="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations" href="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations">http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations</a>.</p>
+      <p><span class="glossaryTerm"><a name="term_Notation">Notation</a> </span>A notation is used to identify the format of a piece of data. Values of elements and attributes that are of type, NOTATION, must come from the names of declared notations. See: <a title="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations" href="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations">http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations</a>.</p>
       <p><span class="glossaryTerm"><a name="term_PreserveWS">Preserve Whitespace Policy</a> </span>Preserve whitespaces exactly as they appear in instances.</p>
       <p><span class="glossaryTerm"><a name="term_TypeFinal">Prohibited Derivations</a> </span>(Applies to type definitions). Derivation methods that cannot be used to create sub-types from a given type definition.</p>
-      <p><span class="glossaryTerm"><a name="term_TypeBlock">Prohibited Substitutions</a> </span>(Applies
-to complex type definitions). Prevents sub-types that have been derived
-using the specified derivation methods from validating element
-instances in place of the given type definition.</p>
+      <p><span class="glossaryTerm"><a name="term_TypeBlock">Prohibited Substitutions</a> </span>(Applies to complex type definitions). Prevents sub-types that have been derived using the specified derivation methods from validating element instances in place of the given type definition.</p>
       <p><span class="glossaryTerm"><a name="term_ReplaceWS">Replace Whitespace Policy</a> </span>Replace tab, line feed, and carriage return characters with space character (Unicode character 32).</p>
       <p><span class="glossaryTerm"><a name="term_Sequence">Sequence Model Group</a> </span>Child elements and model groups must be provided <em>in the specified order</em> in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-sequence" href="http://www.w3.org/TR/xmlschema-1/#element-sequence">http://www.w3.org/TR/xmlschema-1/#element-sequence</a>.</p>
       <p><span class="glossaryTerm"><a name="term_SubGroup">Substitution Group</a> </span>Elements that are <em>members</em> of a substitution group can be used wherever the <em>head</em> element of the substitution group is referenced.</p>
-      <p><span class="glossaryTerm"><a name="term_ElemFinal">Substitution Group Exclusions</a> </span>(Applies
-to element declarations). Prohibits element declarations from
-nominating themselves as being able to substitute a given element
-declaration, if they have types that are derived from the original
-element's type using the specified derivation methods.</p>
-      <p><span class="glossaryTerm"><a name="term_TargetNS">Target Namespace</a> </span>The
-target namespace identifies the namespace that components in this
-schema belongs to. If no target namespace is provided, then the schema
-components do not belong to any namespace.</p>
+      <p><span class="glossaryTerm"><a name="term_ElemFinal">Substitution Group Exclusions</a> </span>(Applies to element declarations). Prohibits element declarations from nominating themselves as being able to substitute a given element declaration, if they have types that are derived from the original element's type using the specified derivation methods.</p>
+      <p><span class="glossaryTerm"><a name="term_TargetNS">Target Namespace</a> </span>The target namespace identifies the namespace that components in this schema belongs to. If no target namespace is provided, then the schema components do not belong to any namespace.</p>
       <p><span class="glossaryTerm"><a name="term_Unique">Uniqueness Constraint</a> </span>Ensures uniqueness of an element/attribute value, or a combination of values, within a specified scope. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p>
-      <div style="text-align: right;">
+      <div style="text-align:right">
         <a href="#top">top</a>
       </div>
-      <hr>
+      <hr/>
     </div>
     <p style="font-size: 8pt;">Generated by <a href="http://titanium.dstc.edu.au/xml/xs3p">xs3p</a>. Last modified: <script type="text/javascript">
 <!--
 document.write(document.lastModified);
 // -->
-</script>January 1, 1970 GMT</p>
-  </body></html>
+</script></p>
+  </body>
+</html>
