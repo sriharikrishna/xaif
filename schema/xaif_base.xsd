@@ -311,6 +311,15 @@
 <!-- DU/UD Chains                                                -->
 <!-- *********************************************************** -->
 
+<xsd:complexType name="StatementIdRefType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+	a reference to a statementId in an Assignment
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:attribute name="idRef" type="xsd:string"/>
+</xsd:complexType>
+
 <xsd:complexType name="DUUDSetType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
@@ -324,7 +333,7 @@
   </xsd:annotation>
 
   <xsd:sequence>
-      <xsd:element name="StatementId" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="StatementId" type="StatementIdRefType" minOccurs="0" maxOccurs="unbounded"/>
   </xsd:sequence>
   <xsd:attribute name="key" type="xsd:nonNegativeInteger"/>
 </xsd:complexType>

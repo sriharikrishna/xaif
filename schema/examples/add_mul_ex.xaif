@@ -45,20 +45,20 @@ end subroutine
     <xaif:DUUDSet key="0">
     </xaif:DUUDSet>
     <xaif:DUUDSet key="1">
-      <xaif:StatementId>"sage2"</xaif:StatementId>
-      <xaif:StatementId>"sage3"</xaif:StatementId>
+      <xaif:StatementId idRef="sage2"/>
+      <xaif:StatementId idRef="sage3"/>
     </xaif:DUUDSet>
     <xaif:DUUDSet key="2">
-      <xaif:StatementId>"ass1"</xaif:StatementId>
+      <xaif:StatementId idRef="ass1"/>
     </xaif:DUUDSet>
     <xaif:DUUDSet key="3">
-      <xaif:StatementId>"sage3"</xaif:StatementId>
+      <xaif:StatementId idRef="sage3"/>
     </xaif:DUUDSet>
     <xaif:DUUDSet key="4">
-      <xaif:StatementId>"ass1"</xaif:StatementId>
+      <xaif:StatementId idRef="ass1"/>
     </xaif:DUUDSet>
     <xaif:DUUDSet key="5">
-      <xaif:StatementId>"sage2"</xaif:StatementId>
+      <xaif:StatementId idRef="sage2"/>
     </xaif:DUUDSet>
   </xaif:DUUDSetList>
 
