@@ -106,6 +106,11 @@ class XAIFContentHandler(ContentHandler):
     if self.nonsname == 'ControlFlowGraph':
       self.cfg = self.parseVertexElement(attrs,attrs.get('vertex_id'), self.parser.callGraph)
       #self.parser.callGraph.addVertex(v)
+      self.parentVertex = v
+
+    if self.nonsname == 'ArgumentSymbolReference':
+      v = self.parseElement(attrs)
+      self.parentVertex.argumentList.append(v)
 
     if self.nonsname == 'Assignment':
       v = self.parseVertexElement(attrs,attrs.get('statement_id'))
