@@ -36,6 +36,11 @@
 
   </xaif:ScopeHierarchy>
 
+  <xaif:AliasSetList>
+    <xaif:AliasSet key="0">
+    </xaif:AliasSet>
+  </xaif:AliasSetList>
+
   <xaif:DUUDSetList>
     <xaif:DUUDSet key="0">
     </xaif:DUUDSet>
