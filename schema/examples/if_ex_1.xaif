@@ -68,7 +68,7 @@ end subroutine
        </xaif:Condition>
      </xaif:If>
 
-     <xaif:BasicBlock vertex_id="3">
+     <xaif:BasicBlock vertex_id="3" scope_id="2">
 
        <xaif:Assignment statement_id="sage_1">   <!-- t1=sin(x)*y -->
          <xaif:AssignmentLHS>
@@ -131,7 +131,7 @@ end subroutine
 
      </xaif:BasicBlock>
  
-     <xaif:BasicBlock vertex_id="4">
+     <xaif:BasicBlock vertex_id="4" scope_id="2">
 
        <xaif:Assignment statement_id="sage_2">   <!-- y=cos(x)*y -->
          <xaif:AssignmentLHS>

@@ -1153,7 +1153,7 @@
         </Argument>
       </xaif:SubroutineCall>
 -->
-    <xaif:BasicBlock vertex_id="3">
+    <xaif:BasicBlock vertex_id="3" scope_id="1">
       <!-- sym = box_ini_fields -->
       <xaif:SubroutineCall statement_id="2" scope_id="1" symbol_id="31">
         <xaif:Argument position="1">
@@ -1196,12 +1196,12 @@ STOP>
     </xaif:BasicBlock>
 
 <!-- borrowing this for body of if further below
-    <xaif:BasicBlock vertex_id="4">
+    <xaif:BasicBlock vertex_id="4" scope_id="1">
       <xaif:Marker statement_id="1"/>
     </xaif:BasicBlock>
 -->
 
-    <xaif:BasicBlock vertex_id="5">
+    <xaif:BasicBlock vertex_id="5" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = ILEV2 -->
@@ -1244,7 +1244,7 @@ STOP>
       </xaif:Condition>
     </xaif:If>
 
-    <xaif:BasicBlock vertex_id="8">
+    <xaif:BasicBlock vertex_id="8" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = ILEV1 -->
@@ -1287,7 +1287,7 @@ STOP>
       </xaif:Condition>
     </xaif:If>
 
-    <xaif:BasicBlock vertex_id="4">
+    <xaif:BasicBlock vertex_id="4" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = ILOOP -->
@@ -1317,7 +1317,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="11">
+    <xaif:BasicBlock vertex_id="11" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = IKEY -->
@@ -1463,10 +1463,10 @@ STOP>
     </xaif:BasicBlock>
 
 <!--
-    <xaif:BasicBlock vertex_id="12"/>
+    <xaif:BasicBlock vertex_id="12" scope_id="1"/>
 -->
 
-    <xaif:BasicBlock vertex_id="13">
+    <xaif:BasicBlock vertex_id="13" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = ILEV1 -->
@@ -1486,10 +1486,10 @@ STOP>
     </xaif:BasicBlock>
 
 <!--
-    <xaif:BasicBlock vertex_id="14"/>
+    <xaif:BasicBlock vertex_id="14" scope_id="1"/>
 -->
 
-    <xaif:BasicBlock vertex_id="15">
+    <xaif:BasicBlock vertex_id="15" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = ILEV2 -->
@@ -1508,7 +1508,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="16">
+    <xaif:BasicBlock vertex_id="16" scope_id="1">
 <!--
       <xaif:SubroutineCall statement_id="1" symbol_id="WRITE***">
         <Argument position="1">
@@ -1573,7 +1573,7 @@ STOP>
       <xaif:ArgumentSymbolReference position="1" scope_id="3" symbol_id="1"/>
     </xaif:ArgumentList>
 
-    <xaif:BasicBlock vertex_id="23">
+    <xaif:BasicBlock vertex_id="23" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = L -->
@@ -1599,7 +1599,7 @@ STOP>
       </xaif:Condition>
     </xaif:PreLoop>
 
-    <xaif:BasicBlock vertex_id="25">
+    <xaif:BasicBlock vertex_id="25" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = T -->
@@ -1698,7 +1698,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="26">
+    <xaif:BasicBlock vertex_id="26" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = L -->
@@ -1717,7 +1717,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="27">
+    <xaif:BasicBlock vertex_id="27" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = L -->
@@ -1743,7 +1743,7 @@ STOP>
       </xaif:Condition>
     </xaif:PreLoop>
 
-    <xaif:BasicBlock vertex_id="29">
+    <xaif:BasicBlock vertex_id="29" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = TNEW -->
@@ -1926,7 +1926,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="30">
+    <xaif:BasicBlock vertex_id="30" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = L -->
@@ -1945,7 +1945,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="31">
+    <xaif:BasicBlock vertex_id="31" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = UVEL -->
@@ -1965,7 +1965,7 @@ STOP>
 
     <xaif:Entry vertex_id="18"/>
 
-    <xaif:BasicBlock vertex_id="19">
+    <xaif:BasicBlock vertex_id="19" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = THC_TOT -->
@@ -2309,7 +2309,7 @@ STOP>
       </xaif:Condition>
     </xaif:PreLoop>
 
-    <xaif:BasicBlock vertex_id="21">
+    <xaif:BasicBlock vertex_id="21" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = TSVEC -->
@@ -2330,7 +2330,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="22">
+    <xaif:BasicBlock vertex_id="22" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = I -->
@@ -2381,7 +2381,7 @@ STOP>
 
     <xaif:Entry vertex_id="33"/>
 
-    <xaif:BasicBlock vertex_id="34">
+    <xaif:BasicBlock vertex_id="34" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = L -->
@@ -2393,7 +2393,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="36">
+    <xaif:BasicBlock vertex_id="36" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = RHOLOC -->
@@ -2456,7 +2456,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="37">
+    <xaif:BasicBlock vertex_id="37" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = L -->
@@ -2475,7 +2475,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="38">
+    <xaif:BasicBlock vertex_id="38" scope_id="1">
 	    <!-- RETURN -->
 	    <xaif:Marker statement_id="1"/>
     </xaif:BasicBlock>
@@ -2519,7 +2519,7 @@ STOP>
 
     <xaif:Exit vertex_id="42"/>
 
-    <xaif:BasicBlock vertex_id="41">
+    <xaif:BasicBlock vertex_id="41" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = UVELLOC -->
@@ -2621,7 +2621,7 @@ STOP>
       <xaif:ArgumentSymbolReference position="8" scope_id="4" symbol_id="9"/>
     </xaif:ArgumentList>
 
-    <xaif:BasicBlock vertex_id="45">
+    <xaif:BasicBlock vertex_id="45" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = DFLDDT -->
@@ -2913,7 +2913,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="46">
+    <xaif:BasicBlock vertex_id="46" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = DFLDDT -->
@@ -3207,7 +3207,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="49">
+    <xaif:BasicBlock vertex_id="49" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = FLDNEW -->
@@ -3267,7 +3267,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="50">
+    <xaif:BasicBlock vertex_id="50" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = L -->
@@ -3286,7 +3286,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="51">
+    <xaif:BasicBlock vertex_id="51" scope_id="1">
 	    <!-- RETURN -->
 	    <xaif:Marker statement_id="1"/>
     </xaif:BasicBlock>
@@ -3309,7 +3309,7 @@ STOP>
       </xaif:Condition>
     </xaif:If>
 
-    <xaif:BasicBlock vertex_id="47">
+    <xaif:BasicBlock vertex_id="47" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = L -->
@@ -3363,7 +3363,7 @@ STOP>
 
     <xaif:Entry vertex_id="53"/>
 
-    <xaif:BasicBlock vertex_id="54">
+    <xaif:BasicBlock vertex_id="54" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = L -->
@@ -3389,7 +3389,7 @@ STOP>
       </xaif:Condition>
     </xaif:PreLoop>
 
-    <xaif:BasicBlock vertex_id="56">
+    <xaif:BasicBlock vertex_id="56" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = FLDNOW -->
@@ -3481,7 +3481,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="57">
+    <xaif:BasicBlock vertex_id="57" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = L -->
@@ -3500,7 +3500,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="58">
+    <xaif:BasicBlock vertex_id="58" scope_id="1">
 	    <!-- RETURN -->
 	    <xaif:Marker statement_id="1"/>
     </xaif:BasicBlock>
@@ -3520,7 +3520,7 @@ STOP>
 <xaif:ArgumentList/>
 -->
 
-    <xaif:BasicBlock vertex_id="64">
+    <xaif:BasicBlock vertex_id="64" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = L -->
@@ -3539,12 +3539,12 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="65">
+    <xaif:BasicBlock vertex_id="65" scope_id="1">
 	    <!-- RETURN -->
 	    <xaif:Marker statement_id="1"/>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="61">
+    <xaif:BasicBlock vertex_id="61" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = L -->
@@ -3570,7 +3570,7 @@ STOP>
       </xaif:Condition>
     </xaif:PreLoop>
 
-    <xaif:BasicBlock vertex_id="63">
+    <xaif:BasicBlock vertex_id="63" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = TOLD -->
@@ -3713,7 +3713,7 @@ STOP>
       <xaif:ArgumentSymbolReference position="1" scope_id="9" symbol_id="1"/>
     </xaif:ArgumentList>
 
-    <xaif:BasicBlock vertex_id="70">
+    <xaif:BasicBlock vertex_id="70" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = TSVEC -->
@@ -3752,7 +3752,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="71">
+    <xaif:BasicBlock vertex_id="71" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = I -->
@@ -3773,7 +3773,7 @@ STOP>
 
     <xaif:Exit vertex_id="77"/>
 
-    <xaif:BasicBlock vertex_id="74">
+    <xaif:BasicBlock vertex_id="74" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = TSVEC -->
@@ -3908,7 +3908,7 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="75">
+    <xaif:BasicBlock vertex_id="75" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = L -->
@@ -3927,12 +3927,12 @@ STOP>
       </xaif:Assignment>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="76">
+    <xaif:BasicBlock vertex_id="76" scope_id="1">
 	    <!-- RETURN -->
 	    <xaif:Marker statement_id="1"/>
     </xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="68">
+    <xaif:BasicBlock vertex_id="68" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = I -->
@@ -3960,7 +3960,7 @@ STOP>
       </xaif:Condition>
     </xaif:PreLoop>
 
-    <xaif:BasicBlock vertex_id="72">
+    <xaif:BasicBlock vertex_id="72" scope_id="1">
       <xaif:Assignment statement_id="1">
         <xaif:AssignmentLHS>
           <!-- sym = L -->

@@ -89,7 +89,7 @@ end subroutine
      
      </xaif:ForLoop>
 
-     <xaif:BasicBlock vertex_id="3">
+     <xaif:BasicBlock vertex_id="3" scope_id="2">
 
        <xaif:Assignment statement_id="sage_1">
          <xaif:AssignmentLHS>

@@ -289,6 +289,9 @@
   <xsd:keyref name="sc_keyref3" refer='sc_vertexId'>
     <xsd:selector xpath="SymbolReference"/><xsd:field xpath="@scope_id"/>  
   </xsd:keyref>
+  <xsd:keyref name="sc_keyref4" refer='sc_vertexId'>
+    <xsd:selector xpath="BasicBlock"/><xsd:field xpath="@scope_id"/>  
+  </xsd:keyref>
 
 </xsd:element>  
 
@@ -604,7 +607,6 @@
   <xsd:keyref name="cfg_keyref2" refer='cfg_vertexId'>
     <xsd:selector xpath="ControlFlowEdge"/><xsd:field xpath="@target"/>  
   </xsd:keyref>
-
 </xsd:element> 
 
 <xsd:element name="ControlFlowVertex" type="VertexType">
@@ -627,7 +629,6 @@
     	  <xsd:documentation xml:lang="en">
         </xsd:documentation>
       </xsd:annotation>
-      <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
     </xsd:extension>       
   </xsd:complexContent>
 </xsd:complexType>
@@ -661,6 +662,8 @@
       <xsd:sequence>
       <xsd:group ref="BasicBlockBody" minOccurs="1" maxOccurs="unbounded"/>
       </xsd:sequence>
+
+      <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
 
     </xsd:extension>
   </xsd:complexContent>   

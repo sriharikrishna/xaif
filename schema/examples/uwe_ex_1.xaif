@@ -66,7 +66,7 @@ end subroutine
 
      <xaif:Entry vertex_id="1"/>
 
-     <xaif:BasicBlock vertex_id="2">
+     <xaif:BasicBlock vertex_id="2" scope_id="2">
 
        <xaif:Assignment statement_id="sage_0">
 
