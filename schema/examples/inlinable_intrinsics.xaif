@@ -212,5 +212,45 @@
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
+<!-- *********************************************************** -->
+<!-- Abs -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="abs_scal" nr_arguments="1">
+    <xaifii:Function type="builtin" builtin_name="abs"/>
+    <xaifii:Partial partial_id="1">
+      <xaif:Intrinsic vertex_id="1" name="sign_scal_scal"/>
+      <xaif:Constant vertex_id="2" type="integer" value="1"/>
+      <xaifii:ArgumentReference vertex_id="3" argument="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="3" target="1" position="2"/> 
+    </xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- Sign transfer: SIGN(X,Y) transfers the sign of Y to X       -->
+<!-- assume SIGN(1,X)*SIGN(1,Y) for the first partial            -->
+<!-- and 0 for the second partial                                -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="sign_scal_scal" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name="sign"/>
+    <xaifii:Partial partial_id="1">
+      <xaif:Intrinsic vertex_id="1" name="mul_scal_scal"/>
+      <xaif:Intrinsic vertex_id="2" name="sign_scal_scal"/>
+      <xaif:Intrinsic vertex_id="3" name="sign_scal_scal"/>
+      <xaif:Constant vertex_id="4" type="integer" value="1"/>
+      <xaifii:ArgumentReference vertex_id="5" argument="1"/> 
+      <xaifii:ArgumentReference vertex_id="6" argument="2"/> 
+      <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="3" target="1" position="2"/> 
+      <xaif:ExpressionEdge edge_id="1" source="4" target="2" position="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="5" target="2" position="2"/> 
+      <xaif:ExpressionEdge edge_id="1" source="4" target="3" position="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="6" target="3" position="2"/> 
+    </xaifii:Partial>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
 </xaifii:InlinableIntrinsicDefinitions>
 
