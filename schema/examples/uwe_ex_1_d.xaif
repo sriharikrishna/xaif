@@ -14,8 +14,6 @@
     <xaif:Scope vertex_id="1">
       <xaif:SymbolTable>
         <xaif:Symbol symbol_id="head" kind="subroutine" type="void"/>
-        <xaif:Symbol symbol_id="x"/>
-        <xaif:Symbol symbol_id="y"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 

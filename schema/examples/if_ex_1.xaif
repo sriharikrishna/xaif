@@ -11,7 +11,7 @@ subroutine head(i, x, y)
     t2=t1*x+i
     y=t1+t2
   else
-    x=cos(x)*y
+    y=cos(x)*y
   endif
 
 end subroutine
@@ -28,9 +28,6 @@ end subroutine
     <xaif:Scope vertex_id="1">
       <xaif:SymbolTable>
         <xaif:Symbol symbol_id="head" kind="subroutine" type="void"/>
-        <xaif:Symbol symbol_id="i" type="integer"/>
-        <xaif:Symbol symbol_id="x"/>
-        <xaif:Symbol symbol_id="y"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -144,9 +141,9 @@ end subroutine
  
      <xaif:BasicBlock vertex_id="4">
 
-       <xaif:Assignment statement_id="sage_2">   <!-- x=cos(x)*y -->
+       <xaif:Assignment statement_id="sage_2">   <!-- y=cos(x)*y -->
          <xaif:AssignmentLHS>
-           <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
+           <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
            <xaif:VariableReference vertex_id="1">
