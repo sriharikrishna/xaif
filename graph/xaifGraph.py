@@ -1,12 +1,39 @@
 from __future__ import generators
 import types
 
+class XAIFVertex (object):
+  def __init__(self, val):
+    self.val = val
+    self.__level = 0
+    return
+ 
+  def __str__(self):
+    return "%s" % self.val
+
+  def __repr__(self):
+    #return "<%s,%s>" % (self.val, self.__level)
+    return "vertex %s" % self.val
+
+  def getLevel(self):
+    return self.__level
+
+  def setLevel(self, lev=0):
+    self.__level = lev
+    return
+
+  def incrementLevel(self):
+    self.__level = self.__level + 1
+    return self.__level
+
 class XAIFGraph(object):
   def __init__(self, vertices = []):
     '''Create a graph'''
     self.vertices = []
+    '''Edges are dictionaries with start vertex keys, and values that are dictionaries
+       whose keys are the target vertex keys and values are pointer to vertices.
+       For example, edge[v1][v2] is the data (or label) of the edge from v1 to v2'''
     self.inEdges  = {}
-    self.outEdges = {}
+    self.outEdges = {} 
     map(self.addVertex, vertices)
     return
 
@@ -29,13 +56,13 @@ class XAIFGraph(object):
     for input in inputs:
       self.addVertex(input)
       if not vertex is None and not input is None:
-        if not input  in self.inEdges[vertex]: self.inEdges[vertex][input] = []
-        if not vertex in self.outEdges[input]: self.outEdges[input][vertex] = []
+        if not input  in self.inEdges[vertex]: self.inEdges[vertex][input] = None
+        if not vertex in self.outEdges[input]: self.outEdges[input][vertex] = None
     for output in outputs:
       self.addVertex(output)
       if not vertex is None and not output is None:
-        if not vertex in self.inEdges[output]:  self.inEdges[output][vertex] = []
-        if not output in self.outEdges[vertex]: self.outEdges[vertex][output] = []
+        if not vertex in self.inEdges[output]:  self.inEdges[output][vertex] = None
+        if not output in self.outEdges[vertex]: self.outEdges[vertex][output] = None
     return
 
   def getEdges(self, vertex):
@@ -46,17 +73,17 @@ class XAIFGraph(object):
     self.outEdges[vertex] = {}
     return
 
-  def annotateEdge(self, srcVertex, tgtVertex, data = ''):
+  def annotateEdge(self, srcVertex, tgtVertex, data = None):
     self.addVertex(srcVertex)
     self.addVertex(tgtVertex)
     self.addEdges(srcVertex,[],[tgtVertex])
-    self.outEdges[srcVertex][tgtVertex].append(data)
-    self.inEdges[tgtVertex][srcVertex].append(data)
+    self.outEdges[srcVertex][tgtVertex] = data
+    self.inEdges[tgtVertex][srcVertex] = data
     return
 
-  def clearEdgeAnnotations(self, srcVertices = [], tgtVertices = []):
-    self.outEdges[srcVertex][tgtVertex] = []
-    self.inEdges[tgtVertex][srcVertex] = []
+  def clearEdgeAnnotations(self, srcVertex, tgtVertex):
+    self.outEdges[srcVertex][tgtVertex] = None
+    self.inEdges[tgtVertex][srcVertex] = None
     return
 
   def getEdgeData(self, srcVertex, tgtVertex):
@@ -200,3 +227,4 @@ class XAIFGraph(object):
       yield vertex
     return
   topologicalSort = staticmethod(topologicalSort)
+

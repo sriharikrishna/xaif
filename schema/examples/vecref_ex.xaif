@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+subroutine head(x, y) 
+  double precision, dimension(2,3), intent(in) :: x
+  double precision, intent(inout) :: y
+
+  y=x(1,1)*x(2,3)
+
+end subroutine
+-->
+
+<xaif:CallGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xaif="http://www.mcs.anl.gov/XAIF"
+       xsi:schemaLocation="http://www.mcs.anl.gov/XAIF xaif.xsd"
+       program_name="Example"
+       toplevel_routine_name="head">
+
+  <xaif:ScopeHierarchy>
+
+    <xaif:Scope vertex_id="1">
+      <xaif:SymbolTable>
+        <xaif:Symbol symbol_id="head" kind="subroutine" type="void"/>
+        <xaif:Symbol symbol_id="x" shape="matrix"/>
+        <xaif:Symbol symbol_id="y"/>
+      </xaif:SymbolTable>
+    </xaif:Scope>
+
+    <xaif:Scope vertex_id="2">
+      <xaif:SymbolTable>
+        <xaif:Symbol symbol_id="x" shape="matrix"/>
+        <xaif:Symbol symbol_id="y"/>
+      </xaif:SymbolTable>
+    </xaif:Scope>
+
+    <xaif:ScopeEdge edge_id="1" source="1" target="2"/>
+
+  </xaif:ScopeHierarchy>
+
+  <xaif:IndependentVariables>
+    <xaif:ArgumentReference argument="1"/>
+  </xaif:IndependentVariables>
+  <xaif:DependentVariables>
+    <xaif:ArgumentReference argument="2"/>
+  </xaif:DependentVariables>
+
+  <xaif:ControlFlowGraph vertex_id="1" subroutine_name="head">
+
+     <xaif:ArgumentList>
+       <xaif:ArgumentSymbolReference position="1" symbol_id="x" scope_id="2"/>
+       <xaif:ArgumentSymbolReference position="2" symbol_id="y" scope_id="2"/>
+     </xaif:ArgumentList>
+
+     <xaif:Entry vertex_id="1"/>
+
+     <xaif:BasicBlock vertex_id="2">
+
+       <xaif:Assignment statement_id="sage_3">
+         <xaif:AssignmentLHS>
+           <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
+         </xaif:AssignmentLHS>
+         <xaif:AssignmentRHS>
+           <xaif:VariableReference vertex_id="1">
+             <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
+             <xaif:ArrayElementReference vertex_id="2">
+               <xaif:Index>
+		 <xaif:Constant vertex_id="1" type="integer" value="1"/>
+	       </xaif:Index>
+               <xaif:Index>
+		 <xaif:Constant vertex_id="1" type="integer" value="1"/>
+	       </xaif:Index>
+	     </xaif:ArrayElementReference>
+	     <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
+           </xaif:VariableReference>
+           <xaif:VariableReference vertex_id="2">
+             <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
+             <xaif:ArrayElementReference vertex_id="2">
+               <xaif:Index>
+		 <xaif:Constant vertex_id="1" type="integer" value="2"/>
+	       </xaif:Index>
+               <xaif:Index>
+		 <xaif:Constant vertex_id="1" type="integer" value="3"/>
+	       </xaif:Index>
+	     </xaif:ArrayElementReference>
+	     <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
+           </xaif:VariableReference>
+           <xaif:Intrinsic vertex_id="3" name="mul_scal_scal"/>
+	   <xaif:ExpressionEdge edge_id="1" source="1" target="3" position="1"/>
+           <xaif:ExpressionEdge edge_id="2" source="2" target="3" position="2"/>
+         </xaif:AssignmentRHS>
+       </xaif:Assignment>      
+
+     </xaif:BasicBlock>
+
+     <xaif:Exit vertex_id="3"/>
+
+     <xaif:ControlFlowEdge edge_id="1" source="1" target="2"/>
+     <xaif:ControlFlowEdge edge_id="2" source="2" target="3"/>
+
+  </xaif:ControlFlowGraph>
+
+</xaif:CallGraph>
