@@ -66,12 +66,14 @@
  <xsd:annotation>
     <xsd:documentation xml:lang="en">
       Reference to one of the arguments of an intrinsic function.
+      Arguments are counted starting with '1'. A value of '0' refers 
+      to the intrinsic result which is useful for some partial expressions.
     </xsd:documentation>
   </xsd:annotation>     
 
  <xsd:complexContent>
     <xsd:extension base="xaif:VertexType">
-      <xsd:attribute name="argument" type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="argument" type="xsd:nonNegativeInteger" use="required"/>
     </xsd:extension>
   </xsd:complexContent>   
 
