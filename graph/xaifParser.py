@@ -43,7 +43,8 @@ class XAIFContentHandler(ContentHandler):
     self.parentVertex = None
     self.vertexList = []    # current (sub)graph vertices
     self.edgeList = []      # current (sub)graph edges
-    ''' Set features for handler '''
+    ''' Set
+    features for handler '''
     self.feature_validation = 1
     self.feature_external_ges = 1
     self.featuer_external_pes = 1
@@ -146,6 +147,7 @@ class XAIFContentHandler(ContentHandler):
     proper XAIF object and set its attributes.
     '''
     el = eval('XAIF' + self.nonsname + '(attributes=attrs)')
+    el.setType(self.nonsname)
     #el.setAttributes(attrs)
     return el 
 
