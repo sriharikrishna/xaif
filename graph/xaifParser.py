@@ -1,7 +1,7 @@
 from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
 from xaifGraph import *
-#from XSV.driver import runit, runitAndShow
+from XSV.driver import runit, runitAndShow
 import sys
 import re
 

@@ -46,7 +46,7 @@
   </xsd:annotation>
 
   <xsd:attribute name="vertex_id" type="xsd:positiveInteger" use="optional" default="1"/>
-  <xsd:attributeGroup ref="xaif:FrontEndAnnotations"/>
+  <xsd:attributeGroup ref="FrontEndAnnotations"/>
 </xsd:complexType>
 
 <!-- *********************************************************** -->
@@ -69,7 +69,7 @@
   <xsd:attribute name="edge_id" type="xsd:positiveInteger" use="optional" default="1"/>
   <xsd:attribute name="source" type="xsd:positiveInteger" use="required"/>
   <xsd:attribute name="target" type="xsd:positiveInteger" use="required"/>
-  <xsd:attributeGroup ref="xaif:FrontEndAnnotations"/>
+  <xsd:attributeGroup ref="FrontEndAnnotations"/>
 </xsd:complexType>
 
 <!-- *********************************************************** -->
@@ -147,7 +147,7 @@
   <xsd:attribute name="kind"   type="SymbolKindType" default="variable"/>
   <xsd:attribute name="type"   type="SymbolTypeType" default="real"/>
   <xsd:attribute name="shape"   type="SymbolShapeType" default="scalar"/>
-  <xsd:attributeGroup ref="xaif:FrontEndAnnotations"/>
+  <xsd:attributeGroup ref="FrontEndAnnotations"/>
 </xsd:complexType>
 
 <!-- *********************************************************** -->
@@ -920,7 +920,7 @@
   </xsd:sequence>
   <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
   <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
-  <xsd:attributeGroup ref="xaif:FrontEndAnnotations"/>
+  <xsd:attributeGroup ref="FrontEndAnnotations"/>
 </xsd:complexType>
 
 <xsd:element name="Assignment" type="AssignmentType"></xsd:element>        
