@@ -17,9 +17,8 @@ end subroutine
 
 <xaif:CallGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:xaif="http://www.mcs.anl.gov/XAIF"
-       xsi:schemaLocation="http://www.mcs.anl.gov/XAIF ../xaif.xsd"
-       program_name="Example"
-       toplevel_routine_name="head">
+       xsi:schemaLocation="http://www.mcs.anl.gov/XAIF xaif.xsd"
+       program_name="Example">
 
   <xaif:ScopeHierarchy>
 
@@ -43,14 +42,7 @@ end subroutine
 
   </xaif:ScopeHierarchy>
 
-  <xaif:IndependentVariables>
-    <xaif:ArgumentReference argument="1"/>
-  </xaif:IndependentVariables>
-  <xaif:DependentVariables>
-    <xaif:ArgumentReference argument="2"/>
-  </xaif:DependentVariables>
-
-  <xaif:ControlFlowGraph vertex_id="1" subroutine_name="head">
+  <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1">
 
      <xaif:ArgumentList>
        <xaif:ArgumentSymbolReference position="1" symbol_id="x" scope_id="2"/>
@@ -61,7 +53,7 @@ end subroutine
 
      <xaif:ForLoop vertex_id="2">
 
-       <xaif:Initialization statement_id="initialization">
+       <xaif:Initialization>
          <xaif:AssignmentLHS>
              <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2"/>
          </xaif:AssignmentLHS>
@@ -80,7 +72,7 @@ end subroutine
          <xaif:ExpressionEdge edge_id="2" source="3" target="1" position="2"/>
        </xaif:Condition>
 
-       <xaif:Update statement_id="update">
+       <xaif:Update>
          <xaif:AssignmentLHS>
              <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2"/>
          </xaif:AssignmentLHS>
@@ -111,7 +103,7 @@ end subroutine
            <xaif:VariableReference vertex_id="3">
              <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
            </xaif:VariableReference>
-           <xaif:Intrinsic vertex_id="3" name="mul_scal_scal"/>
+           <xaif:Intrinsic vertex_id="4" name="mul_scal_scal"/>
            <xaif:ExpressionEdge edge_id="1" source="1" target="2" position="1"/>
            <xaif:ExpressionEdge edge_id="2" source="2" target="4" position="1"/>
            <xaif:ExpressionEdge edge_id="3" source="3" target="4" position="2"/>

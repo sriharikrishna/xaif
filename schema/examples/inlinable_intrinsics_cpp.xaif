@@ -3,7 +3,7 @@
 <xaifii:InlinableIntrinsicDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:xaifii="http://www.mcs.anl.gov/XAIFInlinableIntrinsics"
        xmlns:xaif="http://www.mcs.anl.gov/XAIF"
-       xsi:schemaLocation="http://www.mcs.anl.gov/XAIFInlinableIntrinsics ../xaif_inlinable_intrinsics.xsd"
+       xsi:schemaLocation="http://www.mcs.anl.gov/XAIFInlinableIntrinsics xaif_inlinable_intrinsics.xsd"
        language="CPP">     
 
 <!-- *********************************************************** -->
@@ -12,8 +12,8 @@
 
   <xaifii:InlinableIntrinsic name="add_scal_scal" nr_arguments="2">
     <xaifii:Function type="builtin" builtin_name="+"/>
-    <xaifii:Partial partial_id="1" partial_type="linear_one"/>
-    <xaifii:Partial partial_id="2" partial_type="linear_one"/>
+    <xaifii:Partial partial_id="1" partial_type="LINEAR_ONE"/>
+    <xaifii:Partial partial_id="2" partial_type="LINEAR_ONE"/>
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
@@ -22,8 +22,8 @@
 
   <xaifii:InlinableIntrinsic name="sub_scal_scal" nr_arguments="2">
     <xaifii:Function type="builtin" builtin_name="-"/>
-    <xaifii:Partial partial_id="1" partial_type="linear_one"/>
-    <xaifii:Partial partial_id="2" partial_type="linear_minus_one"/>
+    <xaifii:Partial partial_id="1" partial_type="LINEAR_ONE"/>
+    <xaifii:Partial partial_id="2" partial_type="LINEAR_MINUS_ONE"/>
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
@@ -72,7 +72,7 @@
 
   <xaifii:InlinableIntrinsic name="minus_scal" nr_arguments="1">
     <xaifii:Function type="builtin" builtin_name="-"/>
-    <xaifii:Partial partial_id="1" partial_type="linear_minus_one"/>
+    <xaifii:Partial partial_id="1" partial_type="LINEAR_MINUS_ONE"/>
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->

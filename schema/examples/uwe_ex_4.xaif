@@ -15,15 +15,16 @@ end subroutine
 
 <xaif:CallGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:xaif="http://www.mcs.anl.gov/XAIF"
-       xsi:schemaLocation="http://www.mcs.anl.gov/XAIF ../xaif.xsd"
-       program_name="Example"
-       toplevel_routine_name="head">
+       xsi:schemaLocation="http://www.mcs.anl.gov/XAIF xaif.xsd"
+       program_name="Example">
 
   <xaif:ScopeHierarchy>
 
     <xaif:Scope vertex_id="1">
       <xaif:SymbolTable>
         <xaif:Symbol symbol_id="head" kind="subroutine" type="void"/>
+        <xaif:Symbol symbol_id="x"/>
+        <xaif:Symbol symbol_id="y"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -41,7 +42,7 @@ end subroutine
 
   </xaif:ScopeHierarchy>
 
-  <xaif:ControlFlowGraph vertex_id="1" subroutine_name="head">
+  <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1">
 
      <xaif:ArgumentList>
        <xaif:ArgumentSymbolReference position="1" symbol_id="x" scope_id="2"/>
@@ -57,9 +58,7 @@ end subroutine
            <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2"/>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
-		 <!-- demo syntax alias info
-		 1 = key in AliasSetList -->
-		 <xaif:VariableReference vertex_id="1" alias="3">
+		 <xaif:VariableReference vertex_id="1">
              <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
            </xaif:VariableReference>
            <xaif:VariableReference vertex_id="2">

@@ -1,34 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-subroutine head(x, y) 
-  double precision, intent(in) :: x
-  double precision, intent(inout) :: y
-  double precision t1, t2
-  integer i
-
-  do i=1,11,2
-    t1=sin(x)*y
-    t2=t1*x+i
-    call sub1(t1,t2,y)
-  enddo
-
-end subroutine
-
-subroutine my_add(u1,u2,v) 
-  double precision, intent(inout) :: v
-  double precision, intent(in) u1, u2
-
-  v=u1+u2
-
-end subroutine
-
--->
-
 <xaif:CallGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:xaif="http://www.mcs.anl.gov/XAIF"
-       xsi:schemaLocation="http://www.mcs.anl.gov/XAIF ../xaif.xsd"
-       program_name="Example 3"
-       toplevel_routine_name="head">
+       xsi:schemaLocation="http://www.mcs.anl.gov/XAIF xaif.xsd"
+       program_name="Example 3">
 
   <xaif:ScopeHierarchy>
 
@@ -62,14 +35,8 @@ end subroutine
 
   </xaif:ScopeHierarchy>
 
-  <xaif:IndependentVariables>
-    <xaif:ArgumentReference argument="1"/>
-  </xaif:IndependentVariables>
-  <xaif:DependentVariables>
-    <xaif:ArgumentReference argument="2"/>
-  </xaif:DependentVariables>
-
-  <xaif:ControlFlowGraph vertex_id="1" subroutine_name="head">
+  <xaif:ControlFlowGraph vertex_id="1" symbol_id="head"
+	  scope_id="1">
 
      <xaif:ArgumentList>
        <xaif:ArgumentSymbolReference position="1" symbol_id="x" scope_id="2"/>
@@ -80,7 +47,7 @@ end subroutine
 
      <xaif:ForLoop vertex_id="2">
 
-       <xaif:Initialization statement_id="initialization">
+       <xaif:Initialization>
          <xaif:AssignmentLHS>
              <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2"/>
          </xaif:AssignmentLHS>
@@ -99,7 +66,7 @@ end subroutine
          <xaif:ExpressionEdge edge_id="2" source="3" target="1" position="2"/>
        </xaif:Condition>
 
-       <xaif:Update statement_id="update">
+       <xaif:Update>
          <xaif:AssignmentLHS>
              <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2"/>
          </xaif:AssignmentLHS>
@@ -163,19 +130,13 @@ end subroutine
        <xaif:SubroutineCall statement_id="my_add_1"
                             symbol_id="my_add" scope_id="1">
          <xaif:Argument position="1">
-           <xaif:VariableReference vertex_id="1">
              <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2"/>
-           </xaif:VariableReference>
          </xaif:Argument>
          <xaif:Argument position="2">
-           <xaif:VariableReference vertex_id="1">
              <xaif:SymbolReference vertex_id="1" symbol_id="t2" scope_id="2"/>
-           </xaif:VariableReference>
          </xaif:Argument>
          <xaif:Argument position="3">
-           <xaif:VariableReference vertex_id="1">
              <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
-           </xaif:VariableReference>
          </xaif:Argument>
        </xaif:SubroutineCall>
 
@@ -190,7 +151,7 @@ end subroutine
 
   </xaif:ControlFlowGraph>
 
-  <xaif:ControlFlowGraph vertex_id="2" subroutine_name="my_add">
+  <xaif:ControlFlowGraph vertex_id="2" symbol_id="my_add" scope_id="1">
 
      <xaif:ArgumentList>
        <xaif:ArgumentSymbolReference position="1" symbol_id="u1" scope_id="3"/>

@@ -5,15 +5,16 @@
 
 <xaif:CallGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:xaif="http://www.mcs.anl.gov/XAIF"
-       xsi:schemaLocation="http://www.mcs.anl.gov/XAIF ../xaif_derivative_accumulator.xsd"
-       program_name="slp_head"
-       toplevel_routine_name="head">
+       xsi:schemaLocation="http://www.mcs.anl.gov/XAIF xaif_derivative_accumulator.xsd"
+       program_name="slp_head">
 
   <xaif:ScopeHierarchy>
 
     <xaif:Scope vertex_id="1">
       <xaif:SymbolTable>
         <xaif:Symbol symbol_id="head" kind="subroutine" type="void"/>
+        <xaif:Symbol symbol_id="x"/>
+        <xaif:Symbol symbol_id="y"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -29,14 +30,7 @@
 
   </xaif:ScopeHierarchy>
 
-  <xaif:IndependentVariables>
-    <xaif:ArgumentReference argument="1"/>
-  </xaif:IndependentVariables>
-  <xaif:DependentVariables>
-    <xaif:ArgumentReference argument="2"/>
-  </xaif:DependentVariables>
-
-  <xaif:ControlFlowGraph vertex_id="1" subroutine_name="head">
+  <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1">
 
      <xaif:ArgumentList>
        <xaif:ArgumentSymbolReference position="1" symbol_id="0" scope_id="2"/>

@@ -9,7 +9,7 @@
 <xsd:schema xmlns="http://www.mcs.anl.gov/XAIF"
 	    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	    targetNamespace="http://www.mcs.anl.gov/XAIF"
-	    xmlns:xaif="http://www.mcs.anl.gov/XAIF"
+	    xmlns:xaif_base="http://www.mcs.anl.gov/XAIF_BASE"
             version="xaif 1.0"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified">       
@@ -49,7 +49,7 @@
         </xsd:documentation>
       </xsd:annotation>
 
-      <xsd:attribute name="vertex_id" type="xsd:string" use="optional" default="uwe"/>
+      <xsd:attribute name="vertex_id" type="xsd:positiveInteger" use="optional" default="1"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
@@ -74,9 +74,9 @@
         </xsd:documentation>
       </xsd:annotation>
 
-      <xsd:attribute name="edge_id" type="xsd:string" use="required"/>
-      <xsd:attribute name="source" type="xsd:string" use="required"/>
-      <xsd:attribute name="target" type="xsd:string" use="required"/>
+      <xsd:attribute name="edge_id" type="xsd:positiveInteger" use="optional" default="1"/>
+      <xsd:attribute name="source" type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="target" type="xsd:positiveInteger" use="required"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
@@ -114,8 +114,6 @@
     <xsd:enumeration value="void"/>
     <xsd:enumeration value="real"/>
     <xsd:enumeration value="double"/>
-    <xsd:enumeration value="active_real"/>
-    <xsd:enumeration value="active_double"/>
     <xsd:enumeration value="integer"/>
     <xsd:enumeration value="bool"/>
     <xsd:enumeration value="char"/>
@@ -325,7 +323,6 @@
     </xsd:choice>
   </xsd:sequence>
   <xsd:attribute name="key" type="xsd:positiveInteger"/>
-  <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
 </xsd:complexType>
 
 <xsd:complexType name="AliasSetListType">
@@ -366,6 +363,24 @@
 <!-- Call Graph -->
 <!-- *********************************************************** -->
 
+<xsd:complexType name="TopLevelArgumentType">
+  <xsd:annotation>
+	  <xsd:documentation xml:lang="en">
+		  References to arguments of the top-level routine. 
+		  An argument is uniquely specified by its position
+		  within the argument list. 
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:sequence>
+  <xsd:element name="ArgumentReference" minOccurs="1" maxOccurs="unbounded">
+    <xsd:complexType>
+      <xsd:attribute name="argument" type="xsd:positiveInteger"/>
+    </xsd:complexType>
+  </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+
 <xsd:complexType name="CallGraphType">
 
   <xsd:annotation>
@@ -400,6 +415,21 @@
 
     </xsd:element> 
 
+    <xsd:element name="IndependentVariables" type="TopLevelArgumentType" 
+	    minOccurs="0" maxOccurs="unbounded">
+      <xsd:annotation>
+	      <xsd:documentation xml:lang="en">
+		      Derivatives are always computed for arguments of
+		      the top-level routines (the dependent variables) 
+		      with respect to other arguments of the top-level 
+		      routine (the independent variables).
+        </xsd:documentation>
+      </xsd:annotation>
+
+    </xsd:element> 
+    <xsd:element name="DependentVariables" type="TopLevelArgumentType" 
+      minOccurs="0" maxOccurs="unbounded"/>
+
     <xsd:element ref="CallGraphVertex"     
     		   minOccurs="1" maxOccurs="unbounded">
 
@@ -428,6 +458,7 @@
   </xsd:sequence>
 
   <xsd:attribute name="program_name" type="xsd:string" use="optional"/>
+  <xsd:attribute name="toplevel_routine_name" type="xsd:string" use="required"/>
 
 </xsd:complexType>
 
@@ -505,7 +536,6 @@
   <xsd:attribute name="symbol_id" type="xsd:string" use="required"/>
   <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
   <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
-  <xsd:attribute name="deriv" type="xsd:boolean" use="optional" default="false"/>
   <xsd:attribute name="intent" type="IntentType" use="optional" default="inout"/>
 </xsd:complexType>
 
@@ -569,9 +599,8 @@
     </xsd:element>
 
   </xsd:sequence>
+  <xsd:attribute name="subroutine_name" type="xsd:string" use="required"/>
   <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
-  <xsd:attribute name="symbol_id" type="xsd:string" use="required"/>
-  <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
@@ -621,33 +650,6 @@
 <!-- Basic Block -->
 <!-- *********************************************************** -->
 
-<xsd:complexType name="BasicBlockElementType">
-  <xsd:complexContent>
-    <xsd:extension base="FrontEndAnnotationType">       
-      <xsd:annotation>
-    	  <xsd:documentation xml:lang="en">
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:extension>       
-  </xsd:complexContent>
-</xsd:complexType>
-
-<xsd:element name="BasicBlockElement" type="BasicBlockElementType">
-  <xsd:annotation>
-    <xsd:documentation xml:lang="en">
-      abstract
-    </xsd:documentation>
-  </xsd:annotation>
-</xsd:element> 
-
-<xsd:group name="BasicBlockBody">
-	<xsd:choice>
-          <xsd:element ref="Assignment"/>
-          <xsd:element ref="SubroutineCall"/>
-          <xsd:element ref="Nop"/>
-        </xsd:choice>
-</xsd:group>
-
 <xsd:complexType name="BasicBlockType">
   <xsd:complexContent>
     <xsd:extension base="VertexType">    
@@ -659,7 +661,10 @@
       </xsd:annotation>
 
       <xsd:sequence>
-      <xsd:group ref="BasicBlockBody" minOccurs="1" maxOccurs="unbounded"/>
+	<xsd:choice minOccurs="1" maxOccurs="unbounded">
+          <xsd:element ref="Assignment"/>
+          <xsd:element ref="SubroutineCall"/>
+        </xsd:choice>
       </xsd:sequence>
 
     </xsd:extension>
@@ -676,7 +681,7 @@
         </xsd:documentation>
       </xsd:annotation>
   <xsd:unique name="statement_unique">
-    <xsd:selector xpath="Assignment | SubroutineCall | Nop"/>
+    <xsd:selector xpath="Assignment | SubroutineCall"/>
      <xsd:field xpath="@statement_id"/>
   </xsd:unique>
 </xsd:element>
@@ -868,6 +873,8 @@
 <!-- *********************************************************** -->
 
 <xsd:complexType name="AssignmentType">
+  <xsd:complexContent>
+    <xsd:extension base="FrontEndAnnotationType">       
       <xsd:annotation>
     	  <xsd:documentation xml:lang="en">
 		  Assignments consist of a variable reference on the lhs
@@ -926,17 +933,13 @@
         </xsd:element>
 
       </xsd:sequence>
-</xsd:complexType>
-
-<xsd:complexType name="BasicBlockAssignmentType">
-  <xsd:complexContent>
-    <xsd:extension base="AssignmentType">
       <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
       <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
     </xsd:extension>       
   </xsd:complexContent>
 </xsd:complexType>
-<xsd:element name="Assignment" type="BasicBlockAssignmentType"></xsd:element>        
+
+<xsd:element name="Assignment" type="AssignmentType"></xsd:element>        
 
 <!-- *********************************************************** -->
 <!-- Expression -->
@@ -950,7 +953,7 @@
   </xsd:annotation>
   <xsd:complexContent>
     <xsd:extension base="EdgeType">
-      <xsd:attribute name="position" type="xsd:integer" use="required"/>
+      <xsd:attribute name="position" type="xsd:positiveInteger" use="required"/>
     </xsd:extension>
   </xsd:complexContent>               
 
@@ -1042,14 +1045,16 @@
 <!-- Subroutine Call -->
 <!-- *********************************************************** -->
 
-<xsd:complexType name="SubroutineArgumentType">
+<xsd:complexType name="SubroutineCallArgumentType">
 
   <xsd:annotation>
-    <xsd:documentation xml:lang="en">
+	  <xsd:documentation xml:lang="en">
+		  Arguments of subroutine calls are expressions appearing
+		  in a certain position within the argument list.
     </xsd:documentation>
   </xsd:annotation>
   <xsd:complexContent>
-    <xsd:extension base="VariableReferenceType">
+    <xsd:extension base="ExpressionType">
       <xsd:attribute name="position" type="xsd:positiveInteger" use="required"/>
     </xsd:extension>
   </xsd:complexContent>               
@@ -1057,46 +1062,28 @@
 </xsd:complexType>
 
 <xsd:complexType name="SubroutineCallType">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-    	    Subroutine calls appear in basic blocks together with assignments. 
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+	    Subroutine calls appear in basic blocks together with assignments. 
 	    They are equivalent to void functions in C/C++ or explicitly CALLed 
 	    subroutines in Fortran. They may have  arguments in the form of 
-	    variable references. The subroutine call is identified uniquely by the 
+	    expressions. The subroutine call is identified uniquely by the 
 	    statement_id within the current basic block, the symbol_id of its 
 	    name within the corresponding symbol table.
-        </xsd:documentation>
-      </xsd:annotation>
+    </xsd:documentation>
+  </xsd:annotation>
 
-      <xsd:sequence>
-	  <xsd:element name="Argument" type="SubroutineArgumentType" 
-	    minOccurs="0" maxOccurs="unbounded"/>
-      </xsd:sequence>
-      <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
-      <xsd:attribute name="symbol_id" type="xsd:string"/>
-      <xsd:attribute name="scope_id" type="xsd:positiveInteger"/>
-      <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
+  <xsd:sequence>
+    <xsd:element name="Argument" type="SubroutineCallArgumentType" 
+      minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+  <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
+  <xsd:attribute name="symbol_id" type="xsd:string"/>
+  <xsd:attribute name="scope_id" type="xsd:positiveInteger"/>
+  <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
 </xsd:complexType> 
 
 <xsd:element name="SubroutineCall" type="SubroutineCallType"/>
-
-<!-- *********************************************************** -->
-<!-- Dummy node for use by front-end (ignored by xaifbooster) -->
-<!-- *********************************************************** -->
-
-<xsd:complexType name="NopType">
-  <xsd:complexContent>
-    <xsd:extension base="FrontEndAnnotationType">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-        </xsd:documentation>
-      </xsd:annotation>
-      <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
-    </xsd:extension>
-  </xsd:complexContent>
-</xsd:complexType>
-
-<xsd:element name="Nop" type="NopType"/>
 
 <!-- *********************************************************** -->
 <!-- Variable Reference -->
@@ -1145,7 +1132,6 @@
 
       <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
       <xsd:attribute name="alias" type="xsd:integer" use="optional" default="0"/>
-      <xsd:attribute name="deriv" type="xsd:boolean" use="optional" default="false"/>
     </xsd:extension>
   </xsd:complexContent>
 </xsd:complexType>
@@ -1191,8 +1177,6 @@
     </xsd:documentation>
   </xsd:annotation>
 </xsd:element> 
-
-
 
 <!-- *********************************************************** -->
 <!-- Built-in operations. -->
@@ -1465,7 +1449,7 @@
   <xsd:complexContent>
     <xsd:extension base="VertexType">
       <xsd:sequence>
-        <xsd:element name="Argument" type="VariableReferenceType" 
+        <xsd:element name="Argument" type="SubroutineCallArgumentType" 
           minOccurs="0" maxOccurs="unbounded"/>
       </xsd:sequence>
       <xsd:attribute name="symbol_id" type="xsd:string"/>

@@ -18,32 +18,14 @@
 <!-- *********************************************************** -->
  
 <xsd:redefine schemaLocation="xaif_base.xsd">
-  <xsd:complexType name="BasicBlockType">
-    <xsd:complexContent>
-      <xsd:extension base="xaif:BasicBlockType">
- 
-        <xsd:annotation>
-          <xsd:documentation xml:lang="en">
-            ...
-          </xsd:documentation>
-        </xsd:annotation>
- 
-        <xsd:sequence>
+<xsd:group name="BasicBlockBody">
           <xsd:choice>
-            <xsd:element ref="xaif:Assignment"
-              minOccurs="0" maxOccurs="unbounded"/>
-            <xsd:element ref="xaif:SubroutineCall"
-              minOccurs="0" maxOccurs="unbounded"/>
-            <xsd:element ref="xaif:DerivativeAccumulator"
-              minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:group ref="xaif:BasicBlockBody"/>
+            <xsd:element ref="xaif:DerivativeAccumulator"/>
           </xsd:choice>
-        </xsd:sequence>
- 
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
+</xsd:group>
 </xsd:redefine>
- 
+
 
 <!-- *********************************************************** -->
 <!-- Derivative Accumulator -->
