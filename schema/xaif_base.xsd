@@ -442,7 +442,17 @@
 
   <xsd:attribute name="program_name" type="xsd:string" use="optional"/>
 
-  <xsd:attribute name="prefix" type="xsd:string" use="optional" default="ScrewThisDefault"/>
+  <xsd:attribute name="prefix" type="xsd:string" use="optional" default="GetRidOfThisDefault">
+    <xsd:annotation>
+      <xsd:documentation>
+        An attribute specifying a prefix for any symbol created 
+	by xaifbooster.It should be unique for each pass through 
+	xaifbooster to avoid name clashes. The default will be 
+	removed and it will be changed to 'required'.
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:attribute>
+
 
 </xsd:complexType>
 
