@@ -36,7 +36,7 @@ end subroutine
         <xaif:Symbol symbol_id="y"/>
         <xaif:Symbol symbol_id="t1"/>
         <xaif:Symbol symbol_id="t2"/>
-        <xaif:Symbol symbol_id="i" type="integer"/>
+        <xaif:Symbol symbol_id="i" type="integer" active="false"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
