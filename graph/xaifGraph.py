@@ -365,11 +365,11 @@ class XAIFScope(XAIFVertex):
     return
 
 class XAIFSymbolTable(XAIFVertex):
-  def __init__(self, id):
-    XAIFVertex.__init__(self, id)
+  def __init__(self):
+    XAIFVertex.__init__(self, -1)
     self.type = 'XAIFSymbolTable'
     self.symbols = {}
-    self.scope_id = id
+    self.scope_id = -1
     return
 
   def getScopeId(self):
@@ -379,19 +379,19 @@ class XAIFSymbolTable(XAIFVertex):
     return
   
 class XAIFSymbol(object):
-  def __init__(self, id, kind='variable', type='real', shape='scalar', frontend_tag=''):
-    self.id = id
+  def __init__(self):
     self.type = 'Symbol'
-    self.attr = {'symbol_id':id, 'kind':kind, 'type':type, 'shape':shape, 'frontend_tag':frontend_tag}
+    self.attr = {'symbol_id':'', 'kind':'variable', 'type':'real', 'shape':'scalar', 'frontend_tag':''}
     return
 
-  def getAttr(self, name=''):
-    if name == '':
-      return self.attr
-    return self.attr(name)
-
-  def setAttr(self, name, val):
-    self.attr[name] = val
+  def getAttributes(self):
+    return self.attr
+  
+  def setAttributes(self, names, attrs):
+    ''' names: string list
+    attrs: xml.sax attribute structure, must have get(name) method'''
+    for attr_name in names:
+      self.attr[attr_name] = attrs.get(attr_name)
     return
 
 ''' =================== Control flow graph  ==================== '''

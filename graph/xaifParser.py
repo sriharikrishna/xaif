@@ -1,7 +1,7 @@
 from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
 from xaifGraph import *
-from XSV.driver import runit, runitAndShow
+#from XSV.driver import runit, runitAndShow
 import sys
 import re
 
@@ -19,6 +19,7 @@ class XAIFParser(object):
 		       'ScopeHierarchy':[],
 		       'Scope':['vertex_id'],
 		       'SymbolTable':[],
+                       'Symbol':['symbol_id', 'kind', 'type'],
 		       'ArgumentReference':['argument'],
 		       'ControlFlowGraph':['vertex_id', 'subroutine_name'],
 		       'ArgumentSymbolReference':['position', 'symbol_id', 'scope_id'],
@@ -69,16 +70,16 @@ class XAIFContentHandler(ContentHandler):
     v = None
 
     if self.nonsname == 'CallGraph':
-      v = self.parseGraphElement(attrs)
-      self.parser.callGraph = XAIFCallGraph()
+      g = self.parseElement(attrs)
 
     ''' Scope hierarchy and symbol tables '''
     if self.nonsname == 'ScopeHierarchy':
-      #v = self.parseElement(attrs, graph=self.parser.callGraph)
+      g = self.parseElement(attrs)
+      self.parser.callGraph.scopeGraph = g
       self.edgeList = []
 
     if self.nonsname == 'Scope':
-      v = self.parseElement(attrs, attrs.get('vertex_id','-1'), self.parser.callGraph.scopeGraph)
+      v = self.parseVertexElement(attrs, attrs.get('vertex_id','-1'), self.parser.callGraph.scopeGraph)
       self.currentScopeId = attrs.get('vertex_id','-1')
       self.parentVertex = v
 
@@ -86,28 +87,33 @@ class XAIFContentHandler(ContentHandler):
       self.edgeList.append(self.parseEdge(attrs))
 
     if self.nonsname == 'SymbolTable':
-      v = self.parseElement(attrs, self.currentScopeId)
+      #v = self.parseElement(attrs, self.currentScopeId)
+      v = self.parseElement(attrs)
+      v.setScopeId(self.currentScopeId)
       self.parentVertex.setSymbolTable(v)
+
+    if self.nonsname == 'Symbol':
+      v = self.parseElement(attrs)
       
     ''' Control flow graph '''
     if self.nonsname == 'ControlFlowGraph':
-      v = self.parseElement(attrs,attrs.get('vertex_id'))
+      v = self.parseVertexElement(attrs,attrs.get('vertex_id'))
       self.parser.callGraph.addVertex(v)
 
     if self.nonsname == 'Assignment':
-      v = self.parseElement(attrs,attrs.get('statement_id'))
+      v = self.parseVertexElement(attrs,attrs.get('statement_id'))
       self.parentVertex = v
  
     if self.nonsname == 'AssignmentLHS' or self.nonsname == 'AssignmentRHS':
       v = self.parentVertex
       
     if self.nonsname == 'VariableReference':
-      v = self.parseElement(attrs,attrs.get('vertex_id'))
+      v = self.parseVertexElement(attrs,attrs.get('vertex_id'))
       if self.context == 'AssignmentRHS':
         self.parentVertex.getRHS().addVertex(v)
 
     if self.nonsname == 'SymbolReference':
-      v = self.parseElement(attrs,attrs.get('vertex_id'))
+      v = self.parseVertexElement(attrs,attrs.get('vertex_id'))
       if self.context == 'AssignmentLHS':
         self.parentVertex.setLHS(v)
 
@@ -131,7 +137,7 @@ class XAIFContentHandler(ContentHandler):
 
     return
 
-  def parseElement(self, attrs, id='-1', graph=None):
+  def parseVertexElement(self, attrs, id='-1', graph=None):
     ''' 
     Return an XAIFVertex corresponding to the element with (no-namespace) name
     self.nonsname, setting all attributes accordingly
@@ -142,16 +148,14 @@ class XAIFContentHandler(ContentHandler):
       graph.addVertex(v)
     return v
 
-  def parseGraphElement(self, attrs, graph=None):
-    ''' 
-    Return an XAIFVertex corresponding to the element with (no-namespace) name
-    self.nonsname, setting all attributes accordingly
+  def parseElement(self, attrs):
     '''
-    v = eval('XAIF' + self.nonsname + '()')
-    v.setAttributes(self.parser.attributes[self.nonsname], attrs)
-    if not graph == None:
-      graph.addVertex(v)
-    return v
+    Parse an element that's not a vertex, graph, or edge, instantiate
+    proper XAIF object and set its attributes
+    '''
+    el = eval('XAIF' + self.nonsname + '()')
+    el.setAttributes(self.parser.attributes[self.nonsname], attrs)
+    return el 
 
   def parseEdge(self, attrs):
     ''' 
