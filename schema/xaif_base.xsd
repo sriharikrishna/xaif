@@ -502,7 +502,7 @@
     </xsd:documentation>
   </xsd:annotation>
 
-  <xsd:sequence>
+  <xsd:any>
 
     <xsd:element ref="ScopeHierarchy" minOccurs="1" maxOccurs="1">
 
@@ -536,7 +536,7 @@
 
     <xsd:group ref="CallGraphVertexAndEdgeGroup" minOccurs="0" maxOccurs="unbounded"/>
 
-  </xsd:sequence>
+  </xsd:any>
 
   <xsd:attribute name="program_name" type="xsd:string" use="optional"/>
 
