@@ -43,6 +43,17 @@ end subroutine
 
   </xaif:ScopeHierarchy>
 
+  <xaif:AliasSetList>
+    <xaif:AliasSet key="0">
+      <xaif:AliasRange from_virtual_address="1" to_virtual_address="1"/>
+    </xaif:AliasSet>
+  </xaif:AliasSetList>
+
+  <xaif:DUUDSetList>
+    <xaif:DUUDSet key="0">
+    </xaif:DUUDSet>
+  </xaif:DUUDSetList>
+
   <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1" controlflowgraph_scope_id="2">
 
      <xaif:ArgumentList>

@@ -160,12 +160,12 @@
     		  variables.
         </xsd:documentation>
       </xsd:annotation>
-      <xsd:attribute name="symbol_id"   type="xsd:string" use="required"/>
-      <xsd:attribute name="kind"   type="SymbolKindType" default="variable"/>
-      <xsd:attribute name="type"   type="SymbolTypeType" default="real"/>
-      <xsd:attribute name="shape"   type="SymbolShapeType" default="scalar"/>
-      <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
-      <xsd:attribute name="temp" type="xsd:boolean" use="optional" default="false"/>
+      <xsd:attribute name="symbol_id" type="xsd:string"      use="required"/>
+      <xsd:attribute name="kind"      type="SymbolKindType"  use="optional" default="variable"/>
+      <xsd:attribute name="type"      type="SymbolTypeType"  use="optional" default="real"/>
+      <xsd:attribute name="shape"     type="SymbolShapeType" use="optional" default="scalar"/>
+      <xsd:attribute name="active"    type="xsd:boolean"     use="optional" default="true"/>
+      <xsd:attribute name="temp"      type="xsd:boolean"     use="optional" default="false"/>
     </xsd:extension>       
   </xsd:complexContent>
 </xsd:complexType>
@@ -311,31 +311,48 @@
 <!-- DU/UD Chains                                                -->
 <!-- *********************************************************** -->
 
+<xsd:complexType name="StatementIdRefType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+	a reference to a statementId in an Assignment;
+	can be an empty string if we refer to an out-of-scope
+	Assignment
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:attribute name="idRef" type="xsd:string"/>
+</xsd:complexType>
+
 <xsd:complexType name="DUUDSetType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
-      DU: For LHS of assignments it contains the statement ids of possible
-      uses. UD: For VariablesReferences on RHS it contains statement ids of
-      possible definitions. 
+      DU: For LHS of assignments it contains the statement ids of possible uses. 
+      UD: For VariablesReferences on RHS it contains statement ids of possible definitions. 
+      The chain can be empty. 
+      The 'key' attribute is the unique index into the map.
+      Key '0' is a dummy entry that should be there to satisfy the default du_ud values 
+      in VariableReference and AssignmentLHS. 
+      A '0' key means we don't have any du/ud information. 
     </xsd:documentation>
   </xsd:annotation>
 
   <xsd:sequence>
-      <xsd:element name="StatementId" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="StatementId" type="StatementIdRefType" minOccurs="0" maxOccurs="unbounded"/>
   </xsd:sequence>
+  <xsd:attribute name="key" type="xsd:nonNegativeInteger"/>
 </xsd:complexType>
 
 <xsd:complexType name="DUUDSetListType">
 
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
-      Each VariableReference has a key into this table. If VariableReference
-is LHS, then DU, else UD.
+      Each VariableReference has a key into this table. 
+      If VariableReference is LHS, then DU, else UD.
+      The 1 minimal occurence is for the dummy set with key 0.
     </xsd:documentation>
   </xsd:annotation>
 
   <xsd:sequence>
-    <xsd:element name="DUUDSet" type="DUUDSetType" minOccurs="0" maxOccurs="unbounded"/>
+    <xsd:element name="DUUDSet" type="DUUDSetType" minOccurs="1" maxOccurs="unbounded"/>
   </xsd:sequence>
 </xsd:complexType>
 
@@ -343,9 +360,18 @@ is LHS, then DU, else UD.
 
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
-      add uniqueness constraints if required
+	The DUUDSetList is associated with CallGraph, 
+	the top level element. 
     </xsd:documentation>
   </xsd:annotation>
+
+  <xsd:unique name="duud_unique">
+    <xsd:selector xpath="xaif:DUUDSet"/><xsd:field xpath="@key"/>
+  </xsd:unique>
+
+  <xsd:key name="duud_key">
+    <xsd:selector xpath="xaif:DUUDSet"/><xsd:field xpath="@key"/>
+  </xsd:key>
 
 </xsd:element>  
 
@@ -357,42 +383,56 @@ is LHS, then DU, else UD.
 
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
+	An alias range is a range of virtual addresses 
+	where we assume 
+	from_virtual_address less than or equal to_virtual_address
+	or the range is interpreted to be empty.
+	The "partial" attribute signifies a partial reference, 
+	as opposed to a full reference, e.g. when we talk about 
+	a vector that has an address range and the 
+	entire vector is read or written.
     </xsd:documentation>
   </xsd:annotation>
 
   <xsd:attribute name="from_virtual_address" type="xsd:positiveInteger"/>
   <xsd:attribute name="to_virtual_address" type="xsd:positiveInteger"/>
-</xsd:complexType>
+  <xsd:attribute name="partial" type="xsd:boolean" use="optional" default="true"/>
 
-<xsd:complexType name="AliasType">
-  <xsd:attribute name="virtual_address" type="xsd:positiveInteger"/>
 </xsd:complexType>
 
 <xsd:complexType name="AliasSetType">
+
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
+	A set of alias information consisting of 
+	ranges of virtual addresses and single 
+	virtual addresses. The "0" key entry 
+	signifies the "alias all". This entry 
+	is the only one that can and should be empty and 
+	it needs to exist to satisfy the referential 
+	integrity constraints (as_keyref1/2) for "alias" foreign 
+	key attributes defaulting to "0" in case 
+	no actual alias information is available.
     </xsd:documentation>
   </xsd:annotation>
 
-  <xsd:sequence>
-    <xsd:choice minOccurs="0" maxOccurs="unbounded">
-      <xsd:element name="Alias" type="AliasType"/>
-      <xsd:element name="AliasRange" type="AliasRangeType"/>
-    </xsd:choice>
+  <xsd:sequence> 
+    <xsd:element name="AliasRange" type="AliasRangeType" minOccurs="1" maxOccurs="unbounded"/>
   </xsd:sequence>
-  <xsd:attribute name="key" type="xsd:positiveInteger"/>
-  <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
+  <xsd:attribute name="key" type="xsd:nonNegativeInteger"/>
 </xsd:complexType>
 
 <xsd:complexType name="AliasSetListType">
 
   <xsd:annotation>
-	  <xsd:documentation xml:lang="en">
+    <xsd:documentation xml:lang="en">
+	a map of Alias Sets with key as a unique 
+	identifier to be referenced from variables. 
     </xsd:documentation>
   </xsd:annotation>
 
   <xsd:sequence>
-    <xsd:element name="AliasSet" type="AliasSetType" minOccurs="0" maxOccurs="unbounded"/>
+    <xsd:element name="AliasSet" type="AliasSetType" minOccurs="1" maxOccurs="unbounded"/>
   </xsd:sequence>
 </xsd:complexType>
 
@@ -400,20 +440,22 @@ is LHS, then DU, else UD.
 
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
+	The AliasSetList is associated with CallGraph, 
+	the top level element. 
     </xsd:documentation>
   </xsd:annotation>
 
   <xsd:unique name="as_unique">
-    <xsd:selector xpath="AliasSet"/><xsd:field xpath="@key"/>
+    <xsd:selector xpath="xaif:AliasSet"/><xsd:field xpath="@key"/>
   </xsd:unique>
   <xsd:key name='as_key'>
-    <xsd:selector xpath="AliasSet"/><xsd:field xpath="@key"/>
+    <xsd:selector xpath="xaif:AliasSet"/><xsd:field xpath="@key"/>
   </xsd:key>
-  <xsd:keyref name="as_keyref1" refer='as_key'>
-    <xsd:selector xpath="VariableReference"/><xsd:field xpath="@alias"/>  
+  <xsd:keyref name="as_keyref1" refer="xaif:as_key">
+    <xsd:selector xpath="xaif:ControlFlowGraph/xaif:BasicBlock/xaif:Assignment/xaif:AssignmentRHS/xaif:VariableReference"/><xsd:field xpath="@alias"/>  
   </xsd:keyref>
-  <xsd:keyref name="as_keyref2" refer='as_key'>
-    <xsd:selector xpath="AssignmentLHS"/><xsd:field xpath="@alias"/>  
+  <xsd:keyref name="as_keyref2" refer="xaif:as_key">
+    <xsd:selector xpath="xaif:ControlFlowGraph/xaif:BasicBlock/xaif:Assignment/xaif:AssignmentLHS"/><xsd:field xpath="@alias"/>  
   </xsd:keyref>
 
 </xsd:element>  
@@ -450,6 +492,48 @@ is LHS, then DU, else UD.
   </xsd:choice>
 </xsd:group>
 
+<xsd:group name="CallGraphContentGroup">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+	We group the ScopeHierarchy, the Alias and DUUD SetLists, and 
+	the VertexEdgeGroup to ensure the VertexEdgeGroup comes last. 
+	The order between the other elements does not really matter 
+	but the schema does not allow to grouping with a partial order. 
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:sequence>
+      <xsd:element ref="ScopeHierarchy" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The scope hierarchy is always attached to the call graph.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element> 
+      <xsd:element ref="AliasSetList" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+	  <xsd:documentation xml:lang="en">
+            The list of alias sets for all variable references. Because there 
+ 	    is an alias key referential integrity check and the alias keys default 
+	    to '0' we have to have at least the '0' element in the list and therefore 
+	    the list has to exist. The '0' element represents 'aliased to all'.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element> 
+      <xsd:element ref="DUUDSetList" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+	  <xsd:documentation xml:lang="en">
+            The list of Du/Ud chains for all variable references. Because there 
+ 	    is an alias key referential integrity check and the duud keys default 
+	    to '0' we have to have at least the '0' element in the list and therefore 
+	    the list has to exist. The '0' element represents a duud chain containing all 
+            statements. 
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element> 
+      <xsd:group ref="CallGraphVertexAndEdgeGroup" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:group>
+
 <xsd:complexType name="CallGraphType">
 
   <xsd:annotation>
@@ -462,32 +546,8 @@ is LHS, then DU, else UD.
     </xsd:documentation>
   </xsd:annotation>
 
-  <xsd:sequence>
-
-    <xsd:element ref="ScopeHierarchy" minOccurs="1" maxOccurs="1">
-
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          The scope hierarchy is always attached to the call graph.
-        </xsd:documentation>
-      </xsd:annotation>
-
-    </xsd:element> 
-
-    <xsd:element ref="AliasSetList" minOccurs="0" maxOccurs="1">
-
-      <xsd:annotation>
-	<xsd:documentation xml:lang="en">
-          The list of alias sets for all variable references.
-        </xsd:documentation>
-      </xsd:annotation>
-
-    </xsd:element> 
-
-    <xsd:group ref="CallGraphVertexAndEdgeGroup" minOccurs="0" maxOccurs="unbounded"/>
-
-  </xsd:sequence>
-
+  <xsd:group ref="CallGraphContentGroup" minOccurs="1" maxOccurs="1"/>
+  
   <xsd:attribute name="program_name" type="xsd:string" use="optional"/>
 
   <xsd:attribute name="prefix" type="xsd:string" use="optional" default="GetRidOfThisDefault">
@@ -500,7 +560,6 @@ is LHS, then DU, else UD.
       </xsd:documentation>
     </xsd:annotation>
   </xsd:attribute>
-
 
 </xsd:complexType>
 
@@ -515,19 +574,27 @@ is LHS, then DU, else UD.
   </xsd:annotation>
 
   <xsd:unique name="cgv_unique">
-    <xsd:selector xpath="CallGraphVertex"/><xsd:field xpath="@vertex_id"/>
+    <xsd:selector xpath="xaif:CallGraphVertex"/><xsd:field xpath="@vertex_id"/>
   </xsd:unique>
   <xsd:unique name="cge_unique">
-    <xsd:selector xpath="CallGraphEdge"/><xsd:field xpath="@edge_id"/>
+    <xsd:selector xpath="xaif:CallGraphEdge"/><xsd:field xpath="@edge_id"/>
   </xsd:unique>
-  <xsd:key name='cg_vertexId'>
-	  <xsd:selector xpath="ControlFlowGraph"/><xsd:field xpath="@vertex_id"/>
+  <xsd:key name="cg_vertexId">
+    <xsd:selector xpath="xaif:ControlFlowGraph"/><xsd:field xpath="@vertex_id"/>
   </xsd:key>
-  <xsd:keyref name="cg_keyref1" refer='cg_vertexId'>
-    <xsd:selector xpath="CallGraphEdge"/><xsd:field xpath="@source"/>  
+  <xsd:keyref name="cg_keyref1" refer="xaif:cg_vertexId">
+    <xsd:selector xpath="xaif:CallGraphEdge"/><xsd:field xpath="@source"/>  
   </xsd:keyref>
-  <xsd:keyref name="cg_keyref2" refer='cg_vertexId'>
-    <xsd:selector xpath="CallGraphEdge"/><xsd:field xpath="@target"/>  
+  <xsd:keyref name="cg_keyref2" refer="xaif:cg_vertexId">
+    <xsd:selector xpath="xaif:CallGraphEdge"/><xsd:field xpath="@target"/>  
+  </xsd:keyref>
+
+  <xsd:keyref name="duud_keyref1" refer="xaif:duud_key">
+    <xsd:selector xpath="xaif:ControlFlowGraph/xaif:BasicBlock/xaif:Assignment/xaif:AssignmentRHS/xaif:VariableReference"/><xsd:field xpath="@du_ud"/>  
+  </xsd:keyref>
+
+  <xsd:keyref name="duud_keyref2" refer="xaif:duud_key">
+    <xsd:selector xpath="xaif:ControlFlowGraph/xaif:BasicBlock/xaif:Assignment/xaif:AssignmentLHS"/><xsd:field xpath="@du_ud"/>  
   </xsd:keyref>
 
 </xsd:element>  
@@ -549,13 +616,12 @@ is LHS, then DU, else UD.
 <!-- *********************************************************** -->
 
 <xsd:simpleType name="IntentType">
-
   <xsd:annotation>
-	  <xsd:documentation xml:lang="en">
-		  The intent of subroutine arguments.
+    <xsd:documentation xml:lang="en">
+      The intent of subroutine arguments, in concept similar 
+      to the an intent qualifier found in Fortran90 but n
     </xsd:documentation>
   </xsd:annotation>
-
   <xsd:restriction base="xsd:string">
     <xsd:enumeration value="in"/>
     <xsd:enumeration value="out"/>
@@ -567,37 +633,55 @@ is LHS, then DU, else UD.
   <xsd:complexContent>
     <xsd:extension base="FrontEndAnnotationType">       
       <xsd:annotation>
-	 <xsd:documentation xml:lang="en">
-	    Arguments of subroutines are uniquely determined by their
-            position within the argument list and by a reference to the
-	    symbol. Additionally, their activity status 
-	    default : active) and intent (default: inout) can be specified.
-         </xsd:documentation>
+        <xsd:documentation xml:lang="en">
+	  An argument of a subroutine is a SymbolReference augmented 
+	  by its position within the argument list.
+	  Additionally, its intent (default: inout) may be specified.
+        </xsd:documentation>
       </xsd:annotation>
-      <xsd:attribute name="position" type="xsd:positiveInteger" use="required"/>
-      <xsd:attribute name="symbol_id" type="xsd:string" use="required"/>
-      <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
-      <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
-      <xsd:attribute name="deriv" type="xsd:boolean" use="optional" default="false"/>
-      <xsd:attribute name="intent" type="IntentType" use="optional" default="inout"/>
+      <xsd:attribute name="position"  type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="symbol_id" type="xsd:string"          use="required"/>
+      <xsd:attribute name="scope_id"  type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="deriv"     type="xsd:boolean"         use="optional" default="false"/>
+      <xsd:attribute name="intent"    type="IntentType"          use="optional" default="inout"/>
     </xsd:extension>       
   </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="ArgumentListType">
+  <xsd:sequence>
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The argument list.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:element name="ArgumentSymbolReference" type="ArgumentSymbolReferenceType" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SideEffectListType">	
+  <xsd:sequence>
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        A list of VariableReferences to express the 
+	results of sideeffect analysis.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:element name="SideEffectReference" type="VariableReferenceType" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
 </xsd:complexType>
 
 <xsd:group name="ControlFlowVertexAndEdgeGroup">
   <xsd:choice> 
     <xsd:element ref="ControlFlowVertex">
-
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-		Control flow graph vertices represent the basic 
-		blocks or certain control flow statements contained 
-		within a subroutine. 
+   	  Control flow graph vertices represent the basic 
+	  blocks or certain control flow statements contained 
+	  within a subroutine. (loops, branches, entry, exit etc.) 
         </xsd:documentation>
       </xsd:annotation>
-
     </xsd:element>
-
     <xsd:element name="ControlFlowEdge" type="ControlFlowEdgeType">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -611,120 +695,74 @@ is LHS, then DU, else UD.
   </xsd:choice>
 </xsd:group>
 
-
-
-<xsd:complexType name="ArgumentListType">
-        <xsd:sequence>
-                                                                                
-          <xsd:annotation>
-            <xsd:documentation xml:lang="en">
-              The argument list.
-            </xsd:documentation>
-          </xsd:annotation>
-                                                                                
-          <xsd:element name="ArgumentSymbolReference" type="ArgumentSymbolReferenceType"
-                   minOccurs="0" maxOccurs="unbounded"/>
-                                                                                
-        </xsd:sequence>
-</xsd:complexType>
-
 <xsd:complexType name="ControlFlowGraphType">
- <xsd:complexContent>
+  <xsd:complexContent>
     <xsd:extension base="VertexType">       
-
-  <xsd:annotation>
-	  <xsd:documentation xml:lang="en">
-		  Subroutines are represented by control flow graphs.
-		  A control flow graph contains an argument list vertices 
-		  and edges. Furthermore, the name of the corresponding
-		  subroutine must be specified.
-    </xsd:documentation>
-  </xsd:annotation>
-
-  <xsd:sequence>
-
-    <xsd:element name="ArgumentList" type="ArgumentListType" minOccurs="0" maxOccurs="1"/>
-
-    <xsd:element name="InList" minOccurs="0" maxOccurs="1">
-      <xsd:complexType>
-        <xsd:sequence>
-
-          <xsd:annotation>
-            <xsd:documentation xml:lang="en">
-              The list of variable references used 
-              by the given subroutine. If the list is complete, then
-              this is specified via the optional attribute ``complete."
-            </xsd:documentation>
-          </xsd:annotation>
-      
-          <xsd:element name="Input" type="VariableReferenceType"
-    		   minOccurs="0" maxOccurs="unbounded"/>
-
-        </xsd:sequence>
-        <xsd:attribute name="complete" type="xsd:boolean" use="optional" default="true"/>
-      </xsd:complexType>
-    </xsd:element>
-
-    <xsd:element name="OutList" minOccurs="0" maxOccurs="1">
-      <xsd:complexType>
-        <xsd:sequence>
-
-          <xsd:annotation>
-            <xsd:documentation xml:lang="en">
-              The list of variable references defined 
-              by the given subroutine. If the list is complete, then
-              this is specified via the optional attribute ``complete."
-            </xsd:documentation>
-          </xsd:annotation>
-      
-          <xsd:element name="Output" type="VariableReferenceType"
-    		   minOccurs="0" maxOccurs="unbounded"/>
-
-        </xsd:sequence>
-        <xsd:attribute name="complete" type="xsd:boolean" use="optional" default="false"/>
-      </xsd:complexType>
-    </xsd:element>
-
-    <xsd:group ref="ControlFlowVertexAndEdgeGroup" minOccurs="0" maxOccurs="unbounded"/>
-
-  </xsd:sequence>
-  <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
-  <xsd:attribute name="symbol_id" type="xsd:string" use="required"/>
-  <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
-  <xsd:attribute name="controlflowgraph_scope_id" type="xsd:positiveInteger" use="required"/>
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+	  Subroutines are represented by control flow graphs.
+	  The name of the subroutine must be specified with 
+          the attributes below just like a SymbolReference.
+	  Subroutine arguments (if any) are specified in ArgumentList.
+          We have four lists as the result of sideeffect analysis:
+          ModLocal:  modifications in this subroutine
+          Mod:       modifications in this subroutine and its callees
+          ReadLocal: reads in this subroutine
+          Read:      reads in this subroutine and its callees	
+	  The control flow graph itself is contained in ControlFlowVertexAndEdgeGroup.
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element name="ArgumentList" type="ArgumentListType"   minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="ModLocal"     type="SideEffectListType" minOccurs="0" maxOccurs="1"/> 
+        <xsd:element name="Mod"          type="SideEffectListType" minOccurs="0" maxOccurs="1"/> 
+        <xsd:element name="ReadLocal"    type="SideEffectListType" minOccurs="0" maxOccurs="1"/> 
+        <xsd:element name="Read"         type="SideEffectListType" minOccurs="0" maxOccurs="1"/> 
+        <xsd:group ref="ControlFlowVertexAndEdgeGroup" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="active"                    type="xsd:boolean"         use="optional" default="true"/>
+      <xsd:attribute name="symbol_id"                 type="xsd:string"          use="required"/>
+      <xsd:attribute name="scope_id"                  type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="controlflowgraph_scope_id" type="xsd:positiveInteger" use="required"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
 
-<xsd:element name="ControlFlowGraph" type="ControlFlowGraphType"
-	substitutionGroup="CallGraphVertex">
-
+<xsd:element name="ControlFlowGraph" type="ControlFlowGraphType" substitutionGroup="CallGraphVertex">
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
-	    The vertex_id's of control flow graph vertex substitutes must be unique with
-	    the current control flow graph. The corresponding elements are referenced via 
-	    their vertex_id's.  Both the source and the target of an edge must be 
-	    vertex_id's.
+       On the level of a single ControlFlowGraph we impose the following constraints:
+       - The vertex_id's of control flow graph vertex substitutes must be unique with
+         the current control flow graph. (cfgv_unique)
+       - The edge_id's of control flow graph vertex substitutes must be unique with
+         the current control flow graph. (cfge_unique)
+       - Both the source (cfg_keyref1) and the target (cfg_keyref2) of an edge must be vertex_id's.
     </xsd:documentation>
   </xsd:annotation>
 
   <xsd:unique name="cfgv_unique">
-	  <xsd:selector xpath="BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop|EndBranch|EndLoop|Goto|Label"/>
-      <xsd:field xpath="@vertex_id"/>
+     <xsd:selector xpath="xaif:BasicBlock|xaif:Entry|xaif:Exit|xaif:Branch|xaif:If|xaif:ForLoop|xaif:PreLoop|xaif:PostLoop|xaif:EndBranch|xaif:EndLoop|xaif:Goto|xaif:Label"/>
+     <xsd:field xpath="@vertex_id"/>
   </xsd:unique>
+
   <xsd:unique name="cfge_unique">
-    <xsd:selector xpath="ControlFlowEdge"/><xsd:field xpath="@edge_id"/>
+    <xsd:selector xpath="ControlFlowEdge"/>
+    <xsd:field xpath="@edge_id"/>
   </xsd:unique>
-  <xsd:key name='cfg_vertexId'>
-	  <xsd:selector xpath="BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop|EndBranch|EndLoop|Goto|Label"/>
-      <xsd:field xpath="@vertex_id"/>
+
+  <xsd:key name="cfg_vertexId">
+    <xsd:selector xpath="xaif:BasicBlock|xaif:Entry|xaif:Exit|xaif:Branch|xaif:If|xaif:ForLoop|xaif:PreLoop|xaif:PostLoop|xaif:EndBranch|xaif:EndLoop|xaif:Goto|xaif:Label"/>
+    <xsd:field xpath="@vertex_id"/>
   </xsd:key>
-  <xsd:keyref name="cfg_keyref1" refer='cfg_vertexId'>
-    <xsd:selector xpath="ControlFlowEdge"/><xsd:field xpath="@source"/>  
+
+  <xsd:keyref name="cfg_keyref1" refer="xaif:cfg_vertexId">
+    <xsd:selector xpath="xaif:ControlFlowEdge"/><xsd:field xpath="@source"/>  
   </xsd:keyref>
-  <xsd:keyref name="cfg_keyref2" refer='cfg_vertexId'>
-    <xsd:selector xpath="ControlFlowEdge"/><xsd:field xpath="@target"/>  
+
+  <xsd:keyref name="cfg_keyref2" refer="xaif:cfg_vertexId">
+    <xsd:selector xpath="xaif:ControlFlowEdge"/><xsd:field xpath="@target"/>  
   </xsd:keyref>
+
 </xsd:element> 
 
 <xsd:element name="ControlFlowVertex" type="VertexType">
@@ -820,6 +858,30 @@ is LHS, then DU, else UD.
 </xsd:element>
 
 <!-- *********************************************************** -->
+<!-- ForLoop reversal types. 
+     We distinguish two ForLoops constructions/
+     The purpose of this distinction is  to allow 
+     a direct reversal in terms of the original loop variables
+     as opposed to an anonymous reversal with a dummy loop variable. -->
+<!-- *********************************************************** -->
+
+<xsd:simpleType name="ForLoopReversalType">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      The two ForLoop reversal types are 
+      "explicit" for an explicit reversal that retains the loop variables and 
+      "anonymous" for the usual loop reversal with generated loop variables  
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="explicit"/>
+    <xsd:enumeration value="anonymous"/>
+  </xsd:restriction>
+</xsd:simpleType>
+
+<!-- *********************************************************** -->
 <!-- ForLoop -->
 <!-- *********************************************************** -->
 
@@ -841,6 +903,8 @@ is LHS, then DU, else UD.
          <xsd:element name="Update" type="AssignmentType"
 		   minOccurs="0" maxOccurs="1"/>
       </xsd:sequence>
+
+      <xsd:attribute name="reversal" type="xaif:ForLoopReversalType" use="optional" default="anonymous"/>
 
     </xsd:extension>
   </xsd:complexContent>   
@@ -1211,7 +1275,6 @@ is LHS, then DU, else UD.
   <xsd:complexContent>
     <xsd:extension base="AssignmentType">
       <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
-      <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
     </xsd:extension>       
   </xsd:complexContent>
 </xsd:complexType>
@@ -1360,7 +1423,7 @@ is LHS, then DU, else UD.
       <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
       <xsd:attribute name="symbol_id" type="xsd:string"/>
       <xsd:attribute name="scope_id" type="xsd:positiveInteger"/>
-      <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
+      <xsd:attribute name="active" type="xaif:ActiveUseType" use="optional" default="undefined"/>
 </xsd:complexType> 
 
 <xsd:element name="SubroutineCall" type="SubroutineCallType"/>

@@ -56,15 +56,20 @@ end subroutine
 
   <xaif:AliasSetList>
     <xaif:AliasSet key="1">
-      <xaif:Alias virtual_address="1"/>
+      <xaif:AliasRange from_virtual_address="1" to_virtual_address="1"/>
       <xaif:AliasRange from_virtual_address="3" to_virtual_address="7"/>
-      <xaif:Alias virtual_address="100"/>
+      <xaif:AliasRange from_virtual_address="100" to_virtual_address="100"/>
     </xaif:AliasSet>
     <xaif:AliasSet key="3">
       <xaif:AliasRange from_virtual_address="3" to_virtual_address="7"/>
       <xaif:AliasRange from_virtual_address="9" to_virtual_address="12"/>
     </xaif:AliasSet>
   </xaif:AliasSetList>
+
+  <xaif:DUUDSetList>
+    <xaif:DUUDSet key="0">
+    </xaif:DUUDSet>
+  </xaif:DUUDSetList>
 
   <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1" controlflowgraph_scope_id="2">
 
@@ -73,20 +78,20 @@ end subroutine
        <xaif:ArgumentSymbolReference position="2" symbol_id="y" scope_id="2"/>
      </xaif:ArgumentList>
 
-     <xaif:InList complete="true">
-       <xaif:Input>
+     <xaif:ModLocal>
+       <xaif:SideEffectReference>
          <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
-       </xaif:Input>
-     </xaif:InList>
-
-     <xaif:OutList complete="true">
-       <xaif:Output>
-         <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
-       </xaif:Output>
-       <xaif:Output>
+       </xaif:SideEffectReference>
+       <xaif:SideEffectReference>
          <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
-       </xaif:Output>
-     </xaif:OutList>
+       </xaif:SideEffectReference>
+     </xaif:ModLocal>
+
+     <xaif:ReadLocal>
+       <xaif:SideEffectReference>
+         <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
+       </xaif:SideEffectReference>
+     </xaif:ReadLocal>
 
      <xaif:Entry vertex_id="1"/>
 
@@ -95,7 +100,7 @@ end subroutine
        <xaif:Assignment statement_id="sage_0">
 
 	       <!-- demo syntax alias info 
-	       default = 0 = worst case ("extermely conservative") -->
+	       default = 0 = worst case ("extremely conservative") -->
 
          <xaif:AssignmentLHS alias="0" live="false">
 		 <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2" />
