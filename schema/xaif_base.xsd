@@ -502,42 +502,44 @@
     </xsd:documentation>
   </xsd:annotation>
 
-  <xsd:any>
+  <xsd:sequence>
+    <xsd:choice>
 
-    <xsd:element ref="ScopeHierarchy" minOccurs="1" maxOccurs="1">
-
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          The scope hierarchy is always attached to the call graph.
-        </xsd:documentation>
-      </xsd:annotation>
-
-    </xsd:element> 
-
-    <xsd:element ref="AliasSetList" minOccurs="0" maxOccurs="1">
-
-      <xsd:annotation>
-	<xsd:documentation xml:lang="en">
-          The list of alias sets for all variable references.
-        </xsd:documentation>
-      </xsd:annotation>
-
-    </xsd:element> 
-
-    <xsd:element ref="DUUDSetList" minOccurs="0" maxOccurs="1">
-
-      <xsd:annotation>
-	<xsd:documentation xml:lang="en">
-          The list of Du/Ud chains for all variable references.
-        </xsd:documentation>
-      </xsd:annotation>
-
-    </xsd:element> 
-
-    <xsd:group ref="CallGraphVertexAndEdgeGroup" minOccurs="0" maxOccurs="unbounded"/>
-
-  </xsd:any>
-
+      <xsd:element ref="ScopeHierarchy" minOccurs="1" maxOccurs="1">
+  
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The scope hierarchy is always attached to the call graph.
+          </xsd:documentation>
+        </xsd:annotation>
+  
+      </xsd:element> 
+  
+      <xsd:element ref="AliasSetList" minOccurs="0" maxOccurs="1">
+  
+        <xsd:annotation>
+	  <xsd:documentation xml:lang="en">
+            The list of alias sets for all variable references.
+          </xsd:documentation>
+        </xsd:annotation>
+  
+      </xsd:element> 
+  
+      <xsd:element ref="DUUDSetList" minOccurs="0" maxOccurs="1">
+  
+        <xsd:annotation>
+	  <xsd:documentation xml:lang="en">
+            The list of Du/Ud chains for all variable references.
+          </xsd:documentation>
+        </xsd:annotation>
+  
+      </xsd:element> 
+  
+      <xsd:group ref="CallGraphVertexAndEdgeGroup" minOccurs="0" maxOccurs="unbounded"/>
+  
+    </xsd:choice>
+  </xsd:sequence>
+  
   <xsd:attribute name="program_name" type="xsd:string" use="optional"/>
 
   <xsd:attribute name="prefix" type="xsd:string" use="optional" default="GetRidOfThisDefault">
