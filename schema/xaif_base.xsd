@@ -176,7 +176,7 @@
   </xsd:annotation>
   <xsd:sequence>
     <xsd:element name="Symbol" type="SymbolType" 
-      minOccurs="1" maxOccurs="unbounded">
+      minOccurs="0" maxOccurs="unbounded">
     </xsd:element>  
   </xsd:sequence>
 </xsd:complexType>
@@ -1154,6 +1154,24 @@
 <!-- Variable Reference -->
 <!-- *********************************************************** -->
 
+<xsd:simpleType name="ActiveUseType">
+
+  <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+                  We distinguish between the following kinds of symbol uses:
+                  1. "undefined" - no information available; 
+                  2. "true" - the use of the symbol is active
+		  3. "false" - the use of the symbol is passive 
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="undefined"/>
+    <xsd:enumeration value="true"/>
+    <xsd:enumeration value="false"/>
+  </xsd:restriction>
+</xsd:simpleType>
+
 <xsd:complexType name="VariableReferenceType">
   <xsd:complexContent>
     <xsd:extension base="VertexType">
@@ -1195,7 +1213,7 @@
 
       </xsd:sequence>
 
-      <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
+      <xsd:attribute name="active" type="xaif:ActiveUseType" use="optional" default="undefined"/>
       <xsd:attribute name="alias" type="xsd:integer" use="optional" default="0"/>
       <xsd:attribute name="deriv" type="xsd:boolean" use="optional" default="false"/>
     </xsd:extension>
