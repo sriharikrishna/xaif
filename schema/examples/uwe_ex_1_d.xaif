@@ -67,21 +67,23 @@
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
 
-       <xaif:DerivativeAccumulator>
-         <xaif:Derivative>
-           <xaif:PartialDerivative>
-             <xaif:VariableReference>
-               <xaif:SymbolReference symbol_id="dydx" scope_id="2"/>
-             </xaif:VariableReference>
-           </xaif:PartialDerivative>
-           <xaif:Dependent>
+       <xaif:DerivativePropagator>
+         <xaif:Saxpy>
+	   <xaif:AX>
+             <xaif:A>
+               <xaif:VariableReference>
+                 <xaif:SymbolReference symbol_id="dydx" scope_id="2"/>
+               </xaif:VariableReference>
+             </xaif:A>
+             <xaif:X>
+               <xaif:SymbolReference symbol_id="y" scope_id="2"/>
+             </xaif:X>
+	   </xaif:AX>
+           <xaif:Y>
              <xaif:SymbolReference symbol_id="y" scope_id="2"/>
-           </xaif:Dependent>
-           <xaif:Independent>
-             <xaif:SymbolReference symbol_id="y" scope_id="2"/>
-           </xaif:Independent>
-         </xaif:Derivative>
-       </xaif:DerivativeAccumulator>                        
+           </xaif:Y>
+         </xaif:Saxpy>
+       </xaif:DerivativePropagator>                        
 
      </xaif:BasicBlock>
 

@@ -44,9 +44,9 @@ end subroutine
 
      <xaif:Entry vertex_id="1"/>
 
-     <xaif:BasicBlock vertex_id="2">
+     <xaif:BasicBlock vertex_id="2" annotation="sth">
 
-       <xaif:Assignment statement_id="1" annotation="sage_3">
+       <xaif:Assignment statement_id="1">
          <xaif:AssignmentLHS>
            <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
          </xaif:AssignmentLHS>

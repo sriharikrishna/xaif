@@ -17,16 +17,16 @@
         <xaif:Symbol symbol_id="20" kind="subroutine" type="void"/>
         <!-- COMMON name = pa_density_r -->
         <!-- ALPHA -->
-        <xaif:Symbol symbol_id="22" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="22" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_geometry_r -->
         <!-- AREA -->
-        <xaif:Symbol symbol_id="24" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="24" kind="variable" type="real" shape="vector"/>
         <!-- BETA -->
-        <xaif:Symbol symbol_id="25" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="25" kind="variable" type="real" shape="scalar"/>
         <!-- BHEIGHT -->
-        <xaif:Symbol symbol_id="26" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="26" kind="variable" type="real" shape="vector"/>
         <!-- BLENGTH -->
-        <xaif:Symbol symbol_id="27" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="27" kind="variable" type="real" shape="vector"/>
         <!-- box_cycle_fields -->
         <xaif:Symbol symbol_id="28" kind="subroutine" type="void"/>
         <!-- box_density -->
@@ -42,868 +42,868 @@
         <!-- box_transport -->
         <xaif:Symbol symbol_id="34" kind="subroutine" type="void"/>
         <!-- BWIDTH -->
-        <xaif:Symbol symbol_id="35" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="35" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_parameters_r -->
         <!-- DAY -->
-        <xaif:Symbol symbol_id="37" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="37" kind="variable" type="real" shape="scalar"/>
         <!-- DAYS_PER_50M_MIXED_LAYER -->
-        <xaif:Symbol symbol_id="38" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="38" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_transport_r -->
         <!-- DELTA -->
-        <xaif:Symbol symbol_id="40" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="40" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_timestep_r -->
         <!-- DELTA_T -->
-        <xaif:Symbol symbol_id="42" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="42" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_IC -->
-        <xaif:Symbol symbol_id="43" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="43" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_REGULARIZE -->
-        <xaif:Symbol symbol_id="44" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="44" kind="variable" type="real" shape="scalar"/>
         <!-- FDEPS -->
-        <xaif:Symbol symbol_id="45" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="45" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_forcing_params_r -->
         <!-- FW -->
-        <xaif:Symbol symbol_id="47" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="47" kind="variable" type="real" shape="vector"/>
         <!-- GAMMA_S -->
-        <xaif:Symbol symbol_id="48" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="48" kind="variable" type="real" shape="scalar"/>
         <!-- GAMMA_T -->
-        <xaif:Symbol symbol_id="49" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="49" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_jacobi_r -->
         <!-- GRDADM -->
-        <xaif:Symbol symbol_id="51" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="51" kind="variable" type="real" shape="matrix"/>
         <!-- GRDFDM -->
-        <xaif:Symbol symbol_id="52" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="52" kind="variable" type="real" shape="matrix"/>
         <!-- GRDTLM -->
-        <xaif:Symbol symbol_id="53" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="53" kind="variable" type="real" shape="matrix"/>
         <!-- HUNDRED -->
-        <xaif:Symbol symbol_id="54" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="54" kind="variable" type="real" shape="scalar"/>
         <!-- INTEGRATION_TIME -->
-        <xaif:Symbol symbol_id="55" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="55" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_algebra_r -->
         <!-- METRICTENSORX -->
-        <xaif:Symbol symbol_id="57" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="57" kind="variable" type="real" shape="matrix"/>
         <!-- METRICTENSORY -->
-        <xaif:Symbol symbol_id="58" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="58" kind="variable" type="real" shape="matrix"/>
         <!-- NOISE_CORRELATION_TIME -->
-        <xaif:Symbol symbol_id="59" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="59" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_norm_r -->
         <!-- NORM -->
-        <xaif:Symbol symbol_id="61" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="61" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_norm_aux_r -->
         <!-- NORM1 -->
-        <xaif:Symbol symbol_id="63" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="63" kind="variable" type="real" shape="scalar"/>
         <!-- NORM2 -->
-        <xaif:Symbol symbol_id="64" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="64" kind="variable" type="real" shape="scalar"/>
         <!-- NULLFORCE -->
-        <xaif:Symbol symbol_id="65" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="65" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = pa_numbers_i -->
         <!-- N_MAX -->
         <xaif:Symbol symbol_id="67" kind="variable" type="integer" shape="scalar"/>
         <!-- PROJ_S -->
-        <xaif:Symbol symbol_id="68" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="68" kind="variable" type="real" shape="vector"/>
         <!-- PROJ_T -->
-        <xaif:Symbol symbol_id="69" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="69" kind="variable" type="real" shape="vector"/>
         <!-- R -->
-        <xaif:Symbol symbol_id="70" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="70" kind="variable" type="real" shape="vector"/>
         <!-- R1 -->
-        <xaif:Symbol symbol_id="71" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="71" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_density_r -->
         <!-- RHO -->
-        <xaif:Symbol symbol_id="73" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="73" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = pa_robert_filter_r -->
         <!-- ROBERT_FILTER_COEFF -->
-        <xaif:Symbol symbol_id="75" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="75" kind="variable" type="real" shape="scalar"/>
         <!-- R_S -->
-        <xaif:Symbol symbol_id="76" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="76" kind="variable" type="real" shape="vector"/>
         <!-- R_T -->
-        <xaif:Symbol symbol_id="77" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="77" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_ini_r -->
         <!-- S -->
-        <xaif:Symbol symbol_id="79" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="79" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_state_r -->
         <!-- SNEW -->
-        <xaif:Symbol symbol_id="81" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="81" kind="variable" type="real" shape="vector"/>
         <!-- SNOW -->
-        <xaif:Symbol symbol_id="82" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="82" kind="variable" type="real" shape="vector"/>
         <!-- SOLD -->
-        <xaif:Symbol symbol_id="83" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="83" kind="variable" type="real" shape="vector"/>
         <!-- SSTAR -->
-        <xaif:Symbol symbol_id="84" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="84" kind="variable" type="real" shape="vector"/>
         <!-- SV -->
-        <xaif:Symbol symbol_id="85" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="85" kind="variable" type="real" shape="scalar"/>
         <!-- T -->
-        <xaif:Symbol symbol_id="86" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="86" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_thc_r -->
         <!-- THC_S -->
-        <xaif:Symbol symbol_id="88" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="88" kind="variable" type="real" shape="scalar"/>
         <!-- THC_T -->
-        <xaif:Symbol symbol_id="89" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="89" kind="variable" type="real" shape="scalar"/>
         <!-- THC_TOT -->
-        <xaif:Symbol symbol_id="90" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="90" kind="variable" type="real" shape="scalar"/>
         <!-- THOUSAND -->
-        <xaif:Symbol symbol_id="91" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="91" kind="variable" type="real" shape="scalar"/>
         <!-- TNEW -->
-        <xaif:Symbol symbol_id="92" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="92" kind="variable" type="real" shape="vector"/>
         <!-- TNOW -->
-        <xaif:Symbol symbol_id="93" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="93" kind="variable" type="real" shape="vector"/>
         <!-- TOLD -->
-        <xaif:Symbol symbol_id="94" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="94" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_cost_orig_r -->
         <!-- TSORIG -->
-        <xaif:Symbol symbol_id="96" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="96" kind="variable" type="real" shape="vector"/>
         <!-- TSTAR -->
-        <xaif:Symbol symbol_id="97" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="97" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_final_state_r -->
         <!-- TSVEC -->
-        <xaif:Symbol symbol_id="99" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="99" kind="variable" type="real" shape="vector"/>
         <!-- U0 -->
-        <xaif:Symbol symbol_id="100" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="100" kind="variable" type="real" shape="scalar"/>
         <!-- UBAR -->
-        <xaif:Symbol symbol_id="101" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="101" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_velocity_r -->
         <!-- UVEL -->
-        <xaif:Symbol symbol_id="103" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="103" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_switches_l -->
         <!-- VERBMODE -->
         <xaif:Symbol symbol_id="105" kind="variable" type="bool" shape="scalar"/>
         <!-- VOL -->
-        <xaif:Symbol symbol_id="106" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="106" kind="variable" type="real" shape="vector"/>
         <!-- YEAR -->
-        <xaif:Symbol symbol_id="107" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="107" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_density_r -->
         <!-- ALPHA -->
-        <xaif:Symbol symbol_id="116" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="116" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_geometry_r -->
         <!-- AREA -->
-        <xaif:Symbol symbol_id="118" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="118" kind="variable" type="real" shape="vector"/>
         <!-- BETA -->
-        <xaif:Symbol symbol_id="119" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="119" kind="variable" type="real" shape="scalar"/>
         <!-- BHEIGHT -->
-        <xaif:Symbol symbol_id="120" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="120" kind="variable" type="real" shape="vector"/>
         <!-- BLENGTH -->
-        <xaif:Symbol symbol_id="121" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="121" kind="variable" type="real" shape="vector"/>
         <!-- BWIDTH -->
-        <xaif:Symbol symbol_id="122" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="122" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_parameters_r -->
         <!-- DAY -->
-        <xaif:Symbol symbol_id="124" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="124" kind="variable" type="real" shape="scalar"/>
         <!-- DAYS_PER_50M_MIXED_LAYER -->
-        <xaif:Symbol symbol_id="125" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="125" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_transport_r -->
         <!-- DELTA -->
-        <xaif:Symbol symbol_id="127" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="127" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_timestep_r -->
         <!-- DELTA_T -->
-        <xaif:Symbol symbol_id="129" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="129" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_IC -->
-        <xaif:Symbol symbol_id="130" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="130" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_REGULARIZE -->
-        <xaif:Symbol symbol_id="131" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="131" kind="variable" type="real" shape="scalar"/>
         <!-- FDEPS -->
-        <xaif:Symbol symbol_id="132" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="132" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_forcing_params_r -->
         <!-- FW -->
-        <xaif:Symbol symbol_id="134" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="134" kind="variable" type="real" shape="vector"/>
         <!-- GAMMA_S -->
-        <xaif:Symbol symbol_id="135" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="135" kind="variable" type="real" shape="scalar"/>
         <!-- GAMMA_T -->
-        <xaif:Symbol symbol_id="136" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="136" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_jacobi_r -->
         <!-- GRDADM -->
-        <xaif:Symbol symbol_id="138" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="138" kind="variable" type="real" shape="matrix"/>
         <!-- GRDFDM -->
-        <xaif:Symbol symbol_id="139" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="139" kind="variable" type="real" shape="matrix"/>
         <!-- GRDTLM -->
-        <xaif:Symbol symbol_id="140" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="140" kind="variable" type="real" shape="matrix"/>
         <!-- HUNDRED -->
-        <xaif:Symbol symbol_id="141" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="141" kind="variable" type="real" shape="scalar"/>
         <!-- INTEGRATION_TIME -->
-        <xaif:Symbol symbol_id="142" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="142" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_algebra_r -->
         <!-- METRICTENSORX -->
-        <xaif:Symbol symbol_id="144" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="144" kind="variable" type="real" shape="matrix"/>
         <!-- METRICTENSORY -->
-        <xaif:Symbol symbol_id="145" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="145" kind="variable" type="real" shape="matrix"/>
         <!-- NOISE_CORRELATION_TIME -->
-        <xaif:Symbol symbol_id="146" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="146" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_norm_r -->
         <!-- NORM -->
-        <xaif:Symbol symbol_id="148" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="148" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_norm_aux_r -->
         <!-- NORM1 -->
-        <xaif:Symbol symbol_id="150" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="150" kind="variable" type="real" shape="scalar"/>
         <!-- NORM2 -->
-        <xaif:Symbol symbol_id="151" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="151" kind="variable" type="real" shape="scalar"/>
         <!-- NULLFORCE -->
-        <xaif:Symbol symbol_id="152" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="152" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = pa_numbers_i -->
         <!-- N_MAX -->
         <xaif:Symbol symbol_id="154" kind="variable" type="integer" shape="scalar"/>
         <!-- PROJ_S -->
-        <xaif:Symbol symbol_id="155" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="155" kind="variable" type="real" shape="vector"/>
         <!-- PROJ_T -->
-        <xaif:Symbol symbol_id="156" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="156" kind="variable" type="real" shape="vector"/>
         <!-- R -->
-        <xaif:Symbol symbol_id="157" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="157" kind="variable" type="real" shape="vector"/>
         <!-- R1 -->
-        <xaif:Symbol symbol_id="158" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="158" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_density_r -->
         <!-- RHO -->
-        <xaif:Symbol symbol_id="160" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="160" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = pa_robert_filter_r -->
         <!-- ROBERT_FILTER_COEFF -->
-        <xaif:Symbol symbol_id="162" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="162" kind="variable" type="real" shape="scalar"/>
         <!-- R_S -->
-        <xaif:Symbol symbol_id="163" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="163" kind="variable" type="real" shape="vector"/>
         <!-- R_T -->
-        <xaif:Symbol symbol_id="164" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="164" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_ini_r -->
         <!-- S -->
-        <xaif:Symbol symbol_id="166" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="166" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_state_r -->
         <!-- SNEW -->
-        <xaif:Symbol symbol_id="168" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="168" kind="variable" type="real" shape="vector"/>
         <!-- SNOW -->
-        <xaif:Symbol symbol_id="169" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="169" kind="variable" type="real" shape="vector"/>
         <!-- SOLD -->
-        <xaif:Symbol symbol_id="170" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="170" kind="variable" type="real" shape="vector"/>
         <!-- SSTAR -->
-        <xaif:Symbol symbol_id="171" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="171" kind="variable" type="real" shape="vector"/>
         <!-- SV -->
-        <xaif:Symbol symbol_id="172" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="172" kind="variable" type="real" shape="scalar"/>
         <!-- T -->
-        <xaif:Symbol symbol_id="173" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="173" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_thc_r -->
         <!-- THC_S -->
-        <xaif:Symbol symbol_id="175" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="175" kind="variable" type="real" shape="scalar"/>
         <!-- THC_T -->
-        <xaif:Symbol symbol_id="176" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="176" kind="variable" type="real" shape="scalar"/>
         <!-- THC_TOT -->
-        <xaif:Symbol symbol_id="177" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="177" kind="variable" type="real" shape="scalar"/>
         <!-- THOUSAND -->
-        <xaif:Symbol symbol_id="178" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="178" kind="variable" type="real" shape="scalar"/>
         <!-- TNEW -->
-        <xaif:Symbol symbol_id="179" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="179" kind="variable" type="real" shape="vector"/>
         <!-- TNOW -->
-        <xaif:Symbol symbol_id="180" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="180" kind="variable" type="real" shape="vector"/>
         <!-- TOLD -->
-        <xaif:Symbol symbol_id="181" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="181" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_cost_orig_r -->
         <!-- TSORIG -->
-        <xaif:Symbol symbol_id="183" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="183" kind="variable" type="real" shape="vector"/>
         <!-- TSTAR -->
-        <xaif:Symbol symbol_id="184" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="184" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_final_state_r -->
         <!-- TSVEC -->
-        <xaif:Symbol symbol_id="186" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="186" kind="variable" type="real" shape="vector"/>
         <!-- U0 -->
-        <xaif:Symbol symbol_id="187" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="187" kind="variable" type="real" shape="scalar"/>
         <!-- UBAR -->
-        <xaif:Symbol symbol_id="188" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="188" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_velocity_r -->
         <!-- UVEL -->
-        <xaif:Symbol symbol_id="190" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="190" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_switches_l -->
         <!-- VERBMODE -->
         <xaif:Symbol symbol_id="192" kind="variable" type="bool" shape="scalar"/>
         <!-- VOL -->
-        <xaif:Symbol symbol_id="193" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="193" kind="variable" type="real" shape="vector"/>
         <!-- YEAR -->
-        <xaif:Symbol symbol_id="194" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="194" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_density_r -->
         <!-- ALPHA -->
-        <xaif:Symbol symbol_id="206" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="206" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_geometry_r -->
         <!-- AREA -->
-        <xaif:Symbol symbol_id="208" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="208" kind="variable" type="real" shape="vector"/>
         <!-- BETA -->
-        <xaif:Symbol symbol_id="209" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="209" kind="variable" type="real" shape="scalar"/>
         <!-- BHEIGHT -->
-        <xaif:Symbol symbol_id="210" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="210" kind="variable" type="real" shape="vector"/>
         <!-- BLENGTH -->
-        <xaif:Symbol symbol_id="211" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="211" kind="variable" type="real" shape="vector"/>
         <!-- BWIDTH -->
-        <xaif:Symbol symbol_id="212" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="212" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_parameters_r -->
         <!-- DAY -->
-        <xaif:Symbol symbol_id="214" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="214" kind="variable" type="real" shape="scalar"/>
         <!-- DAYS_PER_50M_MIXED_LAYER -->
-        <xaif:Symbol symbol_id="215" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="215" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_transport_r -->
         <!-- DELTA -->
-        <xaif:Symbol symbol_id="217" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="217" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_timestep_r -->
         <!-- DELTA_T -->
-        <xaif:Symbol symbol_id="219" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="219" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_IC -->
-        <xaif:Symbol symbol_id="220" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="220" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_REGULARIZE -->
-        <xaif:Symbol symbol_id="221" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="221" kind="variable" type="real" shape="scalar"/>
         <!-- FDEPS -->
-        <xaif:Symbol symbol_id="222" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="222" kind="variable" type="real" shape="scalar"/>
         <!-- GAMMA_S -->
-        <xaif:Symbol symbol_id="223" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="223" kind="variable" type="real" shape="scalar"/>
         <!-- GAMMA_T -->
-        <xaif:Symbol symbol_id="224" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="224" kind="variable" type="real" shape="scalar"/>
         <!-- HUNDRED -->
-        <xaif:Symbol symbol_id="225" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="225" kind="variable" type="real" shape="scalar"/>
         <!-- INTEGRATION_TIME -->
-        <xaif:Symbol symbol_id="226" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="226" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_algebra_r -->
         <!-- METRICTENSORX -->
-        <xaif:Symbol symbol_id="228" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="228" kind="variable" type="real" shape="matrix"/>
         <!-- METRICTENSORY -->
-        <xaif:Symbol symbol_id="229" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="229" kind="variable" type="real" shape="matrix"/>
         <!-- NOISE_CORRELATION_TIME -->
-        <xaif:Symbol symbol_id="230" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="230" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_numbers_i -->
         <!-- N_MAX -->
         <xaif:Symbol symbol_id="232" kind="variable" type="integer" shape="scalar"/>
         <!-- PROJ_S -->
-        <xaif:Symbol symbol_id="233" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="233" kind="variable" type="real" shape="vector"/>
         <!-- PROJ_T -->
-        <xaif:Symbol symbol_id="234" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="234" kind="variable" type="real" shape="vector"/>
         <!-- R -->
-        <xaif:Symbol symbol_id="235" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="235" kind="variable" type="real" shape="vector"/>
         <!-- R1 -->
-        <xaif:Symbol symbol_id="236" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="236" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = pa_robert_filter_r -->
         <!-- ROBERT_FILTER_COEFF -->
-        <xaif:Symbol symbol_id="238" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="238" kind="variable" type="real" shape="scalar"/>
         <!-- R_S -->
-        <xaif:Symbol symbol_id="239" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="239" kind="variable" type="real" shape="vector"/>
         <!-- R_T -->
-        <xaif:Symbol symbol_id="240" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="240" kind="variable" type="real" shape="vector"/>
         <!-- SV -->
-        <xaif:Symbol symbol_id="241" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="241" kind="variable" type="real" shape="scalar"/>
         <!-- THOUSAND -->
-        <xaif:Symbol symbol_id="242" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="242" kind="variable" type="real" shape="scalar"/>
         <!-- U0 -->
-        <xaif:Symbol symbol_id="243" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="243" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_switches_l -->
         <!-- VERBMODE -->
         <xaif:Symbol symbol_id="245" kind="variable" type="bool" shape="scalar"/>
         <!-- VOL -->
-        <xaif:Symbol symbol_id="246" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="246" kind="variable" type="real" shape="vector"/>
         <!-- YEAR -->
-        <xaif:Symbol symbol_id="247" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="247" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_density_r -->
         <!-- ALPHA -->
-        <xaif:Symbol symbol_id="250" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="250" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_geometry_r -->
         <!-- AREA -->
-        <xaif:Symbol symbol_id="252" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="252" kind="variable" type="real" shape="vector"/>
         <!-- BETA -->
-        <xaif:Symbol symbol_id="253" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="253" kind="variable" type="real" shape="scalar"/>
         <!-- BHEIGHT -->
-        <xaif:Symbol symbol_id="254" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="254" kind="variable" type="real" shape="vector"/>
         <!-- BLENGTH -->
-        <xaif:Symbol symbol_id="255" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="255" kind="variable" type="real" shape="vector"/>
         <!-- BWIDTH -->
-        <xaif:Symbol symbol_id="256" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="256" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_parameters_r -->
         <!-- DAY -->
-        <xaif:Symbol symbol_id="258" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="258" kind="variable" type="real" shape="scalar"/>
         <!-- DAYS_PER_50M_MIXED_LAYER -->
-        <xaif:Symbol symbol_id="259" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="259" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_transport_r -->
         <!-- DELTA -->
-        <xaif:Symbol symbol_id="261" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="261" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_timestep_r -->
         <!-- DELTA_T -->
-        <xaif:Symbol symbol_id="263" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="263" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_IC -->
-        <xaif:Symbol symbol_id="264" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="264" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_REGULARIZE -->
-        <xaif:Symbol symbol_id="265" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="265" kind="variable" type="real" shape="scalar"/>
         <!-- FDEPS -->
-        <xaif:Symbol symbol_id="266" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="266" kind="variable" type="real" shape="scalar"/>
         <!-- GAMMA_S -->
-        <xaif:Symbol symbol_id="267" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="267" kind="variable" type="real" shape="scalar"/>
         <!-- GAMMA_T -->
-        <xaif:Symbol symbol_id="268" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="268" kind="variable" type="real" shape="scalar"/>
         <!-- HUNDRED -->
-        <xaif:Symbol symbol_id="269" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="269" kind="variable" type="real" shape="scalar"/>
         <!-- INTEGRATION_TIME -->
-        <xaif:Symbol symbol_id="270" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="270" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_algebra_r -->
         <!-- METRICTENSORX -->
-        <xaif:Symbol symbol_id="272" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="272" kind="variable" type="real" shape="matrix"/>
         <!-- METRICTENSORY -->
-        <xaif:Symbol symbol_id="273" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="273" kind="variable" type="real" shape="matrix"/>
         <!-- NOISE_CORRELATION_TIME -->
-        <xaif:Symbol symbol_id="274" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="274" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_numbers_i -->
         <!-- N_MAX -->
         <xaif:Symbol symbol_id="276" kind="variable" type="integer" shape="scalar"/>
         <!-- PROJ_S -->
-        <xaif:Symbol symbol_id="277" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="277" kind="variable" type="real" shape="vector"/>
         <!-- PROJ_T -->
-        <xaif:Symbol symbol_id="278" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="278" kind="variable" type="real" shape="vector"/>
         <!-- R -->
-        <xaif:Symbol symbol_id="279" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="279" kind="variable" type="real" shape="vector"/>
         <!-- R1 -->
-        <xaif:Symbol symbol_id="280" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="280" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = pa_robert_filter_r -->
         <!-- ROBERT_FILTER_COEFF -->
-        <xaif:Symbol symbol_id="282" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="282" kind="variable" type="real" shape="scalar"/>
         <!-- R_S -->
-        <xaif:Symbol symbol_id="283" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="283" kind="variable" type="real" shape="vector"/>
         <!-- R_T -->
-        <xaif:Symbol symbol_id="284" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="284" kind="variable" type="real" shape="vector"/>
         <!-- SV -->
-        <xaif:Symbol symbol_id="285" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="285" kind="variable" type="real" shape="scalar"/>
         <!-- THOUSAND -->
-        <xaif:Symbol symbol_id="286" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="286" kind="variable" type="real" shape="scalar"/>
         <!-- U0 -->
-        <xaif:Symbol symbol_id="287" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="287" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_switches_l -->
         <!-- VERBMODE -->
         <xaif:Symbol symbol_id="289" kind="variable" type="bool" shape="scalar"/>
         <!-- VOL -->
-        <xaif:Symbol symbol_id="290" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="290" kind="variable" type="real" shape="vector"/>
         <!-- YEAR -->
-        <xaif:Symbol symbol_id="291" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="291" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_density_r -->
         <!-- ALPHA -->
-        <xaif:Symbol symbol_id="293" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="293" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_geometry_r -->
         <!-- AREA -->
-        <xaif:Symbol symbol_id="295" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="295" kind="variable" type="real" shape="vector"/>
         <!-- BETA -->
-        <xaif:Symbol symbol_id="296" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="296" kind="variable" type="real" shape="scalar"/>
         <!-- BHEIGHT -->
-        <xaif:Symbol symbol_id="297" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="297" kind="variable" type="real" shape="vector"/>
         <!-- BLENGTH -->
-        <xaif:Symbol symbol_id="298" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="298" kind="variable" type="real" shape="vector"/>
         <!-- BWIDTH -->
-        <xaif:Symbol symbol_id="299" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="299" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_parameters_r -->
         <!-- DAY -->
-        <xaif:Symbol symbol_id="301" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="301" kind="variable" type="real" shape="scalar"/>
         <!-- DAYS_PER_50M_MIXED_LAYER -->
-        <xaif:Symbol symbol_id="302" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="302" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_transport_r -->
         <!-- DELTA -->
-        <xaif:Symbol symbol_id="304" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="304" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_timestep_r -->
         <!-- DELTA_T -->
-        <xaif:Symbol symbol_id="306" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="306" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_IC -->
-        <xaif:Symbol symbol_id="307" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="307" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_REGULARIZE -->
-        <xaif:Symbol symbol_id="308" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="308" kind="variable" type="real" shape="scalar"/>
         <!-- FDEPS -->
-        <xaif:Symbol symbol_id="309" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="309" kind="variable" type="real" shape="scalar"/>
         <!-- GAMMA_S -->
-        <xaif:Symbol symbol_id="310" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="310" kind="variable" type="real" shape="scalar"/>
         <!-- GAMMA_T -->
-        <xaif:Symbol symbol_id="311" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="311" kind="variable" type="real" shape="scalar"/>
         <!-- HUNDRED -->
-        <xaif:Symbol symbol_id="312" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="312" kind="variable" type="real" shape="scalar"/>
         <!-- INTEGRATION_TIME -->
-        <xaif:Symbol symbol_id="313" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="313" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_algebra_r -->
         <!-- METRICTENSORX -->
-        <xaif:Symbol symbol_id="315" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="315" kind="variable" type="real" shape="matrix"/>
         <!-- METRICTENSORY -->
-        <xaif:Symbol symbol_id="316" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="316" kind="variable" type="real" shape="matrix"/>
         <!-- NOISE_CORRELATION_TIME -->
-        <xaif:Symbol symbol_id="317" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="317" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_numbers_i -->
         <!-- N_MAX -->
         <xaif:Symbol symbol_id="319" kind="variable" type="integer" shape="scalar"/>
         <!-- PROJ_S -->
-        <xaif:Symbol symbol_id="320" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="320" kind="variable" type="real" shape="vector"/>
         <!-- PROJ_T -->
-        <xaif:Symbol symbol_id="321" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="321" kind="variable" type="real" shape="vector"/>
         <!-- R -->
-        <xaif:Symbol symbol_id="322" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="322" kind="variable" type="real" shape="vector"/>
         <!-- R1 -->
-        <xaif:Symbol symbol_id="323" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="323" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = pa_robert_filter_r -->
         <!-- ROBERT_FILTER_COEFF -->
-        <xaif:Symbol symbol_id="325" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="325" kind="variable" type="real" shape="scalar"/>
         <!-- R_S -->
-        <xaif:Symbol symbol_id="326" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="326" kind="variable" type="real" shape="vector"/>
         <!-- R_T -->
-        <xaif:Symbol symbol_id="327" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="327" kind="variable" type="real" shape="vector"/>
         <!-- SV -->
-        <xaif:Symbol symbol_id="328" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="328" kind="variable" type="real" shape="scalar"/>
         <!-- THOUSAND -->
-        <xaif:Symbol symbol_id="329" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="329" kind="variable" type="real" shape="scalar"/>
         <!-- U0 -->
-        <xaif:Symbol symbol_id="330" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="330" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_switches_l -->
         <!-- VERBMODE -->
         <xaif:Symbol symbol_id="332" kind="variable" type="bool" shape="scalar"/>
         <!-- VOL -->
-        <xaif:Symbol symbol_id="333" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="333" kind="variable" type="real" shape="vector"/>
         <!-- YEAR -->
-        <xaif:Symbol symbol_id="334" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="334" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_density_r -->
         <!-- ALPHA -->
-        <xaif:Symbol symbol_id="336" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="336" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_geometry_r -->
         <!-- AREA -->
-        <xaif:Symbol symbol_id="338" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="338" kind="variable" type="real" shape="vector"/>
         <!-- BETA -->
-        <xaif:Symbol symbol_id="339" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="339" kind="variable" type="real" shape="scalar"/>
         <!-- BHEIGHT -->
-        <xaif:Symbol symbol_id="340" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="340" kind="variable" type="real" shape="vector"/>
         <!-- BLENGTH -->
-        <xaif:Symbol symbol_id="341" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="341" kind="variable" type="real" shape="vector"/>
         <!-- BWIDTH -->
-        <xaif:Symbol symbol_id="342" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="342" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_parameters_r -->
         <!-- DAY -->
-        <xaif:Symbol symbol_id="344" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="344" kind="variable" type="real" shape="scalar"/>
         <!-- DAYS_PER_50M_MIXED_LAYER -->
-        <xaif:Symbol symbol_id="345" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="345" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_transport_r -->
         <!-- DELTA -->
-        <xaif:Symbol symbol_id="347" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="347" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_timestep_r -->
         <!-- DELTA_T -->
-        <xaif:Symbol symbol_id="349" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="349" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_IC -->
-        <xaif:Symbol symbol_id="350" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="350" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_REGULARIZE -->
-        <xaif:Symbol symbol_id="351" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="351" kind="variable" type="real" shape="scalar"/>
         <!-- FDEPS -->
-        <xaif:Symbol symbol_id="352" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="352" kind="variable" type="real" shape="scalar"/>
         <!-- GAMMA_S -->
-        <xaif:Symbol symbol_id="353" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="353" kind="variable" type="real" shape="scalar"/>
         <!-- GAMMA_T -->
-        <xaif:Symbol symbol_id="354" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="354" kind="variable" type="real" shape="scalar"/>
         <!-- HUNDRED -->
-        <xaif:Symbol symbol_id="355" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="355" kind="variable" type="real" shape="scalar"/>
         <!-- INTEGRATION_TIME -->
-        <xaif:Symbol symbol_id="356" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="356" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_algebra_r -->
         <!-- METRICTENSORX -->
-        <xaif:Symbol symbol_id="358" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="358" kind="variable" type="real" shape="matrix"/>
         <!-- METRICTENSORY -->
-        <xaif:Symbol symbol_id="359" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="359" kind="variable" type="real" shape="matrix"/>
         <!-- NOISE_CORRELATION_TIME -->
-        <xaif:Symbol symbol_id="360" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="360" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_numbers_i -->
         <!-- N_MAX -->
         <xaif:Symbol symbol_id="362" kind="variable" type="integer" shape="scalar"/>
         <!-- PROJ_S -->
-        <xaif:Symbol symbol_id="363" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="363" kind="variable" type="real" shape="vector"/>
         <!-- PROJ_T -->
-        <xaif:Symbol symbol_id="364" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="364" kind="variable" type="real" shape="vector"/>
         <!-- R -->
-        <xaif:Symbol symbol_id="365" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="365" kind="variable" type="real" shape="vector"/>
         <!-- R1 -->
-        <xaif:Symbol symbol_id="366" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="366" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = pa_robert_filter_r -->
         <!-- ROBERT_FILTER_COEFF -->
-        <xaif:Symbol symbol_id="368" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="368" kind="variable" type="real" shape="scalar"/>
         <!-- R_S -->
-        <xaif:Symbol symbol_id="369" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="369" kind="variable" type="real" shape="vector"/>
         <!-- R_T -->
-        <xaif:Symbol symbol_id="370" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="370" kind="variable" type="real" shape="vector"/>
         <!-- SV -->
-        <xaif:Symbol symbol_id="371" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="371" kind="variable" type="real" shape="scalar"/>
         <!-- THOUSAND -->
-        <xaif:Symbol symbol_id="372" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="372" kind="variable" type="real" shape="scalar"/>
         <!-- U0 -->
-        <xaif:Symbol symbol_id="373" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="373" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_switches_l -->
         <!-- VERBMODE -->
         <xaif:Symbol symbol_id="375" kind="variable" type="bool" shape="scalar"/>
         <!-- VOL -->
-        <xaif:Symbol symbol_id="376" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="376" kind="variable" type="real" shape="vector"/>
         <!-- YEAR -->
-        <xaif:Symbol symbol_id="377" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="377" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_density_r -->
         <!-- ALPHA -->
-        <xaif:Symbol symbol_id="379" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="379" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_geometry_r -->
         <!-- AREA -->
-        <xaif:Symbol symbol_id="381" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="381" kind="variable" type="real" shape="vector"/>
         <!-- BETA -->
-        <xaif:Symbol symbol_id="382" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="382" kind="variable" type="real" shape="scalar"/>
         <!-- BHEIGHT -->
-        <xaif:Symbol symbol_id="383" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="383" kind="variable" type="real" shape="vector"/>
         <!-- BLENGTH -->
-        <xaif:Symbol symbol_id="384" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="384" kind="variable" type="real" shape="vector"/>
         <!-- BWIDTH -->
-        <xaif:Symbol symbol_id="385" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="385" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_parameters_r -->
         <!-- DAY -->
-        <xaif:Symbol symbol_id="387" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="387" kind="variable" type="real" shape="scalar"/>
         <!-- DAYS_PER_50M_MIXED_LAYER -->
-        <xaif:Symbol symbol_id="388" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="388" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_transport_r -->
         <!-- DELTA -->
-        <xaif:Symbol symbol_id="390" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="390" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_timestep_r -->
         <!-- DELTA_T -->
-        <xaif:Symbol symbol_id="392" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="392" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_IC -->
-        <xaif:Symbol symbol_id="393" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="393" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_REGULARIZE -->
-        <xaif:Symbol symbol_id="394" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="394" kind="variable" type="real" shape="scalar"/>
         <!-- FDEPS -->
-        <xaif:Symbol symbol_id="395" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="395" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_forcing_params_r -->
         <!-- FW -->
-        <xaif:Symbol symbol_id="397" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="397" kind="variable" type="real" shape="vector"/>
         <!-- GAMMA_S -->
-        <xaif:Symbol symbol_id="398" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="398" kind="variable" type="real" shape="scalar"/>
         <!-- GAMMA_T -->
-        <xaif:Symbol symbol_id="399" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="399" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_jacobi_r -->
         <!-- GRDADM -->
-        <xaif:Symbol symbol_id="401" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="401" kind="variable" type="real" shape="matrix"/>
         <!-- GRDFDM -->
-        <xaif:Symbol symbol_id="402" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="402" kind="variable" type="real" shape="matrix"/>
         <!-- GRDTLM -->
-        <xaif:Symbol symbol_id="403" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="403" kind="variable" type="real" shape="matrix"/>
         <!-- HUNDRED -->
-        <xaif:Symbol symbol_id="404" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="404" kind="variable" type="real" shape="scalar"/>
         <!-- INTEGRATION_TIME -->
-        <xaif:Symbol symbol_id="405" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="405" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_algebra_r -->
         <!-- METRICTENSORX -->
-        <xaif:Symbol symbol_id="407" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="407" kind="variable" type="real" shape="matrix"/>
         <!-- METRICTENSORY -->
-        <xaif:Symbol symbol_id="408" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="408" kind="variable" type="real" shape="matrix"/>
         <!-- NOISE_CORRELATION_TIME -->
-        <xaif:Symbol symbol_id="409" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="409" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_norm_r -->
         <!-- NORM -->
-        <xaif:Symbol symbol_id="411" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="411" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_norm_aux_r -->
         <!-- NORM1 -->
-        <xaif:Symbol symbol_id="413" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="413" kind="variable" type="real" shape="scalar"/>
         <!-- NORM2 -->
-        <xaif:Symbol symbol_id="414" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="414" kind="variable" type="real" shape="scalar"/>
         <!-- NULLFORCE -->
-        <xaif:Symbol symbol_id="415" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="415" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = pa_numbers_i -->
         <!-- N_MAX -->
         <xaif:Symbol symbol_id="417" kind="variable" type="integer" shape="scalar"/>
         <!-- PROJ_S -->
-        <xaif:Symbol symbol_id="418" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="418" kind="variable" type="real" shape="vector"/>
         <!-- PROJ_T -->
-        <xaif:Symbol symbol_id="419" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="419" kind="variable" type="real" shape="vector"/>
         <!-- R -->
-        <xaif:Symbol symbol_id="420" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="420" kind="variable" type="real" shape="vector"/>
         <!-- R1 -->
-        <xaif:Symbol symbol_id="421" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="421" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_density_r -->
         <!-- RHO -->
-        <xaif:Symbol symbol_id="423" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="423" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = pa_robert_filter_r -->
         <!-- ROBERT_FILTER_COEFF -->
-        <xaif:Symbol symbol_id="425" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="425" kind="variable" type="real" shape="scalar"/>
         <!-- R_S -->
-        <xaif:Symbol symbol_id="426" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="426" kind="variable" type="real" shape="vector"/>
         <!-- R_T -->
-        <xaif:Symbol symbol_id="427" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="427" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_ini_r -->
         <!-- S -->
-        <xaif:Symbol symbol_id="429" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="429" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_state_r -->
         <!-- SNEW -->
-        <xaif:Symbol symbol_id="431" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="431" kind="variable" type="real" shape="vector"/>
         <!-- SNOW -->
-        <xaif:Symbol symbol_id="432" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="432" kind="variable" type="real" shape="vector"/>
         <!-- SOLD -->
-        <xaif:Symbol symbol_id="433" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="433" kind="variable" type="real" shape="vector"/>
         <!-- SSTAR -->
-        <xaif:Symbol symbol_id="434" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="434" kind="variable" type="real" shape="vector"/>
         <!-- SV -->
-        <xaif:Symbol symbol_id="435" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="435" kind="variable" type="real" shape="scalar"/>
         <!-- T -->
-        <xaif:Symbol symbol_id="436" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="436" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_thc_r -->
         <!-- THC_S -->
-        <xaif:Symbol symbol_id="438" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="438" kind="variable" type="real" shape="scalar"/>
         <!-- THC_T -->
-        <xaif:Symbol symbol_id="439" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="439" kind="variable" type="real" shape="scalar"/>
         <!-- THC_TOT -->
-        <xaif:Symbol symbol_id="440" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="440" kind="variable" type="real" shape="scalar"/>
         <!-- THOUSAND -->
-        <xaif:Symbol symbol_id="441" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="441" kind="variable" type="real" shape="scalar"/>
         <!-- TNEW -->
-        <xaif:Symbol symbol_id="442" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="442" kind="variable" type="real" shape="vector"/>
         <!-- TNOW -->
-        <xaif:Symbol symbol_id="443" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="443" kind="variable" type="real" shape="vector"/>
         <!-- TOLD -->
-        <xaif:Symbol symbol_id="444" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="444" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_cost_orig_r -->
         <!-- TSORIG -->
-        <xaif:Symbol symbol_id="446" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="446" kind="variable" type="real" shape="vector"/>
         <!-- TSTAR -->
-        <xaif:Symbol symbol_id="447" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="447" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_final_state_r -->
         <!-- TSVEC -->
-        <xaif:Symbol symbol_id="449" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="449" kind="variable" type="real" shape="vector"/>
         <!-- U0 -->
-        <xaif:Symbol symbol_id="450" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="450" kind="variable" type="real" shape="scalar"/>
         <!-- UBAR -->
-        <xaif:Symbol symbol_id="451" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="451" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_velocity_r -->
         <!-- UVEL -->
-        <xaif:Symbol symbol_id="453" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="453" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_switches_l -->
         <!-- VERBMODE -->
         <xaif:Symbol symbol_id="455" kind="variable" type="bool" shape="scalar"/>
         <!-- VOL -->
-        <xaif:Symbol symbol_id="456" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="456" kind="variable" type="real" shape="vector"/>
         <!-- YEAR -->
-        <xaif:Symbol symbol_id="457" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="457" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_density_r -->
         <!-- ALPHA -->
-        <xaif:Symbol symbol_id="459" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="459" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_geometry_r -->
         <!-- AREA -->
-        <xaif:Symbol symbol_id="461" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="461" kind="variable" type="real" shape="vector"/>
         <!-- BETA -->
-        <xaif:Symbol symbol_id="462" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="462" kind="variable" type="real" shape="scalar"/>
         <!-- BHEIGHT -->
-        <xaif:Symbol symbol_id="463" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="463" kind="variable" type="real" shape="vector"/>
         <!-- BLENGTH -->
-        <xaif:Symbol symbol_id="464" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="464" kind="variable" type="real" shape="vector"/>
         <!-- BWIDTH -->
-        <xaif:Symbol symbol_id="465" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="465" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_parameters_r -->
         <!-- DAY -->
-        <xaif:Symbol symbol_id="467" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="467" kind="variable" type="real" shape="scalar"/>
         <!-- DAYS_PER_50M_MIXED_LAYER -->
-        <xaif:Symbol symbol_id="468" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="468" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_transport_r -->
         <!-- DELTA -->
-        <xaif:Symbol symbol_id="470" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="470" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_timestep_r -->
         <!-- DELTA_T -->
-        <xaif:Symbol symbol_id="472" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="472" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_IC -->
-        <xaif:Symbol symbol_id="473" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="473" kind="variable" type="real" shape="scalar"/>
         <!-- EPSILON_REGULARIZE -->
-        <xaif:Symbol symbol_id="474" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="474" kind="variable" type="real" shape="scalar"/>
         <!-- FDEPS -->
-        <xaif:Symbol symbol_id="475" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="475" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_forcing_params_r -->
         <!-- FW -->
-        <xaif:Symbol symbol_id="477" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="477" kind="variable" type="real" shape="vector"/>
         <!-- GAMMA_S -->
-        <xaif:Symbol symbol_id="478" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="478" kind="variable" type="real" shape="scalar"/>
         <!-- GAMMA_T -->
-        <xaif:Symbol symbol_id="479" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="479" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_jacobi_r -->
         <!-- GRDADM -->
-        <xaif:Symbol symbol_id="481" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="481" kind="variable" type="real" shape="matrix"/>
         <!-- GRDFDM -->
-        <xaif:Symbol symbol_id="482" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="482" kind="variable" type="real" shape="matrix"/>
         <!-- GRDTLM -->
-        <xaif:Symbol symbol_id="483" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="483" kind="variable" type="real" shape="matrix"/>
         <!-- HUNDRED -->
-        <xaif:Symbol symbol_id="484" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="484" kind="variable" type="real" shape="scalar"/>
         <!-- INTEGRATION_TIME -->
-        <xaif:Symbol symbol_id="485" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="485" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_algebra_r -->
         <!-- METRICTENSORX -->
-        <xaif:Symbol symbol_id="487" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="487" kind="variable" type="real" shape="matrix"/>
         <!-- METRICTENSORY -->
-        <xaif:Symbol symbol_id="488" kind="variable" type="double" shape="matrix"/>
+        <xaif:Symbol symbol_id="488" kind="variable" type="real" shape="matrix"/>
         <!-- NOISE_CORRELATION_TIME -->
-        <xaif:Symbol symbol_id="489" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="489" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_norm_r -->
         <!-- NORM -->
-        <xaif:Symbol symbol_id="491" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="491" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_norm_aux_r -->
         <!-- NORM1 -->
-        <xaif:Symbol symbol_id="493" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="493" kind="variable" type="real" shape="scalar"/>
         <!-- NORM2 -->
-        <xaif:Symbol symbol_id="494" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="494" kind="variable" type="real" shape="scalar"/>
         <!-- NULLFORCE -->
-        <xaif:Symbol symbol_id="495" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="495" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = pa_numbers_i -->
         <!-- N_MAX -->
         <xaif:Symbol symbol_id="497" kind="variable" type="integer" shape="scalar"/>
         <!-- PROJ_S -->
-        <xaif:Symbol symbol_id="498" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="498" kind="variable" type="real" shape="vector"/>
         <!-- PROJ_T -->
-        <xaif:Symbol symbol_id="499" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="499" kind="variable" type="real" shape="vector"/>
         <!-- R -->
-        <xaif:Symbol symbol_id="500" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="500" kind="variable" type="real" shape="vector"/>
         <!-- R1 -->
-        <xaif:Symbol symbol_id="501" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="501" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_density_r -->
         <!-- RHO -->
-        <xaif:Symbol symbol_id="503" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="503" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = pa_robert_filter_r -->
         <!-- ROBERT_FILTER_COEFF -->
-        <xaif:Symbol symbol_id="505" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="505" kind="variable" type="real" shape="scalar"/>
         <!-- R_S -->
-        <xaif:Symbol symbol_id="506" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="506" kind="variable" type="real" shape="vector"/>
         <!-- R_T -->
-        <xaif:Symbol symbol_id="507" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="507" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_ini_r -->
         <!-- S -->
-        <xaif:Symbol symbol_id="509" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="509" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_state_r -->
         <!-- SNEW -->
-        <xaif:Symbol symbol_id="511" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="511" kind="variable" type="real" shape="vector"/>
         <!-- SNOW -->
-        <xaif:Symbol symbol_id="512" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="512" kind="variable" type="real" shape="vector"/>
         <!-- SOLD -->
-        <xaif:Symbol symbol_id="513" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="513" kind="variable" type="real" shape="vector"/>
         <!-- SSTAR -->
-        <xaif:Symbol symbol_id="514" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="514" kind="variable" type="real" shape="vector"/>
         <!-- SV -->
-        <xaif:Symbol symbol_id="515" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="515" kind="variable" type="real" shape="scalar"/>
         <!-- T -->
-        <xaif:Symbol symbol_id="516" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="516" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_thc_r -->
         <!-- THC_S -->
-        <xaif:Symbol symbol_id="518" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="518" kind="variable" type="real" shape="scalar"/>
         <!-- THC_T -->
-        <xaif:Symbol symbol_id="519" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="519" kind="variable" type="real" shape="scalar"/>
         <!-- THC_TOT -->
-        <xaif:Symbol symbol_id="520" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="520" kind="variable" type="real" shape="scalar"/>
         <!-- THOUSAND -->
-        <xaif:Symbol symbol_id="521" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="521" kind="variable" type="real" shape="scalar"/>
         <!-- TNEW -->
-        <xaif:Symbol symbol_id="522" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="522" kind="variable" type="real" shape="vector"/>
         <!-- TNOW -->
-        <xaif:Symbol symbol_id="523" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="523" kind="variable" type="real" shape="vector"/>
         <!-- TOLD -->
-        <xaif:Symbol symbol_id="524" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="524" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_cost_orig_r -->
         <!-- TSORIG -->
-        <xaif:Symbol symbol_id="526" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="526" kind="variable" type="real" shape="vector"/>
         <!-- TSTAR -->
-        <xaif:Symbol symbol_id="527" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="527" kind="variable" type="real" shape="vector"/>
         <!-- COMMON name = fi_final_state_r -->
         <!-- TSVEC -->
-        <xaif:Symbol symbol_id="529" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="529" kind="variable" type="real" shape="vector"/>
         <!-- U0 -->
-        <xaif:Symbol symbol_id="530" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="530" kind="variable" type="real" shape="scalar"/>
         <!-- UBAR -->
-        <xaif:Symbol symbol_id="531" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="531" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = fi_velocity_r -->
         <!-- UVEL -->
-        <xaif:Symbol symbol_id="533" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="533" kind="variable" type="real" shape="scalar"/>
         <!-- COMMON name = pa_switches_l -->
         <!-- VERBMODE -->
         <xaif:Symbol symbol_id="535" kind="variable" type="bool" shape="scalar"/>
         <!-- VOL -->
-        <xaif:Symbol symbol_id="536" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="536" kind="variable" type="real" shape="vector"/>
         <!-- YEAR -->
-        <xaif:Symbol symbol_id="537" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="537" kind="variable" type="real" shape="scalar"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
     <xaif:Scope vertex_id="2">
       <xaif:SymbolTable>
         <!-- XX -->
-        <xaif:Symbol symbol_id="1" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="1" kind="variable" type="real" shape="vector"/>
         <!-- box_cycle_fields -->
         <xaif:Symbol symbol_id="2" kind="subroutine" type="void"/>
         <!-- box_density -->
@@ -935,7 +935,7 @@
         <!-- MAXLEV2 -->
         <xaif:Symbol symbol_id="16" kind="variable" type="integer" shape="scalar"/>
         <!-- Y -->
-        <xaif:Symbol symbol_id="17" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="17" kind="variable" type="real" shape="vector"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -943,7 +943,7 @@
     <xaif:Scope vertex_id="3">
       <xaif:SymbolTable>
         <!-- XX -->
-        <xaif:Symbol symbol_id="1" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="1" kind="variable" type="real" shape="vector"/>
         <!-- I -->
         <xaif:Symbol symbol_id="2" kind="variable" type="integer" shape="scalar"/>
         <!-- IKEY -->
@@ -955,7 +955,7 @@
         <!-- L -->
         <xaif:Symbol symbol_id="6" kind="variable" type="integer" shape="scalar"/>
         <!-- Y -->
-        <xaif:Symbol symbol_id="7" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="7" kind="variable" type="real" shape="vector"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -967,21 +967,21 @@
         <!-- len -->
         <xaif:Symbol symbol_id="2" kind="variable" type="integer" shape="scalar"/>
         <!-- GAMMALOC -->
-        <xaif:Symbol symbol_id="3" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="3" kind="variable" type="real" shape="scalar"/>
         <!-- FLDSTAR -->
-        <xaif:Symbol symbol_id="4" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="4" kind="variable" type="real" shape="vector"/>
         <!-- EXTFORLOC -->
-        <xaif:Symbol symbol_id="5" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="5" kind="variable" type="real" shape="vector"/>
         <!-- UVELLOC -->
-        <xaif:Symbol symbol_id="6" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="6" kind="variable" type="real" shape="scalar"/>
         <!-- FLDNOW -->
-        <xaif:Symbol symbol_id="7" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="7" kind="variable" type="real" shape="vector"/>
         <!-- FLDOLD -->
-        <xaif:Symbol symbol_id="8" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="8" kind="variable" type="real" shape="vector"/>
         <!-- FLDNEW -->
-        <xaif:Symbol symbol_id="9" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="9" kind="variable" type="real" shape="vector"/>
         <!-- DFLDDT -->
-        <xaif:Symbol symbol_id="10" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="10" kind="variable" type="real" shape="vector"/>
         <!-- I -->
         <xaif:Symbol symbol_id="11" kind="variable" type="integer" shape="scalar"/>
         <!-- IKEY -->
@@ -993,7 +993,7 @@
         <!-- L -->
         <xaif:Symbol symbol_id="15" kind="variable" type="integer" shape="scalar"/>
         <!-- Y -->
-        <xaif:Symbol symbol_id="16" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="16" kind="variable" type="real" shape="vector"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -1001,11 +1001,11 @@
     <xaif:Scope vertex_id="5">
       <xaif:SymbolTable>
         <!-- TLOC -->
-        <xaif:Symbol symbol_id="1" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="1" kind="variable" type="real" shape="vector"/>
         <!-- SLOC -->
-        <xaif:Symbol symbol_id="2" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="2" kind="variable" type="real" shape="vector"/>
         <!-- RHOLOC -->
-        <xaif:Symbol symbol_id="3" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="3" kind="variable" type="real" shape="vector"/>
         <!-- I -->
         <xaif:Symbol symbol_id="4" kind="variable" type="integer" shape="scalar"/>
         <!-- IKEY -->
@@ -1017,7 +1017,7 @@
         <!-- L -->
         <xaif:Symbol symbol_id="8" kind="variable" type="integer" shape="scalar"/>
         <!-- Y -->
-        <xaif:Symbol symbol_id="9" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="9" kind="variable" type="real" shape="vector"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -1025,9 +1025,9 @@
     <xaif:Scope vertex_id="6">
       <xaif:SymbolTable>
         <!-- RHOLOC -->
-        <xaif:Symbol symbol_id="1" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="1" kind="variable" type="real" shape="vector"/>
         <!-- UVELLOC -->
-        <xaif:Symbol symbol_id="2" kind="variable" type="double" shape="scalar"/>
+        <xaif:Symbol symbol_id="2" kind="variable" type="real" shape="scalar"/>
         <!-- I -->
         <xaif:Symbol symbol_id="3" kind="variable" type="integer" shape="scalar"/>
         <!-- IKEY -->
@@ -1039,7 +1039,7 @@
         <!-- L -->
         <xaif:Symbol symbol_id="7" kind="variable" type="integer" shape="scalar"/>
         <!-- Y -->
-        <xaif:Symbol symbol_id="8" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="8" kind="variable" type="real" shape="vector"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -1047,11 +1047,11 @@
     <xaif:Scope vertex_id="7">
       <xaif:SymbolTable>
         <!-- FLDNOW -->
-        <xaif:Symbol symbol_id="1" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="1" kind="variable" type="real" shape="vector"/>
         <!-- FLDOLD -->
-        <xaif:Symbol symbol_id="2" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="2" kind="variable" type="real" shape="vector"/>
         <!-- FLDNEW -->
-        <xaif:Symbol symbol_id="3" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="3" kind="variable" type="real" shape="vector"/>
         <!-- I -->
         <xaif:Symbol symbol_id="4" kind="variable" type="integer" shape="scalar"/>
         <!-- IKEY -->
@@ -1063,7 +1063,7 @@
         <!-- L -->
         <xaif:Symbol symbol_id="8" kind="variable" type="integer" shape="scalar"/>
         <!-- Y -->
-        <xaif:Symbol symbol_id="9" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="9" kind="variable" type="real" shape="vector"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -1081,7 +1081,7 @@
         <!-- L -->
         <xaif:Symbol symbol_id="5" kind="variable" type="integer" shape="scalar"/>
         <!-- Y -->
-        <xaif:Symbol symbol_id="6" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="6" kind="variable" type="real" shape="vector"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -1089,7 +1089,7 @@
     <xaif:Scope vertex_id="9">
       <xaif:SymbolTable>
         <!-- XX -->
-        <xaif:Symbol symbol_id="1" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="1" kind="variable" type="real" shape="vector"/>
         <!-- I -->
         <xaif:Symbol symbol_id="2" kind="variable" type="integer" shape="scalar"/>
         <!-- IKEY -->
@@ -1101,7 +1101,7 @@
         <!-- L -->
         <xaif:Symbol symbol_id="6" kind="variable" type="integer" shape="scalar"/>
         <!-- Y -->
-        <xaif:Symbol symbol_id="7" kind="variable" type="double" shape="vector"/>
+        <xaif:Symbol symbol_id="7" kind="variable" type="real" shape="vector"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -1972,7 +1972,7 @@ STOP>
           <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="177"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="0.0D00"/>
+          <xaif:Constant vertex_id="1" type="real" value="0.0D00"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="2">
@@ -1981,7 +1981,7 @@ STOP>
           <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="176"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="0.0D00"/>
+          <xaif:Constant vertex_id="1" type="real" value="0.0D00"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="3">
@@ -1990,7 +1990,7 @@ STOP>
           <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="175"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="0.0D00"/>
+          <xaif:Constant vertex_id="1" type="real" value="0.0D00"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="4">
@@ -1999,7 +1999,7 @@ STOP>
           <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="150"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="0.0D00"/>
+          <xaif:Constant vertex_id="1" type="real" value="0.0D00"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="5">
@@ -2008,7 +2008,7 @@ STOP>
           <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="151"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="0.0D00"/>
+          <xaif:Constant vertex_id="1" type="real" value="0.0D00"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="6">
@@ -2017,7 +2017,7 @@ STOP>
           <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="148"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="0.0D00"/>
+          <xaif:Constant vertex_id="1" type="real" value="0.0D00"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="7">
@@ -2032,7 +2032,7 @@ STOP>
           <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="0.0D00"/>
+          <xaif:Constant vertex_id="1" type="real" value="0.0D00"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="8">
@@ -2047,7 +2047,7 @@ STOP>
           <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="0.0D00"/>
+          <xaif:Constant vertex_id="1" type="real" value="0.0D00"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="9">
@@ -2083,7 +2083,7 @@ STOP>
             <!-- sym = YEAR -->
             <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="194"/>
           </xaif:VariableReference>
-          <xaif:Constant vertex_id="7" type="double" value="3.5D+01"/>
+          <xaif:Constant vertex_id="7" type="real" value="3.5D+01"/>
           <xaif:ExpressionEdge edge_id="1" source="5" target="4" position="1"/>
           <xaif:ExpressionEdge edge_id="2" source="6" target="4" position="2"/>
           <xaif:ExpressionEdge edge_id="3" source="4" target="3" position="1"/>
@@ -2130,7 +2130,7 @@ STOP>
           <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="2.2D+01"/>
+          <xaif:Constant vertex_id="1" type="real" value="2.2D+01"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="12">
@@ -2145,7 +2145,7 @@ STOP>
           <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="0.0D00"/>
+          <xaif:Constant vertex_id="1" type="real" value="0.0D00"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="13">
@@ -2160,7 +2160,7 @@ STOP>
           <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="3.6D+01"/>
+          <xaif:Constant vertex_id="1" type="real" value="3.6D+01"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="14">
@@ -2175,7 +2175,7 @@ STOP>
           <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="3.4D+01"/>
+          <xaif:Constant vertex_id="1" type="real" value="3.4D+01"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="15">
@@ -2189,7 +2189,7 @@ STOP>
             <!-- sym = SV -->
             <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="172"/>
           </xaif:VariableReference>
-          <xaif:Constant vertex_id="3" type="double" value="2.0D+01"/>
+          <xaif:Constant vertex_id="3" type="real" value="2.0D+01"/>
           <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/>
           <xaif:ExpressionEdge edge_id="2" source="3" target="1" position="2"/>
         </xaif:AssignmentRHS>
@@ -2206,7 +2206,7 @@ STOP>
           <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="2.0D+01"/>
+          <xaif:Constant vertex_id="1" type="real" value="2.0D+01"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="17">
@@ -2221,7 +2221,7 @@ STOP>
           <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="1.0D00"/>
+          <xaif:Constant vertex_id="1" type="real" value="1.0D00"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="18">
@@ -2236,7 +2236,7 @@ STOP>
           <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="1.0D00"/>
+          <xaif:Constant vertex_id="1" type="real" value="1.0D00"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="19">
@@ -2251,7 +2251,7 @@ STOP>
           <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="3.55D+01"/>
+          <xaif:Constant vertex_id="1" type="real" value="3.55D+01"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="20">
@@ -2266,7 +2266,7 @@ STOP>
           <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="3.45D+01"/>
+          <xaif:Constant vertex_id="1" type="real" value="3.45D+01"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="21">
@@ -2281,7 +2281,7 @@ STOP>
           <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
         </xaif:AssignmentLHS>
         <xaif:AssignmentRHS>
-          <xaif:Constant vertex_id="1" type="double" value="3.45D+01"/>
+          <xaif:Constant vertex_id="1" type="real" value="3.45D+01"/>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
       <xaif:Assignment statement_id="22">
@@ -2561,7 +2561,7 @@ STOP>
             <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
           </xaif:VariableReference>
           <xaif:Intrinsic vertex_id="11" name="sub_scal_scal"/>
-          <xaif:Constant vertex_id="12" type="double" value="1.0D00"/>
+          <xaif:Constant vertex_id="12" type="real" value="1.0D00"/>
           <xaif:VariableReference vertex_id="13">
             <!-- sym = DELTA -->
             <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="304"/>
@@ -3256,7 +3256,7 @@ STOP>
             <!-- sym = DELTA_T -->
             <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="219"/>
           </xaif:VariableReference>
-          <xaif:Constant vertex_id="7" type="double" value="2.0D00"/>
+          <xaif:Constant vertex_id="7" type="real" value="2.0D00"/>
           <xaif:ExpressionEdge edge_id="1" source="6" target="5" position="1"/>
           <xaif:ExpressionEdge edge_id="2" source="7" target="5" position="2"/>
           <xaif:ExpressionEdge edge_id="3" source="4" target="3" position="1"/>
@@ -3303,7 +3303,7 @@ STOP>
           <!-- sym = UVELLOC -->
           <xaif:SymbolReference vertex_id="1" scope_id="4" symbol_id="6"/>
         </xaif:VariableReference>
-        <xaif:Constant vertex_id="3" type="double" value="0.0D00"/>
+        <xaif:Constant vertex_id="3" type="real" value="0.0D00"/>
         <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/>
         <xaif:ExpressionEdge edge_id="2" source="3" target="1" position="2"/>
       </xaif:Condition>
@@ -3466,7 +3466,7 @@ STOP>
             </xaif:ArrayElementReference>
             <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
           </xaif:VariableReference>
-          <xaif:Constant vertex_id="11" type="double" value="2.0D00"/>
+          <xaif:Constant vertex_id="11" type="real" value="2.0D00"/>
           <xaif:ExpressionEdge edge_id="1" source="10" target="9" position="1"/>
           <xaif:ExpressionEdge edge_id="2" source="11" target="9" position="2"/>
           <xaif:ExpressionEdge edge_id="3" source="8" target="7" position="1"/>
