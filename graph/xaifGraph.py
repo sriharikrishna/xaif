@@ -223,14 +223,16 @@ class XAIFGraph(XAIFObject):
   def displaySorted(self, init_level=0):
     #print 'I am an XAIFGraph with '+str(len(self.vertices))+' vertices'
     #print 'BreadthFirstSearch:'
-    for vertex in XAIFGraph.breadthFirstSearch(self,1,init_level):
-      self.printIndent(vertex.getLevel() + init_level)
-      inedges, outedges = [], []
-      for v in self.inEdges[vertex]: inedges.append(str(v))
-      for v in self.outEdges[vertex]: outedges.append(str(v))
-      print vertex, ' in: ', inedges, ' out: ', outedges
-      if vertex.type == 'ControlFlowGraph': vertex.displaySorted(vertex.getLevel()+1)
-
+    for root_vertex in XAIFGraph.getRoots(self):
+      #for vertex in XAIFGraph.breadthFirstSearch(self,1,init_level):
+      for vertex in XAIFGraph.BFSearch(self, root_vertex, init_level):
+        self.printIndent(vertex.getLevel() + init_level)
+        inedges, outedges = [], []
+        for v in self.inEdges[vertex]: inedges.append(str(v))
+        for v in self.outEdges[vertex]: outedges.append(str(v))
+        print vertex, ' in: ', inedges, ' out: ', outedges
+        if vertex.type == 'ControlFlowGraph': vertex.displaySorted(vertex.getLevel()+1)
+        
 ##    print '\nDepthFirstSearch:'
 ##    for vertex in XAIFGraph.depthFirstSearch(self, 1):
 ##      self.printIndent(vertex.getLevel())
@@ -277,74 +279,107 @@ class XAIFGraph(XAIFObject):
     #return filter(lambda v: not len(graph.getEdges(v)[1]), graph.vertices)
   getLeaves = staticmethod(getLeaves)
 
-  def depthFirstVisit(graph, vertex, seen = None, returnFinished = 0):
-    '''This is a generator returning vertices in a depth-first traversal only for the subtree rooted at vertex'''
-    if seen is None: seen = []
-    seen.append(vertex)
-    if not returnFinished:
-      yield vertex
-    for v in graph.getEdges(vertex)[1]:
-       if not v in seen:
-        try:
-          for v2 in XAIFGraph.depthFirstVisit(graph, v, seen, returnFinished):
-            yield v2
-        except StopIteration:
-          pass
-    if returnFinished:
-      yield vertex
-    return
-  depthFirstVisit = staticmethod(depthFirstVisit)
+##  def depthFirstVisit(graph, vertex, seen = None, returnFinished = 0):
+##    '''This is a generator returning vertices in a depth-first traversal only for the subtree rooted at vertex'''
+##    if seen is None: seen = []
+##    seen.append(vertex)
+##    if not returnFinished:
+##      yield vertex
+##    for v in graph.getEdges(vertex)[1]:
+##       if not v in seen:
+##        try:
+##          for v2 in XAIFGraph.depthFirstVisit(graph, v, seen, returnFinished):
+##            yield v2
+##        except StopIteration:
+##          pass
+##    if returnFinished:
+##      yield vertex
+##    return
+##  depthFirstVisit = staticmethod(depthFirstVisit)
 
-  def depthFirstSearch(graph, returnFinished = 0):
-    '''This is a generator returning vertices in a depth-first traversal
-       - If returnFinished is True, return a vertex when it finishes
-       - Otherwise, return a vertex when it is first seen'''
+##  def depthFirstSearch(graph, returnFinished = 0):
+##    '''This is a generator returning vertices in a depth-first traversal
+##       - If returnFinished is True, return a vertex when it finishes
+##       - Otherwise, return a vertex when it is first seen'''
+##    seen = []
+##    for vertex_index in graph.vertices.keys():
+##      vertex = graph.vertices[vertex_index]
+##      if not vertex in seen:
+##        try:
+##          for v in XAIFGraph.depthFirstVisit(graph, vertex, seen, returnFinished):
+##            yield v
+##        except StopIteration:
+##          pass
+##    return
+##  depthFirstSearch = staticmethod(depthFirstSearch)
+
+##  def breadthFirstSearch(graph, returnFinished = 0, init_level = 0):
+##    '''This is a generator returning vertices in a breadth-first traversal
+##       - If returnFinished is True, return a vertex when it finishes
+##       - Otherwise, return a vertex when it is first seen'''
+##    #queue = XAIFGraph.getRoots(graph)[0:1]
+##    queue = XAIFGraph.getRoots(graph)
+##    if not len(queue): return
+##    seen  = [queue[0]]
+##    if not returnFinished:
+##      queue[0].__level = init_level
+##      yield queue[0]
+##    while len(queue):
+##      vertex = queue[0]
+##      for v in graph.getEdges(vertex)[1].keys():
+##        if not v in seen:
+##          seen.append(v)
+##          v.incrementLevel()
+##          queue.append(v)
+##          if not returnFinished:
+##            yield v
+##      vertex = queue.pop(0)
+##      if returnFinished:
+##        yield vertex
+##    return
+##  breadthFirstSearch = staticmethod(breadthFirstSearch)
+
+  def BFSearch(graph, start_vertex, init_level=0):
+    queue = []
     seen = []
+    color = {}
     for vertex_index in graph.vertices.keys():
       vertex = graph.vertices[vertex_index]
-      if not vertex in seen:
-        try:
-          for v in XAIFGraph.depthFirstVisit(graph, vertex, seen, returnFinished):
-            yield v
-        except StopIteration:
-          pass
-    return
-  depthFirstSearch = staticmethod(depthFirstSearch)
-
-  def breadthFirstSearch(graph, returnFinished = 0, init_level = 0):
-    '''This is a generator returning vertices in a breadth-first traversal
-       - If returnFinished is True, return a vertex when it finishes
-       - Otherwise, return a vertex when it is first seen'''
-    #queue = XAIFGraph.getRoots(graph)[0:1]
-    queue = XAIFGraph.getRoots(graph)
-    if not len(queue): return
-    seen  = [queue[0]]
-    if not returnFinished:
-      queue[0].__level = init_level
-      yield queue[0]
+      color[vertex] = 1          # WHITE
+      
+    color[start_vertex] = 2      # GRAY
+    seen.append(start_vertex)
+    start_vertex.__level = init_level
+    queue.append(start_vertex)
     while len(queue):
-      vertex = queue[0]
+      vertex = queue.pop(0)
       for v in graph.getEdges(vertex)[1].keys():
-        if not v in seen:
+        if (color[v] == 1):
+          color[v] = 2           # GRAY
           seen.append(v)
           v.incrementLevel()
           queue.append(v)
-          if not returnFinished:
-            yield v
-      vertex = queue.pop(0)
-      if returnFinished:
-        yield vertex
-    return
-  breadthFirstSearch = staticmethod(breadthFirstSearch)
+        else:
+          if (color[v] == 2):    # GRAY
+            # edge vertex, v has a gray target
+            pass
+          else:
+            # edge vertex, v has a black target
+            pass
+      color[vertex] = 3          # BLACK
 
-  def topologicalSort(graph):
-    '''Reorder the vertices using topological sort'''
-    vertices = [vertex for vertex in XAIFGraph.depthFirstSearch(graph, returnFinished = 1)]
-    vertices.reverse()
-    for vertex in vertices:
-      yield vertex
-    return
-  topologicalSort = staticmethod(topologicalSort)
+    return seen
+  
+              
+    
+##  def topologicalSort(graph):
+##    '''Reorder the vertices using topological sort'''
+##    vertices = [vertex for vertex in XAIFGraph.depthFirstSearch(graph, returnFinished = 1)]
+##    vertices.reverse()
+##    for vertex in vertices:
+##      yield vertex
+##    return
+##  topologicalSort = staticmethod(topologicalSort)
 
 
 ''' =========================================================== '''
