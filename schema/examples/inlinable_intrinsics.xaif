@@ -3,7 +3,7 @@
 <xaifii:InlinableIntrinsicDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:xaifii="http://www.mcs.anl.gov/XAIFInlinableIntrinsics"
        xmlns:xaif="http://www.mcs.anl.gov/XAIF"
-       xsi:schemaLocation="http://www.mcs.anl.gov/XAIFInlinableIntrinsics xaif_inlinable_intrinsics.xsd"
+       xsi:schemaLocation="http://www.mcs.anl.gov/XAIFInlinableIntrinsics ../xaif_inlinable_intrinsics.xsd"
        language="CPP">     
 
 <!-- *********************************************************** -->

@@ -8,6 +8,6 @@ foreach $file (@allfiles) {
   print "\n\n==================================================================================";
   print "\nTesting $file";
   print "\n==================================================================================\n";
-  system("SAX2Print $file");
+  system("SAX2Print -v=always -f -p $file");
   print "\n";
 }

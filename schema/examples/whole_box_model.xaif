@@ -8,7 +8,7 @@
 <!-- hand modified by Nathan -->
 <!-- ******************************************************************** -->
 
-<xaif:CallGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xaif="http://www.mcs.anl.gov/XAIF" xsi:schemaLocation="http://www.mcs.anl.gov/XAIF xaif.xsd" program_name="***">
+<xaif:CallGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xaif="http://www.mcs.anl.gov/XAIF" xsi:schemaLocation="http://www.mcs.anl.gov/XAIF ../xaif.xsd" program_name="***">
   <xaif:ScopeHierarchy>
     <xaif:Scope vertex_id="1" annotation="{SymTab_Id#1}">
       <xaif:SymbolTable>
