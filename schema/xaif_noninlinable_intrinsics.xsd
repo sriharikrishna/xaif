@@ -24,6 +24,8 @@
          <xsd:attribute name="dep" type="xsd:positiveInteger" use="required"/>
          <xsd:attribute name="indep" type="xsd:positiveInteger" use="required"/>
          <xsd:attribute name="partial" type="xsd:positiveInteger" use="required"/>
+         <xsd:attribute name="returnType" type="xaif:SymbolTypeType"
+use="optional"/>
        </xsd:complexType>
      </xsd:element> 
    </xsd:sequence>

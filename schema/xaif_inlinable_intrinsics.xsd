@@ -133,6 +133,7 @@
    </xsd:sequence>
    <xsd:attribute name="name" type="xsd:string" use="required"/>
    <xsd:attribute name="nr_arguments" type="xsd:positiveInteger" use="required"/>
+   <xsd:attribute name="return_type" type="xaif:SymbolTypeType" use="optional"/>
    
 </xsd:complexType>
 
