@@ -643,9 +643,9 @@
 
 <xsd:group name="BasicBlockBody">
 	<xsd:choice>
-          <xsd:element ref="Assignment"/>
-          <xsd:element ref="SubroutineCall"/>
-          <xsd:element ref="Marker"/>
+          <xsd:element ref="Assignment" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element ref="SubroutineCall" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element ref="Marker" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:choice>
 </xsd:group>
 
