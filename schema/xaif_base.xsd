@@ -502,8 +502,7 @@
     </xsd:documentation>
   </xsd:annotation>
 
-  <xsd:sequence>
-    <xsd:choice>
+  <xsd:all>
 
       <xsd:element ref="ScopeHierarchy" minOccurs="1" maxOccurs="1">
   
@@ -515,21 +514,28 @@
   
       </xsd:element> 
   
-      <xsd:element ref="AliasSetList" minOccurs="0" maxOccurs="1">
+      <xsd:element ref="AliasSetList" minOccurs="1" maxOccurs="1">
   
         <xsd:annotation>
 	  <xsd:documentation xml:lang="en">
-            The list of alias sets for all variable references.
+            The list of alias sets for all variable references. Because there 
+ 	    is an alias key referential integrity check and the alias keys default 
+	    to '0' we have to have at least the '0' element in the list and therefore 
+	    the list has to exist. The '0' element represents 'aliased to all'.
           </xsd:documentation>
         </xsd:annotation>
   
       </xsd:element> 
   
-      <xsd:element ref="DUUDSetList" minOccurs="0" maxOccurs="1">
+      <xsd:element ref="DUUDSetList" minOccurs="1" maxOccurs="1">
   
         <xsd:annotation>
 	  <xsd:documentation xml:lang="en">
-            The list of Du/Ud chains for all variable references.
+            The list of Du/Ud chains for all variable references. Because there 
+ 	    is an alias key referential integrity check and the duud keys default 
+	    to '0' we have to have at least the '0' element in the list and therefore 
+	    the list has to exist. The '0' element represents a duud chain containing all 
+            statements. 
           </xsd:documentation>
         </xsd:annotation>
   
@@ -537,8 +543,7 @@
   
       <xsd:group ref="CallGraphVertexAndEdgeGroup" minOccurs="0" maxOccurs="unbounded"/>
   
-    </xsd:choice>
-  </xsd:sequence>
+  </xsd:all>
   
   <xsd:attribute name="program_name" type="xsd:string" use="optional"/>
 
