@@ -6,7 +6,8 @@
 <!-- MCS, ANL, 2002/03                                           -->
 <!-- *********************************************************** -->
 
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+<xsd:schema xmlns="http://www.mcs.anl.gov/XAIF"
+	    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	    targetNamespace="http://www.mcs.anl.gov/XAIF"
 	    xmlns:xaif_base="http://www.mcs.anl.gov/XAIF_BASE"
             version="xaif 1.0"
