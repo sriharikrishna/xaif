@@ -32,6 +32,17 @@
 
   </xaif:ScopeHierarchy>
 
+  <xaif:AliasSetList>
+    <xaif:AliasSet key="0">
+      <xaif:Alias virtual_address="1"/>
+    </xaif:AliasSet>
+  </xaif:AliasSetList>
+
+  <xaif:DUUDSetList>
+    <xaif:DUUDSet key="0">
+    </xaif:DUUDSet>
+  </xaif:DUUDSetList>
+
   <xaif:ReplacementList vertex_id="1" template_name="template" symbol_id="sub1" scope_id="1">
     <xaif:Replacement placeholder="3">
       <xaif:BasicBlock vertex_id="1" scope_id="2">

@@ -314,7 +314,9 @@
 <xsd:complexType name="StatementIdRefType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
-	a reference to a statementId in an Assignment
+	a reference to a statementId in an Assignment;
+	can be an empty string if we refer to an out-of-scope
+	Assignment
     </xsd:documentation>
   </xsd:annotation>
   <xsd:attribute name="idRef" type="xsd:string"/>
@@ -329,6 +331,7 @@
       The 'key' attribute is the unique index into the map.
       Key '0' is a dummy entry that should be there to satisfy the default du_ud values 
       in VariableReference and AssignmentLHS. 
+      A '0' key means we don't have any du/ud information. 
     </xsd:documentation>
   </xsd:annotation>
 
@@ -417,7 +420,7 @@
   </xsd:annotation>
 
   <xsd:sequence>
-    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+    <xsd:choice minOccurs="1" maxOccurs="unbounded">
       <xsd:element name="Alias" type="AliasType"/>
       <xsd:element name="AliasRange" type="AliasRangeType"/>
     </xsd:choice>
@@ -436,7 +439,7 @@
   </xsd:annotation>
 
   <xsd:sequence>
-    <xsd:element name="AliasSet" type="AliasSetType" minOccurs="0" maxOccurs="unbounded"/>
+    <xsd:element name="AliasSet" type="AliasSetType" minOccurs="1" maxOccurs="unbounded"/>
   </xsd:sequence>
 </xsd:complexType>
 
@@ -455,11 +458,11 @@
   <xsd:key name='as_key'>
     <xsd:selector xpath="xaif:AliasSet"/><xsd:field xpath="@key"/>
   </xsd:key>
-  <xsd:keyref name="as_keyref1" refer='as_key'>
-    <xsd:selector xpath="xaif:VariableReference"/><xsd:field xpath="@alias"/>  
+  <xsd:keyref name="as_keyref1" refer="xaif:as_key">
+    <xsd:selector xpath="xaif:ControlFlowGraph/xaif:BasicBlock/xaif:Assignment/xaif:AssignmentRHS/xaif:VariableReference"/><xsd:field xpath="@alias"/>  
   </xsd:keyref>
-  <xsd:keyref name="as_keyref2" refer='as_key'>
-    <xsd:selector xpath="xaif:AssignmentLHS"/><xsd:field xpath="@alias"/>  
+  <xsd:keyref name="as_keyref2" refer="xaif:as_key">
+    <xsd:selector xpath="xaif:ControlFlowGraph/xaif:BasicBlock/xaif:Assignment/xaif:AssignmentLHS"/><xsd:field xpath="@alias"/>  
   </xsd:keyref>
 
 </xsd:element>  
@@ -578,19 +581,19 @@
   </xsd:annotation>
 
   <xsd:unique name="cgv_unique">
-    <xsd:selector xpath="CallGraphVertex"/><xsd:field xpath="@vertex_id"/>
+    <xsd:selector xpath="xaif:CallGraphVertex"/><xsd:field xpath="@vertex_id"/>
   </xsd:unique>
   <xsd:unique name="cge_unique">
-    <xsd:selector xpath="CallGraphEdge"/><xsd:field xpath="@edge_id"/>
+    <xsd:selector xpath="xaif:CallGraphEdge"/><xsd:field xpath="@edge_id"/>
   </xsd:unique>
-  <xsd:key name='cg_vertexId'>
-	  <xsd:selector xpath="ControlFlowGraph"/><xsd:field xpath="@vertex_id"/>
+  <xsd:key name="cg_vertexId">
+    <xsd:selector xpath="xaif:ControlFlowGraph"/><xsd:field xpath="@vertex_id"/>
   </xsd:key>
-  <xsd:keyref name="cg_keyref1" refer='cg_vertexId'>
-    <xsd:selector xpath="CallGraphEdge"/><xsd:field xpath="@source"/>  
+  <xsd:keyref name="cg_keyref1" refer="xaif:cg_vertexId">
+    <xsd:selector xpath="xaif:CallGraphEdge"/><xsd:field xpath="@source"/>  
   </xsd:keyref>
-  <xsd:keyref name="cg_keyref2" refer='cg_vertexId'>
-    <xsd:selector xpath="CallGraphEdge"/><xsd:field xpath="@target"/>  
+  <xsd:keyref name="cg_keyref2" refer="xaif:cg_vertexId">
+    <xsd:selector xpath="xaif:CallGraphEdge"/><xsd:field xpath="@target"/>  
   </xsd:keyref>
 
   <xsd:keyref name="duud_keyref1" refer="xaif:duud_key">
@@ -767,8 +770,7 @@
   </xsd:complexContent>   
 </xsd:complexType>
 
-<xsd:element name="ControlFlowGraph" type="ControlFlowGraphType"
-	substitutionGroup="CallGraphVertex">
+<xsd:element name="ControlFlowGraph" type="ControlFlowGraphType" substitutionGroup="CallGraphVertex">
 
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
@@ -780,22 +782,27 @@
   </xsd:annotation>
 
   <xsd:unique name="cfgv_unique">
-	  <xsd:selector xpath="BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop|EndBranch|EndLoop|Goto|Label"/>
-      <xsd:field xpath="@vertex_id"/>
+     <xsd:selector xpath="xaif:BasicBlock|xaif:Entry|xaif:Exit|xaif:Branch|xaif:If|xaif:ForLoop|xaif:PreLoop|xaif:PostLoop|xaif:EndBranch|xaif:EndLoop|xaif:Goto|xaif:Label"/>
+     <xsd:field xpath="@vertex_id"/>
   </xsd:unique>
+
   <xsd:unique name="cfge_unique">
     <xsd:selector xpath="ControlFlowEdge"/><xsd:field xpath="@edge_id"/>
   </xsd:unique>
-  <xsd:key name='cfg_vertexId'>
-	  <xsd:selector xpath="BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop|EndBranch|EndLoop|Goto|Label"/>
-      <xsd:field xpath="@vertex_id"/>
+
+  <xsd:key name="cfg_vertexId">
+    <xsd:selector xpath="xaif:BasicBlock|xaif:Entry|xaif:Exit|xaif:Branch|xaif:If|xaif:ForLoop|xaif:PreLoop|xaif:PostLoop|xaif:EndBranch|xaif:EndLoop|xaif:Goto|xaif:Label"/>
+    <xsd:field xpath="@vertex_id"/>
   </xsd:key>
-  <xsd:keyref name="cfg_keyref1" refer='cfg_vertexId'>
-    <xsd:selector xpath="ControlFlowEdge"/><xsd:field xpath="@source"/>  
+
+  <xsd:keyref name="cfg_keyref1" refer="xaif:cfg_vertexId">
+    <xsd:selector xpath="xaif:ControlFlowEdge"/><xsd:field xpath="@source"/>  
   </xsd:keyref>
-  <xsd:keyref name="cfg_keyref2" refer='cfg_vertexId'>
-    <xsd:selector xpath="ControlFlowEdge"/><xsd:field xpath="@target"/>  
+
+  <xsd:keyref name="cfg_keyref2" refer="xaif:cfg_vertexId">
+    <xsd:selector xpath="xaif:ControlFlowEdge"/><xsd:field xpath="@target"/>  
   </xsd:keyref>
+
 </xsd:element> 
 
 <xsd:element name="ControlFlowVertex" type="VertexType">
@@ -891,6 +898,30 @@
 </xsd:element>
 
 <!-- *********************************************************** -->
+<!-- ForLoop reversal types. 
+     We distinguish two ForLoops constructions/
+     The purpose of this distinction is  to allow 
+     a direct reversal in terms of the original loop variables
+     as opposed to an anonymous reversal with a dummy loop variable. -->
+<!-- *********************************************************** -->
+
+<xsd:simpleType name="ForLoopReversalType">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      The two ForLoop reversal types are 
+      "explicit" for an explicit reversal that retains the loop variables and 
+      "anonymous" for the usual loop reversal with generated loop variables  
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="explicit"/>
+    <xsd:enumeration value="anonymous"/>
+  </xsd:restriction>
+</xsd:simpleType>
+
+<!-- *********************************************************** -->
 <!-- ForLoop -->
 <!-- *********************************************************** -->
 
@@ -912,6 +943,8 @@
          <xsd:element name="Update" type="AssignmentType"
 		   minOccurs="0" maxOccurs="1"/>
       </xsd:sequence>
+
+      <xsd:attribute name="reversal" type="xaif:ForLoopReversalType" use="optional" default="anonymous"/>
 
     </xsd:extension>
   </xsd:complexContent>   
