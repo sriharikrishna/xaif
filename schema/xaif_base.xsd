@@ -160,12 +160,12 @@
     		  variables.
         </xsd:documentation>
       </xsd:annotation>
-      <xsd:attribute name="symbol_id"   type="xsd:string" use="required"/>
-      <xsd:attribute name="kind"   type="SymbolKindType" default="variable"/>
-      <xsd:attribute name="type"   type="SymbolTypeType" default="real"/>
-      <xsd:attribute name="shape"   type="SymbolShapeType" default="scalar"/>
-      <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
-      <xsd:attribute name="temp" type="xsd:boolean" use="optional" default="false"/>
+      <xsd:attribute name="symbol_id" type="xsd:string"      use="required"/>
+      <xsd:attribute name="kind"      type="SymbolKindType"  use="optional" default="variable"/>
+      <xsd:attribute name="type"      type="SymbolTypeType"  use="optional" default="real"/>
+      <xsd:attribute name="shape"     type="SymbolShapeType" use="optional" default="scalar"/>
+      <xsd:attribute name="active"    type="xsd:boolean"     use="optional" default="true"/>
+      <xsd:attribute name="temp"      type="xsd:boolean"     use="optional" default="false"/>
     </xsd:extension>       
   </xsd:complexContent>
 </xsd:complexType>
@@ -616,13 +616,12 @@
 <!-- *********************************************************** -->
 
 <xsd:simpleType name="IntentType">
-
   <xsd:annotation>
-	  <xsd:documentation xml:lang="en">
-		  The intent of subroutine arguments.
+    <xsd:documentation xml:lang="en">
+      The intent of subroutine arguments, in concept similar 
+      to the an intent qualifier found in Fortran90 but n
     </xsd:documentation>
   </xsd:annotation>
-
   <xsd:restriction base="xsd:string">
     <xsd:enumeration value="in"/>
     <xsd:enumeration value="out"/>
@@ -634,35 +633,55 @@
   <xsd:complexContent>
     <xsd:extension base="FrontEndAnnotationType">       
       <xsd:annotation>
-	 <xsd:documentation xml:lang="en">
-	    Arguments of subroutines are uniquely determined by their
-            position within the argument list and by a reference to the
-	    symbol. Additionally, their intent (default: inout) can be specified.
-         </xsd:documentation>
+        <xsd:documentation xml:lang="en">
+	  An argument of a subroutine is a SymbolReference augmented 
+	  by its position within the argument list.
+	  Additionally, its intent (default: inout) may be specified.
+        </xsd:documentation>
       </xsd:annotation>
-      <xsd:attribute name="position" type="xsd:positiveInteger" use="required"/>
-      <xsd:attribute name="symbol_id" type="xsd:string" use="required"/>
-      <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
-      <xsd:attribute name="deriv" type="xsd:boolean" use="optional" default="false"/>
-      <xsd:attribute name="intent" type="IntentType" use="optional" default="inout"/>
+      <xsd:attribute name="position"  type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="symbol_id" type="xsd:string"          use="required"/>
+      <xsd:attribute name="scope_id"  type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="deriv"     type="xsd:boolean"         use="optional" default="false"/>
+      <xsd:attribute name="intent"    type="IntentType"          use="optional" default="inout"/>
     </xsd:extension>       
   </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="ArgumentListType">
+  <xsd:sequence>
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The argument list.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:element name="ArgumentSymbolReference" type="ArgumentSymbolReferenceType" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SideEffectListType">	
+  <xsd:sequence>
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        A list of VariableReferences to express the 
+	results of sideeffect analysis.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:element name="SideEffectReference" type="VariableReferenceType" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
 </xsd:complexType>
 
 <xsd:group name="ControlFlowVertexAndEdgeGroup">
   <xsd:choice> 
     <xsd:element ref="ControlFlowVertex">
-
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-		Control flow graph vertices represent the basic 
-		blocks or certain control flow statements contained 
-		within a subroutine. 
+   	  Control flow graph vertices represent the basic 
+	  blocks or certain control flow statements contained 
+	  within a subroutine. (loops, branches, entry, exit etc.) 
         </xsd:documentation>
       </xsd:annotation>
-
     </xsd:element>
-
     <xsd:element name="ControlFlowEdge" type="ControlFlowEdgeType">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -676,99 +695,48 @@
   </xsd:choice>
 </xsd:group>
 
-
-
-<xsd:complexType name="ArgumentListType">
-        <xsd:sequence>
-                                                                                
-          <xsd:annotation>
-            <xsd:documentation xml:lang="en">
-              The argument list.
-            </xsd:documentation>
-          </xsd:annotation>
-                                                                                
-          <xsd:element name="ArgumentSymbolReference" type="ArgumentSymbolReferenceType"
-                   minOccurs="0" maxOccurs="unbounded"/>
-                                                                                
-        </xsd:sequence>
-</xsd:complexType>
-
 <xsd:complexType name="ControlFlowGraphType">
- <xsd:complexContent>
+  <xsd:complexContent>
     <xsd:extension base="VertexType">       
-
-  <xsd:annotation>
-	  <xsd:documentation xml:lang="en">
-		  Subroutines are represented by control flow graphs.
-		  A control flow graph contains an argument list vertices 
-		  and edges. Furthermore, the name of the corresponding
-		  subroutine must be specified.
-    </xsd:documentation>
-  </xsd:annotation>
-
-  <xsd:sequence>
-
-    <xsd:element name="ArgumentList" type="ArgumentListType" minOccurs="0" maxOccurs="1"/>
-
-    <xsd:element name="InList" minOccurs="0" maxOccurs="1">
-      <xsd:complexType>
-        <xsd:sequence>
-
-          <xsd:annotation>
-            <xsd:documentation xml:lang="en">
-              The list of variable references used 
-              by the given subroutine. If the list is complete, then
-              this is specified via the optional attribute ``complete."
-            </xsd:documentation>
-          </xsd:annotation>
-      
-          <xsd:element name="Input" type="VariableReferenceType"
-    		   minOccurs="0" maxOccurs="unbounded"/>
-
-        </xsd:sequence>
-        <xsd:attribute name="complete" type="xsd:boolean" use="optional" default="true"/>
-      </xsd:complexType>
-    </xsd:element>
-
-    <xsd:element name="OutList" minOccurs="0" maxOccurs="1">
-      <xsd:complexType>
-        <xsd:sequence>
-
-          <xsd:annotation>
-            <xsd:documentation xml:lang="en">
-              The list of variable references defined 
-              by the given subroutine. If the list is complete, then
-              this is specified via the optional attribute ``complete."
-            </xsd:documentation>
-          </xsd:annotation>
-      
-          <xsd:element name="Output" type="VariableReferenceType"
-    		   minOccurs="0" maxOccurs="unbounded"/>
-
-        </xsd:sequence>
-        <xsd:attribute name="complete" type="xsd:boolean" use="optional" default="false"/>
-      </xsd:complexType>
-    </xsd:element>
-
-    <xsd:group ref="ControlFlowVertexAndEdgeGroup" minOccurs="0" maxOccurs="unbounded"/>
-
-  </xsd:sequence>
-  <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
-  <xsd:attribute name="symbol_id" type="xsd:string" use="required"/>
-  <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
-  <xsd:attribute name="controlflowgraph_scope_id" type="xsd:positiveInteger" use="required"/>
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+	  Subroutines are represented by control flow graphs.
+	  The name of the subroutine must be specified with 
+          the attributes below just like a SymbolReference.
+	  Subroutine arguments (if any) are specified in ArgumentList.
+          We have four lists as the result of sideeffect analysis:
+          ModLocal:  modifications in this subroutine
+          Mod:       modifications in this subroutine and its callees
+          ReadLocal: reads in this subroutine
+          Read:      reads in this subroutine and its callees	
+	  The control flow graph itself is contained in ControlFlowVertexAndEdgeGroup.
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element name="ArgumentList" type="ArgumentListType"   minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="ModLocal"     type="SideEffectListType" minOccurs="0" maxOccurs="1"/> 
+        <xsd:element name="Mod"          type="SideEffectListType" minOccurs="0" maxOccurs="1"/> 
+        <xsd:element name="ReadLocal"    type="SideEffectListType" minOccurs="0" maxOccurs="1"/> 
+        <xsd:element name="Read"         type="SideEffectListType" minOccurs="0" maxOccurs="1"/> 
+        <xsd:group ref="ControlFlowVertexAndEdgeGroup" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="active"                    type="xsd:boolean"         use="optional" default="true"/>
+      <xsd:attribute name="symbol_id"                 type="xsd:string"          use="required"/>
+      <xsd:attribute name="scope_id"                  type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="controlflowgraph_scope_id" type="xsd:positiveInteger" use="required"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
 
 <xsd:element name="ControlFlowGraph" type="ControlFlowGraphType" substitutionGroup="CallGraphVertex">
-
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
-	    The vertex_id's of control flow graph vertex substitutes must be unique with
-	    the current control flow graph. The corresponding elements are referenced via 
-	    their vertex_id's.  Both the source and the target of an edge must be 
-	    vertex_id's.
+       On the level of a single ControlFlowGraph we impose the following constraints:
+       - The vertex_id's of control flow graph vertex substitutes must be unique with
+         the current control flow graph. (cfgv_unique)
+       - The edge_id's of control flow graph vertex substitutes must be unique with
+         the current control flow graph. (cfge_unique)
+       - Both the source (cfg_keyref1) and the target (cfg_keyref2) of an edge must be vertex_id's.
     </xsd:documentation>
   </xsd:annotation>
 
@@ -778,7 +746,8 @@
   </xsd:unique>
 
   <xsd:unique name="cfge_unique">
-    <xsd:selector xpath="ControlFlowEdge"/><xsd:field xpath="@edge_id"/>
+    <xsd:selector xpath="ControlFlowEdge"/>
+    <xsd:field xpath="@edge_id"/>
   </xsd:unique>
 
   <xsd:key name="cfg_vertexId">

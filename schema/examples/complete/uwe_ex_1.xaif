@@ -59,20 +59,20 @@
        <xaif:ArgumentSymbolReference position="2" symbol_id="y" scope_id="2" annotation="" deriv="false" intent="inout"></xaif:ArgumentSymbolReference>
      </xaif:ArgumentList>
 
-     <xaif:InList complete="true">
-       <xaif:Input annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
+     <xaif:ModLocal>
+       <xaif:SideEffectReference annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
          <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2" annotation=""></xaif:SymbolReference>
-       </xaif:Input>
-     </xaif:InList>
-
-     <xaif:OutList complete="true">
-       <xaif:Output annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
-         <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2" annotation=""></xaif:SymbolReference>
-       </xaif:Output>
-       <xaif:Output annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
+       </xaif:SideEffectReference>
+       <xaif:SideEffectReference annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
          <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
-       </xaif:Output>
-     </xaif:OutList>
+       </xaif:SideEffectReference>
+     </xaif:ModLocal>
+
+     <xaif:ReadLocal>
+       <xaif:SideEffectReference annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
+         <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2" annotation=""></xaif:SymbolReference>
+       </xaif:SideEffectReference>
+     </xaif:ReadLocal>
 
      <xaif:Entry vertex_id="1" annotation=""></xaif:Entry>
 

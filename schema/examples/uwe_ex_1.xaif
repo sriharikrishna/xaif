@@ -78,20 +78,20 @@ end subroutine
        <xaif:ArgumentSymbolReference position="2" symbol_id="y" scope_id="2"/>
      </xaif:ArgumentList>
 
-     <xaif:InList complete="true">
-       <xaif:Input>
+     <xaif:ModLocal>
+       <xaif:SideEffectReference>
          <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
-       </xaif:Input>
-     </xaif:InList>
-
-     <xaif:OutList complete="true">
-       <xaif:Output>
-         <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
-       </xaif:Output>
-       <xaif:Output>
+       </xaif:SideEffectReference>
+       <xaif:SideEffectReference>
          <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
-       </xaif:Output>
-     </xaif:OutList>
+       </xaif:SideEffectReference>
+     </xaif:ModLocal>
+
+     <xaif:ReadLocal>
+       <xaif:SideEffectReference>
+         <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
+       </xaif:SideEffectReference>
+     </xaif:ReadLocal>
 
      <xaif:Entry vertex_id="1"/>
 
@@ -100,7 +100,7 @@ end subroutine
        <xaif:Assignment statement_id="sage_0">
 
 	       <!-- demo syntax alias info 
-	       default = 0 = worst case ("extermely conservative") -->
+	       default = 0 = worst case ("extremely conservative") -->
 
          <xaif:AssignmentLHS alias="0" live="false">
 		 <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2" />
