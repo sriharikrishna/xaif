@@ -685,6 +685,7 @@ is LHS, then DU, else UD.
   <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
   <xsd:attribute name="symbol_id" type="xsd:string" use="required"/>
   <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
+  <xsd:attribute name="controlflowgraph_scope_id" type="xsd:positiveInteger" use="required"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>

@@ -36,8 +36,7 @@
 
   </xaif:ScopeHierarchy>
 
-  <xaif:ControlFlowGraph vertex_id="1" symbol_id="head"
-	  scope_id="1">
+  <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1" controlflowgraph_scope_id="2">
 
      <xaif:ArgumentList>
        <xaif:ArgumentSymbolReference position="1" symbol_id="x" scope_id="2"/>
@@ -155,7 +154,7 @@
 
   </xaif:ControlFlowGraph>
 
-  <xaif:ControlFlowGraph vertex_id="2" symbol_id="my_add" scope_id="1">
+  <xaif:ControlFlowGraph vertex_id="2" symbol_id="my_add" scope_id="1" controlflowgraph_scope_id="3">
 
      <xaif:ArgumentList>
        <xaif:ArgumentSymbolReference position="1" symbol_id="u1" scope_id="3"/>
