@@ -442,6 +442,8 @@
 
   <xsd:attribute name="program_name" type="xsd:string" use="optional"/>
 
+  <xsd:attribute name="prefix" type="xsd:string" use="optional" default="ScrewThisDefault"/>
+
 </xsd:complexType>
 
 <xsd:element name="CallGraph" type="CallGraphType">

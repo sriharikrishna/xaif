@@ -9,7 +9,7 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	    xmlns:xaif="http://www.mcs.anl.gov/XAIF"
 	    targetNamespace="http://www.mcs.anl.gov/XAIF"
-	    version="xaif 1.0 (derivative accumulation)"
+	    version="xaif 1.0 (derivative propagation)"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified">
 
@@ -86,7 +86,7 @@
 <xsd:complexType name="DerivativePropagatorType">
    <xsd:sequence>
 
-     <xsd:choice minOccurs="1" maxOccurs="unbounded">
+     <xsd:choice minOccurs="0" maxOccurs="unbounded">
        <xsd:element name="SetDeriv" type="xaif:SetDerivType"/>
        <xsd:element name="Sax" type="xaif:SaxType"/>
        <xsd:element name="Saxpy" type="xaif:SaxpyType"/>
