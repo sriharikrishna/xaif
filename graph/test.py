@@ -20,6 +20,6 @@ graph.annotateEdge(vertices[4], vertices[5], vertices[3])
 
 parser = XAIFParser()
 #parser.validate("uwe_ex_1.xaif")
-parser.parse("uwe_ex_1.xaif")
+parser.parse("../schema/examples/uwe_ex_1.xaif")
 parser.displayGraph()
   
