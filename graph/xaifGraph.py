@@ -189,15 +189,16 @@ class XAIFGraph(object):
       print '    ' + str(self.outEdges[vertex])
     return
   
-  def displaySorted(self):
+  def displaySorted(self, init_level=0):
     #print 'I am an XAIFGraph with '+str(len(self.vertices))+' vertices'
-    print 'BreadthFirstSearch:'
-    for vertex in XAIFGraph.breadthFirstSearch(self,1):
-      self.printIndent(vertex.getLevel())
+    #print 'BreadthFirstSearch:'
+    for vertex in XAIFGraph.breadthFirstSearch(self,1,init_level):
+      self.printIndent(vertex.getLevel() + init_level)
       inedges, outedges = [], []
       for v in self.inEdges[vertex]: inedges.append(str(v))
       for v in self.outEdges[vertex]: outedges.append(str(v))
       print vertex, ' in: ', inedges, ' out: ', outedges
+      if vertex.type == 'ControlFlowGraph': vertex.displaySorted(vertex.getLevel()+1)
 
 ##    print '\nDepthFirstSearch:'
 ##    for vertex in XAIFGraph.depthFirstSearch(self, 1):
@@ -279,7 +280,7 @@ class XAIFGraph(object):
     return
   depthFirstSearch = staticmethod(depthFirstSearch)
 
-  def breadthFirstSearch(graph, returnFinished = 0):
+  def breadthFirstSearch(graph, returnFinished = 0, init_level = 0):
     '''This is a generator returning vertices in a breadth-first traversal
        - If returnFinished is True, return a vertex when it finishes
        - Otherwise, return a vertex when it is first seen'''
@@ -288,7 +289,7 @@ class XAIFGraph(object):
     if not len(queue): return
     seen  = [queue[0]]
     if not returnFinished:
-      queue[0].__level = 0
+      queue[0].__level = init_level
       yield queue[0]
     while len(queue):
       vertex = queue[0]
@@ -450,8 +451,8 @@ class XAIFAssignment(XAIFBasicBlockElement):
   def __init__(self, id):
     XAIFBasicBlockElement.__init__(self, id)
     self.type = 'Assignment'
-    self.lhs = None          # A Symbol reference
-    self.rhs = XAIFGraph()   # An expression graph
+    self.lhs = None                    # A Symbol reference
+    self.rhs = XAIFExpressionGraph()   # An expression graph
     return
 
   def setLHS(self, lhs):
@@ -465,7 +466,6 @@ class XAIFAssignment(XAIFBasicBlockElement):
     self.rhs = rhs
     return
  
-
 class XAIFSymbolReference(XAIFVertex):
   def __init__(self, id):
     XAIFVertex.__init__(self, id)
@@ -501,21 +501,37 @@ class XAIFForLoop(XAIFVertex):
     return
 
 
-class XAIFForLoopInit(object):
+class XAIFInitialization(XAIFAssignment):
   def __init__(self,id):
-    self.id = id
+    XAIFAssignment.__init__(self, id)
+    self.type = 'Initialization'
     self.lhs = None          # A Symbol reference
-    self.rhs = XAIFGraph()   # An expression graph
-    return
-
-  def setLHS(self, lhs):
-    self.lhs = lhs
-    return
-
-  def getRHS(self):
-    return self.rhs
-
-  def setRHS(self, rhs):
-    self.rhs = rhs
+    self.rhs = XAIFExpressionGraph()   # An expression graph
     return
  
+class XAIFForLoopCondition(object):
+  def __init__(self, id):
+    self.id = id
+    self.type = 'ForLoopCondition'
+    self.lhs = None                    # A Symbol reference
+    self.rhs = XAIFExpressionGraph()   # An expression graph
+    return
+
+class XAIFUpdate(XAIFAssignment):
+  def __init__(self,id):
+    XAIFAssignment.__init__(self, id)
+    self.type = 'Update'
+    self.lhs = None          # A Symbol reference
+    self.rhs = XAIFExpressionGraph()   # An expression graph
+    return
+ 
+ 
+class XAIFExpressionGraph(XAIFGraph):
+  def __init__(self, vertices={}):
+    XAIFGraph.__init__(self, vertices)
+    return
+
+class XAIFExpressionEdge(object):
+  def __init__(self, id, src, tgt):
+    XAIFEdge.__init__(self,id,src,tgt)
+    return

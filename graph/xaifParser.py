@@ -29,7 +29,12 @@ class XAIFParser(object):
 		       'ForLoop':['vertex_id'],
 		       'VariableReference':['vertex_id'],
 		       'SymbolReference':['vertex_id', 'symbol_id', 'scope_id'],
-		       'Constant':['vertex_id', 'type', 'value']
+		       'Constant':['vertex_id', 'type', 'value'],
+		       'Initialization':['statement_id'],
+		       'Condition':[],
+		       'Update':['statement_id'],
+		       'BooleanOperation':['vertex_id','name'],
+		       'ExpressionEdge':['edge_id','source','target','position']
 		       }
 
     return
@@ -56,6 +61,7 @@ class XAIFContentHandler(ContentHandler):
     self.current = 'None'
     self.context = 'None'
     self.currentScopeId = -1
+    self.cfg = None
     self.parentVertex = None
     self.vertexList = []    # current (sub)graph vertices
     self.edgeList = []      # current (sub)graph edges
@@ -98,8 +104,8 @@ class XAIFContentHandler(ContentHandler):
       
     ''' Control flow graph '''
     if self.nonsname == 'ControlFlowGraph':
-      v = self.parseVertexElement(attrs,attrs.get('vertex_id'))
-      self.parser.callGraph.addVertex(v)
+      self.cfg = self.parseVertexElement(attrs,attrs.get('vertex_id'), self.parser.callGraph)
+      #self.parser.callGraph.addVertex(v)
 
     if self.nonsname == 'Assignment':
       v = self.parseVertexElement(attrs,attrs.get('statement_id'))
@@ -120,7 +126,21 @@ class XAIFContentHandler(ContentHandler):
 
     if self.nonsname == 'ForLoop':
       v = self.parseVertexElement(attrs,attrs.get('vertex_id'))
+      self.cfg.addVertex(v)
       self.parentVertex = v
+
+    if self.nonsname == 'Initialization' and self.parentVertex.type == 'ForLoop':
+      v = self.parseVertexElement(attrs,attrs.get('statement_id'))
+      self.parentVertex.setInit(v)
+      self.parentVertex = v
+
+    if self.nonsname == 'Update' and self.parentVertex.type == 'ForLoop':
+      v = self.parseVertexElement(attrs,attrs.get('statement_id'))
+      self.parentVertex.setUpdate(v)
+      self.parentVertex = v
+
+    
+    
 
     self.context = self.current
     return 
@@ -169,3 +189,9 @@ class XAIFContentHandler(ContentHandler):
     e = XAIFEdge(attrs.get('edge_id','-1'), attrs.get('source',''), attrs.get('target',''))
     return e
   
+  def parseExpressionEdge(self, attrs):
+    '''
+    Return an XAIFExpressionEdge corresponding to the ExpressionEdge element
+    '''
+    e = XAIFExpressionEdge(attrs.get('edge_id','-1'), attrs.get('source',''), attrs.get('target',''), attrs.get('position','1'))
+    return e
