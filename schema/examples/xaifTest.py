@@ -1,8 +1,12 @@
 #!/usr/bin/env python
-#from XSV.driver import runit, runitAndShow
+
+import sys
+sys.path.insert(0,"../../graph")
+
+from XSV.driver import runit, runitAndShow
 from xaifGraph import XAIFGraph, XAIFVertex
 from xaifParser import XAIFParser, XAIFContentHandler
-import sys
+
 
 # Test XAIF parsing, graph utilities
 if len(sys.argv) < 1:

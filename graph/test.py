@@ -6,6 +6,6 @@ from xaifParser import XAIFParser, XAIFContentHandler
 
 parser = XAIFParser()
 #parser.validate("uwe_ex_1.xaif")
-parser.parse("../schema/examples/uwe_ex_1.xaif")
+parser.parse("../schema/examples/uwe_ex_3.xaif")
 parser.displayGraph()
   
