@@ -32,7 +32,7 @@
    </xsd:sequence>
    <xsd:attribute name="function" type="xsd:string" use="required"/>
    <xsd:attribute name="jacobian" type="xsd:string" use="required"/>
-   <xsd:attribute name="return_type" type="xaif:SymbolTypeType" use="optional"/>
+   <xsd:attribute name="return_type" type="xaif:SymbolTypeType" use="optional" default="real"/>
 </xsd:complexType>
 
 <!-- *********************************************************** -->
