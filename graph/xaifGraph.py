@@ -1,7 +1,7 @@
 ##from __future__ import generators
 import types
 
-class XAIFObject (object):
+class XAIFObject:
   def __init__(self, attributes=None, type='XAIFObject'):
     self.type = type
     self.attrs = {}
