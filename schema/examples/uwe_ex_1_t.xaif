@@ -30,6 +30,17 @@
 
   </xaif:ScopeHierarchy>
 
+  <xaif:AliasSetList>
+    <xaif:AliasSet key="0">
+      <xaif:AliasRange from_virtual_address="1" to_virtual_address="1"/>
+    </xaif:AliasSet>
+  </xaif:AliasSetList>
+
+  <xaif:DUUDSetList>
+    <xaif:DUUDSet key="0">
+    </xaif:DUUDSet>
+  </xaif:DUUDSetList>
+
   <xaif:ReplacementList vertex_id="1" template_name="test" symbol_id="head" scope_id="1"> 
      <xaif:Replacement placeholder="whatever"> 
        <xaif:Entry vertex_id="1"/>

@@ -6,9 +6,11 @@ subroutine head(x, y)
   double precision t1, t2
   integer i
 
-  t1=x*y
-  t2=t1*x+i
-  y=t1+t2
+  do i=1,11,2
+    t1=sin(x)*y
+    t2=t1*x+i
+    y=t1+t2
+  enddo
 
 end subroutine
 -->
@@ -24,8 +26,6 @@ end subroutine
     <xaif:Scope vertex_id="1">
       <xaif:SymbolTable>
         <xaif:Symbol symbol_id="head" kind="subroutine" type="void"/>
-        <xaif:Symbol symbol_id="x"/>
-        <xaif:Symbol symbol_id="y"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -63,22 +63,62 @@ end subroutine
 
      <xaif:Entry vertex_id="1"/>
 
-     <xaif:BasicBlock vertex_id="2" scope_id="2">
+     <xaif:ForLoop vertex_id="2" reversal="explicit">
+
+       <xaif:Initialization>
+         <xaif:AssignmentLHS>
+             <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2"/>
+         </xaif:AssignmentLHS>
+         <xaif:AssignmentRHS>
+           <xaif:Constant vertex_id="1" type="integer" value="1"/>
+         </xaif:AssignmentRHS>
+       </xaif:Initialization>      
+
+       <xaif:Condition>
+         <xaif:BooleanOperation vertex_id="1" name="less_or_equal"/>
+         <xaif:VariableReference vertex_id="2">
+           <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2"/>
+         </xaif:VariableReference>
+         <xaif:Constant vertex_id="3" type="integer" value="11"/>
+         <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/>
+         <xaif:ExpressionEdge edge_id="2" source="3" target="1" position="2"/>
+       </xaif:Condition>
+
+       <xaif:Update>
+         <xaif:AssignmentLHS>
+             <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2"/>
+         </xaif:AssignmentLHS>
+         <xaif:AssignmentRHS>
+           <xaif:Intrinsic vertex_id="1" name="add_scal_scal"/>
+           <xaif:VariableReference vertex_id="2">
+             <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2"/>
+           </xaif:VariableReference>
+           <xaif:Constant vertex_id="3" type="integer" value="1"/>
+           <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/>
+           <xaif:ExpressionEdge edge_id="2" source="3" target="1" position="2"/>
+         </xaif:AssignmentRHS>
+       </xaif:Update>      
+     
+     </xaif:ForLoop>
+
+     <xaif:BasicBlock vertex_id="3" scope_id="2">
 
        <xaif:Assignment statement_id="sage_1">
          <xaif:AssignmentLHS>
            <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2"/>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
-		 <xaif:VariableReference vertex_id="1">
+           <xaif:VariableReference vertex_id="1">
              <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
            </xaif:VariableReference>
-           <xaif:VariableReference vertex_id="2">
+           <xaif:Intrinsic vertex_id="2" name="sin_scal"/>
+           <xaif:VariableReference vertex_id="3">
              <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
            </xaif:VariableReference>
-           <xaif:Intrinsic vertex_id="3" name="mul_scal_scal"/>
-           <xaif:ExpressionEdge edge_id="1" source="1" target="3" position="1"/>
-           <xaif:ExpressionEdge edge_id="2" source="2" target="3" position="2"/>
+           <xaif:Intrinsic vertex_id="4" name="mul_scal_scal"/>
+           <xaif:ExpressionEdge edge_id="1" source="1" target="2" position="1"/>
+           <xaif:ExpressionEdge edge_id="2" source="2" target="4" position="1"/>
+           <xaif:ExpressionEdge edge_id="3" source="3" target="4" position="2"/>
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
 
@@ -124,10 +164,15 @@ end subroutine
 
      </xaif:BasicBlock>
 
-     <xaif:Exit vertex_id="3"/>
+     <xaif:EndLoop vertex_id="4"/>
+
+     <xaif:Exit vertex_id="5"/>
 
      <xaif:ControlFlowEdge edge_id="1" source="1" target="2"/>
-     <xaif:ControlFlowEdge edge_id="2" source="2" target="3"/>
+     <xaif:ControlFlowEdge edge_id="2" source="2" target="3" has_condition_value="true" condition_value="1"/>
+     <xaif:ControlFlowEdge edge_id="3" source="3" target="4"/>
+     <xaif:ControlFlowEdge edge_id="4" source="4" target="2"/>
+     <xaif:ControlFlowEdge edge_id="4" source="2" target="5"/>
 
   </xaif:ControlFlowGraph>
 

@@ -17,7 +17,6 @@
         <xaif:Symbol symbol_id="y" annotation="" type="real" shape="scalar" kind="variable" temp="false" active="true"></xaif:Symbol>
         <xaif:Symbol symbol_id="t1" annotation="" type="real" shape="scalar" kind="variable" temp="false" active="true"></xaif:Symbol>
         <xaif:Symbol symbol_id="t2" annotation="" type="real" shape="scalar" kind="variable" temp="false" active="true"></xaif:Symbol>
-        <xaif:Symbol symbol_id="i" type="integer" active="false" annotation="" shape="scalar" kind="variable" temp="false"></xaif:Symbol>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -45,14 +44,16 @@
 
      <xaif:Entry vertex_id="1" annotation=""></xaif:Entry>
 
-     <xaif:BasicBlock vertex_id="2" scope_id="2" annotation="">
+     <xaif:BasicBlock vertex_id="2" annotation="blabla" scope_id="2">
 
-       <xaif:Assignment statement_id="sage_1">
+       <xaif:Marker statement_id="nop1" annotation="test nop to be ignored"></xaif:Marker>
+
+       <xaif:Assignment statement_id="ass1">
          <xaif:AssignmentLHS annotation="" deriv="false" live="true" du_ud="0" constant="false" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
-		 <xaif:VariableReference vertex_id="1" annotation="" deriv="false" constant="false" du_ud="0" alias="0" active="undefined">
+           <xaif:VariableReference vertex_id="1" annotation="" deriv="false" constant="false" du_ud="0" alias="0" active="undefined">
              <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2" annotation=""></xaif:SymbolReference>
            </xaif:VariableReference>
            <xaif:VariableReference vertex_id="2" annotation="" deriv="false" constant="false" du_ud="0" alias="0" active="undefined">
@@ -77,7 +78,7 @@
            </xaif:VariableReference>
            <xaif:Intrinsic vertex_id="3" name="mul_scal_scal" annotation="" type="inlinable"></xaif:Intrinsic>
            <xaif:VariableReference vertex_id="4" annotation="" deriv="false" constant="false" du_ud="0" alias="0" active="undefined">
-             <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2" annotation=""></xaif:SymbolReference>
+             <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
            </xaif:VariableReference>
            <xaif:Intrinsic vertex_id="5" name="add_scal_scal" annotation="" type="inlinable"></xaif:Intrinsic>
            <xaif:ExpressionEdge edge_id="1" source="1" target="3" position="1" annotation=""></xaif:ExpressionEdge>
@@ -99,7 +100,7 @@
              <xaif:SymbolReference vertex_id="1" symbol_id="t2" scope_id="2" annotation=""></xaif:SymbolReference>
            </xaif:VariableReference>
            <xaif:Intrinsic vertex_id="3" name="add_scal_scal" annotation="" type="inlinable"></xaif:Intrinsic>
-           <xaif:ExpressionEdge edge_id="1" source="1" target="3" position="1" annotation=""></xaif:ExpressionEdge>
+	   <xaif:ExpressionEdge edge_id="1" source="1" target="3" position="1" annotation=""></xaif:ExpressionEdge>
            <xaif:ExpressionEdge edge_id="2" source="2" target="3" position="2" annotation=""></xaif:ExpressionEdge>
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
