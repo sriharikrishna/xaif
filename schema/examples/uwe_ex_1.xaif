@@ -39,7 +39,7 @@ end subroutine
       </xaif:SymbolTable>
     </xaif:Scope>
 
-    <xaif:ScopeEdge edge_id="1" source="1" target="2"/>
+    <xaif:ScopeEdge edge_id="1" source="2" target="1"/>
 
     <xaif:Scope vertex_id="3">   <!-- bogus scope for testing purposes -->
       <xaif:SymbolTable>
@@ -47,8 +47,7 @@ end subroutine
       </xaif:SymbolTable>
     </xaif:Scope>
 
-    <xaif:ScopeEdge edge_id="2" source="1" target="3"/>
-    <xaif:ScopeEdge edge_id="3" source="2" target="3"/>
+    <xaif:ScopeEdge edge_id="2" source="3" target="2"/>
 
   </xaif:ScopeHierarchy>
 

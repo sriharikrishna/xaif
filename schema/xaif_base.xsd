@@ -213,8 +213,10 @@
 
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-		Scopes are the vertices in the scope hierarchy. They
-		are derived from the abstract base types VertexType.
+		Scopes are the vertices in a single scope tree.
+	 	The root of the tree is the global scope, i.e. the 
+		scope with no 'out' edges. 
+		Scopes are derived from the abstract base types VertexType.
 		Scopes are identified uniquely by their vertex_id's.
 		Each scope contains exactly one symbol table.
         </xsd:documentation>
@@ -237,10 +239,9 @@
 
       <xsd:annotation>
 	<xsd:documentation xml:lang="en">
-          There is an edge connecting scope i with scope j if j is
-	  contained in i. Scope edges do not have to be specified if the
-	  containment information is not relevant. In this case the scope
-	  hierarchy is a set of well-distinguishable scopes.
+          There is an edge connecting scope i (as source) with scope j 
+	  (as target) if i is contained in j. 
+	  All scopes have to be connected in the scope tree.
         </xsd:documentation>
       </xsd:annotation>
 
