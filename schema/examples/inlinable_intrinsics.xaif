@@ -150,7 +150,6 @@
 
   <xaifii:InlinableIntrinsic name="pow_scal_scal" nr_arguments="2">
     <xaifii:Function type="builtin" builtin_name="pow">
-      <xaif:Constant type="string" value="pow"/>
     </xaifii:Function>
     <xaifii:Partial partial_id="1">
       <xaif:Intrinsic vertex_id="1" name="mul_scal_scal"/>
