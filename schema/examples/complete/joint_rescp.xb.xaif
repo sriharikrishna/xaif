@@ -6,17 +6,17 @@
                                                                                 
     <xaif:Scope vertex_id="1" annotation="">
       <xaif:SymbolTable>
-        <xaif:Symbol symbol_id="sub1" kind="subroutine" type="void" annotation="" shape="scalar" temp="false" active="true"></xaif:Symbol>
-        <xaif:Symbol symbol_id="x" annotation="" type="real" shape="scalar" kind="variable" temp="false" active="true"></xaif:Symbol>
-        <xaif:Symbol symbol_id="y" annotation="" type="real" shape="scalar" kind="variable" temp="false" active="true"></xaif:Symbol>
+        <xaif:Symbol symbol_id="sub1" kind="subroutine" type="void" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="x" kind="variable" type="real" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="y" kind="variable" type="real" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
       </xaif:SymbolTable>
     </xaif:Scope>
 
     <xaif:Scope vertex_id="2" annotation="">
       <xaif:SymbolTable>
-        <xaif:Symbol symbol_id="x" annotation="" type="real" shape="scalar" kind="variable" temp="false" active="true"></xaif:Symbol>
-        <xaif:Symbol symbol_id="y" annotation="" type="real" shape="scalar" kind="variable" temp="false" active="true"></xaif:Symbol>
-        <xaif:Symbol symbol_id="partial_1" annotation="" type="real" shape="scalar" kind="variable" temp="false" active="true"></xaif:Symbol>
+        <xaif:Symbol symbol_id="x" kind="variable" type="real" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="y" kind="variable" type="real" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="partial_1" kind="variable" type="real" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
       </xaif:SymbolTable>
     </xaif:Scope>
     
@@ -44,13 +44,13 @@
         </xaif:SubroutineCall>
 
        <xaif:Assignment statement_id="partial_1" active="true">
-         <xaif:AssignmentLHS annotation="" deriv="false" live="true" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
+         <xaif:AssignmentLHS live="true" annotation="" deriv="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="partial_1" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
-            <xaif:Intrinsic vertex_id="1" name="minus_scal" annotation="" type="inlinable"></xaif:Intrinsic>
-            <xaif:Intrinsic vertex_id="2" name="sin_scal" annotation="" type="inlinable"></xaif:Intrinsic>
-            <xaif:VariableReference vertex_id="3" deriv="false" annotation="" du_ud="0" alias="0" active="undefined">
+            <xaif:Intrinsic vertex_id="1" name="minus_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+            <xaif:Intrinsic vertex_id="2" name="sin_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+            <xaif:VariableReference vertex_id="3" deriv="false" active="undefined" alias="0" du_ud="0" annotation="">
               <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
             </xaif:VariableReference>
             <xaif:ExpressionEdge edge_id="1" source="3" target="2" position="1" annotation=""></xaif:ExpressionEdge>           
@@ -74,15 +74,15 @@
           <xaif:Sax>
             <xaif:AX>
               <xaif:A>
-                <xaif:VariableReference annotation="" deriv="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
+                <xaif:VariableReference active="undefined" alias="0" du_ud="0" deriv="false" annotation="" vertex_id="uwe">
                   <xaif:SymbolReference symbol_id="local_partial" scope_id="2" annotation="" vertex_id="uwe"></xaif:SymbolReference>
                 </xaif:VariableReference>
               </xaif:A>
-              <xaif:X annotation="" deriv="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
+              <xaif:X active="undefined" alias="0" du_ud="0" deriv="false" annotation="" vertex_id="uwe">
                 <xaif:SymbolReference symbol_id="y" scope_id="2" annotation="" vertex_id="uwe"></xaif:SymbolReference>
               </xaif:X>
             </xaif:AX>
-            <xaif:Y annotation="" deriv="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
+            <xaif:Y active="undefined" alias="0" du_ud="0" deriv="false" annotation="" vertex_id="uwe">
               <xaif:SymbolReference symbol_id="y" scope_id="2" annotation="" vertex_id="uwe"></xaif:SymbolReference>
             </xaif:Y>
           </xaif:Sax>

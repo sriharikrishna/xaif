@@ -179,5 +179,33 @@
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
+<!-- *********************************************************** -->
+<!-- Conversion to integer -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="int_scal" nr_arguments="1">
+    <xaifii:Function type="builtin" builtin_name="int"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- Conversion to real from integer -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="real_int_scal" nr_arguments="1">
+    <xaifii:Function type="builtin" builtin_name="real"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- Modulus -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="mod_scal_scal" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name="mod"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
 </xaifii:InlinableIntrinsicDefinitions>
 
