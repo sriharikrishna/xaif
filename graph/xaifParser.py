@@ -26,6 +26,7 @@ class XAIFParser(object):
 		       'Entry':['vertex_id'],
 		       'BasicBlock':['vertex_id'],
 		       'Assignment':['statement_id'],
+		       'ForLoop':['vertex_id'],
 		       'VariableReference':['vertex_id'],
 		       'SymbolReference':['vertex_id', 'symbol_id', 'scope_id'],
 		       'Constant':['vertex_id', 'type', 'value']
@@ -116,6 +117,10 @@ class XAIFContentHandler(ContentHandler):
       v = self.parseVertexElement(attrs,attrs.get('vertex_id'))
       if self.context == 'AssignmentLHS':
         self.parentVertex.setLHS(v)
+
+    if self.nonsname == 'ForLoop':
+      v = self.parseVertexElement(attrs,attrs.get('vertex_id'))
+      self.parentVertex = v
 
     self.context = self.current
     return 

@@ -477,3 +477,45 @@ class XAIFVariableReference(XAIFVertex):
     XAIFVertex.__init__(self, id)
     self.type = 'VariableReference'
     return
+
+class XAIFForLoop(XAIFVertex):
+  def __init__(self, id):
+    XAIFVertex.__init__(self, id)
+    self.type = 'ForLoop'
+    self.id = id
+    self.init = None
+    self.cond = None
+    self.update = None
+    return
+
+  def setInit(self, init):
+    self.init = init
+    return
+
+  def setCondition(self, cond):
+    self.cond = cond
+    return
+
+  def setUpdate(self, update):
+    self.update = update
+    return
+
+
+class XAIFForLoopInit(object):
+  def __init__(self,id):
+    self.id = id
+    self.lhs = None          # A Symbol reference
+    self.rhs = XAIFGraph()   # An expression graph
+    return
+
+  def setLHS(self, lhs):
+    self.lhs = lhs
+    return
+
+  def getRHS(self):
+    return self.rhs
+
+  def setRHS(self, rhs):
+    self.rhs = rhs
+    return
+ 
