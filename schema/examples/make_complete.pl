@@ -5,7 +5,10 @@ my @files = grep /.+\.xaif$/, readdir CURRDIR;
 close CURRDIR;
 
 foreach $file (@files) {
- unlink "complete/$file" if (-e "complete/$file");
+ if (-e "complete/$file") {
+   system("bk edit complete/$file");
+   unlink "complete/$file";
+ } 
  $command = "SAX2Print -f -p $file > complete/$file";
  print "$command\n";
  system($command);

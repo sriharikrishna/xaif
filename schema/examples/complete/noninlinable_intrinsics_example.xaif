@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="LATIN1"?>
+<xaifnii:NonInlinableIntrinsicDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xaifnii="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics" xsi:schemaLocation="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics xaif_noninlinable_intrinsics.xsd">     
+
+
+
+
+
+  <xaifnii:NonInlinableIntrinsic function="myfun" jacobian="myjac">
+    <xaifnii:Partial dep="2" indep="1" partial="4"></xaifnii:Partial>
+    <xaifnii:Partial dep="2" indep="2" partial="5"></xaifnii:Partial>
+    <xaifnii:Partial dep="3" indep="1" partial="6"></xaifnii:Partial>
+    <xaifnii:Partial dep="3" indep="2" partial="7"></xaifnii:Partial>
+  </xaifnii:NonInlinableIntrinsic>
+
+
+
+
+
+<xaifnii:NonInlinableIntrinsic function="myotherfun" jacobian="myotherjac">
+    <xaifnii:Partial dep="1" indep="2" partial="3"></xaifnii:Partial>
+    <xaifnii:Partial dep="1" indep="3" partial="4"></xaifnii:Partial>
+  </xaifnii:NonInlinableIntrinsic>
+
+</xaifnii:NonInlinableIntrinsicDefinitions>
