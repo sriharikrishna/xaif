@@ -1197,7 +1197,7 @@ STOP>
 
 <!-- borrowing this for body of if further below
     <xaif:BasicBlock vertex_id="4">
-      <xaif:Nop statement_id="1"/>
+      <xaif:Marker statement_id="1"/>
     </xaif:BasicBlock>
 -->
 
@@ -2477,7 +2477,7 @@ STOP>
 
     <xaif:BasicBlock vertex_id="38">
 	    <!-- RETURN -->
-	    <xaif:Nop statement_id="1"/>
+	    <xaif:Marker statement_id="1"/>
     </xaif:BasicBlock>
 
     <xaif:Exit vertex_id="39"/>
@@ -3288,7 +3288,7 @@ STOP>
 
     <xaif:BasicBlock vertex_id="51">
 	    <!-- RETURN -->
-	    <xaif:Nop statement_id="1"/>
+	    <xaif:Marker statement_id="1"/>
     </xaif:BasicBlock>
 
     <xaif:Exit vertex_id="52"/>
@@ -3502,7 +3502,7 @@ STOP>
 
     <xaif:BasicBlock vertex_id="58">
 	    <!-- RETURN -->
-	    <xaif:Nop statement_id="1"/>
+	    <xaif:Marker statement_id="1"/>
     </xaif:BasicBlock>
 
     <xaif:ControlFlowEdge edge_id="1" source="58" target="59"/>
@@ -3541,7 +3541,7 @@ STOP>
 
     <xaif:BasicBlock vertex_id="65">
 	    <!-- RETURN -->
-	    <xaif:Nop statement_id="1"/>
+	    <xaif:Marker statement_id="1"/>
     </xaif:BasicBlock>
 
     <xaif:BasicBlock vertex_id="61">
@@ -3929,7 +3929,7 @@ STOP>
 
     <xaif:BasicBlock vertex_id="76">
 	    <!-- RETURN -->
-	    <xaif:Nop statement_id="1"/>
+	    <xaif:Marker statement_id="1"/>
     </xaif:BasicBlock>
 
     <xaif:BasicBlock vertex_id="68">

@@ -51,7 +51,7 @@ end subroutine
 
      <xaif:BasicBlock vertex_id="2">
 
-       <xaif:Nop statement_id="nop1" annotation="test nop to be ignored"/>
+       <xaif:Marker statement_id="nop1" annotation="test nop to be ignored"/>
 
        <xaif:Assignment statement_id="ass1">
          <xaif:AssignmentLHS>

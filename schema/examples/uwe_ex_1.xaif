@@ -73,7 +73,7 @@ end subroutine
 	       <!-- demo syntax alias info 
 	       default = 0 = worst case ("extermely conservative") -->
 
-         <xaif:AssignmentLHS alias="0">
+         <xaif:AssignmentLHS alias="0" live="false">
 		 <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2" />
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
@@ -82,7 +82,7 @@ end subroutine
        </xaif:Assignment>      
 
        <xaif:Assignment statement_id="sage_1">
-         <xaif:AssignmentLHS>
+         <xaif:AssignmentLHS live="false">
            <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2"/>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
@@ -103,7 +103,7 @@ end subroutine
        </xaif:Assignment>      
 
        <xaif:Assignment statement_id="sage_2">
-         <xaif:AssignmentLHS>
+         <xaif:AssignmentLHS live="false">
            <xaif:SymbolReference vertex_id="1" symbol_id="t2" scope_id="2"/>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>

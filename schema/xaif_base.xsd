@@ -627,6 +627,7 @@
     	  <xsd:documentation xml:lang="en">
         </xsd:documentation>
       </xsd:annotation>
+      <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
     </xsd:extension>       
   </xsd:complexContent>
 </xsd:complexType>
@@ -643,7 +644,7 @@
 	<xsd:choice>
           <xsd:element ref="Assignment"/>
           <xsd:element ref="SubroutineCall"/>
-          <xsd:element ref="Nop"/>
+          <xsd:element ref="Marker"/>
         </xsd:choice>
 </xsd:group>
 
@@ -675,7 +676,7 @@
         </xsd:documentation>
       </xsd:annotation>
   <xsd:unique name="statement_unique">
-    <xsd:selector xpath="Assignment | SubroutineCall | Nop"/>
+    <xsd:selector xpath="Assignment | SubroutineCall | Marker"/>
      <xsd:field xpath="@statement_id"/>
   </xsd:unique>
 </xsd:element>
@@ -877,8 +878,22 @@
 
       <xsd:sequence>
 
-        <xsd:element name="AssignmentLHS" type="VariableReferenceType"
-                      minOccurs="1" maxOccurs="1">
+        <xsd:element name="AssignmentLHS" minOccurs="1" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="VariableReferenceType">
+                <xsd:attribute name="live" type="xsd:boolean" use="optional" default="true">
+                  <xsd:annotation>
+                    <xsd:documentation>
+                         An attribute specifying whether a variable reference occuring
+                         on the left-hand side of an assigment is live at the end of 
+                         the basic block or at the next Marker, whichever is closest.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
           <xsd:unique name="lhsv_unique">
             <xsd:selector xpath="SymbolReference"/>
              <xsd:field xpath="@vertex_id"/>
@@ -1083,7 +1098,7 @@
 <!-- Dummy node for use by front-end (ignored by xaifbooster) -->
 <!-- *********************************************************** -->
 
-<xsd:complexType name="NopType">
+<xsd:complexType name="MarkerType">
   <xsd:complexContent>
     <xsd:extension base="FrontEndAnnotationType">
       <xsd:annotation>
@@ -1095,7 +1110,7 @@
   </xsd:complexContent>
 </xsd:complexType>
 
-<xsd:element name="Nop" type="NopType"/>
+<xsd:element name="Marker" type="MarkerType"/>
 
 <!-- *********************************************************** -->
 <!-- Variable Reference -->
