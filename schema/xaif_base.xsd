@@ -590,17 +590,15 @@ is LHS, then DU, else UD.
 
     </xsd:element>
 
-    <xsd:element name="ControlFlowEdge" type="EdgeType">
-
+    <xsd:element name="ControlFlowEdge" type="ControlFlowEdgeType">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Control flow graph edges represent the flow of control within the
-	  corresponding subroutine. An edge connects two control flow graph 
-	  vertex substitutes i and j if there are values for the subroutine 
-	  arguments such that j is executed immediately after i.
+          corresponding subroutine. An edge connects two control flow graph 
+          vertex substitutes i and j if there are values for the subroutine 
+          arguments such that j is executed immediately after i.
         </xsd:documentation>
       </xsd:annotation>
-
     </xsd:element>
   </xsd:choice>
 </xsd:group>
@@ -702,14 +700,14 @@ is LHS, then DU, else UD.
   </xsd:annotation>
 
   <xsd:unique name="cfgv_unique">
-	  <xsd:selector xpath="BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop|EndBranch|EndLoop"/>
+	  <xsd:selector xpath="BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop|EndBranch|EndLoop|Goto|Label"/>
       <xsd:field xpath="@vertex_id"/>
   </xsd:unique>
   <xsd:unique name="cfge_unique">
     <xsd:selector xpath="ControlFlowEdge"/><xsd:field xpath="@edge_id"/>
   </xsd:unique>
   <xsd:key name='cfg_vertexId'>
-	  <xsd:selector xpath="BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop|EndBranch|EndLoop"/>
+	  <xsd:selector xpath="BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop|EndBranch|EndLoop|Goto|Label"/>
       <xsd:field xpath="@vertex_id"/>
   </xsd:key>
   <xsd:keyref name="cfg_keyref1" refer='cfg_vertexId'>
@@ -728,6 +726,23 @@ is LHS, then DU, else UD.
     </xsd:documentation>
   </xsd:annotation>
 </xsd:element> 
+
+<xsd:complexType name="ControlFlowEdgeType">
+  <xsd:complexContent>
+    <xsd:extension base="EdgeType">    
+
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+        </xsd:documentation>
+      </xsd:annotation>
+      
+      <xsd:attribute name="has_condition_value" type="xsd:boolean" use="optional" default="false"/>
+      <xsd:attribute name="condition_value" type="xsd:integer" use="optional" default="1"/>
+     
+    </xsd:extension>
+  </xsd:complexContent>   
+</xsd:complexType>
+
 
 <!-- *********************************************************** -->
 <!-- Basic Block -->
@@ -894,6 +909,36 @@ is LHS, then DU, else UD.
 </xsd:element>
 
 <!-- *********************************************************** -->
+<!-- Branches (Ifs and Selects) -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="BranchType">
+  <xsd:complexContent>
+    <xsd:extension base="VertexType">    
+
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+        </xsd:documentation>
+      </xsd:annotation>
+
+      <xsd:sequence>
+         <xsd:element name="Condition" type="ExpressionType"
+		   minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:extension>
+  </xsd:complexContent>   
+</xsd:complexType>
+
+<xsd:element name="Branch" type="BranchType"
+	substitutionGroup="ControlFlowVertex">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+		Branches are substitutes for control flow vertices.
+        </xsd:documentation>
+      </xsd:annotation>
+</xsd:element>
+
+<!-- *********************************************************** -->
 <!-- If -->
 <!-- *********************************************************** -->
 
@@ -974,6 +1019,55 @@ is LHS, then DU, else UD.
         </xsd:documentation>
       </xsd:annotation>
 </xsd:element>
+
+<!-- *********************************************************** -->
+<!-- Goto -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="GotoType">
+  <xsd:complexContent>
+    <xsd:extension base="VertexType">    
+
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:extension>
+  </xsd:complexContent>   
+</xsd:complexType>
+
+<xsd:element name="Goto" type="GotoType"
+	substitutionGroup="ControlFlowVertex">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+        </xsd:documentation>
+      </xsd:annotation>
+</xsd:element>
+
+<!-- *********************************************************** -->
+<!-- Label -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="LabelType">
+  <xsd:complexContent>
+    <xsd:extension base="VertexType">    
+
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:extension>
+  </xsd:complexContent>   
+</xsd:complexType>
+
+<xsd:element name="Label" type="LabelType"
+	substitutionGroup="ControlFlowVertex">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+        </xsd:documentation>
+      </xsd:annotation>
+</xsd:element>
+
 
 <!-- *********************************************************** -->
 <!-- EndLoop -->
