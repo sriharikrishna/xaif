@@ -27,8 +27,12 @@
 
   <xaifii:InlinableIntrinsic name="sub_scal_scal" nr_arguments="2">
     <xaifii:Function type="builtin" builtin_name="-"/>
-    <xaifii:Partial partial_id="1" partial_type="linear_one"/>
-    <xaifii:Partial partial_id="2" partial_type="linear_minus_one"/>
+    <xaifii:Partial partial_id="1" partial_type="linear_one">
+      <xaif:Constant type="integer" value="1"/>
+    </xaifii:Partial>
+    <xaifii:Partial partial_id="2" partial_type="linear_minus_one">
+      <xaif:Constant type="integer" value="-1"/>
+    </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
@@ -76,7 +80,9 @@
 
   <xaifii:InlinableIntrinsic name="minus_scal" nr_arguments="1">
     <xaifii:Function type="builtin" builtin_name="-"/>
-    <xaifii:Partial partial_id="1" partial_type="linear_minus_one"/>
+    <xaifii:Partial partial_id="1" partial_type="linear_minus_one">
+      <xaif:Constant type="integer" value="-1"/>
+    </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
