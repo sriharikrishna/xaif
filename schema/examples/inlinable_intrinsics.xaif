@@ -188,6 +188,11 @@
     <xaifii:Partial partial_id="1" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
+  <xaifii:InlinableIntrinsic name="nint_scal" nr_arguments="1">
+    <xaifii:Function type="builtin" builtin_name="nint"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
 <!-- *********************************************************** -->
 <!-- Conversion to real from integer -->
 <!-- *********************************************************** -->
