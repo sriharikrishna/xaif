@@ -36,7 +36,7 @@ end subroutine
       </xaif:SymbolTable>
     </xaif:Scope>
 
-    <xaif:ScopeEdge edge_id="1" source="1" target="2"/>
+    <xaif:ScopeEdge edge_id="1" source="2" target="1"/>
 
   </xaif:ScopeHierarchy>
 
@@ -49,7 +49,7 @@ end subroutine
 
      <xaif:Entry vertex_id="1"/>
 
-     <xaif:BasicBlock vertex_id="2" scope_id="2">
+     <xaif:BasicBlock vertex_id="2" annotation="blabla" scope_id="2">
 
        <xaif:Marker statement_id="nop1" annotation="test nop to be ignored"/>
 
