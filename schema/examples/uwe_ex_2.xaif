@@ -158,7 +158,7 @@ end subroutine
      <xaif:Exit vertex_id="5"/>
 
      <xaif:ControlFlowEdge edge_id="1" source="1" target="2"/>
-     <xaif:ControlFlowEdge edge_id="2" source="2" target="3"/>
+     <xaif:ControlFlowEdge edge_id="2" source="2" target="3" has_condition_value="true" condition_value="1"/>
      <xaif:ControlFlowEdge edge_id="3" source="3" target="4"/>
      <xaif:ControlFlowEdge edge_id="4" source="4" target="2"/>
      <xaif:ControlFlowEdge edge_id="4" source="2" target="5"/>
