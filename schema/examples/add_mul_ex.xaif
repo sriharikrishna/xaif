@@ -41,6 +41,27 @@ end subroutine
 
   </xaif:ScopeHierarchy>
 
+  <xaif:DUUDSetList>
+    <xaif:DUUDSet key="0">
+    </xaif:DUUDSet>
+    <xaif:DUUDSet key="1">
+      <xaif:StatementId>"sage2"</xaif:StatementId>
+      <xaif:StatementId>"sage3"</xaif:StatementId>
+    </xaif:DUUDSet>
+    <xaif:DUUDSet key="2">
+      <xaif:StatementId>"ass1"</xaif:StatementId>
+    </xaif:DUUDSet>
+    <xaif:DUUDSet key="3">
+      <xaif:StatementId>"sage3"</xaif:StatementId>
+    </xaif:DUUDSet>
+    <xaif:DUUDSet key="4">
+      <xaif:StatementId>"ass1"</xaif:StatementId>
+    </xaif:DUUDSet>
+    <xaif:DUUDSet key="5">
+      <xaif:StatementId>"sage2"</xaif:StatementId>
+    </xaif:DUUDSet>
+  </xaif:DUUDSetList>
+
   <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1" controlflowgraph_scope_id="2">
 
      <xaif:ArgumentList>
@@ -55,7 +76,7 @@ end subroutine
        <xaif:Marker statement_id="nop1" annotation="test nop to be ignored"/>
 
        <xaif:Assignment statement_id="ass1">
-         <xaif:AssignmentLHS>
+         <xaif:AssignmentLHS du_ud="1">
            <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2"/>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
@@ -72,11 +93,11 @@ end subroutine
        </xaif:Assignment>      
 
        <xaif:Assignment statement_id="sage_2">
-         <xaif:AssignmentLHS>
+         <xaif:AssignmentLHS du_ud="3">
            <xaif:SymbolReference vertex_id="1" symbol_id="t2" scope_id="2"/>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
-           <xaif:VariableReference vertex_id="1">
+           <xaif:VariableReference vertex_id="1" du_ud="2">
              <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2"/>
            </xaif:VariableReference>
            <xaif:VariableReference vertex_id="2">
@@ -99,10 +120,10 @@ end subroutine
            <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
-           <xaif:VariableReference vertex_id="1">
+           <xaif:VariableReference vertex_id="1" du_ud="4">
              <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2"/>
            </xaif:VariableReference>
-           <xaif:VariableReference vertex_id="2">
+           <xaif:VariableReference vertex_id="2" du_ud="5">
              <xaif:SymbolReference vertex_id="1" symbol_id="t2" scope_id="2"/>
            </xaif:VariableReference>
            <xaif:Intrinsic vertex_id="3" name="add_scal_scal"/>
