@@ -12,9 +12,14 @@
 
   <xaifii:InlinableIntrinsic name="add_scal_scal" nr_arguments="2">
     <xaifii:Function type="builtin" builtin_name="+"/>
-    <xaifii:Partial partial_id="1" partial_type="linear_one"/>
-    <xaifii:Partial partial_id="2" partial_type="linear_one"/>
+    <xaifii:Partial partial_id="1" partial_type="linear_one">
+      <xaif:Constant type="integer" value="1"/>
+    </xaifii:Partial>
+    <xaifii:Partial partial_id="2" partial_type="linear_one">
+      <xaif:Constant type="integer" value="1"/>
+    </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
+
 
 <!-- *********************************************************** -->
 <!-- Scalar Subtraction -->
@@ -84,7 +89,7 @@
     <xaifii:Partial partial_id="1">
       <xaif:Intrinsic vertex_id="1" name="div_scal_scal"/>
       <xaif:Constant vertex_id="2" type="integer" value="1"/>
-      <xaifii:ArgumentReference vertex_id="3" argument="2"/> 
+      <xaifii:ArgumentReference vertex_id="3" argument="1"/> 
       <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
       <xaif:ExpressionEdge edge_id="2" source="3" target="1" position="2"/> 
     </xaifii:Partial>
@@ -98,7 +103,7 @@
     <xaifii:Function type="builtin" builtin_name="sin"/>
     <xaifii:Partial partial_id="1">
       <xaif:Intrinsic vertex_id="1" name="cos_scal"/>
-      <xaifii:ArgumentReference vertex_id="2" argument="2"/> 
+      <xaifii:ArgumentReference vertex_id="2" argument="1"/> 
       <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
@@ -112,10 +117,11 @@
     <xaifii:Partial partial_id="1">
       <xaif:Intrinsic vertex_id="1" name="minus_scal"/>
       <xaif:Intrinsic vertex_id="2" name="sin_scal"/>
-      <xaifii:ArgumentReference vertex_id="3" argument="2"/> 
+      <xaifii:ArgumentReference vertex_id="3" argument="1"/> 
       <xaif:ExpressionEdge edge_id="1" source="3" target="2" position="1"/> 
-      <xaif:ExpressionEdge edge_id="2" source="2" target="1" position="2"/> 
+      <xaif:ExpressionEdge edge_id="2" source="2" target="1" position="1"/> 
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
 </xaifii:InlinableIntrinsicDefinitions>
+

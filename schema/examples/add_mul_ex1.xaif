@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-subroutine head(x, y) 
-  double precision, dimension(2,3), intent(in) :: x
+subroutine head(x, y, z) 
+  double precision, intent(in) :: x,z
   double precision, intent(inout) :: y
 
-  y=x(1,1)*x(2,3)
+  y=x*y*z
 
 end subroutine
 -->
@@ -20,15 +20,17 @@ end subroutine
     <xaif:Scope vertex_id="1">
       <xaif:SymbolTable>
         <xaif:Symbol symbol_id="head" kind="subroutine" type="void"/>
-        <xaif:Symbol symbol_id="x" shape="matrix"/>
+        <xaif:Symbol symbol_id="x"/>
         <xaif:Symbol symbol_id="y"/>
+        <xaif:Symbol symbol_id="z"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
     <xaif:Scope vertex_id="2">
       <xaif:SymbolTable>
-        <xaif:Symbol symbol_id="x" shape="matrix"/>
+        <xaif:Symbol symbol_id="x"/>
         <xaif:Symbol symbol_id="y"/>
+        <xaif:Symbol symbol_id="z"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -38,6 +40,8 @@ end subroutine
 
   <xaif:IndependentVariables>
     <xaif:ArgumentReference argument="1"/>
+    <xaif:ArgumentReference argument="2"/>
+    <xaif:ArgumentReference argument="3"/>
   </xaif:IndependentVariables>
   <xaif:DependentVariables>
     <xaif:ArgumentReference argument="2"/>
@@ -48,44 +52,33 @@ end subroutine
      <xaif:ArgumentList>
        <xaif:ArgumentSymbolReference position="1" symbol_id="x" scope_id="2"/>
        <xaif:ArgumentSymbolReference position="2" symbol_id="y" scope_id="2"/>
+       <xaif:ArgumentSymbolReference position="3" symbol_id="z" scope_id="2"/>
      </xaif:ArgumentList>
 
      <xaif:Entry vertex_id="1"/>
 
      <xaif:BasicBlock vertex_id="2">
 
-       <xaif:Assignment statement_id="1" annotation="sage_3">
+       <xaif:Assignment statement_id="ass1">
          <xaif:AssignmentLHS>
            <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
            <xaif:VariableReference vertex_id="1">
              <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
-             <xaif:ArrayElementReference vertex_id="2">
-               <xaif:Index>
-		 <xaif:Constant vertex_id="1" type="integer" value="1"/>
-	       </xaif:Index>
-               <xaif:Index>
-		 <xaif:Constant vertex_id="1" type="integer" value="1"/>
-	       </xaif:Index>
-	     </xaif:ArrayElementReference>
-	     <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
            </xaif:VariableReference>
            <xaif:VariableReference vertex_id="2">
-             <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
-             <xaif:ArrayElementReference vertex_id="2">
-               <xaif:Index>
-		 <xaif:Constant vertex_id="1" type="integer" value="2"/>
-	       </xaif:Index>
-               <xaif:Index>
-		 <xaif:Constant vertex_id="1" type="integer" value="3"/>
-	       </xaif:Index>
-	     </xaif:ArrayElementReference>
-	     <xaif:VariableReferenceEdge edge_id="1" source="1" target="2"/>
+             <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
            </xaif:VariableReference>
-           <xaif:Intrinsic vertex_id="3" name="mul_scal_scal"/>
-	   <xaif:ExpressionEdge edge_id="1" source="1" target="3" position="1"/>
-           <xaif:ExpressionEdge edge_id="2" source="2" target="3" position="2"/>
+           <xaif:VariableReference vertex_id="3">
+             <xaif:SymbolReference vertex_id="1" symbol_id="z" scope_id="2"/>
+           </xaif:VariableReference>
+           <xaif:Intrinsic vertex_id="4" name="mul_scal_scal"/>
+           <xaif:Intrinsic vertex_id="5" name="mul_scal_scal"/>
+           <xaif:ExpressionEdge edge_id="1" source="1" target="4" position="1"/>
+           <xaif:ExpressionEdge edge_id="2" source="2" target="4" position="2"/>
+           <xaif:ExpressionEdge edge_id="3" source="3" target="5" position="1"/>
+           <xaif:ExpressionEdge edge_id="4" source="4" target="5" position="2"/>
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
 

@@ -6,7 +6,6 @@ subroutine head(x, y)
   double precision t1, t2
   integer i
 
-  i=1
   t1=sin(x)*y
   t2=t1*x+i
   y=t1+t2
@@ -79,19 +78,6 @@ end subroutine
      <xaif:Entry vertex_id="1"/>
 
      <xaif:BasicBlock vertex_id="2">
-
-       <xaif:Assignment statement_id="sage_0">
-
-	       <!-- demo syntax alias info 
-	       default = 0 = worst case ("extermely conservative") -->
-
-         <xaif:AssignmentLHS alias="0">
-		 <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="3" />
-         </xaif:AssignmentLHS>
-         <xaif:AssignmentRHS>
-           <xaif:Constant vertex_id="1" type="integer" value="1"/>
-         </xaif:AssignmentRHS>
-       </xaif:Assignment>      
 
        <xaif:Assignment statement_id="sage_1">
          <xaif:AssignmentLHS>
