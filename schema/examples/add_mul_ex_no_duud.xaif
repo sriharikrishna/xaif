@@ -4,10 +4,9 @@ subroutine head(x, y)
   double precision, intent(in) :: x
   double precision, intent(inout) :: y
   double precision t1, t2
-  integer i
 
   t1=x*y
-  t2=t1*x+i
+  t2=t1*x+y
   y=t1+t2
 
 end subroutine
@@ -35,7 +34,6 @@ end subroutine
         <xaif:Symbol symbol_id="y"/>
         <xaif:Symbol symbol_id="t1"/>
         <xaif:Symbol symbol_id="t2"/>
-        <xaif:Symbol symbol_id="i" type="integer" active="false"/>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -63,14 +61,16 @@ end subroutine
 
      <xaif:Entry vertex_id="1"/>
 
-     <xaif:BasicBlock vertex_id="2" scope_id="2">
+     <xaif:BasicBlock vertex_id="2" annotation="blabla" scope_id="2">
 
-       <xaif:Assignment statement_id="sage_1">
+       <xaif:Marker statement_id="nop1" annotation="test nop to be ignored"/>
+
+       <xaif:Assignment statement_id="ass1">
          <xaif:AssignmentLHS>
            <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2"/>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
-		 <xaif:VariableReference vertex_id="1">
+           <xaif:VariableReference vertex_id="1">
              <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
            </xaif:VariableReference>
            <xaif:VariableReference vertex_id="2">
@@ -95,7 +95,7 @@ end subroutine
            </xaif:VariableReference>
            <xaif:Intrinsic vertex_id="3" name="mul_scal_scal"/>
            <xaif:VariableReference vertex_id="4">
-             <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2"/>
+             <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
            </xaif:VariableReference>
            <xaif:Intrinsic vertex_id="5" name="add_scal_scal"/>
            <xaif:ExpressionEdge edge_id="1" source="1" target="3" position="1"/>
@@ -117,7 +117,7 @@ end subroutine
              <xaif:SymbolReference vertex_id="1" symbol_id="t2" scope_id="2"/>
            </xaif:VariableReference>
            <xaif:Intrinsic vertex_id="3" name="add_scal_scal"/>
-           <xaif:ExpressionEdge edge_id="1" source="1" target="3" position="1"/>
+	   <xaif:ExpressionEdge edge_id="1" source="1" target="3" position="1"/>
            <xaif:ExpressionEdge edge_id="2" source="2" target="3" position="2"/>
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
