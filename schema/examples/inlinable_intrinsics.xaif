@@ -197,5 +197,15 @@
     <xaifii:Partial partial_id="1" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
+<!-- *********************************************************** -->
+<!-- Modulus -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="mod_scal_scal" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name="mod"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
 </xaifii:InlinableIntrinsicDefinitions>
 
