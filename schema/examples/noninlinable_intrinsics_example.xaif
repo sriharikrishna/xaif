@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xaifnii:NonInlinableIntrinsicDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xaifnii="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics"
+       xsi:schemaLocation="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics xaif_noninlinable_intrinsics.xsd">     
+
+<!-- *********************************************************** -->
+<!-- Example 
+     Consider myfun(x1,x2,x3) where x1 and x2 are inputs and
+     x2 and x3 are outputs. Let myjac(x1,x2,x3,j21,j22,j31,j32)
+                                                                 -->
+<!-- *********************************************************** -->
+
+  <xaifnii:NonInlinableIntrinsic function="myfun" jacobian="myjac">
+    <xaifnii:Partial dep="2" indep="1" partial="4"/>
+    <xaifnii:Partial dep="2" indep="2" partial="5"/>
+    <xaifnii:Partial dep="3" indep="1" partial="6"/>
+    <xaifnii:Partial dep="3" indep="2" partial="7"/>
+  </xaifnii:NonInlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- Example 
+     Consider y=myotherfun(x1,x2) where x1 and x2 are inputs and
+     y is output. Let myotherjac(x1,x2,j12,j13)
+                                                                 -->
+<!-- *********************************************************** -->
+
+<xaifnii:NonInlinableIntrinsic function="myotherfun" jacobian="myotherjac">
+    <xaifnii:Partial dep="1" indep="2" partial="3"/>
+    <xaifnii:Partial dep="1" indep="3" partial="4"/>
+  </xaifnii:NonInlinableIntrinsic>
+
+</xaifnii:NonInlinableIntrinsicDefinitions>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- *********************************************************** -->
+<!-- XAIF Schema Definition (derivative accumulation)            -->
+<!-- Uwe Naumann                                                 -->
+<!-- MCS, ANL, 2003                                              -->
+<!-- *********************************************************** -->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	    xmlns:xaif="http://www.mcs.anl.gov/XAIF"
+	    targetNamespace="http://www.mcs.anl.gov/XAIF"
+	    version="xaif 1.0 (derivative accumulation)"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+<!-- *********************************************************** -->
+<!-- Differentiated Basic Block -->
+<!-- *********************************************************** -->
+ 
+<xsd:redefine schemaLocation="xaif.xsd">
+<xsd:complexType name="BasicBlockType">
+  <xsd:complexContent>
+    <xsd:extension base="xaif:BasicBlockType">
+ 
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          ...
+        </xsd:documentation>
+      </xsd:annotation>
+ 
+        <xsd:sequence>
+          <xsd:choice>
+            <xsd:element ref="xaif:Assignment"
+              minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element ref="xaif:SubroutineCall"
+              minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element ref="xaif:DerivativeAccumulator"
+              minOccurs="0" maxOccurs="unbounded"/>
+          </xsd:choice>
+        </xsd:sequence>
+ 
+    </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+</xsd:redefine>
+ 
+
+<!-- *********************************************************** -->
+<!-- Derivative Accumulator -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="DerivativeAccumulatorElementType">
+   <xsd:sequence>
+
+     <xsd:element name="PartialDerivative" type="xaif:ExpressionType"
+                  minOccurs="1" maxOccurs="1"/>
+
+     <xsd:element name="Dependent" type="xaif:VariableReferenceType" 
+                  minOccurs="1" maxOccurs="1"/>
+
+     <xsd:element name="Independent" type="xaif:VariableReferenceType" 
+                  minOccurs="1" maxOccurs="1"/>
+
+   </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="DerivativeAccumulatorType">
+   <xsd:sequence>
+
+     <xsd:element name="Derivative" 
+       type="xaif:DerivativeAccumulatorElementType"
+                  minOccurs="1" maxOccurs="unbounded"/>
+
+   </xsd:sequence>
+</xsd:complexType>
+
+<xsd:element name="DerivativeAccumulator" type="xaif:DerivativeAccumulatorType"/>
+
+</xsd:schema>

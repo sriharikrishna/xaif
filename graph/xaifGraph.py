@@ -1,4 +1,5 @@
 from __future__ import generators
+import types
 
 class XAIFGraph(object):
   def __init__(self, vertices = []):
@@ -100,7 +101,11 @@ class XAIFGraph(object):
 
     print 'BreadthFirstSearch:'
     for vertex in XAIFGraph.breadthFirstSearch(self):
-      self.printIndent(vertex.__level)
+      self.printIndent(vertex.getLevel())
+      print '('+str(self.vertices.index(vertex))+') '+str(vertex)+' in: '+str(map(self.vertices.index, self.inEdges[vertex]))+' out: '+str(map(self.vertices.index, self.outEdges[vertex]))
+    print 'DepthFirstSearch:'
+    for vertex in XAIFGraph.depthFirstSearch(self):
+      self.printIndent(vertex.getLevel())
       print '('+str(self.vertices.index(vertex))+') '+str(vertex)+' in: '+str(map(self.vertices.index, self.inEdges[vertex]))+' out: '+str(map(self.vertices.index, self.outEdges[vertex]))
     return
 
@@ -165,7 +170,8 @@ class XAIFGraph(object):
     '''This is a generator returning vertices in a breadth-first traversal
        - If returnFinished is True, return a vertex when it finishes
        - Otherwise, return a vertex when it is first seen'''
-    queue = XAIFGraph.getRoots(graph)[0:1]
+    #queue = XAIFGraph.getRoots(graph)[0:1]
+    queue = XAIFGraph.getRoots(graph)
     if not len(queue): return
     seen  = [queue[0]]
     if not returnFinished:
@@ -173,10 +179,10 @@ class XAIFGraph(object):
       yield queue[0]
     while len(queue):
       vertex = queue[-1]
-      for v in graph.getEdges(vertex)[1]:
+      for v in graph.getEdges(vertex)[1].keys():
         if not v in seen:
           seen.append(v)
-          v.__level = vertex.__level + 1
+          v.incrementLevel()
           queue.insert(0, v)
           if not returnFinished:
             yield v
@@ -184,6 +190,7 @@ class XAIFGraph(object):
       if returnFinished:
         yield vertex
     return
+  breadthFirstSearch = staticmethod(breadthFirstSearch)
 
   def topologicalSort(graph):
     '''Reorder the vertices using topological sort'''
@@ -191,4 +198,5 @@ class XAIFGraph(object):
     vertices.reverse()
     for vertex in vertices:
       yield vertex
-    return  topologicalSort = staticmethod(topologicalSort)
+    return
+  topologicalSort = staticmethod(topologicalSort)

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- *********************************************************** -->
+<!-- XAIF Inlinable Intrinsics Definition Schema                 -->
+<!-- Uwe Naumann                                                 -->
+<!-- MCS, ANL, 2002/03                                           -->
+<!-- *********************************************************** -->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	    xmlns:xaifii="http://www.mcs.anl.gov/XAIFInlinableIntrinsics"
+	    xmlns:xaif="http://www.mcs.anl.gov/XAIF"
+	    targetNamespace="http://www.mcs.anl.gov/XAIFInlinableIntrinsics"
+	    version="xaif version 1.0 (inlinable intrinsics)"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+<xsd:import namespace="http://www.mcs.anl.gov/XAIF" schemaLocation="xaif.xsd"/>
+
+<!-- *********************************************************** -->
+<!-- Inlinable Intrinsics Definition -->
+<!-- *********************************************************** -->
+
+<xsd:simpleType name="InlinableIntrinsicType">
+ 
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Types of intrinsic functions known in XAIF.
+    </xsd:documentation>
+  </xsd:annotation>
+ 
+  <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="builtin"/>
+  </xsd:restriction>
+ 
+</xsd:simpleType>        
+
+<!-- *********************************************************** -->
+<!-- Function evaluation routine -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="FunctionType">
+ <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Specification of function evaluation routine (must be inlinable, that
+      is only calls to inlinable functions can be used).
+    </xsd:documentation>
+  </xsd:annotation>     
+
+  <xsd:complexContent>
+    <xsd:extension base="xaif:ExpressionType">
+      <xsd:attribute name="type" type="xaifii:InlinableIntrinsicType" use="optional"/>
+    </xsd:extension>
+  </xsd:complexContent>  
+
+</xsd:complexType>
+
+<xsd:element name="Function" type="xaifii:FunctionType"/>
+
+<!-- *********************************************************** -->
+<!-- Argument References -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="ArgumentReferenceType">
+ <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Reference to one of the arguments of an intrinsic function.
+    </xsd:documentation>
+  </xsd:annotation>     
+
+ <xsd:complexContent>
+    <xsd:extension base="xaif:VertexType">
+      <xsd:attribute name="argument" type="xsd:positiveInteger" use="required"/>
+    </xsd:extension>
+  </xsd:complexContent>   
+
+</xsd:complexType>
+
+<xsd:element name="ArgumentReference" type="xaifii:ArgumentReferenceType" 
+  substitutionGroup="xaif:ExpressionVertex"/>
+
+<!-- *********************************************************** -->
+<!-- Result References -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="ResultReferenceType">
+ <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Reference to one of the results an intrinsic function.
+    </xsd:documentation>
+  </xsd:annotation>
+ 
+ <xsd:complexContent>
+    <xsd:extension base="xaif:VertexType">
+      <xsd:attribute name="ref" type="xsd:positiveInteger" use="optional" default="1"/>
+    </xsd:extension>
+  </xsd:complexContent>
+ 
+</xsd:complexType>
+ 
+<xsd:element name="ResultReference" type="xaifii:ResultReferenceType"
+  substitutionGroup="xaif:ExpressionVertex"/>               
+
+<!-- *********************************************************** -->
+<!-- Partial References -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="PartialReferenceType">
+ <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Reference to one of the partials of an intrinsic function.
+    </xsd:documentation>
+  </xsd:annotation>
+ 
+ <xsd:complexContent>
+    <xsd:extension base="xaif:VertexType">
+      <xsd:attribute name="partial_id" type="xsd:positiveInteger" use="required"/>
+    </xsd:extension>
+  </xsd:complexContent>
+ 
+</xsd:complexType>
+ 
+<xsd:element name="PartialReference" 
+  type="xaifii:PartialReferenceType"
+    substitutionGroup="xaif:ExpressionVertex"/>               
+
+<!-- *********************************************************** -->
+<!-- Intermediate Function  Variable References -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="IntermediateFunctionReferenceType">
+ <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Reference to one of the intermediate values computed by the 
+      function evaluation .
+    </xsd:documentation>
+  </xsd:annotation>
+ 
+ <xsd:complexContent>
+    <xsd:extension base="xaif:VertexType">
+      <xsd:attribute name="vertex_reference" type="xsd:positiveInteger" use="required"/>
+    </xsd:extension>
+  </xsd:complexContent>
+ 
+</xsd:complexType>
+ 
+<xsd:element name="IntermediateFunctionReference" 
+  type="xaifii:IntermediateFunctionReferenceType"
+  substitutionGroup="xaif:ExpressionVertex"/>               
+
+<!-- *********************************************************** -->
+<!-- Intermediate Partial  Variable References -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="IntermediatePartialReferenceType">
+ <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Reference to one of the intermediate values computed by one of the  
+      partial evaluations.
+    </xsd:documentation>
+  </xsd:annotation>
+ 
+ <xsd:complexContent>
+    <xsd:extension base="xaif:VertexType">
+      <xsd:attribute name="partial_id" type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="vertex_reference" type="xsd:positiveInteger" use="required"/>
+    </xsd:extension>
+  </xsd:complexContent>
+ 
+</xsd:complexType>
+ 
+<xsd:element name="IntermediatePartialReference" type="xaifii:IntermediatePartialReferenceType"
+  substitutionGroup="xaif:ExpressionVertex"/>               
+
+<!-- *********************************************************** -->
+<!-- Partial Derivative  Routines -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="PartialType">
+ <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Specification of partial evaluation routine.
+    </xsd:documentation>
+  </xsd:annotation>     
+
+  <xsd:complexContent>
+    <xsd:extension base="xaif:ExpressionType">
+      <xsd:attribute name="partial_id" type="xsd:positiveInteger" use="required"/>
+    </xsd:extension>
+  </xsd:complexContent>  
+
+</xsd:complexType>
+
+<xsd:element name="Partial" type="xaifii:PartialType"/>
+
+<!-- *********************************************************** -->
+<!-- Definition of an intrinsic function -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="InlinableIntrinsicDefinitionType">
+   <xsd:sequence>
+
+     <xsd:element ref="xaifii:Function" minOccurs="1" maxOccurs="1"/>
+     <xsd:element ref="xaifii:Partial" minOccurs="1" maxOccurs="unbounded"/>
+
+   </xsd:sequence>
+   <xsd:attribute name="name" type="xsd:string" use="required"/>
+   <xsd:attribute name="nr_arguments" type="xsd:positiveInteger" use="required"/>
+   
+</xsd:complexType>
+
+<xsd:simpleType name="LanguageType">
+ 
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Programming languages known in XAIF
+    </xsd:documentation>
+  </xsd:annotation>
+ 
+  <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="C"/>
+    <xsd:enumeration value="CPP"/>
+    <xsd:enumeration value="F77"/>
+    <xsd:enumeration value="F90"/>
+    <xsd:enumeration value="F95"/>
+  </xsd:restriction>
+ 
+</xsd:simpleType>           
+
+<xsd:element name="InlinableIntrinsic" 
+	type="xaifii:InlinableIntrinsicDefinitionType"/>
+
+<xsd:complexType name="InlinableIntrinsicDefinitionsType">
+   <xsd:sequence>
+
+     <xsd:element ref="xaifii:InlinableIntrinsic" minOccurs="1" maxOccurs="unbounded"/>
+   </xsd:sequence>
+   <xsd:attribute name="language"   type="xaifii:LanguageType" use="required"/>
+</xsd:complexType>
+
+<!-- *********************************************************** -->
+<!-- Top level element -->
+<!-- *********************************************************** -->
+
+<xsd:element name="InlinableIntrinsicDefinitions" type="xaifii:InlinableIntrinsicDefinitionsType">
+	<xsd:unique name="ii_unique">
+    <xsd:selector xpath="xaifii:InlinableIntrinsic"/>
+    <xsd:field xpath="@name"/>
+  </xsd:unique>
+</xsd:element>
+
+</xsd:schema>

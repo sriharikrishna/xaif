@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- *********************************************************** -->
+<!-- XAIF Non-inlinable Intrinsics Definition Schema             -->
+<!-- Uwe Naumann                                                 -->
+<!-- MCS, ANL, 2002/03                                           -->
+<!-- *********************************************************** -->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	    xmlns:xaifnii="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics"
+	    targetNamespace="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics"
+	    version="xaif (noninlinable intrinsics) 1.0"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+<!-- *********************************************************** -->
+<!-- Definition of a noninlinable intrinsic function -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="NonInlinableIntrinsicDefinitionType">
+   <xsd:sequence>
+     <xsd:element name="Partial" minOccurs="1" maxOccurs="unbounded"> 
+       <xsd:complexType>
+         <xsd:attribute name="dep" type="xsd:positiveInteger" use="required"/>
+         <xsd:attribute name="indep" type="xsd:positiveInteger" use="required"/>
+         <xsd:attribute name="partial" type="xsd:positiveInteger" use="required"/>
+       </xsd:complexType>
+     </xsd:element> 
+   </xsd:sequence>
+   <xsd:attribute name="function" type="xsd:string" use="required"/>
+   <xsd:attribute name="jacobian" type="xsd:string" use="required"/>
+</xsd:complexType>
+
+<!-- *********************************************************** -->
+<!-- Top level element -->
+<!-- *********************************************************** -->
+
+<xsd:element name="NonInlinableIntrinsicDefinitions">
+  <xsd:complexType>      
+    <xsd:sequence>
+      <xsd:element name="NonInlinableIntrinsic" 
+                   type="xaifnii:NonInlinableIntrinsicDefinitionType" 
+        minOccurs="1" maxOccurs="unbounded"/> 
+    </xsd:sequence>
+  </xsd:complexType>      
+  <xsd:unique name="nii_unique">
+	  <xsd:selector xpath="xaifnii:NonInlinableIntrinsic"/>
+    <xsd:field xpath="@function"/>
+  </xsd:unique>
+
+</xsd:element>
+
+</xsd:schema>
