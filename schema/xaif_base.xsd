@@ -387,24 +387,21 @@
 	where we assume 
 	from_virtual_address less than or equal to_virtual_address
 	or the range is interpreted to be empty.
+	The "partial" attribute signifies a partial reference, 
+	as opposed to a full reference, e.g. when we talk about 
+	a vector that has an address range and the 
+	entire vector is read or written.
     </xsd:documentation>
   </xsd:annotation>
 
   <xsd:attribute name="from_virtual_address" type="xsd:positiveInteger"/>
   <xsd:attribute name="to_virtual_address" type="xsd:positiveInteger"/>
+  <xsd:attribute name="partial" type="xsd:boolean" use="optional" default="true"/>
 
-</xsd:complexType>
-
-<xsd:complexType name="AliasType">
-  <xsd:annotation>
-    <xsd:documentation xml:lang="en">
-	A single virtual address
-    </xsd:documentation>
-  </xsd:annotation>
-  <xsd:attribute name="virtual_address" type="xsd:positiveInteger"/>
 </xsd:complexType>
 
 <xsd:complexType name="AliasSetType">
+
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
 	A set of alias information consisting of 
@@ -419,14 +416,10 @@
     </xsd:documentation>
   </xsd:annotation>
 
-  <xsd:sequence>
-    <xsd:choice minOccurs="1" maxOccurs="unbounded">
-      <xsd:element name="Alias" type="AliasType"/>
-      <xsd:element name="AliasRange" type="AliasRangeType"/>
-    </xsd:choice>
+  <xsd:sequence> 
+    <xsd:element name="AliasRange" type="AliasRangeType" minOccurs="1" maxOccurs="unbounded"/>
   </xsd:sequence>
   <xsd:attribute name="key" type="xsd:nonNegativeInteger"/>
-  <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
 </xsd:complexType>
 
 <xsd:complexType name="AliasSetListType">
@@ -644,14 +637,12 @@
 	 <xsd:documentation xml:lang="en">
 	    Arguments of subroutines are uniquely determined by their
             position within the argument list and by a reference to the
-	    symbol. Additionally, their activity status 
-	    default : active) and intent (default: inout) can be specified.
+	    symbol. Additionally, their intent (default: inout) can be specified.
          </xsd:documentation>
       </xsd:annotation>
       <xsd:attribute name="position" type="xsd:positiveInteger" use="required"/>
       <xsd:attribute name="symbol_id" type="xsd:string" use="required"/>
       <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
-      <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
       <xsd:attribute name="deriv" type="xsd:boolean" use="optional" default="false"/>
       <xsd:attribute name="intent" type="IntentType" use="optional" default="inout"/>
     </xsd:extension>       
@@ -1315,7 +1306,6 @@
   <xsd:complexContent>
     <xsd:extension base="AssignmentType">
       <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
-      <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
     </xsd:extension>       
   </xsd:complexContent>
 </xsd:complexType>
@@ -1464,7 +1454,7 @@
       <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
       <xsd:attribute name="symbol_id" type="xsd:string"/>
       <xsd:attribute name="scope_id" type="xsd:positiveInteger"/>
-      <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
+      <xsd:attribute name="active" type="xaif:ActiveUseType" use="optional" default="undefined"/>
 </xsd:complexType> 
 
 <xsd:element name="SubroutineCall" type="SubroutineCallType"/>

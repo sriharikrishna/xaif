@@ -24,8 +24,8 @@
   </xaif:ScopeHierarchy>
 
   <xaif:AliasSetList>
-    <xaif:AliasSet key="0" active="true">
-      <xaif:Alias virtual_address="1"></xaif:Alias>
+    <xaif:AliasSet key="0">
+      <xaif:AliasRange from_virtual_address="1" to_virtual_address="1" partial="true"></xaif:AliasRange>
     </xaif:AliasSet>
   </xaif:AliasSetList>
 
@@ -40,7 +40,7 @@
 
        <xaif:BasicBlock vertex_id="2" scope_id="2" annotation="">
 
-         <xaif:Assignment statement_id="whatever_1" active="true">
+         <xaif:Assignment statement_id="whatever_1">
            <xaif:AssignmentLHS annotation="" deriv="false" live="true" du_ud="0" constant="false" alias="0" vertex_id="uwe" active="undefined">
              <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
            </xaif:AssignmentLHS>
@@ -67,7 +67,7 @@
            </xaif:ArgumentSubstitute>
          </xaif:InlinableSubroutineCall>
   
-         <xaif:Assignment statement_id="sage_2" active="true">
+         <xaif:Assignment statement_id="sage_2">
            <xaif:AssignmentLHS annotation="" deriv="false" live="true" du_ud="0" constant="false" alias="0" vertex_id="uwe" active="undefined">
              <xaif:SymbolReference vertex_id="1" symbol_id="dydx" scope_id="2" annotation=""></xaif:SymbolReference>
            </xaif:AssignmentLHS>

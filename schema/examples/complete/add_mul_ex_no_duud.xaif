@@ -25,8 +25,8 @@
   </xaif:ScopeHierarchy>
 
   <xaif:AliasSetList>
-    <xaif:AliasSet key="0" active="true">
-      <xaif:Alias virtual_address="1"></xaif:Alias>
+    <xaif:AliasSet key="0">
+      <xaif:AliasRange from_virtual_address="1" to_virtual_address="1" partial="true"></xaif:AliasRange>
     </xaif:AliasSet>
   </xaif:AliasSetList>
 
@@ -38,8 +38,8 @@
   <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1" controlflowgraph_scope_id="2" annotation="" active="true">
 
      <xaif:ArgumentList>
-       <xaif:ArgumentSymbolReference position="1" symbol_id="x" scope_id="2" annotation="" deriv="false" intent="inout" active="true"></xaif:ArgumentSymbolReference>
-       <xaif:ArgumentSymbolReference position="2" symbol_id="y" scope_id="2" annotation="" deriv="false" intent="inout" active="true"></xaif:ArgumentSymbolReference>
+       <xaif:ArgumentSymbolReference position="1" symbol_id="x" scope_id="2" annotation="" deriv="false" intent="inout"></xaif:ArgumentSymbolReference>
+       <xaif:ArgumentSymbolReference position="2" symbol_id="y" scope_id="2" annotation="" deriv="false" intent="inout"></xaif:ArgumentSymbolReference>
      </xaif:ArgumentList>
 
      <xaif:Entry vertex_id="1" annotation=""></xaif:Entry>
@@ -48,7 +48,7 @@
 
        <xaif:Marker statement_id="nop1" annotation="test nop to be ignored"></xaif:Marker>
 
-       <xaif:Assignment statement_id="ass1" active="true">
+       <xaif:Assignment statement_id="ass1">
          <xaif:AssignmentLHS annotation="" deriv="false" live="true" du_ud="0" constant="false" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
@@ -65,7 +65,7 @@
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
 
-       <xaif:Assignment statement_id="sage_2" active="true">
+       <xaif:Assignment statement_id="sage_2">
          <xaif:AssignmentLHS annotation="" deriv="false" live="true" du_ud="0" constant="false" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="t2" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
@@ -88,7 +88,7 @@
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
 
-       <xaif:Assignment statement_id="sage_3" active="true">
+       <xaif:Assignment statement_id="sage_3">
          <xaif:AssignmentLHS annotation="" deriv="false" live="true" du_ud="0" constant="false" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>

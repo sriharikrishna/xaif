@@ -38,7 +38,7 @@ end subroutine
 
   <xaif:AliasSetList>
     <xaif:AliasSet key="0">
-      <xaif:Alias virtual_address="1"/>
+      <xaif:AliasRange from_virtual_address="1" to_virtual_address="1"/>
     </xaif:AliasSet>
   </xaif:AliasSetList>
 
