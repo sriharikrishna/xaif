@@ -17,8 +17,7 @@ void head(int i, double x, double *y) {
 <xaif:CallGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:xaif="http://www.mcs.anl.gov/XAIF"
        xsi:schemaLocation="http://www.mcs.anl.gov/XAIF ../xaif.xsd"
-       program_name="Example"
-       toplevel_routine_name="head">
+       program_name="Example 2">
 
   <xaif:ScopeHierarchy>
 
@@ -42,14 +41,7 @@ void head(int i, double x, double *y) {
 
   </xaif:ScopeHierarchy>
 
-  <xaif:IndependentVariables>
-    <xaif:ArgumentReference argument="1"/>
-  </xaif:IndependentVariables>
-  <xaif:DependentVariables>
-    <xaif:ArgumentReference argument="2"/>
-  </xaif:DependentVariables>
-
-  <xaif:ControlFlowGraph vertex_id="1" subroutine_name="head">
+  <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1">
 
      <xaif:ArgumentList>
        <xaif:ArgumentSymbolReference position="1" symbol_id="i" scope_id="2"/>

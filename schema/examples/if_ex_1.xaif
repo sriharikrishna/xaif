@@ -20,8 +20,7 @@ end subroutine
 <xaif:CallGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:xaif="http://www.mcs.anl.gov/XAIF"
        xsi:schemaLocation="http://www.mcs.anl.gov/XAIF ../xaif.xsd"
-       program_name="Example"
-       toplevel_routine_name="head">
+       program_name="Example 2">
 
   <xaif:ScopeHierarchy>
 
@@ -45,14 +44,7 @@ end subroutine
 
   </xaif:ScopeHierarchy>
 
-  <xaif:IndependentVariables>
-    <xaif:ArgumentReference argument="1"/>
-  </xaif:IndependentVariables>
-  <xaif:DependentVariables>
-    <xaif:ArgumentReference argument="2"/>
-  </xaif:DependentVariables>
-
-  <xaif:ControlFlowGraph vertex_id="1" subroutine_name="head">
+  <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1">
 
      <xaif:ArgumentList>
        <xaif:ArgumentSymbolReference position="1" symbol_id="i" scope_id="2"/>
@@ -92,8 +84,8 @@ end subroutine
            </xaif:VariableReference>
            <xaif:Intrinsic vertex_id="3" name="mul_scal_scal"/>
            <xaif:ExpressionEdge edge_id="1" source="1" target="2" position="1"/>
-           <xaif:ExpressionEdge edge_id="2" source="2" target="4" position="1"/>
-           <xaif:ExpressionEdge edge_id="3" source="3" target="4" position="2"/>
+           <xaif:ExpressionEdge edge_id="2" source="2" target="4" position="2"/>
+           <xaif:ExpressionEdge edge_id="3" source="3" target="4" position="3"/>
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
 
@@ -115,8 +107,8 @@ end subroutine
            <xaif:Intrinsic vertex_id="5" name="add_scal_scal"/>
            <xaif:ExpressionEdge edge_id="1" source="1" target="3" position="1"/>
            <xaif:ExpressionEdge edge_id="2" source="2" target="3" position="2"/>
-           <xaif:ExpressionEdge edge_id="3" source="3" target="5" position="1"/>
-           <xaif:ExpressionEdge edge_id="4" source="4" target="5" position="2"/>
+           <xaif:ExpressionEdge edge_id="3" source="3" target="5" position="3"/>
+           <xaif:ExpressionEdge edge_id="4" source="4" target="5" position="4"/>
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
 
@@ -155,8 +147,8 @@ end subroutine
            </xaif:VariableReference>
            <xaif:Intrinsic vertex_id="3" name="mul_scal_scal"/>
            <xaif:ExpressionEdge edge_id="1" source="1" target="2" position="1"/>
-           <xaif:ExpressionEdge edge_id="2" source="2" target="4" position="1"/>
-           <xaif:ExpressionEdge edge_id="3" source="3" target="4" position="2"/>
+           <xaif:ExpressionEdge edge_id="2" source="2" target="4" position="2"/>
+           <xaif:ExpressionEdge edge_id="3" source="3" target="4" position="3"/>
          </xaif:AssignmentRHS>
        </xaif:Assignment> 
 
@@ -166,9 +158,9 @@ end subroutine
 
      <xaif:ControlFlowEdge edge_id="1" source="1" target="2"/>
      <xaif:ControlFlowEdge edge_id="2" source="2" target="3"/>
-     <xaif:ControlFlowEdge edge_id="2" source="4" target="2"/>
+     <xaif:ControlFlowEdge edge_id="3" source="4" target="2"/>
      <xaif:ControlFlowEdge edge_id="4" source="3" target="5"/>
-     <xaif:ControlFlowEdge edge_id="4" source="4" target="5"/>
+     <xaif:ControlFlowEdge edge_id="5" source="4" target="5"/>
 
   </xaif:ControlFlowGraph>
 
