@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="LATIN1"?>
-<xaif:CallGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xaif="http://www.mcs.anl.gov/XAIF" xsi:schemaLocation="http://www.mcs.anl.gov/XAIF ../xaif.xsd" program_name="Example" toplevel_routine_name="head">
+<xaif:CallGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xaif="http://www.mcs.anl.gov/XAIF" xsi:schemaLocation="http://www.mcs.anl.gov/XAIF ../xaif.xsd" program_name="Example 2">
 
   <xaif:ScopeHierarchy>
 
@@ -23,14 +23,7 @@
 
   </xaif:ScopeHierarchy>
 
-  <xaif:IndependentVariables>
-    <xaif:ArgumentReference argument="1"></xaif:ArgumentReference>
-  </xaif:IndependentVariables>
-  <xaif:DependentVariables>
-    <xaif:ArgumentReference argument="2"></xaif:ArgumentReference>
-  </xaif:DependentVariables>
-
-  <xaif:ControlFlowGraph vertex_id="1" subroutine_name="head" annotation="" active="true">
+  <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1" annotation="" active="true">
 
      <xaif:ArgumentList>
        <xaif:ArgumentSymbolReference position="1" symbol_id="i" scope_id="2" deriv="false" intent="inout" active="true"></xaif:ArgumentSymbolReference>
