@@ -107,7 +107,12 @@
 	  <xsd:documentation xml:lang="en">
 		  Symbol types as they appear in the declaration. "void" is
 		  for subroutines / user-defined functions only.
-    </xsd:documentation>
+		  "opaque" data types are used for variables of (structured)
+		  types that do not occur in xaif numerical expressions
+		  but can occur in subroutine signatures. 
+		  Note that access to elements of structured types 
+		  are to be canonicalized away by the front end. 
+          </xsd:documentation>
   </xsd:annotation>
 
   <xsd:restriction base="xsd:string">
@@ -118,6 +123,7 @@
     <xsd:enumeration value="bool"/>
     <xsd:enumeration value="char"/>
     <xsd:enumeration value="string"/>
+    <xsd:enumeration value="opaque"/>
   </xsd:restriction>
 </xsd:simpleType>
 
