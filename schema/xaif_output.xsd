@@ -113,6 +113,7 @@
       <xsd:attribute name="template_name" type="xsd:string" use="required"/>
       <xsd:attribute name="symbol_id" type="xsd:string" use="required"/>
       <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="controlflowgraph_scope_id" type="xsd:positiveInteger" use="required"/>
     </xsd:extension>
   </xsd:complexContent>
 </xsd:complexType>
@@ -133,7 +134,7 @@
    
   <xsd:choice minOccurs="0" maxOccurs="unbounded">
     <xsd:element ref="xaif:ControlFlowVertex"></xsd:element>
-    <xsd:element name="ControlFlowEdge" type="xaif:EdgeType"></xsd:element>
+    <xsd:element name="ControlFlowEdge" type="xaif:ControlFlowEdgeType"></xsd:element>
   </xsd:choice>
 
   <xsd:attribute name="placeholder" type="xsd:string" use="required"/>
