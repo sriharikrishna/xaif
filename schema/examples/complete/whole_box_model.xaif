@@ -822,6 +822,11 @@
 
   </xaif:ScopeHierarchy>
 
+  <xaif:DUUDSetList>
+    <xaif:DUUDSet key="0">
+    </xaif:DUUDSet>
+  </xaif:DUUDSetList>
+
   
   <xaif:ControlFlowGraph vertex_id="1" scope_id="1" symbol_id="box_forward__20" annotation="{PU_Id#1}" controlflowgraph_scope_id="2" active="true"> 
     <xaif:ArgumentList>

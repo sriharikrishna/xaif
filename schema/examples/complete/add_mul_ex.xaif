@@ -24,6 +24,27 @@
 
   </xaif:ScopeHierarchy>
 
+  <xaif:DUUDSetList>
+    <xaif:DUUDSet key="0">
+    </xaif:DUUDSet>
+    <xaif:DUUDSet key="1">
+      <xaif:StatementId idRef="sage2"></xaif:StatementId>
+      <xaif:StatementId idRef="sage3"></xaif:StatementId>
+    </xaif:DUUDSet>
+    <xaif:DUUDSet key="2">
+      <xaif:StatementId idRef="ass1"></xaif:StatementId>
+    </xaif:DUUDSet>
+    <xaif:DUUDSet key="3">
+      <xaif:StatementId idRef="sage3"></xaif:StatementId>
+    </xaif:DUUDSet>
+    <xaif:DUUDSet key="4">
+      <xaif:StatementId idRef="ass1"></xaif:StatementId>
+    </xaif:DUUDSet>
+    <xaif:DUUDSet key="5">
+      <xaif:StatementId idRef="sage2"></xaif:StatementId>
+    </xaif:DUUDSet>
+  </xaif:DUUDSetList>
+
   <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1" controlflowgraph_scope_id="2" active="true" annotation="">
 
      <xaif:ArgumentList>
@@ -38,7 +59,7 @@
        <xaif:Marker statement_id="nop1" annotation="test nop to be ignored"></xaif:Marker>
 
        <xaif:Assignment statement_id="ass1" active="true">
-         <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
+         <xaif:AssignmentLHS du_ud="1" live="true" annotation="" deriv="false" constant="false" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
@@ -55,11 +76,11 @@
        </xaif:Assignment>      
 
        <xaif:Assignment statement_id="sage_2" active="true">
-         <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
+         <xaif:AssignmentLHS du_ud="3" live="true" annotation="" deriv="false" constant="false" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="t2" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
-           <xaif:VariableReference vertex_id="1" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="">
+           <xaif:VariableReference vertex_id="1" du_ud="2" active="undefined" alias="0" deriv="false" constant="false" annotation="">
              <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2" annotation=""></xaif:SymbolReference>
            </xaif:VariableReference>
            <xaif:VariableReference vertex_id="2" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="">
@@ -82,10 +103,10 @@
            <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
-           <xaif:VariableReference vertex_id="1" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="">
+           <xaif:VariableReference vertex_id="1" du_ud="4" active="undefined" alias="0" deriv="false" constant="false" annotation="">
              <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2" annotation=""></xaif:SymbolReference>
            </xaif:VariableReference>
-           <xaif:VariableReference vertex_id="2" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="">
+           <xaif:VariableReference vertex_id="2" du_ud="5" active="undefined" alias="0" deriv="false" constant="false" annotation="">
              <xaif:SymbolReference vertex_id="1" symbol_id="t2" scope_id="2" annotation=""></xaif:SymbolReference>
            </xaif:VariableReference>
            <xaif:Intrinsic vertex_id="3" name="add_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
