@@ -580,7 +580,7 @@
     <xsd:selector xpath="xaif:CallGraphEdge"/><xsd:field xpath="@edge_id"/>
   </xsd:unique>
   <xsd:key name="cg_vertexId">
-    <xsd:selector xpath="xaif:ControlFlowGraph"/><xsd:field xpath="@vertex_id"/>
+    <xsd:selector xpath="xaif:ControlFlowGraph|xaif:ReplacementList"/><xsd:field xpath="@vertex_id"/>
   </xsd:key>
   <xsd:keyref name="cg_keyref1" refer="xaif:cg_vertexId">
     <xsd:selector xpath="xaif:CallGraphEdge"/><xsd:field xpath="@source"/>  
