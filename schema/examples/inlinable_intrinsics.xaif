@@ -360,7 +360,7 @@
     <xaifii:Function type="builtin" builtin_name="abs"/>
     <xaifii:Partial partial_id="1">
       <xaif:Intrinsic vertex_id="1" name="sign_scal_scal"/>
-      <xaif:Constant vertex_id="2" type="integer" value="1"/>
+      <xaif:Constant vertex_id="2" type="real" value="1.0"/>
       <xaifii:ArgumentReference vertex_id="3" argument="1"/> 
       <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
       <xaif:ExpressionEdge edge_id="1" source="3" target="1" position="2"/> 
@@ -379,7 +379,7 @@
       <xaif:Intrinsic vertex_id="1" name="mul_scal_scal"/>
       <xaif:Intrinsic vertex_id="2" name="sign_scal_scal"/>
       <xaif:Intrinsic vertex_id="3" name="sign_scal_scal"/>
-      <xaif:Constant vertex_id="4" type="integer" value="1"/>
+      <xaif:Constant vertex_id="4" type="real" value="1.0"/>
       <xaifii:ArgumentReference vertex_id="5" argument="1"/> 
       <xaifii:ArgumentReference vertex_id="6" argument="2"/> 
       <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
