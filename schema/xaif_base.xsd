@@ -3,7 +3,7 @@
 <!-- *********************************************************** -->
 <!-- XAIF Schema Definition (version 1.0)                        -->
 <!-- Boyana Norris and Uwe Naumann                               -->
-<!-- MCS, ANL, 2002/03                                           -->
+<!-- MCS, ANL, 2002/03/04                                        -->
 <!-- *********************************************************** -->
 
 <xsd:schema xmlns="http://www.mcs.anl.gov/XAIF"
@@ -302,7 +302,49 @@
 </xsd:element>  
 
 <!-- *********************************************************** -->
-<!-- Alias Table -->
+<!-- DU/UD Chains                                                -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="DUUDSetType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      DU: For LHS of assignments it contains the statement ids of possible
+      uses. UD: For VariablesReferences on RHS it contains statement ids of
+      possible definitions. 
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:sequence>
+      <xsd:element name="StatementId" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="DUUDSetListType">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Each VariableReference has a key into this table. If VariableReference
+is LHS, then DU, else UD.
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:sequence>
+    <xsd:element name="DUUDSet" type="DUUDSetType" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:element name="DUUDSetList" type="DUUDSetListType">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      add uniqueness constraints if required
+    </xsd:documentation>
+  </xsd:annotation>
+
+</xsd:element>  
+
+<!-- *********************************************************** -->
+<!-- Alias Table                                                 -->
 <!-- *********************************************************** -->
 
 <xsd:complexType name="AliasRangeType">
@@ -535,9 +577,8 @@
 </xsd:complexType>
 
 <xsd:group name="ControlFlowVertexAndEdgeGroup">
-  <xsd:choice>
-    <xsd:element ref="ControlFlowVertex" 
-    		   minOccurs="1" maxOccurs="unbounded">
+  <xsd:choice> 
+    <xsd:element ref="ControlFlowVertex">
 
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -549,8 +590,7 @@
 
     </xsd:element>
 
-    <xsd:element name="ControlFlowEdge" type="EdgeType" 
-    		   minOccurs="0" maxOccurs="unbounded">
+    <xsd:element name="ControlFlowEdge" type="EdgeType">
 
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -591,9 +631,49 @@
           </xsd:annotation>
       
           <xsd:element name="ArgumentSymbolReference" type="ArgumentSymbolReferenceType"
-    		   minOccurs="1" maxOccurs="unbounded"/>
+    		   minOccurs="0" maxOccurs="unbounded"/>
 
         </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="InList" minOccurs="0" maxOccurs="1">
+      <xsd:complexType>
+        <xsd:sequence>
+
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              The list of variable references used 
+              by the given subroutine. If the list is complete, then
+              this is specified via the optional attribute ``complete."
+            </xsd:documentation>
+          </xsd:annotation>
+      
+          <xsd:element name="Input" type="VariableReferenceType"
+    		   minOccurs="0" maxOccurs="unbounded"/>
+
+        </xsd:sequence>
+        <xsd:attribute name="complete" type="xsd:boolean" use="optional" default="true"/>
+      </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="OutList" minOccurs="0" maxOccurs="1">
+      <xsd:complexType>
+        <xsd:sequence>
+
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              The list of variable references defined 
+              by the given subroutine. If the list is complete, then
+              this is specified via the optional attribute ``complete."
+            </xsd:documentation>
+          </xsd:annotation>
+      
+          <xsd:element name="Output" type="VariableReferenceType"
+    		   minOccurs="0" maxOccurs="unbounded"/>
+
+        </xsd:sequence>
+        <xsd:attribute name="complete" type="xsd:boolean" use="optional" default="false"/>
       </xsd:complexType>
     </xsd:element>
 
@@ -1215,6 +1295,7 @@
 
       <xsd:attribute name="active" type="xaif:ActiveUseType" use="optional" default="undefined"/>
       <xsd:attribute name="alias" type="xsd:integer" use="optional" default="0"/>
+      <xsd:attribute name="du_ud" type="xsd:integer" use="optional" default="0"/>
       <xsd:attribute name="deriv" type="xsd:boolean" use="optional" default="false"/>
     </xsd:extension>
   </xsd:complexContent>

@@ -73,6 +73,21 @@ end subroutine
        <xaif:ArgumentSymbolReference position="2" symbol_id="y" scope_id="2"/>
      </xaif:ArgumentList>
 
+     <xaif:InList complete="true">
+       <xaif:Input>
+         <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
+       </xaif:Input>
+     </xaif:InList>
+
+     <xaif:OutList complete="true">
+       <xaif:Output>
+         <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
+       </xaif:Output>
+       <xaif:Output>
+         <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
+       </xaif:Output>
+     </xaif:OutList>
+
      <xaif:Entry vertex_id="1"/>
 
      <xaif:BasicBlock vertex_id="2" scope_id="2">
