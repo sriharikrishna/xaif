@@ -159,6 +159,7 @@
       <xsd:attribute name="type"   type="SymbolTypeType" default="real"/>
       <xsd:attribute name="shape"   type="SymbolShapeType" default="scalar"/>
       <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
+      <xsd:attribute name="temp" type="xsd:boolean" use="optional" default="false"/>
     </xsd:extension>       
   </xsd:complexContent>
 </xsd:complexType>
