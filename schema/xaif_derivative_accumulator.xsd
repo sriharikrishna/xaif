@@ -90,6 +90,7 @@
        <xsd:element name="SetDeriv" type="xaif:SetDerivType"/>
        <xsd:element name="Sax" type="xaif:SaxType"/>
        <xsd:element name="Saxpy" type="xaif:SaxpyType"/>
+       <xsd:element name="ZeroDeriv" type="xaif:VariableReferenceType"/>
      </xsd:choice>
 
    </xsd:sequence>
