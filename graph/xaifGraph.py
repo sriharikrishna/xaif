@@ -228,19 +228,22 @@ class XAIFGraph(XAIFObject):
       print '  outEdges: '
       print '    ' + str(self.outEdges[vertex])
     pass
-  
+
   def displaySorted(self, init_level=0):
     #print 'I am an XAIFGraph with '+str(len(self.vertices))+' vertices'
     #print 'BreadthFirstSearch:'
+    dvisitor = displayBFVisitor()
     for root_vertex in XAIFGraph.getRoots(self):
       #for vertex in XAIFGraph.breadthFirstSearch(self,1,init_level):
-      for vertex in XAIFGraph.BFSearch(self, root_vertex, init_level):
-        self.printIndent(vertex.getLevel() + init_level)
-        inedges, outedges = [], []
-        for v in self.inEdges[vertex]: inedges.append(str(v))
-        for v in self.outEdges[vertex]: outedges.append(str(v))
-        print vertex, ' in: ', inedges, ' out: ', outedges
-        if vertex.type == 'ControlFlowGraph': vertex.displaySorted(vertex.getLevel()+1)
+      XAIFGraph.BFSearch(self, root_vertex, init_level, visitor=dvisitor)
+      
+##      for vertex in XAIFGraph.BFSearch(self, root_vertex, init_level, visitor=dvisitor):
+##        self.printIndent(vertex.getLevel() + init_level)
+##        inedges, outedges = [], []
+##        for v in self.inEdges[vertex]: inedges.append(str(v))
+##        for v in self.outEdges[vertex]: outedges.append(str(v))
+##        print vertex, ' in: ', inedges, ' out: ', outedges
+##        if vertex.type == 'ControlFlowGraph': vertex.displaySorted(vertex.getLevel()+1)
         
 ##    print '\nDepthFirstSearch:'
 ##    for vertex in XAIFGraph.depthFirstSearch(self, 1):
@@ -347,39 +350,6 @@ class XAIFGraph(XAIFObject):
 ##        yield vertex
 ##    return
 ##  breadthFirstSearch = staticmethod(breadthFirstSearch)
-
-  def BFSearch(graph, start_vertex, init_level=0):
-    queue = []
-    seen = []
-    color = {}
-    for vertex_index in graph.vertices.keys():
-      vertex = graph.vertices[vertex_index]
-      color[vertex] = 1          # WHITE
-      
-    color[start_vertex] = 2      # GRAY
-    seen.append(start_vertex)
-    start_vertex.__level = init_level
-    queue.append(start_vertex)
-    while len(queue):
-      vertex = queue.pop(0)
-      for v in graph.getEdges(vertex)[1].keys():
-        if (color[v] == 1):
-          color[v] = 2           # GRAY
-          seen.append(v)
-          v.incrementLevel()
-          queue.append(v)
-        else:
-          if (color[v] == 2):    # GRAY
-            # edge vertex, v has a gray target
-            pass
-          else:
-            # edge vertex, v has a black target
-            pass
-      color[vertex] = 3          # BLACK
-
-    return seen
-  
-              
     
 ##  def topologicalSort(graph):
 ##    '''Reorder the vertices using topological sort'''
@@ -391,6 +361,107 @@ class XAIFGraph(XAIFObject):
 ##  topologicalSort = staticmethod(topologicalSort)
 
 
+  def BFSearch(graph, start_vertex, init_level=0, visitor=None):
+    queue = []
+    seen = []
+    color = {}
+    for vertex_index in graph.vertices.keys():
+      vertex = graph.vertices[vertex_index]
+      color[vertex] = 1          # WHITE
+      if not visitor is None: visitor.visitInitVertex(vertex, graph)
+      
+    color[start_vertex] = 2      # GRAY
+    seen.append(start_vertex)
+    start_vertex.__level = init_level
+    queue.append(start_vertex)
+    if not visitor is None: visitor.visitDiscoverVertex(vertex, graph)
+    
+    while len(queue):
+      u = queue.pop(0)
+      if not visitor is None: visitor.visitExamineVertex(u, graph)
+
+      # Need to add edge visitor calls
+      outedges = graph.getEdges(u)[1];
+      
+      for v in outedges.keys():
+        if (color[v] == 1):      # WHITE        (u, v) is a tree edge
+          ##if not visitor is None: visitor.visitTreeEdge(edge, graph)
+          color[v] = 2           # GRAY
+          seen.append(v)
+          v.incrementLevel()
+          queue.append(v)
+          if not visitor is None: visitor.visitDiscoverVertex(v, graph)
+          
+        else:                    # (u, v) is a non-tree edge
+          ##if not visitor is None: visitor.visitNontreeEdge(edge, graph)
+          if (color[v] == 2):    # GRAY
+            # edge (u, v) has a gray target
+            ##if not visitor is None: visitor.visitGrayTarget(edge, graph)
+            pass
+          else:
+            # edge (u, v) has a black target
+            ##if not visitor is None: visitor.visitBlackTarget(edge, graph)
+            pass
+      color[u] = 3          # BLACK
+      if not visitor is None: visitor.visitFinishVertex(u,graph)
+
+    return seen
+  
+              
+    
+''' =========================================================== '''
+'''                 Breadth First Search Visitor                '''
+''' =========================================================== '''
+class BFVisitor (XAIFObject):
+  def __init__(self):
+    pass
+
+  def visitInitVertex(self, vertex, graph):
+    pass
+
+  def visitDiscoverVertex(self, vertex, graph):
+    pass
+
+  def visitExamineVertex(self, vertex, graph):
+    pass
+
+  def visitExamineEdge(self, edge, graph):
+    pass
+
+  def visitTreeEdge(self, edge, graph):
+    pass
+
+  def visitNontreeEdge(self, edge, graph):
+    pass
+
+  def visitGrayTarget(self, edge, graph):
+    pass
+
+  def visitBlackTarget(self, edge, graph):
+    pass
+
+  def visitFinishVertex(self, vertex, graph):
+    pass
+
+
+''' Simple BF Visitor '''
+class displayBFVisitor(BFVisitor):
+  def __init__(self):
+    BFVisitor.__init__(self)
+    self.init_level = 0
+    pass
+  
+  def visitDiscoverVertex(self, vertex, graph):
+    ##print 'Visitor: discovering vertex', vertex
+    graph.printIndent(vertex.getLevel() + self.init_level)
+    inedges, outedges = [], []
+    for v in graph.inEdges[vertex]: inedges.append(str(v))
+    for v in graph.outEdges[vertex]: outedges.append(str(v))
+    print vertex, ' in: ', inedges, ' out: ', outedges
+ 
+    pass
+
+  
 ''' =========================================================== '''
 '''                           Call graph                        '''
 ''' =========================================================== '''
@@ -424,7 +495,6 @@ class XAIFScope(XAIFVertex):
   def __init__(self, attributes=None):
     self.attr = {'vertex_id':''}
     XAIFVertex.__init__(self, attributes, 'Scope')
-    print 'XAIFScope: created Scope vertex'
     self.unique_id_key = 'vertex_id'
     self.symbolTable = None
     pass
