@@ -131,6 +131,93 @@
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
+<!-- Scalar Tangens -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="tan_scal" nr_arguments="1">
+    <xaifii:Function type="builtin" builtin_name="tan"/>
+    <xaifii:Partial partial_id="1">
+      <xaif:Intrinsic vertex_id="1" name="plus_scal"/>
+      <xaif:Constant vertex_id="2" type="integer" value="1"/>
+      <xaif:Intrinsic vertex_id="3" name="mul_scal_scal"/>
+      <xaifii:ArgumentReference vertex_id="4" argument="0"/> 
+      <xaif:ExpressionEdge edge_id="1" source="4" target="3" position="1"/> 
+      <xaif:ExpressionEdge edge_id="2" source="4" target="3" position="2"/> 
+      <xaif:ExpressionEdge edge_id="3" source="3" target="2" position="2"/> 
+      <xaif:ExpressionEdge edge_id="4" source="2" target="1" position="1"/> 
+    </xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- Scalar ArcSine -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="arcsin_scal" nr_arguments="1">
+    <xaifii:Function type="builtin" builtin_name="asin"/>
+    <xaifii:Partial partial_id="1">
+      <xaif:Intrinsic           vertex_id="1" name="div_scal_scal"/>
+      <xaif:Constant            vertex_id="2" type="integer" value="1"/>
+      <xaif:Intrinsic           vertex_id="3" name="sqrt_scal"/>
+      <xaif:Intrinsic           vertex_id="4" name="sub_scal_scal"/>
+      <xaif:Intrinsic           vertex_id="5" name="mul_scal_scal"/>
+      <xaifii:ArgumentReference vertex_id="6" argument="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="6" target="5" position="1"/> 
+      <xaif:ExpressionEdge edge_id="2" source="6" target="5" position="2"/> 
+      <xaif:ExpressionEdge edge_id="3" source="2" target="4" position="1"/> 
+      <xaif:ExpressionEdge edge_id="4" source="5" target="4" position="2"/> 
+      <xaif:ExpressionEdge edge_id="5" source="4" target="3" position="1"/> 
+      <xaif:ExpressionEdge edge_id="6" source="2" target="1" position="1"/> 
+      <xaif:ExpressionEdge edge_id="7" source="3" target="1" position="2"/> 
+    </xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- Scalar ArcCosine -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="arccos_scal" nr_arguments="1">
+    <xaifii:Function type="builtin" builtin_name="acos"/>
+    <xaifii:Partial partial_id="1">
+      <xaif:Intrinsic           vertex_id="1" name="div_scal_scal"/>
+      <xaif:Constant            vertex_id="2" type="integer" value="1"/>
+      <xaif:Intrinsic           vertex_id="3" name="sqrt_scal"/>
+      <xaif:Intrinsic           vertex_id="4" name="sub_scal_scal"/>
+      <xaif:Intrinsic           vertex_id="5" name="mul_scal_scal"/>
+      <xaifii:ArgumentReference vertex_id="6" argument="1"/> 
+      <xaif:Intrinsic           vertex_id="7" name="minus_scal"/>
+      <xaif:ExpressionEdge edge_id="1" source="6" target="5" position="1"/> 
+      <xaif:ExpressionEdge edge_id="2" source="6" target="5" position="2"/> 
+      <xaif:ExpressionEdge edge_id="3" source="2" target="4" position="1"/> 
+      <xaif:ExpressionEdge edge_id="4" source="5" target="4" position="2"/> 
+      <xaif:ExpressionEdge edge_id="5" source="4" target="3" position="1"/> 
+      <xaif:ExpressionEdge edge_id="6" source="2" target="1" position="1"/> 
+      <xaif:ExpressionEdge edge_id="7" source="3" target="1" position="2"/> 
+      <xaif:ExpressionEdge edge_id="8" source="1" target="7" position="1"/> 
+    </xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- Scalar ArcTangens -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="arctan_scal" nr_arguments="1">
+    <xaifii:Function type="builtin" builtin_name="atan"/>
+    <xaifii:Partial partial_id="1">
+      <xaif:Intrinsic           vertex_id="1" name="div_scal_scal"/>
+      <xaif:Constant            vertex_id="2" type="integer" value="1"/>
+      <xaif:Intrinsic           vertex_id="3" name="add_scal_scal"/>
+      <xaif:Intrinsic           vertex_id="4" name="mul_scal_scal"/>
+      <xaifii:ArgumentReference vertex_id="5" argument="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="5" target="4" position="1"/> 
+      <xaif:ExpressionEdge edge_id="2" source="5" target="4" position="2"/> 
+      <xaif:ExpressionEdge edge_id="3" source="2" target="3" position="1"/> 
+      <xaif:ExpressionEdge edge_id="4" source="4" target="3" position="2"/> 
+      <xaif:ExpressionEdge edge_id="5" source="3" target="1" position="2"/> 
+      <xaif:ExpressionEdge edge_id="6" source="2" target="1" position="1"/> 
+    </xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
 <!-- Scalar Exponential -->
 <!-- *********************************************************** -->
 
