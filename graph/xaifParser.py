@@ -41,7 +41,7 @@ class XAIFParser(object):
     return
 
   def displayGraph(self):
-    self.graph.display()
+    self.graph.displaySorted()
     return
 
 
@@ -74,6 +74,9 @@ class XAIFContentHandler(ContentHandler):
       v = self.parseElement(attrs, attrs.get('vertex_id','-1'))
       self.currentScopeId = attrs.get('vertex_id','-1')
 
+    if self.nonsname == 'ScopeEdge':
+      e = self.parseEdge(attrs)
+
     if self.nonsname == 'SymbolTable':
       v = self.parseElement(attrs, self.currentScopeId)
 
@@ -97,7 +100,6 @@ class XAIFContentHandler(ContentHandler):
       v = self.parseElement(attrs,attrs.get('vertex_id'))
       if self.context == 'AssignmentLHS':
         self.parentVertex.setLHS(v)
-        
 
     self.context = self.current
     return 
@@ -120,7 +122,11 @@ class XAIFContentHandler(ContentHandler):
     self.parser.graph.addVertex(v)
     return v
 
-
-
-
+  def parseEdge(self, attrs):
+    ''' 
+    Return an XAIFEdge corresponding to the edge element
+    '''
+    print 'Parsing ' + self.nonsname
+    e = XAIFEdge(attrs.get('edge_id','-1'), attrs.get('source',''), attrs.get('target',''))
+    return e
   

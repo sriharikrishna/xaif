@@ -40,6 +40,13 @@ class XAIFVertex (object):
     self.__level = self.__level + 1
     return self.__level
 
+class XAIFEdge(object):
+  def __init__(self, id, src, tgt):
+    self.id = id
+    self.source = src
+    self.target = tgt
+    return
+
 class XAIFGraph(object):
   def __init__(self, vertices = []):
     '''Create a graph'''
@@ -140,15 +147,17 @@ class XAIFGraph(object):
       print '    ' + str(self.inEdges[vertex])
       print '  outEdges: '
       print '    ' + str(self.outEdges[vertex])
-
+    return
+  def displaySorted(self):
+    print 'I am a XAIFGraph with '+str(len(self.vertices))+' vertices'
     print 'BreadthFirstSearch:'
     for vertex in XAIFGraph.breadthFirstSearch(self,1):
       self.printIndent(vertex.getLevel())
       print '('+str(self.vertices.index(vertex))+') '+str(vertex)+' in: '+str(map(self.vertices.index, self.inEdges[vertex]))+' out: '+str(map(self.vertices.index, self.outEdges[vertex]))
-    print 'DepthFirstSearch:'
-    for vertex in XAIFGraph.depthFirstSearch(self):
-      self.printIndent(vertex.getLevel())
-      print '('+str(self.vertices.index(vertex))+') '+str(vertex)+' in: '+str(map(self.vertices.index, self.inEdges[vertex]))+' out: '+str(map(self.vertices.index, self.outEdges[vertex]))
+    #print 'DepthFirstSearch:'
+    #for vertex in XAIFGraph.depthFirstSearch(self):
+    #  self.printIndent(vertex.getLevel())
+    #  print '('+str(self.vertices.index(vertex))+') '+str(vertex)+' in: '+str(map(self.vertices.index, self.inEdges[vertex]))+' out: '+str(map(self.vertices.index, self.outEdges[vertex]))
     return
 
   def appendGraph(self, graph):
@@ -220,15 +229,15 @@ class XAIFGraph(object):
       queue[0].__level = 0
       yield queue[0]
     while len(queue):
-      vertex = queue[-1]
+      vertex = queue[0]
       for v in graph.getEdges(vertex)[1].keys():
         if not v in seen:
           seen.append(v)
           v.incrementLevel()
-          queue.insert(0, v)
+          queue.append(v)
           if not returnFinished:
             yield v
-      vertex = queue.pop()
+      vertex = queue.pop(0)
       if returnFinished:
         yield vertex
     return
