@@ -64,7 +64,7 @@ end subroutine
 
        <xaif:Assignment statement_id="sage_0">
          <xaif:AssignmentLHS>
-             <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2"/>
+             <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="3"/>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
            <xaif:Constant vertex_id="1" type="integer" value="1"/>

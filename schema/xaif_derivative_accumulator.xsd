@@ -17,16 +17,16 @@
 <!-- Differentiated Basic Block -->
 <!-- *********************************************************** -->
  
-<xsd:redefine schemaLocation="xaif.xsd">
-<xsd:complexType name="BasicBlockType">
-  <xsd:complexContent>
-    <xsd:extension base="xaif:BasicBlockType">
+<xsd:redefine schemaLocation="xaif_base.xsd">
+  <xsd:complexType name="BasicBlockType">
+    <xsd:complexContent>
+      <xsd:extension base="xaif:BasicBlockType">
  
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          ...
-        </xsd:documentation>
-      </xsd:annotation>
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            ...
+          </xsd:documentation>
+        </xsd:annotation>
  
         <xsd:sequence>
           <xsd:choice>
@@ -39,9 +39,9 @@
           </xsd:choice>
         </xsd:sequence>
  
-    </xsd:extension>
-  </xsd:complexContent>
-</xsd:complexType>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
 </xsd:redefine>
  
 
