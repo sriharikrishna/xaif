@@ -21,7 +21,7 @@ class XAIFParser(object):
     self.parser.parse(open(xmlfile))
     pass
 
-  def validate(self, xmlfile, schema_list=["xaif.xsd"]):
+  def validate(self, xmlfile, schema_list=[]):
     runitAndShow(xmlfile, schema_list)
     pass
 
