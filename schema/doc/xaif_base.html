@@ -1,0 +1,2713 @@
+
+  XAIF Base Schema Documentation
+
+Printer-friendly Version
+
+*XML Instance Representation:*
+[ Expand All <javascript:void(0)> | Collapse All <javascript:void(0)> ]
+
+*Schema Component Representation:*
+[ Expand All <javascript:void(0)> | Collapse All <javascript:void(0)> ]
+
+
+    Table of Contents
+
+    * Schema Document Properties <#SchemaProperties>
+    * Global Declarations <#SchemaDeclarations>
+          o Element: *ArrayElementReference*
+            <#element_ArrayElementReference>
+          o Element: *Assignment* <#element_Assignment>
+          o Element: *BasicBlock* <#element_BasicBlock>
+          o Element: *BooleanOperation* <#element_BooleanOperation>
+          o Element: *CallGraph* <#element_CallGraph>
+          o Element: *CallGraphVertex* <#element_CallGraphVertex>
+          o Element: *Constant* <#element_Constant>
+          o Element: *ControlFlowGraph* <#element_ControlFlowGraph>
+          o Element: *ControlFlowVertex* <#element_ControlFlowVertex>
+          o Element: *Entry* <#element_Entry>
+          o Element: *Exit* <#element_Exit>
+          o Element: *Expression* <#element_Expression>
+          o Element: *ExpressionVertex* <#element_ExpressionVertex>
+          o Element: *ForLoop* <#element_ForLoop>
+          o Element: *FunctionCall* <#element_FunctionCall>
+          o Element: *If* <#element_If>
+          o Element: *Intrinsic* <#element_Intrinsic>
+          o Element: *PostLoop* <#element_PostLoop>
+          o Element: *PreLoop* <#element_PreLoop>
+          o Element: *ScopeHierarchy* <#element_ScopeHierarchy>
+          o Element: *SubroutineCall* <#element_SubroutineCall>
+          o Element: *SymbolReference* <#element_SymbolReference>
+          o Element: *SymbolTable* <#element_SymbolTable>
+          o Element: *VariableReference* <#element_VariableReference>
+          o Element: *VariableReferenceVertex*
+            <#element_VariableReferenceVertex>
+    * Global Definitions <#SchemaDefinitions>
+          o Complex Type: *ArgumentSymbolReferenceType*
+            <#type_ArgumentSymbolReferenceType>
+          o Complex Type: *ArrayElementReferenceType*
+            <#type_ArrayElementReferenceType>
+          o Complex Type: *AssignmentType* <#type_AssignmentType>
+          o Complex Type: *BasicBlockType* <#type_BasicBlockType>
+          o Complex Type: *BooleanOperationType*
+            <#type_BooleanOperationType>
+          o Complex Type: *CallGraphType* <#type_CallGraphType>
+          o Complex Type: *ConstantType* <#type_ConstantType>
+          o Complex Type: *ControlFlowGraphType*
+            <#type_ControlFlowGraphType>
+          o Complex Type: *EdgeType* <#type_EdgeType>
+          o Complex Type: *EntryType* <#type_EntryType>
+          o Complex Type: *ExitType* <#type_ExitType>
+          o Complex Type: *ExpressionEdgeType* <#type_ExpressionEdgeType>
+          o Complex Type: *ExpressionType* <#type_ExpressionType>
+          o Complex Type: *ForLoopType* <#type_ForLoopType>
+          o Complex Type: *FunctionCallType* <#type_FunctionCallType>
+          o Complex Type: *IfType* <#type_IfType>
+          o Complex Type: *IntrinsicType* <#type_IntrinsicType>
+          o Complex Type: *PostLoopType* <#type_PostLoopType>
+          o Complex Type: *PreLoopType* <#type_PreLoopType>
+          o Complex Type: *ScopeHierarchyType* <#type_ScopeHierarchyType>
+          o Complex Type: *SubroutineCallArgumentType*
+            <#type_SubroutineCallArgumentType>
+          o Complex Type: *SubroutineCallType* <#type_SubroutineCallType>
+          o Complex Type: *SymbolReferenceType* <#type_SymbolReferenceType>
+          o Complex Type: *SymbolTableType* <#type_SymbolTableType>
+          o Complex Type: *SymbolType* <#type_SymbolType>
+          o Complex Type: *TopLevelArgumentType*
+            <#type_TopLevelArgumentType>
+          o Complex Type: *VariableReferenceType*
+            <#type_VariableReferenceType>
+          o Complex Type: *VertexType* <#type_VertexType>
+          o Simple Type: *BuiltinBooleanOperations*
+            <#type_BuiltinBooleanOperations>
+          o Simple Type: *BuiltinLogicalOperations*
+            <#type_BuiltinLogicalOperations>
+          o Simple Type: *BuiltinRealOperations*
+            <#type_BuiltinRealOperations>
+          o Simple Type: *ConstantTypeType* <#type_ConstantTypeType>
+          o Simple Type: *IntentType* <#type_IntentType>
+          o Simple Type: *IntrinsicTypeName* <#type_IntrinsicTypeName>
+          o Simple Type: *SymbolKindType* <#type_SymbolKindType>
+          o Simple Type: *SymbolShapeType* <#type_SymbolShapeType>
+          o Simple Type: *SymbolTypeType* <#type_SymbolTypeType>
+
+    * Legend <#Legend>
+
+    * Glossary <#Glossary>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+    Schema Document Properties
+
+Target Namespace <#term_TargetNS> 	http://www.mcs.anl.gov/XAIF
+Version 	xaif 1.0
+Element and Attribute Namespaces 	
+
+    * Global element and attribute declarations belong to this schema's
+      target namespace.
+    * By default, local element declarations belong to this schema's
+      target namespace.
+    * By default, local attribute declarations have no namespace.
+
+
+      Declared Namespaces
+
+Prefix 	Namespace
+Default namespace 	http://www.mcs.anl.gov/XAIF
+xml 	http://www.w3.org/XML/1998/namespace
+xaif_base 	http://www.mcs.anl.gov/XAIF_BASE
+xsd 	http://www.w3.org/2001/XMLSchema
+
+Schema Component Representation
+<xsd:schema targetNamespace="http://www.mcs.anl.gov/XAIF" version="xaif
+1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+...
+</xsd:schema>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+    Global Declarations
+
+
+      Element: ArrayElementReference
+
+    * /This element can be used wherever the following element is
+      referenced:/
+          o VariableReferenceVertex <#element_VariableReferenceVertex>
+
+Name 	ArrayElementReference
+Type 	ArrayElementReferenceType <#type_ArrayElementReferenceType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	
+
+XML Instance Representation
+<ArrayElementReference
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]">
+<Index> ExpressionType <#type_ExpressionType> </Index> [1..*] ?
+<javascript:void(0)>
+</ArrayElementReference>
+
+Schema Component Representation
+<xsd:element name="ArrayElementReference"
+type="ArrayElementReferenceType <#type_ArrayElementReferenceType>"
+substitutionGroup="VariableReferenceVertex"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: Assignment
+
+Name 	Assignment
+Type 	AssignmentType <#type_AssignmentType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+
+XML Instance Representation
+<Assignment
+statement_id="xsd <#ns_xsd>:string [1]">
+<AssignmentLHS> VariableReferenceType <#type_VariableReferenceType>
+<!--
+Uniqueness <#term_Unique> Constraint - *lhsv_unique*
+Selector - *SymbolReference*
+Field(s) - *@vertex_id*
+-->
+<!--
+Uniqueness <#term_Unique> Constraint - *lhse_unique*
+Selector - *VariableReferenceEdge*
+Field(s) - *@edge_id*
+-->
+<!--
+Key <#term_Key> Constraint - *lhs_vertexId*
+Selector - *SymbolReference*
+Field(s) - *@vertex_id*
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *lhs_keyref1*
+Selector - *VariableReferenceEdge*
+Field(s) - *@source*
+Refers to - lhs_vertexId <#key_lhs_vertexId>
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *lhs_keyref2*
+Selector - *VariableReferenceEdge*
+Field(s) - *@target*
+Refers to - lhs_vertexId <#key_lhs_vertexId>
+-->
+</AssignmentLHS> [1]
+<AssignmentRHS> ExpressionType <#type_ExpressionType>
+<!--
+Uniqueness <#term_Unique> Constraint - *rhsv_unique*
+Selector -
+*VariableReference|Constant|Intrinsic|FunctionCall|BooleanOperation*
+Field(s) - *@vertex_id*
+-->
+<!--
+Uniqueness <#term_Unique> Constraint - *rhse_unique*
+Selector - *ExpressionEdge*
+Field(s) - *@edge_id*
+-->
+<!--
+Key <#term_Key> Constraint - *rhs_vertexId*
+Selector -
+*VariableReference|Constant|Intrinsic|FunctionCall|BooleanOperation*
+Field(s) - *@vertex_id*
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *rhs_keyref1*
+Selector - *ExpressionEdge*
+Field(s) - *@source*
+Refers to - rhs_vertexId <#key_rhs_vertexId>
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *rhs_keyref2*
+Selector - *ExpressionEdge*
+Field(s) - *@target*
+Refers to - rhs_vertexId <#key_rhs_vertexId>
+-->
+</AssignmentRHS> [1]
+</Assignment>
+
+Schema Component Representation
+<xsd:element name="Assignment" type="AssignmentType
+<#type_AssignmentType>"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: BasicBlock
+
+    * /This element can be used wherever the following element is
+      referenced:/
+          o ControlFlowVertex <#element_ControlFlowVertex>
+
+Name 	BasicBlock
+Type 	BasicBlockType <#type_BasicBlockType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	Basic blocks are substitutes for control flow vertices.
+Single statements within basic blocks must have a unique statement_id.
+
+XML Instance Representation
+<BasicBlock
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]">
+<!--
+Uniqueness <#term_Unique> Constraint - *statement_unique*
+Selector - *Assignment | SubroutineCall*
+Field(s) - *@statement_id*
+-->
+
+Start Choice <#term_Choice> [1..*]
+<Assignment <#element_Assignment>> ... </Assignment
+<#element_Assignment>> [1]
+<SubroutineCall <#element_SubroutineCall>> ... </SubroutineCall
+<#element_SubroutineCall>> [1]
+End Choice
+</BasicBlock>
+
+Schema Component Representation
+<xsd:element name="BasicBlock" type="BasicBlockType
+<#type_BasicBlockType>" substitutionGroup="ControlFlowVertex">
+<xsd:unique name="statement_unique">
+<xsd:selector xpath="Assignment | SubroutineCall"/>
+<xsd:field xpath="@statement_id"/>
+</xsd:unique>
+</xsd:element>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: BooleanOperation
+
+    * /This element can be used wherever the following element is
+      referenced:/
+          o ExpressionVertex <#element_ExpressionVertex>
+
+Name 	BooleanOperation
+Type 	BooleanOperationType <#type_BooleanOperationType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	Boolean operations appear inside expressions as
+substitutes for expression vertices.
+
+XML Instance Representation
+<BooleanOperation
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+name="BuiltinBooleanOperations <#type_BuiltinBooleanOperations> [1]"/>
+
+Schema Component Representation
+<xsd:element name="BooleanOperation" type="BooleanOperationType
+<#type_BooleanOperationType>" substitutionGroup="ExpressionVertex"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: CallGraph
+
+Name 	CallGraph
+Type 	CallGraphType <#type_CallGraphType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	The vertex_id's of vertices must be unique within the
+call graph. Call graph vertices are referenced via their vertex_id's.
+Both the source and the target of a call graph edge must be vertex_id's.
+
+XML Instance Representation
+<CallGraph
+program_name="xsd <#ns_xsd>:string [0..1]"
+toplevel_routine_name="xsd <#ns_xsd>:string [1]">
+<!--
+Uniqueness <#term_Unique> Constraint - *cgv_unique*
+Selector - *ControlFlowGraph*
+Field(s) - *@vertex_id*
+-->
+<!--
+Uniqueness <#term_Unique> Constraint - *cge_unique*
+Selector - *CallGraphEdge*
+Field(s) - *@edge_id*
+-->
+<!--
+Key <#term_Key> Constraint - *cg_vertexId*
+Selector - *ControlFlowGraph*
+Field(s) - *@vertex_id*
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *cg_keyref1*
+Selector - *CallGraphEdge*
+Field(s) - *@source*
+Refers to - cg_vertexId <#key_cg_vertexId>
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *cg_keyref2*
+Selector - *CallGraphEdge*
+Field(s) - *@target*
+Refers to - cg_vertexId <#key_cg_vertexId>
+-->
+
+<ScopeHierarchy <#element_ScopeHierarchy>> ... </ScopeHierarchy
+<#element_ScopeHierarchy>> [1] ? <javascript:void(0)>
+<IndependentVariables> TopLevelArgumentType <#type_TopLevelArgumentType>
+</IndependentVariables> [0..*] ? <javascript:void(0)>
+<DependentVariables> TopLevelArgumentType <#type_TopLevelArgumentType>
+</DependentVariables> [0..*]
+<CallGraphVertex <#element_CallGraphVertex>> ... </CallGraphVertex
+<#element_CallGraphVertex>> [1..*] ? <javascript:void(0)>
+<CallGraphEdge> EdgeType <#type_EdgeType> </CallGraphEdge> [0..*] ?
+<javascript:void(0)>
+</CallGraph>
+
+Schema Component Representation
+<xsd:element name="CallGraph" type="CallGraphType <#type_CallGraphType>">
+<xsd:unique name="cgv_unique">
+<xsd:selector xpath="ControlFlowGraph"/>
+<xsd:field xpath="@vertex_id"/>
+</xsd:unique>
+<xsd:unique name="cge_unique">
+<xsd:selector xpath="CallGraphEdge"/>
+<xsd:field xpath="@edge_id"/>
+</xsd:unique>
+<xsd:key name="cg_vertexId">
+<xsd:selector xpath="ControlFlowGraph"/>
+<xsd:field xpath="@vertex_id"/>
+</xsd:key>
+<xsd:keyref name="cg_keyref1" refer="cg_vertexId <#key_cg_vertexId>">
+<xsd:selector xpath="CallGraphEdge"/>
+<xsd:field xpath="@source"/>
+</xsd:keyref>
+<xsd:keyref name="cg_keyref2" refer="cg_vertexId <#key_cg_vertexId>">
+<xsd:selector xpath="CallGraphEdge"/>
+<xsd:field xpath="@target"/>
+</xsd:keyref>
+</xsd:element>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: CallGraphVertex
+
+    * /The following elements can be used wherever this element is
+      referenced:/
+          o ControlFlowGraph <#element_ControlFlowGraph>
+
+Name 	CallGraphVertex
+Type 	VertexType <#type_VertexType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	Call graph vertices are declared as abstract types, that
+is elements of this type will never appear in the XAIF file. Elements
+that are based on CallGraphVertex as a substitution group (for example,
+ControlFlowGraph) are used instead.
+
+XML Instance Representation
+<CallGraphVertex
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"/>
+
+Schema Component Representation
+<xsd:element name="CallGraphVertex" type="VertexType <#type_VertexType>"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: Constant
+
+    * /This element can be used wherever the following element is
+      referenced:/
+          o ExpressionVertex <#element_ExpressionVertex>
+
+Name 	Constant
+Type 	ConstantType <#type_ConstantType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	Constants appear inside expressions as substitutes for
+expression vertices.
+
+XML Instance Representation
+<Constant
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+type="ConstantTypeType <#type_ConstantTypeType> [1]"
+value="xsd <#ns_xsd>:string [1]"/>
+
+Schema Component Representation
+<xsd:element name="Constant" type="ConstantType <#type_ConstantType>"
+substitutionGroup="ExpressionVertex"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: ControlFlowGraph
+
+    * /This element can be used wherever the following element is
+      referenced:/
+          o CallGraphVertex <#element_CallGraphVertex>
+
+Name 	ControlFlowGraph
+Type 	ControlFlowGraphType <#type_ControlFlowGraphType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	The vertex_id's of control flow graph vertex substitutes
+must be unique with the current control flow graph. The corresponding
+elements are referenced via their vertex_id's. Both the source and the
+target of an edge must be vertex_id's.
+
+XML Instance Representation
+<ControlFlowGraph
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+subroutine_name="xsd <#ns_xsd>:string [1]">
+<!--
+Uniqueness <#term_Unique> Constraint - *cfgv_unique*
+Selector - *BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop*
+Field(s) - *@vertex_id*
+-->
+<!--
+Uniqueness <#term_Unique> Constraint - *cfge_unique*
+Selector - *ControlFlowEdge*
+Field(s) - *@edge_id*
+-->
+<!--
+Key <#term_Key> Constraint - *cfg_vertexId*
+Selector - *BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop*
+Field(s) - *@vertex_id*
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *cfg_keyref1*
+Selector - *ControlFlowEdge*
+Field(s) - *@source*
+Refers to - cfg_vertexId <#key_cfg_vertexId>
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *cfg_keyref2*
+Selector - *ControlFlowEdge*
+Field(s) - *@target*
+Refers to - cfg_vertexId <#key_cfg_vertexId>
+-->
+
+<ArgumentList> [0..1]
+<ArgumentSymbolReference> ArgumentSymbolReferenceType
+<#type_ArgumentSymbolReferenceType> </ArgumentSymbolReference> [1..*]
+</ArgumentList>
+<ControlFlowVertex <#element_ControlFlowVertex>> ... </ControlFlowVertex
+<#element_ControlFlowVertex>> [1..*] ? <javascript:void(0)>
+<ControlFlowEdge> EdgeType <#type_EdgeType> </ControlFlowEdge> [0..*] ?
+<javascript:void(0)>
+</ControlFlowGraph>
+
+Schema Component Representation
+<xsd:element name="ControlFlowGraph" type="ControlFlowGraphType
+<#type_ControlFlowGraphType>" substitutionGroup="CallGraphVertex">
+<xsd:unique name="cfgv_unique">
+<xsd:selector xpath="BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop"/>
+<xsd:field xpath="@vertex_id"/>
+</xsd:unique>
+<xsd:unique name="cfge_unique">
+<xsd:selector xpath="ControlFlowEdge"/>
+<xsd:field xpath="@edge_id"/>
+</xsd:unique>
+<xsd:key name="cfg_vertexId">
+<xsd:selector xpath="BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop"/>
+<xsd:field xpath="@vertex_id"/>
+</xsd:key>
+<xsd:keyref name="cfg_keyref1" refer="cfg_vertexId <#key_cfg_vertexId>">
+<xsd:selector xpath="ControlFlowEdge"/>
+<xsd:field xpath="@source"/>
+</xsd:keyref>
+<xsd:keyref name="cfg_keyref2" refer="cfg_vertexId <#key_cfg_vertexId>">
+<xsd:selector xpath="ControlFlowEdge"/>
+<xsd:field xpath="@target"/>
+</xsd:keyref>
+</xsd:element>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: ControlFlowVertex
+
+    * /The following elements can be used wherever this element is
+      referenced:/
+          o BasicBlock <#element_BasicBlock>
+          o ForLoop <#element_ForLoop>
+          o PreLoop <#element_PreLoop>
+          o PostLoop <#element_PostLoop>
+          o If <#element_If>
+          o Entry <#element_Entry>
+          o Exit <#element_Exit>
+
+Name 	ControlFlowVertex
+Type 	VertexType <#type_VertexType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	Control flow graph vertices are abstract. Substitutes are
+used within the XAIF file.
+
+XML Instance Representation
+<ControlFlowVertex
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"/>
+
+Schema Component Representation
+<xsd:element name="ControlFlowVertex" type="VertexType <#type_VertexType>"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: Entry
+
+    * /This element can be used wherever the following element is
+      referenced:/
+          o ControlFlowVertex <#element_ControlFlowVertex>
+
+Name 	Entry
+Type 	EntryType <#type_EntryType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	Entry is a substitute for a control flow vertex.
+
+XML Instance Representation
+<Entry
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"/>
+
+Schema Component Representation
+<xsd:element name="Entry" type="EntryType <#type_EntryType>"
+substitutionGroup="ControlFlowVertex"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: Exit
+
+    * /This element can be used wherever the following element is
+      referenced:/
+          o ControlFlowVertex <#element_ControlFlowVertex>
+
+Name 	Exit
+Type 	ExitType <#type_ExitType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	Exit is a substitute for a control flow vertex.
+
+XML Instance Representation
+<Exit
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"/>
+
+Schema Component Representation
+<xsd:element name="Exit" type="ExitType <#type_ExitType>"
+substitutionGroup="ControlFlowVertex"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: Expression
+
+Name 	Expression
+Type 	ExpressionType <#type_ExpressionType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	The vertex_id's of all expression vertex substitutes must
+be unique within the current expression. Substitutes for expression
+vertices are elements of type VariableReference, Constant, Intrinsic,
+FunctionCall, BooleanOperation. Edges reference the respective source
+and target by their vertex_id's.
+
+XML Instance Representation
+<Expression>
+<!--
+Uniqueness <#term_Unique> Constraint - *egv_unique*
+Selector -
+*VariableReference|Constant|Intrinsic|FunctionCall|BooleanOperation*
+Field(s) - *@vertex_id*
+-->
+<!--
+Uniqueness <#term_Unique> Constraint - *ege_unique*
+Selector - *ExpressionEdge*
+Field(s) - *@edge_id*
+-->
+<!--
+Key <#term_Key> Constraint - *eg_vertexId*
+Selector -
+*VariableReference|Constant|Intrinsic|FunctionCall|BooleanOperation*
+Field(s) - *@vertex_id*
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *eg_keyref1*
+Selector - *ExpressionEdge*
+Field(s) - *@source*
+Refers to - eg_vertexId <#key_eg_vertexId>
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *eg_keyref2*
+Selector - *ExpressionEdge*
+Field(s) - *@target*
+Refers to - eg_vertexId <#key_eg_vertexId>
+-->
+
+<ExpressionVertex <#element_ExpressionVertex>> ... </ExpressionVertex
+<#element_ExpressionVertex>> [1..*] ? <javascript:void(0)>
+<ExpressionEdge> ExpressionEdgeType <#type_ExpressionEdgeType>
+</ExpressionEdge> [0..*] ? <javascript:void(0)>
+</Expression>
+
+Schema Component Representation
+<xsd:element name="Expression" type="ExpressionType <#type_ExpressionType>">
+<xsd:unique name="egv_unique">
+<xsd:selector
+xpath="VariableReference|Constant|Intrinsic|FunctionCall|BooleanOperation"/>
+<xsd:field xpath="@vertex_id"/>
+</xsd:unique>
+<xsd:unique name="ege_unique">
+<xsd:selector xpath="ExpressionEdge"/>
+<xsd:field xpath="@edge_id"/>
+</xsd:unique>
+<xsd:key name="eg_vertexId">
+<xsd:selector
+xpath="VariableReference|Constant|Intrinsic|FunctionCall|BooleanOperation"/>
+<xsd:field xpath="@vertex_id"/>
+</xsd:key>
+<xsd:keyref name="eg_keyref1" refer="eg_vertexId <#key_eg_vertexId>">
+<xsd:selector xpath="ExpressionEdge"/>
+<xsd:field xpath="@source"/>
+</xsd:keyref>
+<xsd:keyref name="eg_keyref2" refer="eg_vertexId <#key_eg_vertexId>">
+<xsd:selector xpath="ExpressionEdge"/>
+<xsd:field xpath="@target"/>
+</xsd:keyref>
+</xsd:element>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: ExpressionVertex
+
+    * /The following elements can be used wherever this element is
+      referenced:/
+          o VariableReference <#element_VariableReference>
+          o Intrinsic <#element_Intrinsic>
+          o BooleanOperation <#element_BooleanOperation>
+          o Constant <#element_Constant>
+          o FunctionCall <#element_FunctionCall>
+
+Name 	ExpressionVertex
+Type 	VertexType <#type_VertexType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	Expression vertices are abstract. Substitutes are used
+within the XAIF file.
+
+XML Instance Representation
+<ExpressionVertex
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"/>
+
+Schema Component Representation
+<xsd:element name="ExpressionVertex" type="VertexType <#type_VertexType>"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: ForLoop
+
+    * /This element can be used wherever the following element is
+      referenced:/
+          o ControlFlowVertex <#element_ControlFlowVertex>
+
+Name 	ForLoop
+Type 	ForLoopType <#type_ForLoopType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	Forloops are substitutes for control flow vertices.
+
+XML Instance Representation
+<ForLoop
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+loop_id="xsd <#ns_xsd>:string [0..1]">
+<Initialization> AssignmentType <#type_AssignmentType> </Initialization>
+[0..1]
+<Condition> ExpressionType <#type_ExpressionType> </Condition> [0..1]
+<Update> AssignmentType <#type_AssignmentType> </Update> [0..1]
+</ForLoop>
+
+Schema Component Representation
+<xsd:element name="ForLoop" type="ForLoopType <#type_ForLoopType>"
+substitutionGroup="ControlFlowVertex"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: FunctionCall
+
+    * /This element can be used wherever the following element is
+      referenced:/
+          o ExpressionVertex <#element_ExpressionVertex>
+
+Name 	FunctionCall
+Type 	FunctionCallType <#type_FunctionCallType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	Function calls appear inside expressions as substitutes
+for expression vertices.
+
+XML Instance Representation
+<FunctionCall
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+symbol_id="xsd <#ns_xsd>:string [0..1]"
+scope_id="xsd <#ns_xsd>:positiveInteger [0..1]">
+<!--
+Key Reference <#term_KeyRef> Constraint - *st_keyref2*
+Selector - *FunctionCall*
+Field(s) - *@symbol_id*
+Refers to - st_symbolId <#key_st_symbolId>
+-->
+
+</FunctionCall>
+
+Schema Component Representation
+<xsd:element name="FunctionCall" type="FunctionCallType
+<#type_FunctionCallType>" substitutionGroup="ExpressionVertex">
+<xsd:keyref name="st_keyref2" refer="st_symbolId <#key_st_symbolId>">
+<xsd:selector xpath="FunctionCall"/>
+<xsd:field xpath="@symbol_id"/>
+</xsd:keyref>
+</xsd:element>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: If
+
+    * /This element can be used wherever the following element is
+      referenced:/
+          o ControlFlowVertex <#element_ControlFlowVertex>
+
+Name 	If
+Type 	IfType <#type_IfType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	If's are substitutes for control flow vertices.
+
+XML Instance Representation
+<If
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]">
+<Condition> ExpressionType <#type_ExpressionType> </Condition> [0..1]
+</If>
+
+Schema Component Representation
+<xsd:element name="If" type="IfType <#type_IfType>"
+substitutionGroup="ControlFlowVertex"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: Intrinsic
+
+    * /This element can be used wherever the following element is
+      referenced:/
+          o ExpressionVertex <#element_ExpressionVertex>
+
+Name 	Intrinsic
+Type 	IntrinsicType <#type_IntrinsicType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	Intrinsics appear inside expressions as substitutes for
+expression vertices.
+
+XML Instance Representation
+<Intrinsic
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+name="xsd <#ns_xsd>:string [1]"
+type="xsd <#ns_xsd>:string [0..1]"/>
+
+Schema Component Representation
+<xsd:element name="Intrinsic" type="IntrinsicType <#type_IntrinsicType>"
+substitutionGroup="ExpressionVertex"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: PostLoop
+
+    * /This element can be used wherever the following element is
+      referenced:/
+          o ControlFlowVertex <#element_ControlFlowVertex>
+
+Name 	PostLoop
+Type 	PostLoopType <#type_PostLoopType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	Postloops are substitutes for control flow vertices.
+
+XML Instance Representation
+<PostLoop
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]">
+<Condition> ExpressionType <#type_ExpressionType> </Condition> [0..1]
+</PostLoop>
+
+Schema Component Representation
+<xsd:element name="PostLoop" type="PostLoopType <#type_PostLoopType>"
+substitutionGroup="ControlFlowVertex"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: PreLoop
+
+    * /This element can be used wherever the following element is
+      referenced:/
+          o ControlFlowVertex <#element_ControlFlowVertex>
+
+Name 	PreLoop
+Type 	PreLoopType <#type_PreLoopType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	Preloops are substitutes for control flow vertices.
+
+XML Instance Representation
+<PreLoop
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]">
+<Condition> ExpressionType <#type_ExpressionType> </Condition> [0..1]
+</PreLoop>
+
+Schema Component Representation
+<xsd:element name="PreLoop" type="PreLoopType <#type_PreLoopType>"
+substitutionGroup="ControlFlowVertex"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: ScopeHierarchy
+
+Name 	ScopeHierarchy
+Type 	ScopeHierarchyType <#type_ScopeHierarchyType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	The vertex_id's of single scopes must be unique within
+the scope hierarchy. Scopes are referenced via their vertex_id's. Both
+the source and the target of a scope edge must be vertex_id's of scopes.
+
+XML Instance Representation
+<ScopeHierarchy>
+<!--
+Uniqueness <#term_Unique> Constraint - *scv_unique*
+Selector - *Scope*
+Field(s) - *@vertex_id*
+-->
+<!--
+Uniqueness <#term_Unique> Constraint - *sce_unique*
+Selector - *ScopeEdge*
+Field(s) - *@edge_id*
+-->
+<!--
+Key <#term_Key> Constraint - *sc_vertexId*
+Selector - *Scope*
+Field(s) - *@vertex_id*
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *sc_keyref1*
+Selector - *ScopeEdge*
+Field(s) - *@source*
+Refers to - sc_vertexId <#key_sc_vertexId>
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *sc_keyref2*
+Selector - *ScopeEdge*
+Field(s) - *@target*
+Refers to - sc_vertexId <#key_sc_vertexId>
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *sc_keyref3*
+Selector - *SymbolReference*
+Field(s) - *@scope_id*
+Refers to - sc_vertexId <#key_sc_vertexId>
+-->
+
+<Scope
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"> [1..*] ?
+<javascript:void(0)>
+<-- Extends : VertexType <#type_VertexType> -->
+<SymbolTable <#element_SymbolTable>> ... </SymbolTable
+<#element_SymbolTable>> [1]
+</Scope>
+<ScopeEdge> EdgeType <#type_EdgeType> </ScopeEdge> [0..*] ?
+<javascript:void(0)>
+</ScopeHierarchy>
+
+Schema Component Representation
+<xsd:element name="ScopeHierarchy" type="ScopeHierarchyType
+<#type_ScopeHierarchyType>">
+<xsd:unique name="scv_unique">
+<xsd:selector xpath="Scope"/>
+<xsd:field xpath="@vertex_id"/>
+</xsd:unique>
+<xsd:unique name="sce_unique">
+<xsd:selector xpath="ScopeEdge"/>
+<xsd:field xpath="@edge_id"/>
+</xsd:unique>
+<xsd:key name="sc_vertexId">
+<xsd:selector xpath="Scope"/>
+<xsd:field xpath="@vertex_id"/>
+</xsd:key>
+<xsd:keyref name="sc_keyref1" refer="sc_vertexId <#key_sc_vertexId>">
+<xsd:selector xpath="ScopeEdge"/>
+<xsd:field xpath="@source"/>
+</xsd:keyref>
+<xsd:keyref name="sc_keyref2" refer="sc_vertexId <#key_sc_vertexId>">
+<xsd:selector xpath="ScopeEdge"/>
+<xsd:field xpath="@target"/>
+</xsd:keyref>
+<xsd:keyref name="sc_keyref3" refer="sc_vertexId <#key_sc_vertexId>">
+<xsd:selector xpath="SymbolReference"/>
+<xsd:field xpath="@scope_id"/>
+</xsd:keyref>
+</xsd:element>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: SubroutineCall
+
+Name 	SubroutineCall
+Type 	SubroutineCallType <#type_SubroutineCallType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+
+XML Instance Representation
+<SubroutineCall
+statement_id="xsd <#ns_xsd>:string [1]"
+symbol_id="xsd <#ns_xsd>:string [0..1]"
+scope_id="xsd <#ns_xsd>:positiveInteger [0..1]">
+<Argument> SubroutineCallArgumentType <#type_SubroutineCallArgumentType>
+</Argument> [0..*]
+</SubroutineCall>
+
+Schema Component Representation
+<xsd:element name="SubroutineCall" type="SubroutineCallType
+<#type_SubroutineCallType>"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: SymbolReference
+
+    * /This element can be used wherever the following element is
+      referenced:/
+          o VariableReferenceVertex <#element_VariableReferenceVertex>
+
+Name 	SymbolReference
+Type 	SymbolReferenceType <#type_SymbolReferenceType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	Symbol references appear inside variable references as
+substitutes for variable reference vertices.
+
+XML Instance Representation
+<SymbolReference
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+symbol_id="xsd <#ns_xsd>:string [1]"
+scope_id="xsd <#ns_xsd>:positiveInteger [1]"/>
+
+Schema Component Representation
+<xsd:element name="SymbolReference" type="SymbolReferenceType
+<#type_SymbolReferenceType>" substitutionGroup="VariableReferenceVertex"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: SymbolTable
+
+Name 	SymbolTable
+Type 	SymbolTableType <#type_SymbolTableType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	symbol_id's of symbols must be unique within the current
+symbol table. SymbolReference's and FunctionCall's refer to these
+symbol_id's.
+
+XML Instance Representation
+<SymbolTable>
+<!--
+Uniqueness <#term_Unique> Constraint - *st_unique*
+Selector - *Symbol*
+Field(s) - *@symbol_id*
+-->
+<!--
+Key <#term_Key> Constraint - *st_symbolId*
+Selector - *Symbol*
+Field(s) - *@symbol_id*
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *st_keyref1*
+Selector - *SymbolReference*
+Field(s) - *@symbol_id*
+Refers to - st_symbolId <#key_st_symbolId>
+-->
+
+<Symbol> SymbolType <#type_SymbolType> </Symbol> [1..*]
+</SymbolTable>
+
+Schema Component Representation
+<xsd:element name="SymbolTable" type="SymbolTableType
+<#type_SymbolTableType>">
+<xsd:unique name="st_unique">
+<xsd:selector xpath="Symbol"/>
+<xsd:field xpath="@symbol_id"/>
+</xsd:unique>
+<xsd:key name="st_symbolId">
+<xsd:selector xpath="Symbol"/>
+<xsd:field xpath="@symbol_id"/>
+</xsd:key>
+<xsd:keyref name="st_keyref1" refer="st_symbolId <#key_st_symbolId>">
+<xsd:selector xpath="SymbolReference"/>
+<xsd:field xpath="@symbol_id"/>
+</xsd:keyref>
+</xsd:element>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: VariableReference
+
+    * /This element can be used wherever the following element is
+      referenced:/
+          o ExpressionVertex <#element_ExpressionVertex>
+
+Name 	VariableReference
+Type 	VariableReferenceType <#type_VariableReferenceType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	no
+Documentation 	Variable references appear inside of expressions. Both
+vertex and edge id's must be unique inside a variable reference. Edges
+reference vertex_id's for source and target.
+
+XML Instance Representation
+<VariableReference
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]">
+<!--
+Uniqueness <#term_Unique> Constraint - *vrv_unique*
+Selector - *SymbolReference*
+Field(s) - *@vertex_id*
+-->
+<!--
+Uniqueness <#term_Unique> Constraint - *vre_unique*
+Selector - *VariableReferenceEdge*
+Field(s) - *@edge_id*
+-->
+<!--
+Key <#term_Key> Constraint - *vr_vertexId*
+Selector - *SymbolReference*
+Field(s) - *@vertex_id*
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *vr_keyref1*
+Selector - *VariableReferenceEdge*
+Field(s) - *@source*
+Refers to - vr_vertexId <#key_vr_vertexId>
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *vr_keyref2*
+Selector - *VariableReferenceEdge*
+Field(s) - *@target*
+Refers to - vr_vertexId <#key_vr_vertexId>
+-->
+
+<VariableReferenceVertex <#element_VariableReferenceVertex>> ...
+</VariableReferenceVertex <#element_VariableReferenceVertex>> [1..*] ?
+<javascript:void(0)>
+<VariableReferenceEdge> EdgeType <#type_EdgeType>
+</VariableReferenceEdge> [0..*] ? <javascript:void(0)>
+</VariableReference>
+
+Schema Component Representation
+<xsd:element name="VariableReference" type="VariableReferenceType
+<#type_VariableReferenceType>" substitutionGroup="ExpressionVertex">
+<xsd:unique name="vrv_unique">
+<xsd:selector xpath="SymbolReference"/>
+<xsd:field xpath="@vertex_id"/>
+</xsd:unique>
+<xsd:unique name="vre_unique">
+<xsd:selector xpath="VariableReferenceEdge"/>
+<xsd:field xpath="@edge_id"/>
+</xsd:unique>
+<xsd:key name="vr_vertexId">
+<xsd:selector xpath="SymbolReference"/>
+<xsd:field xpath="@vertex_id"/>
+</xsd:key>
+<xsd:keyref name="vr_keyref1" refer="vr_vertexId <#key_vr_vertexId>">
+<xsd:selector xpath="VariableReferenceEdge"/>
+<xsd:field xpath="@source"/>
+</xsd:keyref>
+<xsd:keyref name="vr_keyref2" refer="vr_vertexId <#key_vr_vertexId>">
+<xsd:selector xpath="VariableReferenceEdge"/>
+<xsd:field xpath="@target"/>
+</xsd:keyref>
+</xsd:element>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Element: VariableReferenceVertex
+
+    * /The following elements can be used wherever this element is
+      referenced:/
+          o SymbolReference <#element_SymbolReference>
+          o ArrayElementReference <#element_ArrayElementReference>
+
+Name 	VariableReferenceVertex
+Type 	VertexType <#type_VertexType>
+Nillable <#term_Nillable> 	no
+Abstract <#term_Abstract> 	yes
+Documentation 	Variable reference vertices are abstract. Substitutes are
+used within the XAIF file.
+
+XML Instance Representation
+<VariableReferenceVertex
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"/>
+
+Schema Component Representation
+<xsd:element name="VariableReferenceVertex" type="VertexType
+<#type_VertexType>" abstract="true"/>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+    Global Definitions
+
+
+      Complex Type: ArgumentSymbolReferenceType
+
+Super-types: 	None
+Sub-types: 	None
+
+Name 	ArgumentSymbolReferenceType
+Abstract <#term_Abstract> 	no
+Documentation 	Arguments of subroutines are uniquely determined by their
+position within the argument list and by a reference to the
+corresponding symbol. Additionally, their activity status (default:
+active) and intent (default: inout) can be specified.
+
+XML Instance Representation
+<...
+position="xsd <#ns_xsd>:positiveInteger [1]"
+symbol_id="xsd <#ns_xsd>:string [1]"
+scope_id="xsd <#ns_xsd>:positiveInteger [1]"
+active="xsd <#ns_xsd>:boolean [0..1]"
+intent="IntentType <#type_IntentType> [0..1]"/>
+
+Schema Component Representation
+<xsd:complexType name="ArgumentSymbolReferenceType">
+<xsd:attribute name="position" type="xsd <#ns_xsd>:positiveInteger"
+use="required"/>
+<xsd:attribute name="symbol_id" type="xsd <#ns_xsd>:string" use="required"/>
+<xsd:attribute name="scope_id" type="xsd <#ns_xsd>:positiveInteger"
+use="required"/>
+<xsd:attribute name="active" type="xsd <#ns_xsd>:boolean" use="optional"
+default="true"/>
+<xsd:attribute name="intent" type="IntentType <#type_IntentType>"
+use="optional" default="inout"/>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: ArrayElementReferenceType
+
+Super-types: 	VertexType <#type_VertexType> <
+*ArrayElementReferenceType* (by extension)
+Sub-types: 	None
+
+Name 	ArrayElementReferenceType
+Abstract <#term_Abstract> 	no
+Documentation 	
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]">
+<Index> ExpressionType <#type_ExpressionType> </Index> [1..*] ?
+<javascript:void(0)>
+</...>
+
+Schema Component Representation
+<xsd:complexType name="ArrayElementReferenceType">
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>">
+<xsd:sequence>
+<xsd:element name="Index" type="ExpressionType <#type_ExpressionType>"
+minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: AssignmentType
+
+Super-types: 	None
+Sub-types: 	None
+
+Name 	AssignmentType
+Abstract <#term_Abstract> 	no
+Documentation 	Assignments consist of a variable reference on the lhs
+and an expression on the rhs. Within the current basic block they are
+uniquely identified by their statement_id.
+
+XML Instance Representation
+<...
+statement_id="xsd <#ns_xsd>:string [1]">
+<AssignmentLHS> VariableReferenceType <#type_VariableReferenceType>
+<!--
+Uniqueness <#term_Unique> Constraint - *lhsv_unique*
+Selector - *SymbolReference*
+Field(s) - *@vertex_id*
+-->
+<!--
+Uniqueness <#term_Unique> Constraint - *lhse_unique*
+Selector - *VariableReferenceEdge*
+Field(s) - *@edge_id*
+-->
+<!--
+Key <#term_Key> Constraint - *lhs_vertexId*
+Selector - *SymbolReference*
+Field(s) - *@vertex_id*
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *lhs_keyref1*
+Selector - *VariableReferenceEdge*
+Field(s) - *@source*
+Refers to - lhs_vertexId <#key_lhs_vertexId>
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *lhs_keyref2*
+Selector - *VariableReferenceEdge*
+Field(s) - *@target*
+Refers to - lhs_vertexId <#key_lhs_vertexId>
+-->
+</AssignmentLHS> [1]
+<AssignmentRHS> ExpressionType <#type_ExpressionType>
+<!--
+Uniqueness <#term_Unique> Constraint - *rhsv_unique*
+Selector -
+*VariableReference|Constant|Intrinsic|FunctionCall|BooleanOperation*
+Field(s) - *@vertex_id*
+-->
+<!--
+Uniqueness <#term_Unique> Constraint - *rhse_unique*
+Selector - *ExpressionEdge*
+Field(s) - *@edge_id*
+-->
+<!--
+Key <#term_Key> Constraint - *rhs_vertexId*
+Selector -
+*VariableReference|Constant|Intrinsic|FunctionCall|BooleanOperation*
+Field(s) - *@vertex_id*
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *rhs_keyref1*
+Selector - *ExpressionEdge*
+Field(s) - *@source*
+Refers to - rhs_vertexId <#key_rhs_vertexId>
+-->
+<!--
+Key Reference <#term_KeyRef> Constraint - *rhs_keyref2*
+Selector - *ExpressionEdge*
+Field(s) - *@target*
+Refers to - rhs_vertexId <#key_rhs_vertexId>
+-->
+</AssignmentRHS> [1]
+</...>
+
+Schema Component Representation
+<xsd:complexType name="AssignmentType">
+<xsd:sequence>
+<xsd:element name="AssignmentLHS" type="VariableReferenceType
+<#type_VariableReferenceType>" minOccurs="1" maxOccurs="1">
+<xsd:unique name="lhsv_unique">
+<xsd:selector xpath="SymbolReference"/>
+<xsd:field xpath="@vertex_id"/>
+</xsd:unique>
+<xsd:unique name="lhse_unique">
+<xsd:selector xpath="VariableReferenceEdge"/>
+<xsd:field xpath="@edge_id"/>
+</xsd:unique>
+<xsd:key name="lhs_vertexId">
+<xsd:selector xpath="SymbolReference"/>
+<xsd:field xpath="@vertex_id"/>
+</xsd:key>
+<xsd:keyref name="lhs_keyref1" refer="lhs_vertexId <#key_lhs_vertexId>">
+<xsd:selector xpath="VariableReferenceEdge"/>
+<xsd:field xpath="@source"/>
+</xsd:keyref>
+<xsd:keyref name="lhs_keyref2" refer="lhs_vertexId <#key_lhs_vertexId>">
+<xsd:selector xpath="VariableReferenceEdge"/>
+<xsd:field xpath="@target"/>
+</xsd:keyref>
+</xsd:element>
+<xsd:element name="AssignmentRHS" type="ExpressionType
+<#type_ExpressionType>" minOccurs="1" maxOccurs="1">
+<xsd:unique name="rhsv_unique">
+<xsd:selector
+xpath="VariableReference|Constant|Intrinsic|FunctionCall|BooleanOperation"/>
+<xsd:field xpath="@vertex_id"/>
+</xsd:unique>
+<xsd:unique name="rhse_unique">
+<xsd:selector xpath="ExpressionEdge"/>
+<xsd:field xpath="@edge_id"/>
+</xsd:unique>
+<xsd:key name="rhs_vertexId">
+<xsd:selector
+xpath="VariableReference|Constant|Intrinsic|FunctionCall|BooleanOperation"/>
+<xsd:field xpath="@vertex_id"/>
+</xsd:key>
+<xsd:keyref name="rhs_keyref1" refer="rhs_vertexId <#key_rhs_vertexId>">
+<xsd:selector xpath="ExpressionEdge"/>
+<xsd:field xpath="@source"/>
+</xsd:keyref>
+<xsd:keyref name="rhs_keyref2" refer="rhs_vertexId <#key_rhs_vertexId>">
+<xsd:selector xpath="ExpressionEdge"/>
+<xsd:field xpath="@target"/>
+</xsd:keyref>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="statement_id" type="xsd <#ns_xsd>:string"
+use="required"/>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: BasicBlockType
+
+Super-types: 	VertexType <#type_VertexType> < *BasicBlockType* (by
+extension)
+Sub-types: 	None
+
+Name 	BasicBlockType
+Abstract <#term_Abstract> 	no
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]">
+Start Choice <#term_Choice> [1..*]
+<Assignment <#element_Assignment>> ... </Assignment
+<#element_Assignment>> [1]
+<SubroutineCall <#element_SubroutineCall>> ... </SubroutineCall
+<#element_SubroutineCall>> [1]
+End Choice
+</...>
+
+Schema Component Representation
+<xsd:complexType name="BasicBlockType">
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>">
+<xsd:sequence>
+<xsd:choice minOccurs="1" maxOccurs="unbounded">
+<xsd:element ref="Assignment <#element_Assignment>"/>
+<xsd:element ref="SubroutineCall <#element_SubroutineCall>"/>
+</xsd:choice>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: BooleanOperationType
+
+Super-types: 	VertexType <#type_VertexType> < *BooleanOperationType* (by
+extension)
+Sub-types: 	None
+
+Name 	BooleanOperationType
+Abstract <#term_Abstract> 	no
+Documentation 	Boolean operations that are built into XAIF.
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+name="BuiltinBooleanOperations <#type_BuiltinBooleanOperations> [1]"/>
+
+Schema Component Representation
+<xsd:complexType name="BooleanOperationType">
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>">
+<xsd:attribute name="name" type="BuiltinBooleanOperations
+<#type_BuiltinBooleanOperations>" use="required"/>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: CallGraphType
+
+Super-types: 	None
+Sub-types: 	None
+
+Name 	CallGraphType
+Abstract <#term_Abstract> 	no
+Documentation 	The call graph is the root element of any XAIF file. It
+contains the scope hierarchy, lists of independent and dependent
+variables, call graph vertices and edges. The name of the top-level
+routine must be specified. Optionally, a program_name can be assigned.
+
+XML Instance Representation
+<...
+program_name="xsd <#ns_xsd>:string [0..1]"
+toplevel_routine_name="xsd <#ns_xsd>:string [1]">
+<ScopeHierarchy <#element_ScopeHierarchy>> ... </ScopeHierarchy
+<#element_ScopeHierarchy>> [1] ? <javascript:void(0)>
+<IndependentVariables> TopLevelArgumentType <#type_TopLevelArgumentType>
+</IndependentVariables> [0..*] ? <javascript:void(0)>
+<DependentVariables> TopLevelArgumentType <#type_TopLevelArgumentType>
+</DependentVariables> [0..*]
+<CallGraphVertex <#element_CallGraphVertex>> ... </CallGraphVertex
+<#element_CallGraphVertex>> [1..*] ? <javascript:void(0)>
+<CallGraphEdge> EdgeType <#type_EdgeType> </CallGraphEdge> [0..*] ?
+<javascript:void(0)>
+</...>
+
+Schema Component Representation
+<xsd:complexType name="CallGraphType">
+<xsd:sequence>
+<xsd:element ref="ScopeHierarchy <#element_ScopeHierarchy>"
+minOccurs="1" maxOccurs="1"/>
+<xsd:element name="IndependentVariables" type="TopLevelArgumentType
+<#type_TopLevelArgumentType>" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:element name="DependentVariables" type="TopLevelArgumentType
+<#type_TopLevelArgumentType>" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:element ref="CallGraphVertex <#element_CallGraphVertex>"
+minOccurs="1" maxOccurs="unbounded"/>
+<xsd:element name="CallGraphEdge" type="EdgeType <#type_EdgeType>"
+minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+<xsd:attribute name="program_name" type="xsd <#ns_xsd>:string"
+use="optional"/>
+<xsd:attribute name="toplevel_routine_name" type="xsd <#ns_xsd>:string"
+use="required"/>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: ConstantType
+
+Super-types: 	VertexType <#type_VertexType> < *ConstantType* (by extension)
+Sub-types: 	None
+
+Name 	ConstantType
+Abstract <#term_Abstract> 	no
+Documentation 	Constants in XAIF.
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+type="ConstantTypeType <#type_ConstantTypeType> [1]"
+value="xsd <#ns_xsd>:string [1]"/>
+
+Schema Component Representation
+<xsd:complexType name="ConstantType">
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>">
+<xsd:attribute name="type" type="ConstantTypeType
+<#type_ConstantTypeType>" use="required"/>
+<xsd:attribute name="value" type="xsd <#ns_xsd>:string" use="required"/>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: ControlFlowGraphType
+
+Super-types: 	VertexType <#type_VertexType> < *ControlFlowGraphType* (by
+extension)
+Sub-types: 	None
+
+Name 	ControlFlowGraphType
+Abstract <#term_Abstract> 	no
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+subroutine_name="xsd <#ns_xsd>:string [1]">
+<ArgumentList> [0..1]
+<ArgumentSymbolReference> ArgumentSymbolReferenceType
+<#type_ArgumentSymbolReferenceType> </ArgumentSymbolReference> [1..*]
+</ArgumentList>
+<ControlFlowVertex <#element_ControlFlowVertex>> ... </ControlFlowVertex
+<#element_ControlFlowVertex>> [1..*] ? <javascript:void(0)>
+<ControlFlowEdge> EdgeType <#type_EdgeType> </ControlFlowEdge> [0..*] ?
+<javascript:void(0)>
+</...>
+
+Schema Component Representation
+<xsd:complexType name="ControlFlowGraphType">
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>">
+<xsd:sequence>
+<xsd:element name="ArgumentList" minOccurs="0" maxOccurs="1">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ArgumentSymbolReference"
+type="ArgumentSymbolReferenceType <#type_ArgumentSymbolReferenceType>"
+minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element ref="ControlFlowVertex <#element_ControlFlowVertex>"
+minOccurs="1" maxOccurs="unbounded"/>
+<xsd:element name="ControlFlowEdge" type="EdgeType <#type_EdgeType>"
+minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+<xsd:attribute name="subroutine_name" type="xsd <#ns_xsd>:string"
+use="required"/>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: EdgeType
+
+Super-types: 	None
+Sub-types: 	
+
+    * ExpressionEdgeType <#type_ExpressionEdgeType> (by extension)
+
+Name 	EdgeType
+Abstract <#term_Abstract> 	no
+Documentation 	EdgeType is abstract base type for edges in XAIF graphs.
+Its attributes comprise a locally unique edge_id, the source, and the
+target. If only one edge is present, then the edge_id does not have to
+be specified and the default value "1" is used. Both source and target
+are vertex_id's of vertices in the corresponding XAIF graph.
+
+XML Instance Representation
+<...
+edge_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+source="xsd <#ns_xsd>:positiveInteger [1]"
+target="xsd <#ns_xsd>:positiveInteger [1]"/>
+
+Schema Component Representation
+<xsd:complexType name="EdgeType">
+<xsd:attribute name="edge_id" type="xsd <#ns_xsd>:positiveInteger"
+use="optional" default="1"/>
+<xsd:attribute name="source" type="xsd <#ns_xsd>:positiveInteger"
+use="required"/>
+<xsd:attribute name="target" type="xsd <#ns_xsd>:positiveInteger"
+use="required"/>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: EntryType
+
+Super-types: 	VertexType <#type_VertexType> < *EntryType* (by extension)
+Sub-types: 	None
+
+Name 	EntryType
+Abstract <#term_Abstract> 	no
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"/>
+
+Schema Component Representation
+<xsd:complexType name="EntryType">
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>"/>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: ExitType
+
+Super-types: 	VertexType <#type_VertexType> < *ExitType* (by extension)
+Sub-types: 	None
+
+Name 	ExitType
+Abstract <#term_Abstract> 	no
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"/>
+
+Schema Component Representation
+<xsd:complexType name="ExitType">
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>"/>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: ExpressionEdgeType
+
+Super-types: 	EdgeType <#type_EdgeType> < *ExpressionEdgeType* (by
+extension)
+Sub-types: 	None
+
+Name 	ExpressionEdgeType
+Abstract <#term_Abstract> 	no
+Documentation 	
+
+XML Instance Representation
+<...
+edge_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+source="xsd <#ns_xsd>:positiveInteger [1]"
+target="xsd <#ns_xsd>:positiveInteger [1]"
+position="xsd <#ns_xsd>:positiveInteger [1]"/>
+
+Schema Component Representation
+<xsd:complexType name="ExpressionEdgeType">
+<xsd:complexContent>
+<xsd:extension base="EdgeType <#type_EdgeType>">
+<xsd:attribute name="position" type="xsd <#ns_xsd>:positiveInteger"
+use="required"/>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: ExpressionType
+
+Super-types: 	None
+Sub-types: 	
+
+    * SubroutineCallArgumentType <#type_SubroutineCallArgumentType> (by
+      extension)
+
+Name 	ExpressionType
+Abstract <#term_Abstract> 	no
+Documentation 	Expressions are dag's in the classical compiler sense.
+
+XML Instance Representation
+<...>
+<ExpressionVertex <#element_ExpressionVertex>> ... </ExpressionVertex
+<#element_ExpressionVertex>> [1..*] ? <javascript:void(0)>
+<ExpressionEdge> ExpressionEdgeType <#type_ExpressionEdgeType>
+</ExpressionEdge> [0..*] ? <javascript:void(0)>
+</...>
+
+Schema Component Representation
+<xsd:complexType name="ExpressionType">
+<xsd:sequence>
+<xsd:element ref="ExpressionVertex <#element_ExpressionVertex>"
+minOccurs="1" maxOccurs="unbounded"/>
+<xsd:element name="ExpressionEdge" type="ExpressionEdgeType
+<#type_ExpressionEdgeType>" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: ForLoopType
+
+Super-types: 	VertexType <#type_VertexType> < *ForLoopType* (by extension)
+Sub-types: 	None
+
+Name 	ForLoopType
+Abstract <#term_Abstract> 	no
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+loop_id="xsd <#ns_xsd>:string [0..1]">
+<Initialization> AssignmentType <#type_AssignmentType> </Initialization>
+[0..1]
+<Condition> ExpressionType <#type_ExpressionType> </Condition> [0..1]
+<Update> AssignmentType <#type_AssignmentType> </Update> [0..1]
+</...>
+
+Schema Component Representation
+<xsd:complexType name="ForLoopType">
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>">
+<xsd:sequence>
+<xsd:element name="Initialization" type="AssignmentType
+<#type_AssignmentType>" minOccurs="0" maxOccurs="1"/>
+<xsd:element name="Condition" type="ExpressionType
+<#type_ExpressionType>" minOccurs="0" maxOccurs="1"/>
+<xsd:element name="Update" type="AssignmentType <#type_AssignmentType>"
+minOccurs="0" maxOccurs="1"/>
+</xsd:sequence>
+<xsd:attribute name="loop_id" type="xsd <#ns_xsd>:string" use="optional"/>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: FunctionCallType
+
+Super-types: 	VertexType <#type_VertexType> < *FunctionCallType* (by
+extension)
+Sub-types: 	None
+
+Name 	FunctionCallType
+Abstract <#term_Abstract> 	no
+Documentation 	Function calls are calls to subroutines (call graph
+vertices) that have a non-void return type. They are not intrinsics
+since derivative code must be generated by the AD tool. A function call
+is identified uniquely by its position within the expression (vertex_id
+of underlying expression vertex), and the symbol that represents its name.
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+symbol_id="xsd <#ns_xsd>:string [0..1]"
+scope_id="xsd <#ns_xsd>:positiveInteger [0..1]"/>
+
+Schema Component Representation
+<xsd:complexType name="FunctionCallType">
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>">
+<xsd:attribute name="symbol_id" type="xsd <#ns_xsd>:string"/>
+<xsd:attribute name="scope_id" type="xsd <#ns_xsd>:positiveInteger"/>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: IfType
+
+Super-types: 	VertexType <#type_VertexType> < *IfType* (by extension)
+Sub-types: 	None
+
+Name 	IfType
+Abstract <#term_Abstract> 	no
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]">
+<Condition> ExpressionType <#type_ExpressionType> </Condition> [0..1]
+</...>
+
+Schema Component Representation
+<xsd:complexType name="IfType">
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>">
+<xsd:sequence>
+<xsd:element name="Condition" type="ExpressionType
+<#type_ExpressionType>" minOccurs="0" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: IntrinsicType
+
+Super-types: 	VertexType <#type_VertexType> < *IntrinsicType* (by
+extension)
+Sub-types: 	None
+
+Name 	IntrinsicType
+Abstract <#term_Abstract> 	no
+Documentation 	Operations are intrinsic if derivative code is available
+for them.
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+name="xsd <#ns_xsd>:string [1]"
+type="xsd <#ns_xsd>:string [0..1]"/>
+
+Schema Component Representation
+<xsd:complexType name="IntrinsicType">
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>">
+<xsd:attribute name="name" type="xsd <#ns_xsd>:string" use="required"/>
+<xsd:attribute name="type" type="xsd <#ns_xsd>:string" use="optional"
+default="inlinable"/>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: PostLoopType
+
+Super-types: 	VertexType <#type_VertexType> < *PostLoopType* (by extension)
+Sub-types: 	None
+
+Name 	PostLoopType
+Abstract <#term_Abstract> 	no
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]">
+<Condition> ExpressionType <#type_ExpressionType> </Condition> [0..1]
+</...>
+
+Schema Component Representation
+<xsd:complexType name="PostLoopType">
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>">
+<xsd:sequence>
+<xsd:element name="Condition" type="ExpressionType
+<#type_ExpressionType>" minOccurs="0" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: PreLoopType
+
+Super-types: 	VertexType <#type_VertexType> < *PreLoopType* (by extension)
+Sub-types: 	None
+
+Name 	PreLoopType
+Abstract <#term_Abstract> 	no
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]">
+<Condition> ExpressionType <#type_ExpressionType> </Condition> [0..1]
+</...>
+
+Schema Component Representation
+<xsd:complexType name="PreLoopType">
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>">
+<xsd:sequence>
+<xsd:element name="Condition" type="ExpressionType
+<#type_ExpressionType>" minOccurs="0" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: ScopeHierarchyType
+
+Super-types: 	None
+Sub-types: 	None
+
+Name 	ScopeHierarchyType
+Abstract <#term_Abstract> 	no
+Documentation 	The scope hierarchy is a tree with a root representing
+the global scope. The global scope usually contains the name of the
+top-level routine, the names of its arguments, and any global symbols.
+
+XML Instance Representation
+<...>
+<Scope
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"> [1..*] ?
+<javascript:void(0)>
+<-- Extends : VertexType <#type_VertexType> -->
+<SymbolTable <#element_SymbolTable>> ... </SymbolTable
+<#element_SymbolTable>> [1]
+</Scope>
+<ScopeEdge> EdgeType <#type_EdgeType> </ScopeEdge> [0..*] ?
+<javascript:void(0)>
+</...>
+
+Schema Component Representation
+<xsd:complexType name="ScopeHierarchyType">
+<xsd:sequence>
+<xsd:element name="Scope" minOccurs="1" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>">
+<xsd:sequence>
+<xsd:element ref="SymbolTable <#element_SymbolTable>" minOccurs="1"
+maxOccurs="1"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ScopeEdge" type="EdgeType <#type_EdgeType>"
+minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: SubroutineCallArgumentType
+
+Super-types: 	ExpressionType <#type_ExpressionType> <
+*SubroutineCallArgumentType* (by extension)
+Sub-types: 	None
+
+Name 	SubroutineCallArgumentType
+Abstract <#term_Abstract> 	no
+Documentation 	Arguments of subroutine calls are expressions appearing
+in a certain position within the argument list.
+
+XML Instance Representation
+<...
+position="xsd <#ns_xsd>:positiveInteger [1]">
+<ExpressionVertex <#element_ExpressionVertex>> ... </ExpressionVertex
+<#element_ExpressionVertex>> [1..*] ? <javascript:void(0)>
+<ExpressionEdge> ExpressionEdgeType <#type_ExpressionEdgeType>
+</ExpressionEdge> [0..*] ? <javascript:void(0)>
+</...>
+
+Schema Component Representation
+<xsd:complexType name="SubroutineCallArgumentType">
+<xsd:complexContent>
+<xsd:extension base="ExpressionType <#type_ExpressionType>">
+<xsd:attribute name="position" type="xsd <#ns_xsd>:positiveInteger"
+use="required"/>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: SubroutineCallType
+
+Super-types: 	None
+Sub-types: 	None
+
+Name 	SubroutineCallType
+Abstract <#term_Abstract> 	no
+Documentation 	Subroutine calls appear in basic blocks together with
+assignments. They are equivalent to void functions in C/C++ or
+explicitly CALLed subroutines in Fortran. They may have arguments in the
+form of expressions. The subroutine call is identified uniquely by the
+statement_id within the current basic block, the symbol_id of its name
+within the corresponding symbol table.
+
+XML Instance Representation
+<...
+statement_id="xsd <#ns_xsd>:string [1]"
+symbol_id="xsd <#ns_xsd>:string [0..1]"
+scope_id="xsd <#ns_xsd>:positiveInteger [0..1]">
+<Argument> SubroutineCallArgumentType <#type_SubroutineCallArgumentType>
+</Argument> [0..*]
+</...>
+
+Schema Component Representation
+<xsd:complexType name="SubroutineCallType">
+<xsd:sequence>
+<xsd:element name="Argument" type="SubroutineCallArgumentType
+<#type_SubroutineCallArgumentType>" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+<xsd:attribute name="statement_id" type="xsd <#ns_xsd>:string"
+use="required"/>
+<xsd:attribute name="symbol_id" type="xsd <#ns_xsd>:string"/>
+<xsd:attribute name="scope_id" type="xsd <#ns_xsd>:positiveInteger"/>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: SymbolReferenceType
+
+Super-types: 	VertexType <#type_VertexType> < *SymbolReferenceType* (by
+extension)
+Sub-types: 	None
+
+Name 	SymbolReferenceType
+Abstract <#term_Abstract> 	no
+Documentation 	A symbol is referenced uniquely by its id inside a given
+scope.
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"
+symbol_id="xsd <#ns_xsd>:string [1]"
+scope_id="xsd <#ns_xsd>:positiveInteger [1]"/>
+
+Schema Component Representation
+<xsd:complexType name="SymbolReferenceType">
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>">
+<xsd:attribute name="symbol_id" type="xsd <#ns_xsd>:string" use="required"/>
+<xsd:attribute name="scope_id" type="xsd <#ns_xsd>:positiveInteger"
+use="required"/>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: SymbolTableType
+
+Super-types: 	None
+Sub-types: 	None
+
+Name 	SymbolTableType
+Abstract <#term_Abstract> 	no
+Documentation 	The symbol table is a list of one or more symbols.
+
+XML Instance Representation
+<...>
+<Symbol> SymbolType <#type_SymbolType> </Symbol> [1..*]
+</...>
+
+Schema Component Representation
+<xsd:complexType name="SymbolTableType">
+<xsd:sequence>
+<xsd:element name="Symbol" type="SymbolType <#type_SymbolType>"
+minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: SymbolType
+
+Super-types: 	None
+Sub-types: 	None
+
+Name 	SymbolType
+Abstract <#term_Abstract> 	no
+Documentation 	Symbols are stored in the symbol table. They are uniquely
+identified within the current scope (the current symbol table) by their
+symbol_id. Furthermore, we store their kind, type, and shape. By
+default, we consider real scalar variables.
+
+XML Instance Representation
+<...
+symbol_id="xsd <#ns_xsd>:string [1]"
+kind="SymbolKindType <#type_SymbolKindType> [0..1]"
+type="SymbolTypeType <#type_SymbolTypeType> [0..1]"
+shape="SymbolShapeType <#type_SymbolShapeType> [0..1]"
+name="xsd <#ns_xsd>:string [0..1]"/>
+
+Schema Component Representation
+<xsd:complexType name="SymbolType">
+<xsd:attribute name="symbol_id" type="xsd <#ns_xsd>:string" use="required"/>
+<xsd:attribute name="kind" type="SymbolKindType <#type_SymbolKindType>"
+default="variable"/>
+<xsd:attribute name="type" type="SymbolTypeType <#type_SymbolTypeType>"
+default="real"/>
+<xsd:attribute name="shape" type="SymbolShapeType
+<#type_SymbolShapeType>" default="scalar"/>
+<xsd:attribute name="name" type="xsd <#ns_xsd>:string" use="optional"/>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: TopLevelArgumentType
+
+Super-types: 	None
+Sub-types: 	None
+
+Name 	TopLevelArgumentType
+Abstract <#term_Abstract> 	no
+Documentation 	References to arguments of the top-level routine. An
+argument is uniquely specified by its position within the argument list.
+
+XML Instance Representation
+<...>
+<ArgumentReference
+argument="xsd <#ns_xsd>:positiveInteger [0..1]"/> [1..*]
+</...>
+
+Schema Component Representation
+<xsd:complexType name="TopLevelArgumentType">
+<xsd:sequence>
+<xsd:element name="ArgumentReference" minOccurs="1" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:attribute name="argument" type="xsd <#ns_xsd>:positiveInteger"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: VariableReferenceType
+
+Super-types: 	VertexType <#type_VertexType> < *VariableReferenceType*
+(by extension)
+Sub-types: 	None
+
+Name 	VariableReferenceType
+Abstract <#term_Abstract> 	no
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]">
+<VariableReferenceVertex <#element_VariableReferenceVertex>> ...
+</VariableReferenceVertex <#element_VariableReferenceVertex>> [1..*] ?
+<javascript:void(0)>
+<VariableReferenceEdge> EdgeType <#type_EdgeType>
+</VariableReferenceEdge> [0..*] ? <javascript:void(0)>
+</...>
+
+Schema Component Representation
+<xsd:complexType name="VariableReferenceType">
+<xsd:complexContent>
+<xsd:extension base="VertexType <#type_VertexType>">
+<xsd:sequence>
+<xsd:element ref="VariableReferenceVertex
+<#element_VariableReferenceVertex>" minOccurs="1" maxOccurs="unbounded"/>
+<xsd:element name="VariableReferenceEdge" type="EdgeType
+<#type_EdgeType>" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Complex Type: VertexType
+
+Super-types: 	None
+Sub-types: 	
+
+    * ControlFlowGraphType <#type_ControlFlowGraphType> (by extension)
+    * BasicBlockType <#type_BasicBlockType> (by extension)
+    * ForLoopType <#type_ForLoopType> (by extension)
+    * PreLoopType <#type_PreLoopType> (by extension)
+    * PostLoopType <#type_PostLoopType> (by extension)
+    * IfType <#type_IfType> (by extension)
+    * EntryType <#type_EntryType> (by extension)
+    * ExitType <#type_ExitType> (by extension)
+    * VariableReferenceType <#type_VariableReferenceType> (by extension)
+    * IntrinsicType <#type_IntrinsicType> (by extension)
+    * BooleanOperationType <#type_BooleanOperationType> (by extension)
+    * SymbolReferenceType <#type_SymbolReferenceType> (by extension)
+    * ArrayElementReferenceType <#type_ArrayElementReferenceType> (by
+      extension)
+    * ConstantType <#type_ConstantType> (by extension)
+    * FunctionCallType <#type_FunctionCallType> (by extension)
+
+Name 	VertexType
+Abstract <#term_Abstract> 	no
+Documentation 	VertexType is abstract base type for vertices in XAIF
+graphs. Each vertex has a vertex_id that must be unique within the
+current graph. Whenever the graph consists of a single vertex only the
+vertex_id does not have to be specified and the default value "1" is used.
+
+XML Instance Representation
+<...
+vertex_id="xsd <#ns_xsd>:positiveInteger [0..1]"/>
+
+Schema Component Representation
+<xsd:complexType name="VertexType">
+<xsd:attribute name="vertex_id" type="xsd <#ns_xsd>:positiveInteger"
+use="optional" default="1"/>
+</xsd:complexType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Simple Type: BuiltinBooleanOperations
+
+Super-types: 	xsd <#ns_xsd>:string < *BuiltinBooleanOperations* (by
+restriction)
+Sub-types: 	None
+
+Name 	BuiltinBooleanOperations
+Content 	
+
+    * Built-in XSD Type: string
+
+    * /value/ =
+      {'less_than'|'less_or_equal'|'greater_than'|'greater_or_equal'|'equal'|'not_equal'}
+
+Documentation 	Boolean operations built into XAIF.
+
+Schema Component Representation
+<xsd:simpleType name="BuiltinBooleanOperations">
+<xsd:restriction base="xsd <#ns_xsd>:string">
+<xsd:enumeration value="less_than"/>
+<xsd:enumeration value="less_or_equal"/>
+<xsd:enumeration value="greater_than"/>
+<xsd:enumeration value="greater_or_equal"/>
+<xsd:enumeration value="equal"/>
+<xsd:enumeration value="not_equal"/>
+</xsd:restriction>
+</xsd:simpleType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Simple Type: BuiltinLogicalOperations
+
+Super-types: 	xsd <#ns_xsd>:string < *BuiltinLogicalOperations* (by
+restriction)
+Sub-types: 	None
+
+Name 	BuiltinLogicalOperations
+Content 	
+
+    * Built-in XSD Type: string
+
+    * /value/ = {'and'|'or'|'not'|'xor'}
+
+Documentation 	Logical operations built into XAIF.
+
+Schema Component Representation
+<xsd:simpleType name="BuiltinLogicalOperations">
+<xsd:restriction base="xsd <#ns_xsd>:string">
+<xsd:enumeration value="and"/>
+<xsd:enumeration value="or"/>
+<xsd:enumeration value="not"/>
+<xsd:enumeration value="xor"/>
+</xsd:restriction>
+</xsd:simpleType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Simple Type: BuiltinRealOperations
+
+Super-types: 	xsd <#ns_xsd>:string < *BuiltinRealOperations* (by
+restriction)
+Sub-types: 	None
+
+Name 	BuiltinRealOperations
+Content 	
+
+    * Built-in XSD Type: string
+
+    * /value/ = {'add_scal_scal'|'mul_scal_scal'}
+
+Documentation 	Real operations built into XAIF. "add_scal_scal" and
+"mul_scal_scal" are reserved names to be used in Jacobian codes.
+
+Schema Component Representation
+<xsd:simpleType name="BuiltinRealOperations">
+<xsd:restriction base="xsd <#ns_xsd>:string">
+<xsd:enumeration value="add_scal_scal"/>
+<xsd:enumeration value="mul_scal_scal"/>
+</xsd:restriction>
+</xsd:simpleType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Simple Type: ConstantTypeType
+
+Super-types: 	xsd <#ns_xsd>:string < *ConstantTypeType* (by restriction)
+Sub-types: 	None
+
+Name 	ConstantTypeType
+Content 	
+
+    * Built-in XSD Type: string
+
+    * /value/ = {'real'|'double'|'integer'|'bool'|'char'|'string'}
+
+Documentation 	Types of constants known in XAIF.
+
+Schema Component Representation
+<xsd:simpleType name="ConstantTypeType">
+<xsd:restriction base="xsd <#ns_xsd>:string">
+<xsd:enumeration value="real"/>
+<xsd:enumeration value="double"/>
+<xsd:enumeration value="integer"/>
+<xsd:enumeration value="bool"/>
+<xsd:enumeration value="char"/>
+<xsd:enumeration value="string"/>
+</xsd:restriction>
+</xsd:simpleType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Simple Type: IntentType
+
+Super-types: 	xsd <#ns_xsd>:string < *IntentType* (by restriction)
+Sub-types: 	None
+
+Name 	IntentType
+Content 	
+
+    * Built-in XSD Type: string
+
+    * /value/ = {'in'|'out'|'inout'}
+
+Documentation 	The intent of subroutine arguments.
+
+Schema Component Representation
+<xsd:simpleType name="IntentType">
+<xsd:restriction base="xsd <#ns_xsd>:string">
+<xsd:enumeration value="in"/>
+<xsd:enumeration value="out"/>
+<xsd:enumeration value="inout"/>
+</xsd:restriction>
+</xsd:simpleType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Simple Type: IntrinsicTypeName
+
+Super-types: 	xsd <#ns_xsd>:string < *IntrinsicTypeName* (by restriction)
+Sub-types: 	None
+
+Name 	IntrinsicTypeName
+Content 	
+
+    * Built-in XSD Type: string
+
+    * /value/ = {'inlinable'|'non-inlinable'}
+
+Documentation 	Intrinsics are either inlinable or not. If inlinable then
+the code for the local partial derivatives can be looked up in a
+separate XML file (see xaif_inlinable_intrinsics.xsd). If they are not
+inlinable, then some precompiled derivative routine is called, whose
+name and partial derivative signature is given in a separate XML file
+(see xaif_noninlinable_intrinsics.xsd).
+
+Schema Component Representation
+<xsd:simpleType name="IntrinsicTypeName">
+<xsd:restriction base="xsd <#ns_xsd>:string">
+<xsd:enumeration value="inlinable"/>
+<xsd:enumeration value="non-inlinable"/>
+</xsd:restriction>
+</xsd:simpleType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Simple Type: SymbolKindType
+
+Super-types: 	xsd <#ns_xsd>:string < *SymbolKindType* (by restriction)
+Sub-types: 	None
+
+Name 	SymbolKindType
+Content 	
+
+    * Built-in XSD Type: string
+
+    * /value/ = {'subroutine'|'variable'}
+
+Documentation 	We distinguish between the following kinds of symbols: 1.
+"subroutine" - the name of a subroutine 2. "variable" - the name of a
+variable
+
+Schema Component Representation
+<xsd:simpleType name="SymbolKindType">
+<xsd:restriction base="xsd <#ns_xsd>:string">
+<xsd:enumeration value="subroutine"/>
+<xsd:enumeration value="variable"/>
+</xsd:restriction>
+</xsd:simpleType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Simple Type: SymbolShapeType
+
+Super-types: 	xsd <#ns_xsd>:string < *SymbolShapeType* (by restriction)
+Sub-types: 	None
+
+Name 	SymbolShapeType
+Content 	
+
+    * Built-in XSD Type: string
+
+    * /value/ = {'scalar'|'vector'|'matrix'|'three_tensor'|'four_tensor'}
+
+Documentation 	The shape of a symbol. So far, we are dealing with scalar
+symbols only. When introducing vectors, matrices, and tensors we intend
+to take a C-like approach, that is matrices are vectors of vectors;
+three tensors are vectors of matrices, etc.
+
+Schema Component Representation
+<xsd:simpleType name="SymbolShapeType">
+<xsd:restriction base="xsd <#ns_xsd>:string">
+<xsd:enumeration value="scalar"/>
+<xsd:enumeration value="vector"/>
+<xsd:enumeration value="matrix"/>
+<xsd:enumeration value="three_tensor"/>
+<xsd:enumeration value="four_tensor"/>
+</xsd:restriction>
+</xsd:simpleType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+      Simple Type: SymbolTypeType
+
+Super-types: 	xsd <#ns_xsd>:string < *SymbolTypeType* (by restriction)
+Sub-types: 	None
+
+Name 	SymbolTypeType
+Content 	
+
+    * Built-in XSD Type: string
+
+    * /value/ = {'void'|'real'|'double'|'integer'|'bool'|'char'|'string'}
+
+Documentation 	Symbol types as they appear in the declaration. "void" is
+for subroutines / user-defined functions only.
+
+Schema Component Representation
+<xsd:simpleType name="SymbolTypeType">
+<xsd:restriction base="xsd <#ns_xsd>:string">
+<xsd:enumeration value="void"/>
+<xsd:enumeration value="real"/>
+<xsd:enumeration value="double"/>
+<xsd:enumeration value="integer"/>
+<xsd:enumeration value="bool"/>
+<xsd:enumeration value="char"/>
+<xsd:enumeration value="string"/>
+</xsd:restriction>
+</xsd:simpleType>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+    Legend
+
+Complex Type: 	AusAddress
+Schema Component Type 	Schema Component Name
+
+Super-types: 	Address < AusAddress (by extension)
+Sub-types: 	
+
+    * QLDAddress (by restriction)
+
+If this schema component is a type definition, its type hierarchy is
+shown in a gray-bordered box.
+Name 	AusAddress
+Abstract <#term_Abstract> 	no
+
+The table above displays the properties of this schema component.
+XML Instance Representation
+<... country="Australia">
+<unitNo> string </unitNo> [0..1]
+<houseNo> string </houseNo> [1]
+<street> string </street> [1]
+Start Choice <#term_Choice>[1]
+<city> string </city> [1]
+<town> string </town> [1]
+End Choice
+<state> AusStates </state> [1]
+<postcode> string <</pattern/ = [1-9][0-9]{3}>> </postcode> [1]?
+<javascript:void(0)>
+</...>
+
+The XML Instance Representation table above shows the schema component's
+content as an XML instance.
+
+    * The minimum and maximum occurrence of elements and attributes are
+      provided in square brackets, e.g. [0..1].
+    * Model group information are shown in gray, e.g. Start Choice ...
+      End Choice.
+    * For type derivations, the elements and attributes that have been
+      added to or changed from the base type's content are shown in bold.
+    * If an element/attribute has a fixed value, the fixed value is
+      shown in green, e.g. country="Australia".
+    * Otherwise, the type of the element/attribute is displayed.
+          o If the element/attribute's type is in the schema, a link is
+            provided to it.
+          o For local simple type definitions, the constraints are
+            displayed in angle brackets, e.g. <</pattern/ = [1-9][0-9]{3}>>.
+    * If a local element/attribute has documentation, it will be
+      displayed in a window that pops up when the question mark inside
+      the attribute or next to the element is clicked, e.g. <postcode>.
+
+Schema Component Representation
+<complexTypename="AusAddress">
+<complexContent>
+<extensionbase="Address">
+<sequence>
+<elementname="state" type="AusStates"/>
+<elementname="postcode">
+<simpleType>
+<restrictionbase="string">
+<patternvalue="[1-9][0-9]{3}"/>
+</restriction>
+</simpleType>
+</element>
+</sequence>
+<attributename="country" type="string" fixed="Australia"/>
+</extension>
+</complexContent>
+</complexType>
+
+The Schema Component Representation table above displays the underlying
+XML representation of the schema component. (Annotations are not shown.)
+top <#top>
+------------------------------------------------------------------------
+
+
+    Glossary
+
+Abstract (Applies to complex type definitions and element declarations).
+An abstract element or complex type cannot used to validate an element
+instance. If there is a reference to an abstract element, only element
+declarations that can substitute the abstract element can be used to
+validate the instance. For references to abstract type definitions, only
+derived types can be used.
+
+All Model Group Child elements can be provided /in any order/ in
+instances. See: http://www.w3.org/TR/xmlschema-1/#element-all.
+
+Choice Model Group /Only one/ from the list of child elements and model
+groups can be provided in instances. See:
+http://www.w3.org/TR/xmlschema-1/#element-choice.
+
+Collapse Whitespace Policy Replace tab, line feed, and carriage return
+characters with space character (Unicode character 32). Then, collapse
+contiguous sequences of space characters into single space character,
+and remove leading and trailing space characters.
+
+Disallowed Substitutions (Applies to element declarations). If
+/substitution/ is specified, then substitution group <#term_SubGroup>
+members cannot be used in place of the given element declaration to
+validate element instances. If /derivation methods/, e.g. extension,
+restriction, are specified, then the given element declaration will not
+validate element instances that have types derived from the element
+declaration's type using the specified derivation methods. Normally,
+element instances can override their declaration's type by specifying an
+|xsi:type| attribute.
+
+Key Constraint Like Uniqueness Constraint <#term_Unique>, but
+additionally requires that the specified value(s) must be provided. See:
+http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions.
+
+Key Reference Constraint Ensures that the specified value(s) must match
+value(s) from a Key Constraint <#term_Key> or Uniqueness Constraint
+<#term_Unique>. See:
+http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions.
+
+Model Group Groups together element content, specifying the order in
+which the element content can occur and the number of times the group of
+element content may be repeated. See:
+http://www.w3.org/TR/xmlschema-1/#Model_Groups.
+
+Nillable (Applies to element declarations). If an element declaration is
+nillable, instances can use the |xsi:nil| attribute. The |xsi:nil|
+attribute is the boolean attribute, /nil/, from the
+/http://www.w3.org/2001/XMLSchema-instance/ namespace. If an element
+instance has an |xsi:nil| attribute set to true, it can be left empty,
+even though its element declaration may have required content.
+
+Notation A notation is used to identify the format of a piece of data.
+Values of elements and attributes that are of type, NOTATION, must come
+from the names of declared notations. See:
+http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations.
+
+Preserve Whitespace Policy Preserve whitespaces exactly as they appear
+in instances.
+
+Prohibited Derivations (Applies to type definitions). Derivation methods
+that cannot be used to create sub-types from a given type definition.
+
+Prohibited Substitutions (Applies to complex type definitions). Prevents
+sub-types that have been derived using the specified derivation methods
+from validating element instances in place of the given type definition.
+
+Replace Whitespace Policy Replace tab, line feed, and carriage return
+characters with space character (Unicode character 32).
+
+Sequence Model Group Child elements and model groups must be provided
+/in the specified order/ in instances. See:
+http://www.w3.org/TR/xmlschema-1/#element-sequence.
+
+Substitution Group Elements that are /members/ of a substitution group
+can be used wherever the /head/ element of the substitution group is
+referenced.
+
+Substitution Group Exclusions (Applies to element declarations).
+Prohibits element declarations from nominating themselves as being able
+to substitute a given element declaration, if they have types that are
+derived from the original element's type using the specified derivation
+methods.
+
+Target Namespace The target namespace identifies the namespace that
+components in this schema belongs to. If no target namespace is
+provided, then the schema components do not belong to any namespace.
+
+Uniqueness Constraint Ensures uniqueness of an element/attribute value,
+or a combination of values, within a specified scope. See:
+http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions.
+
+top <#top>
+------------------------------------------------------------------------
+
+Generated by xs3p <http://titanium.dstc.edu.au/xml/xs3p>. Last modified:
+January 1, 1970 GMT
+

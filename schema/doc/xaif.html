@@ -1,0 +1,235 @@
+
+  XAIF Schema Documentation
+
+Printer-friendly Version
+
+*XML Instance Representation:*
+[ Expand All <javascript:void(0)> | Collapse All <javascript:void(0)> ]
+
+*Schema Component Representation:*
+[ Expand All <javascript:void(0)> | Collapse All <javascript:void(0)> ]
+
+
+    Table of Contents
+
+    * Schema Document Properties <#SchemaProperties>
+
+    * Legend <#Legend>
+
+    * Glossary <#Glossary>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+    Schema Document Properties
+
+Target Namespace <#term_TargetNS> 	http://www.mcs.anl.gov/XAIF
+Version 	xaif 1.0
+Element and Attribute Namespaces 	
+
+    * Global element and attribute declarations belong to this schema's
+      target namespace.
+    * By default, local element declarations belong to this schema's
+      target namespace.
+    * By default, local attribute declarations have no namespace.
+
+Schema Composition 	
+
+    * This schema includes components from the following schema document(s):
+          o xaif_base.xsd
+
+
+      Declared Namespaces
+
+Prefix 	Namespace
+Default namespace 	http://www.mcs.anl.gov/XAIF
+xml 	http://www.w3.org/XML/1998/namespace
+xlink 	http://www.w3.org/1999/xlink
+xaif 	http://www.mcs.anl.gov/XAIF
+xsd 	http://www.w3.org/2001/XMLSchema
+
+Schema Component Representation
+<xsd:schema targetNamespace="http://www.mcs.anl.gov/XAIF" version="xaif
+1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xsd:include id="xaif_base.xsd" schemaLocation="xaif_base.xsd"/>
+...
+</xsd:schema>
+
+top <#top>
+------------------------------------------------------------------------
+
+
+    Legend
+
+Complex Type: 	AusAddress
+Schema Component Type 	Schema Component Name
+
+Super-types: 	Address < AusAddress (by extension)
+Sub-types: 	
+
+    * QLDAddress (by restriction)
+
+If this schema component is a type definition, its type hierarchy is
+shown in a gray-bordered box.
+Name 	AusAddress
+Abstract <#term_Abstract> 	no
+
+The table above displays the properties of this schema component.
+XML Instance Representation
+<... country="Australia">
+<unitNo> string </unitNo> [0..1]
+<houseNo> string </houseNo> [1]
+<street> string </street> [1]
+Start Choice <#term_Choice>[1]
+<city> string </city> [1]
+<town> string </town> [1]
+End Choice
+<state> AusStates </state> [1]
+<postcode> string <</pattern/ = [1-9][0-9]{3}>> </postcode> [1]?
+<javascript:void(0)>
+</...>
+
+The XML Instance Representation table above shows the schema component's
+content as an XML instance.
+
+    * The minimum and maximum occurrence of elements and attributes are
+      provided in square brackets, e.g. [0..1].
+    * Model group information are shown in gray, e.g. Start Choice ...
+      End Choice.
+    * For type derivations, the elements and attributes that have been
+      added to or changed from the base type's content are shown in bold.
+    * If an element/attribute has a fixed value, the fixed value is
+      shown in green, e.g. country="Australia".
+    * Otherwise, the type of the element/attribute is displayed.
+          o If the element/attribute's type is in the schema, a link is
+            provided to it.
+          o For local simple type definitions, the constraints are
+            displayed in angle brackets, e.g. <</pattern/ = [1-9][0-9]{3}>>.
+    * If a local element/attribute has documentation, it will be
+      displayed in a window that pops up when the question mark inside
+      the attribute or next to the element is clicked, e.g. <postcode>.
+
+Schema Component Representation
+<complexTypename="AusAddress">
+<complexContent>
+<extensionbase="Address">
+<sequence>
+<elementname="state" type="AusStates"/>
+<elementname="postcode">
+<simpleType>
+<restrictionbase="string">
+<patternvalue="[1-9][0-9]{3}"/>
+</restriction>
+</simpleType>
+</element>
+</sequence>
+<attributename="country" type="string" fixed="Australia"/>
+</extension>
+</complexContent>
+</complexType>
+
+The Schema Component Representation table above displays the underlying
+XML representation of the schema component. (Annotations are not shown.)
+top <#top>
+------------------------------------------------------------------------
+
+
+    Glossary
+
+Abstract (Applies to complex type definitions and element declarations).
+An abstract element or complex type cannot used to validate an element
+instance. If there is a reference to an abstract element, only element
+declarations that can substitute the abstract element can be used to
+validate the instance. For references to abstract type definitions, only
+derived types can be used.
+
+All Model Group Child elements can be provided /in any order/ in
+instances. See: http://www.w3.org/TR/xmlschema-1/#element-all.
+
+Choice Model Group /Only one/ from the list of child elements and model
+groups can be provided in instances. See:
+http://www.w3.org/TR/xmlschema-1/#element-choice.
+
+Collapse Whitespace Policy Replace tab, line feed, and carriage return
+characters with space character (Unicode character 32). Then, collapse
+contiguous sequences of space characters into single space character,
+and remove leading and trailing space characters.
+
+Disallowed Substitutions (Applies to element declarations). If
+/substitution/ is specified, then substitution group <#term_SubGroup>
+members cannot be used in place of the given element declaration to
+validate element instances. If /derivation methods/, e.g. extension,
+restriction, are specified, then the given element declaration will not
+validate element instances that have types derived from the element
+declaration's type using the specified derivation methods. Normally,
+element instances can override their declaration's type by specifying an
+|xsi:type| attribute.
+
+Key Constraint Like Uniqueness Constraint <#term_Unique>, but
+additionally requires that the specified value(s) must be provided. See:
+http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions.
+
+Key Reference Constraint Ensures that the specified value(s) must match
+value(s) from a Key Constraint <#term_Key> or Uniqueness Constraint
+<#term_Unique>. See:
+http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions.
+
+Model Group Groups together element content, specifying the order in
+which the element content can occur and the number of times the group of
+element content may be repeated. See:
+http://www.w3.org/TR/xmlschema-1/#Model_Groups.
+
+Nillable (Applies to element declarations). If an element declaration is
+nillable, instances can use the |xsi:nil| attribute. The |xsi:nil|
+attribute is the boolean attribute, /nil/, from the
+/http://www.w3.org/2001/XMLSchema-instance/ namespace. If an element
+instance has an |xsi:nil| attribute set to true, it can be left empty,
+even though its element declaration may have required content.
+
+Notation A notation is used to identify the format of a piece of data.
+Values of elements and attributes that are of type, NOTATION, must come
+from the names of declared notations. See:
+http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations.
+
+Preserve Whitespace Policy Preserve whitespaces exactly as they appear
+in instances.
+
+Prohibited Derivations (Applies to type definitions). Derivation methods
+that cannot be used to create sub-types from a given type definition.
+
+Prohibited Substitutions (Applies to complex type definitions). Prevents
+sub-types that have been derived using the specified derivation methods
+from validating element instances in place of the given type definition.
+
+Replace Whitespace Policy Replace tab, line feed, and carriage return
+characters with space character (Unicode character 32).
+
+Sequence Model Group Child elements and model groups must be provided
+/in the specified order/ in instances. See:
+http://www.w3.org/TR/xmlschema-1/#element-sequence.
+
+Substitution Group Elements that are /members/ of a substitution group
+can be used wherever the /head/ element of the substitution group is
+referenced.
+
+Substitution Group Exclusions (Applies to element declarations).
+Prohibits element declarations from nominating themselves as being able
+to substitute a given element declaration, if they have types that are
+derived from the original element's type using the specified derivation
+methods.
+
+Target Namespace The target namespace identifies the namespace that
+components in this schema belongs to. If no target namespace is
+provided, then the schema components do not belong to any namespace.
+
+Uniqueness Constraint Ensures uniqueness of an element/attribute value,
+or a combination of values, within a specified scope. See:
+http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions.
+
+top <#top>
+------------------------------------------------------------------------
+
+Generated by xs3p <http://titanium.dstc.edu.au/xml/xs3p>. Last modified:
+January 1, 1970 GMT
+
