@@ -30,6 +30,7 @@
  
   <xsd:restriction base="xsd:string">
     <xsd:enumeration value="builtin"/>
+    <xsd:enumeration value="user_defined"/>
   </xsd:restriction>
  
 </xsd:simpleType>        
@@ -48,7 +49,8 @@
 
   <xsd:complexContent>
     <xsd:extension base="xaif:ExpressionType">
-      <xsd:attribute name="type" type="xaifii:InlinableIntrinsicType" use="optional"/>
+      <xsd:attribute name="type" type="xaifii:InlinableIntrinsicType" use="optional" default="user_defined"/>
+      <xsd:attribute name="builtin_name" type="xsd:string" use="optional"/>
     </xsd:extension>
   </xsd:complexContent>  
 
@@ -79,101 +81,26 @@
   substitutionGroup="xaif:ExpressionVertex"/>
 
 <!-- *********************************************************** -->
-<!-- Result References -->
-<!-- *********************************************************** -->
-
-<xsd:complexType name="ResultReferenceType">
- <xsd:annotation>
-    <xsd:documentation xml:lang="en">
-      Reference to one of the results an intrinsic function.
-    </xsd:documentation>
-  </xsd:annotation>
- 
- <xsd:complexContent>
-    <xsd:extension base="xaif:VertexType">
-      <xsd:attribute name="ref" type="xsd:positiveInteger" use="optional" default="1"/>
-    </xsd:extension>
-  </xsd:complexContent>
- 
-</xsd:complexType>
- 
-<xsd:element name="ResultReference" type="xaifii:ResultReferenceType"
-  substitutionGroup="xaif:ExpressionVertex"/>               
-
-<!-- *********************************************************** -->
-<!-- Partial References -->
-<!-- *********************************************************** -->
-
-<xsd:complexType name="PartialReferenceType">
- <xsd:annotation>
-    <xsd:documentation xml:lang="en">
-      Reference to one of the partials of an intrinsic function.
-    </xsd:documentation>
-  </xsd:annotation>
- 
- <xsd:complexContent>
-    <xsd:extension base="xaif:VertexType">
-      <xsd:attribute name="partial_id" type="xsd:positiveInteger" use="required"/>
-    </xsd:extension>
-  </xsd:complexContent>
- 
-</xsd:complexType>
- 
-<xsd:element name="PartialReference" 
-  type="xaifii:PartialReferenceType"
-    substitutionGroup="xaif:ExpressionVertex"/>               
-
-<!-- *********************************************************** -->
-<!-- Intermediate Function  Variable References -->
-<!-- *********************************************************** -->
-
-<xsd:complexType name="IntermediateFunctionReferenceType">
- <xsd:annotation>
-    <xsd:documentation xml:lang="en">
-      Reference to one of the intermediate values computed by the 
-      function evaluation .
-    </xsd:documentation>
-  </xsd:annotation>
- 
- <xsd:complexContent>
-    <xsd:extension base="xaif:VertexType">
-      <xsd:attribute name="vertex_reference" type="xsd:positiveInteger" use="required"/>
-    </xsd:extension>
-  </xsd:complexContent>
- 
-</xsd:complexType>
- 
-<xsd:element name="IntermediateFunctionReference" 
-  type="xaifii:IntermediateFunctionReferenceType"
-  substitutionGroup="xaif:ExpressionVertex"/>               
-
-<!-- *********************************************************** -->
-<!-- Intermediate Partial  Variable References -->
-<!-- *********************************************************** -->
-
-<xsd:complexType name="IntermediatePartialReferenceType">
- <xsd:annotation>
-    <xsd:documentation xml:lang="en">
-      Reference to one of the intermediate values computed by one of the  
-      partial evaluations.
-    </xsd:documentation>
-  </xsd:annotation>
- 
- <xsd:complexContent>
-    <xsd:extension base="xaif:VertexType">
-      <xsd:attribute name="partial_id" type="xsd:positiveInteger" use="required"/>
-      <xsd:attribute name="vertex_reference" type="xsd:positiveInteger" use="required"/>
-    </xsd:extension>
-  </xsd:complexContent>
- 
-</xsd:complexType>
- 
-<xsd:element name="IntermediatePartialReference" type="xaifii:IntermediatePartialReferenceType"
-  substitutionGroup="xaif:ExpressionVertex"/>               
-
-<!-- *********************************************************** -->
 <!-- Partial Derivative  Routines -->
 <!-- *********************************************************** -->
+
+<xsd:simpleType name="PartialTypeType">
+ 
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Types of local partial derivatives
+    </xsd:documentation>
+  </xsd:annotation>
+ 
+  <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="passive"/>
+    <xsd:enumeration value="linear_one"/>
+    <xsd:enumeration value="linear_minus_one"/>
+    <xsd:enumeration value="linear"/>
+    <xsd:enumeration value="nonlinear"/>
+  </xsd:restriction>
+ 
+</xsd:simpleType>           
 
 <xsd:complexType name="PartialType">
  <xsd:annotation>
@@ -185,6 +112,7 @@
   <xsd:complexContent>
     <xsd:extension base="xaif:ExpressionType">
       <xsd:attribute name="partial_id" type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="partial_type" type="xaifii:PartialTypeType" use="optional" default="nonlinear"/>
     </xsd:extension>
   </xsd:complexContent>  
 

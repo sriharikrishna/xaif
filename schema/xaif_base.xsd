@@ -15,6 +15,21 @@
             attributeFormDefault="unqualified">       
 
 <!-- *********************************************************** -->
+<!-- Front-end tags -->
+<!-- *********************************************************** -->
+
+<xsd:attributeGroup name="FrontEndAnnotations">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      This is used by the front-end to annotate elements in the
+      XAIF file.
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:attribute name="annotation" type="xsd:string" use="optional" default=""/>
+</xsd:attributeGroup>
+
+<!-- *********************************************************** -->
 <!-- Vertices -->
 <!-- *********************************************************** -->
 
@@ -31,6 +46,7 @@
   </xsd:annotation>
 
   <xsd:attribute name="vertex_id" type="xsd:positiveInteger" use="optional" default="1"/>
+  <xsd:attributeGroup ref="FrontEndAnnotations"/>
 </xsd:complexType>
 
 <!-- *********************************************************** -->
@@ -53,6 +69,7 @@
   <xsd:attribute name="edge_id" type="xsd:positiveInteger" use="optional" default="1"/>
   <xsd:attribute name="source" type="xsd:positiveInteger" use="required"/>
   <xsd:attribute name="target" type="xsd:positiveInteger" use="required"/>
+  <xsd:attributeGroup ref="FrontEndAnnotations"/>
 </xsd:complexType>
 
 <!-- *********************************************************** -->
@@ -130,7 +147,7 @@
   <xsd:attribute name="kind"   type="SymbolKindType" default="variable"/>
   <xsd:attribute name="type"   type="SymbolTypeType" default="real"/>
   <xsd:attribute name="shape"   type="SymbolShapeType" default="scalar"/>
-  <xsd:attribute name="frontend_tag" type="xsd:string" use="optional"/>
+  <xsd:attributeGroup ref="FrontEndAnnotations"/>
 </xsd:complexType>
 
 <!-- *********************************************************** -->
@@ -263,6 +280,74 @@
 </xsd:element>  
 
 <!-- *********************************************************** -->
+<!-- Alias Table -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="AliasRangeType">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:attribute name="from_virtual_address" type="xsd:positiveInteger"/>
+  <xsd:attribute name="to_virtual_address" type="xsd:positiveInteger"/>
+</xsd:complexType>
+
+<xsd:complexType name="AliasType">
+  <xsd:attribute name="virtual_address" type="xsd:positiveInteger"/>
+</xsd:complexType>
+
+<xsd:complexType name="AliasSetType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:sequence>
+    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="Alias" type="AliasType"/>
+      <xsd:element name="AliasRange" type="AliasRangeType"/>
+    </xsd:choice>
+  </xsd:sequence>
+  <xsd:attribute name="key" type="xsd:positiveInteger"/>
+</xsd:complexType>
+
+<xsd:complexType name="AliasSetListType">
+
+  <xsd:annotation>
+	  <xsd:documentation xml:lang="en">
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:sequence>
+    <xsd:element name="AliasSet" type="AliasSetType" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:element name="AliasSetList" type="AliasSetListType">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:unique name="as_unique">
+    <xsd:selector xpath="AliasSet"/><xsd:field xpath="@key"/>
+  </xsd:unique>
+  <xsd:key name='as_key'>
+    <xsd:selector xpath="AliasSet"/><xsd:field xpath="@key"/>
+  </xsd:key>
+  <xsd:keyref name="as_keyref1" refer='as_key'>
+    <xsd:selector xpath="VariableReference"/><xsd:field xpath="@alias"/>  
+  </xsd:keyref>
+  <xsd:keyref name="as_keyref2" refer='as_key'>
+    <xsd:selector xpath="AssignmentLHS"/><xsd:field xpath="@alias"/>  
+  </xsd:keyref>
+
+</xsd:element>  
+
+<!-- *********************************************************** -->
 <!-- Call Graph -->
 <!-- *********************************************************** -->
 
@@ -303,6 +388,16 @@
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The scope hierarchy is always attached to the call graph.
+        </xsd:documentation>
+      </xsd:annotation>
+
+    </xsd:element> 
+
+    <xsd:element ref="AliasSetList" minOccurs="0" maxOccurs="1">
+
+      <xsd:annotation>
+	<xsd:documentation xml:lang="en">
+          The list of alias sets for all variable references.
         </xsd:documentation>
       </xsd:annotation>
 
@@ -493,7 +588,7 @@
 
   </xsd:sequence>
   <xsd:attribute name="subroutine_name" type="xsd:string" use="required"/>
-  
+  <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>  
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
@@ -602,7 +697,6 @@
 		   minOccurs="0" maxOccurs="1"/>
       </xsd:sequence>
 
-      <xsd:attribute name="frontend_tag" type="xsd:string" use="optional"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
@@ -825,6 +919,8 @@
 
   </xsd:sequence>
   <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
+  <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
+  <xsd:attributeGroup ref="FrontEndAnnotations"/>
 </xsd:complexType>
 
 <xsd:element name="Assignment" type="AssignmentType"></xsd:element>        
@@ -858,7 +954,7 @@
   <xsd:sequence>
 
     <xsd:element ref="ExpressionVertex" 
-			minOccurs="1" maxOccurs="unbounded">
+			minOccurs="0" maxOccurs="unbounded">
 
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -949,7 +1045,6 @@
 
 </xsd:complexType>
 
-
 <xsd:complexType name="SubroutineCallType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
@@ -969,6 +1064,7 @@
   <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
   <xsd:attribute name="symbol_id" type="xsd:string"/>
   <xsd:attribute name="scope_id" type="xsd:positiveInteger"/>
+  <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
 </xsd:complexType> 
 
 <xsd:element name="SubroutineCall" type="SubroutineCallType"/>
@@ -1018,6 +1114,8 @@
 
       </xsd:sequence>
 
+      <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
+      <xsd:attribute name="alias" type="xsd:integer" use="optional" default="0"/>
     </xsd:extension>
   </xsd:complexContent>
 </xsd:complexType>
@@ -1327,14 +1425,17 @@
     <xsd:documentation xml:lang="en">
 	    Function calls are calls to subroutines (call graph vertices) that
 	    have a non-void return type. They are not intrinsics since derivative
-	    code must be generated by the AD tool. A function call is identified 
-	    uniquely by its position within the expression (vertex_id of underlying
-	    expression vertex), and the symbol that represents its name.
+	    code must be generated by the AD tool. They are canonicalized by the
+            front-end.
     </xsd:documentation>
   </xsd:annotation>
 
   <xsd:complexContent>
     <xsd:extension base="VertexType">
+      <xsd:sequence>
+        <xsd:element name="Argument" type="SubroutineCallArgumentType" 
+          minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
       <xsd:attribute name="symbol_id" type="xsd:string"/>
       <xsd:attribute name="scope_id" type="xsd:positiveInteger"/>
     </xsd:extension>
