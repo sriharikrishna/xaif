@@ -24,6 +24,7 @@
       <xaif:SymbolTable>
         <xaif:Symbol symbol_id="x"/>
         <xaif:Symbol symbol_id="y"/>
+        <xaif:Symbol symbol_id="partial_1"/>
       </xaif:SymbolTable>
     </xaif:Scope>
     
@@ -56,9 +57,11 @@
           </xaif:Argument>
         </xaif:SubroutineCall>
 
-<!-- call push_partial(-sin(y%v)) -->
-        <xaif:InlinableSubroutineCall subroutine_name="push_partial" statement_id="inline_1">
-          <xaif:ArgumentSubstitute position="1">
+       <xaif:Assignment statement_id="partial_1">
+         <xaif:AssignmentLHS>
+           <xaif:SymbolReference vertex_id="1" symbol_id="partial_1" scope_id="2"/>
+         </xaif:AssignmentLHS>
+         <xaif:AssignmentRHS>
             <xaif:Intrinsic vertex_id="1" name="minus_scal"/>
             <xaif:Intrinsic vertex_id="2" name="sin_scal"/>
             <xaif:VariableReference vertex_id="3" deriv="false">
@@ -66,6 +69,14 @@
             </xaif:VariableReference>
             <xaif:ExpressionEdge edge_id="1" source="3" target="2" position="1"/>           
             <xaif:ExpressionEdge edge_id="2" source="2" target="1" position="1"/>
+         </xaif:AssignmentRHS>
+       </xaif:Assignment>
+
+
+<!-- call push_partial(partial_1) -->
+        <xaif:InlinableSubroutineCall subroutine_name="push_partial" statement_id="inline_1">
+          <xaif:ArgumentSubstitute position="1">
+            <xaif:SymbolReference vertex_id="1" symbol_id="partial_1" scope_id="2"/>
           </xaif:ArgumentSubstitute>
         </xaif:InlinableSubroutineCall>
 

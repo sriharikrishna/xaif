@@ -132,12 +132,12 @@
 <xsd:complexType name="ArgumentSubstituteType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
-      Substitute Expression for dummy argument at given position
-      in inlinable subroutine
+      Substitute given variable for dummy argument at given position
+      in inlinable subroutine. Is 0 or 1 the first position?
     </xsd:documentation>
   </xsd:annotation>
   <xsd:complexContent>
-    <xsd:extension base="xaif:ExpressionType">
+    <xsd:extension base="xaif:VariableReferenceType">
       <xsd:attribute name="position" type="xsd:positiveInteger" use="required"/>
     </xsd:extension>
   </xsd:complexContent>
