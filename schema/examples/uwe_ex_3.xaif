@@ -41,7 +41,7 @@ end subroutine
 
     <xaif:Scope vertex_id="2">
       <xaif:SymbolTable>
-        <xaif:Symbol symbol_id="x"/>
+        <xaif:Symbol symbol_id="x" name="x"/>
         <xaif:Symbol symbol_id="y"/>
         <xaif:Symbol symbol_id="t1"/>
         <xaif:Symbol symbol_id="t2"/>
@@ -78,7 +78,7 @@ end subroutine
 
      <xaif:Entry vertex_id="1"/>
 
-     <xaif:ForLoop vertex_id="2">
+     <xaif:ForLoop vertex_id="2" loop_id="12421235">
 
        <xaif:Initialization statement_id="initialization">
          <xaif:AssignmentLHS>

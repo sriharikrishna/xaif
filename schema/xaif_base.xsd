@@ -130,6 +130,7 @@
   <xsd:attribute name="kind"   type="SymbolKindType" default="variable"/>
   <xsd:attribute name="type"   type="SymbolTypeType" default="real"/>
   <xsd:attribute name="shape"   type="SymbolShapeType" default="scalar"/>
+  <xsd:attribute name="name" type="xsd:string" use="optional"/>
 </xsd:complexType>
 
 <!-- *********************************************************** -->
@@ -601,6 +602,7 @@
 		   minOccurs="0" maxOccurs="1"/>
       </xsd:sequence>
 
+      <xsd:attribute name="loop_id" type="xsd:string" use="optional"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
