@@ -2,7 +2,7 @@
 
 <xaifnii:NonInlinableIntrinsicDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:xaifnii="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics"
-       xsi:schemaLocation="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics xaif_noninlinable_intrinsics.xsd">     
+       xsi:schemaLocation="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics ../xaif_noninlinable_intrinsics.xsd">     
 
 <!-- *********************************************************** -->
 <!-- Example 

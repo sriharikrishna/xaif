@@ -3,7 +3,7 @@
 <xaifii:InlinableIntrinsicDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:xaifii="http://www.mcs.anl.gov/XAIFInlinableIntrinsics"
        xmlns:xaif="http://www.mcs.anl.gov/XAIF"
-       xsi:schemaLocation="http://www.mcs.anl.gov/XAIFInlinableIntrinsics xaif_inlinable_intrinsics.xsd"
+       xsi:schemaLocation="http://www.mcs.anl.gov/XAIFInlinableIntrinsics ../xaif_inlinable_intrinsics.xsd"
        language="CPP">     
 
 <!-- *********************************************************** -->
@@ -65,7 +65,7 @@
     <xaifii:Partial partial_id="1">
       <xaif:Intrinsic vertex_id="1" name="rec_scal"/>
       <xaifii:ArgumentReference vertex_id="2" argument="2"/> 
-      <xaif:ExpressionEdge edge_id="1" source="2" target="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
     </xaifii:Partial>
     <xaifii:Partial partial_id="2">
       <xaif:Intrinsic vertex_id="1" name="minus_scal"/>
@@ -73,10 +73,10 @@
       <xaifii:ArgumentReference vertex_id="3" argument="1"/> 
       <xaif:Intrinsic vertex_id="4" name="sqr_scal"/>
       <xaifii:ArgumentReference vertex_id="5" argument="1"/> 
-      <xaif:ExpressionEdge edge_id="1" source="5" target="4"/> 
-      <xaif:ExpressionEdge edge_id="2" source="3" target="2"/> 
-      <xaif:ExpressionEdge edge_id="3" source="4" target="2"/> 
-      <xaif:ExpressionEdge edge_id="4" source="2" target="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="5" target="4" position="1"/> 
+      <xaif:ExpressionEdge edge_id="2" source="3" target="2" position="2"/> 
+      <xaif:ExpressionEdge edge_id="3" source="4" target="2" position="3"/> 
+      <xaif:ExpressionEdge edge_id="4" source="2" target="1" position="4"/> 
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
@@ -93,7 +93,7 @@
     <xaifii:Partial partial_id="1">
       <xaif:Intrinsic vertex_id="1" name="rec_scal"/>
       <xaifii:ArgumentReference vertex_id="2" argument="2"/> 
-      <xaif:ExpressionEdge edge_id="1" source="2" target="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
     </xaifii:Partial>
     <xaifii:Partial partial_id="2">
       <xaif:Intrinsic vertex_id="1" name="minus_scal"/>
@@ -101,10 +101,10 @@
       <xaifii:ArgumentReference vertex_id="3" argument="1"/> 
       <xaif:Intrinsic vertex_id="4" name="sqr_scal"/>
       <xaifii:PartialReference vertex_id="5" partial_id="1"/> 
-      <xaif:ExpressionEdge edge_id="1" source="5" target="4"/> 
-      <xaif:ExpressionEdge edge_id="2" source="3" target="2"/> 
-      <xaif:ExpressionEdge edge_id="3" source="4" target="2"/> 
-      <xaif:ExpressionEdge edge_id="4" source="2" target="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="5" target="4" position="1"/> 
+      <xaif:ExpressionEdge edge_id="2" source="3" target="2" position="2"/> 
+      <xaif:ExpressionEdge edge_id="3" source="4" target="2" position="3"/> 
+      <xaif:ExpressionEdge edge_id="4" source="2" target="1" position="4"/> 
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
@@ -130,15 +130,15 @@
       <xaif:Intrinsic vertex_id="1" name="mul_scal_scal"/>
       <xaifii:ArgumentReference vertex_id="2" argument="1"/> 
       <xaifii:ArgumentReference vertex_id="3" argument="1"/> 
-      <xaif:ExpressionEdge edge_id="1" source="2" target="1"/> 
-      <xaif:ExpressionEdge edge_id="2" source="3" target="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
+      <xaif:ExpressionEdge edge_id="2" source="3" target="1" position="2"/> 
     </xaifii:Function>
     <xaifii:Partial partial_id="1">
       <xaif:Intrinsic vertex_id="1" name="mul_scal_scal"/>
       <xaif:Constant vertex_id="2" type="integer" value="2"/>
       <xaifii:ArgumentReference vertex_id="3" argument="1"/> 
-      <xaif:ExpressionEdge edge_id="1" source="2" target="1"/> 
-      <xaif:ExpressionEdge edge_id="2" source="3" target="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
+      <xaif:ExpressionEdge edge_id="2" source="3" target="1" position="2"/> 
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
@@ -151,15 +151,15 @@
       <xaif:Intrinsic vertex_id="1" name="div_scal_scal"/>
       <xaif:Constant vertex_id="2" type="integer" value="1"/>
       <xaifii:ArgumentReference vertex_id="3" argument="1"/> 
-      <xaif:ExpressionEdge edge_id="1" source="2" target="1"/> 
-      <xaif:ExpressionEdge edge_id="2" source="3" target="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
+      <xaif:ExpressionEdge edge_id="2" source="3" target="1" position="2"/> 
     </xaifii:Function>
     <xaifii:Partial partial_id="1">
       <xaif:Intrinsic vertex_id="1" name="minus_scal"/>
       <xaif:Intrinsic vertex_id="2" name="sqr_scal"/>
       <xaifii:ResultReference vertex_id="3"/> 
-      <xaif:ExpressionEdge edge_id="1" source="3" target="2"/> 
-      <xaif:ExpressionEdge edge_id="2" source="2" target="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="3" target="2" position="1"/> 
+      <xaif:ExpressionEdge edge_id="2" source="2" target="1" position="2"/> 
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
@@ -178,12 +178,12 @@
       <xaif:Intrinsic vertex_id="4" name="sub_scal_scal"/>
       <xaifii:ArgumentReference vertex_id="5" argument="2"/> 
       <xaif:Constant vertex_id="6" type="integer" value="1"/>
-      <xaif:ExpressionEdge edge_id="1" source="5" target="4"/> 
-      <xaif:ExpressionEdge edge_id="2" source="6" target="4"/> 
-      <xaif:ExpressionEdge edge_id="3" source="3" target="2"/> 
-      <xaif:ExpressionEdge edge_id="4" source="4" target="2"/> 
-      <xaif:ExpressionEdge edge_id="5" source="5" target="1"/> 
-      <xaif:ExpressionEdge edge_id="6" source="2" target="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="5" target="4" position="1"/> 
+      <xaif:ExpressionEdge edge_id="2" source="6" target="4" position="2"/> 
+      <xaif:ExpressionEdge edge_id="3" source="3" target="2" position="3"/> 
+      <xaif:ExpressionEdge edge_id="4" source="4" target="2" position="4"/> 
+      <xaif:ExpressionEdge edge_id="5" source="5" target="1" position="5"/> 
+      <xaif:ExpressionEdge edge_id="6" source="2" target="1" position="6"/> 
     </xaifii:Partial>
     <xaifii:Partial partial_id="2">
       <xaif:Intrinsic vertex_id="1" name="mul_scal_scal"/>
@@ -191,11 +191,11 @@
       <xaif:Intrinsic vertex_id="3" name="pow_scal_scal"/>
       <xaifii:ArgumentReference vertex_id="4" argument="1"/> 
       <xaifii:ArgumentReference vertex_id="5" argument="2"/> 
-      <xaif:ExpressionEdge edge_id="1" source="4" target="3"/> 
-      <xaif:ExpressionEdge edge_id="2" source="5" target="3"/> 
-      <xaif:ExpressionEdge edge_id="3" source="4" target="2"/> 
-      <xaif:ExpressionEdge edge_id="4" source="2" target="1"/> 
-      <xaif:ExpressionEdge edge_id="5" source="3" target="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="4" target="3" position="1"/> 
+      <xaif:ExpressionEdge edge_id="2" source="5" target="3" position="2"/> 
+      <xaif:ExpressionEdge edge_id="3" source="4" target="2" position="3"/> 
+      <xaif:ExpressionEdge edge_id="4" source="2" target="1" position="4"/> 
+      <xaif:ExpressionEdge edge_id="5" source="3" target="1" position="5"/> 
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
@@ -212,28 +212,28 @@
       <xaif:Intrinsic vertex_id="4" name="sub_scal_scal"/>
       <xaifii:ArgumentReference vertex_id="5" argument="2"/>
       <xaif:Constant vertex_id="6" type="integer" value="1"/>
-      <xaif:ExpressionEdge edge_id="1" source="5" target="4"/>
-      <xaif:ExpressionEdge edge_id="2" source="6" target="4"/>
-      <xaif:ExpressionEdge edge_id="3" source="3" target="2"/>
-      <xaif:ExpressionEdge edge_id="4" source="4" target="2"/>
-      <xaif:ExpressionEdge edge_id="5" source="3" target="1"/>
-      <xaif:ExpressionEdge edge_id="6" source="2" target="1"/>
+      <xaif:ExpressionEdge edge_id="1" source="5" target="4" position="1"/>
+      <xaif:ExpressionEdge edge_id="2" source="6" target="4" position="2"/>
+      <xaif:ExpressionEdge edge_id="3" source="3" target="2" position="3"/>
+      <xaif:ExpressionEdge edge_id="4" source="4" target="2" position="4"/>
+      <xaif:ExpressionEdge edge_id="5" source="3" target="1" position="5"/>
+      <xaif:ExpressionEdge edge_id="6" source="2" target="1" position="6"/>
     </xaifii:Function>
     <xaifii:Partial partial_id="1">
       <xaif:Intrinsic vertex_id="1" name="mul_scal_scal"/>
       <xaifii:ArgumentReference vertex_id="2" argument="2"/>
       <xaifii:IntermediateFunctionReference vertex_id="3" vertex_reference="1"/>
-      <xaif:ExpressionEdge edge_id="1" source="2" target="1"/>
-      <xaif:ExpressionEdge edge_id="2" source="3" target="1"/>
+      <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/>
+      <xaif:ExpressionEdge edge_id="2" source="3" target="1" position="2"/>
     </xaifii:Partial>
     <xaifii:Partial partial_id="2">
       <xaif:Intrinsic vertex_id="1" name="mul_scal_scal"/>
       <xaifii:ResultReference vertex_id="2"/>
       <xaif:Intrinsic vertex_id="3" name="ln_scal"/>
       <xaifii:ArgumentReference vertex_id="4" argument="1"/>
-      <xaif:ExpressionEdge edge_id="1" source="4" target="3"/>
-      <xaif:ExpressionEdge edge_id="2" source="2" target="1"/>
-      <xaif:ExpressionEdge edge_id="3" source="3" target="1"/>
+      <xaif:ExpressionEdge edge_id="1" source="4" target="3" position="1"/>
+      <xaif:ExpressionEdge edge_id="2" source="2" target="1" position="2"/>
+      <xaif:ExpressionEdge edge_id="3" source="3" target="1" position="3"/>
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>                                  
 
@@ -248,7 +248,7 @@
     <xaifii:Partial partial_id="1">
       <xaif:Intrinsic vertex_id="1" name="rec_scal"/>
       <xaifii:ArgumentReference vertex_id="2" argument="2"/> 
-      <xaif:ExpressionEdge edge_id="1" source="2" target="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
@@ -263,7 +263,7 @@
     <xaifii:Partial partial_id="1">
       <xaif:Intrinsic vertex_id="1" name="cos_scal"/>
       <xaifii:ArgumentReference vertex_id="2" argument="2"/> 
-      <xaif:ExpressionEdge edge_id="1" source="2" target="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
@@ -279,8 +279,8 @@
       <xaif:Intrinsic vertex_id="1" name="minus_scal"/>
       <xaif:Intrinsic vertex_id="2" name="sin_scal"/>
       <xaifii:ArgumentReference vertex_id="3" argument="2"/> 
-      <xaif:ExpressionEdge edge_id="1" source="3" target="2"/> 
-      <xaif:ExpressionEdge edge_id="2" source="2" target="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="3" target="2" position="1"/> 
+      <xaif:ExpressionEdge edge_id="2" source="2" target="1" position="2"/> 
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 

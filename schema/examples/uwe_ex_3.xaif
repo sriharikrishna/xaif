@@ -26,7 +26,7 @@ end subroutine
 
 <xaif:CallGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:xaif="http://www.mcs.anl.gov/XAIF"
-       xsi:schemaLocation="http://www.mcs.anl.gov/XAIF xaif.xsd"
+       xsi:schemaLocation="http://www.mcs.anl.gov/XAIF ../xaif.xsd"
        program_name="Example 3"
        toplevel_routine_name="head">
 
