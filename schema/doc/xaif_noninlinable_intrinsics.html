@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>XAIF (Top-Level) Schema Documentation</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>XAIF Noninlinable Intrinsics Schema Documentation</title>
     
     <meta http-equiv="Content-Type" content="text/xml; charset=iso-8859-1">
     <style type="text/css">
@@ -252,9 +252,9 @@
     <script type="text/javascript">
 <!--
 /* IDs of XML Instance Representation boxes */
-var xiBoxes = new Array();
+var xiBoxes = new Array('type_NonInlinableIntrinsicDefinitionType_xibox', 'element_NonInlinableIntrinsicDefinitions_xibox');
 /* IDs of Schema Component Representation boxes */
-var scBoxes = new Array('schema_scbox');
+var scBoxes = new Array('schema_scbox', 'type_NonInlinableIntrinsicDefinitionType_scbox', 'element_NonInlinableIntrinsicDefinitions_scbox');
 
 /**
  * Can get the ID of the button controlling
@@ -558,7 +558,7 @@ function viewDocumentation(compDesc, compName, docTextArray) {
 
   <body>
     <h1>
-      <a name="top">XAIF (Top-Level) Schema Documentation</a>
+      <a name="top">XAIF Noninlinable Intrinsics Schema Documentation</a>
     </h1>
     <div id="printerControls" style="display: block;"><input type="checkbox" onclick="displayMode(this.checked)">Printer-friendly Version</div>
     <script type="text/javascript">
@@ -598,6 +598,22 @@ function viewDocumentation(compDesc, compName, docTextArray) {
       <li>
         <a href="#SchemaProperties">Schema Document Properties</a>
       </li>
+      <li>
+        <a href="#SchemaDeclarations">Global Declarations</a>
+        <ul>
+          <li>
+            <a href="#element_NonInlinableIntrinsicDefinitions">Element: <strong>NonInlinableIntrinsicDefinitions</strong></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#SchemaDefinitions">Global Definitions</a>
+        <ul>
+          <li>
+            <a href="#type_NonInlinableIntrinsicDefinitionType">Complex Type: <strong>NonInlinableIntrinsicDefinitionType</strong></a>
+          </li>
+        </ul>
+      </li>
     </ul>
     <ul id="legendTOC" style="margin-top: 0em;">
       <li>
@@ -622,12 +638,12 @@ function viewDocumentation(compDesc, compName, docTextArray) {
           <a title="Look up 'Target Namespace' in glossary" href="#term_TargetNS">Target Namespace</a>
         </th>
         <td>
-          <span class="targetNS">http://www.mcs.anl.gov/XAIF</span>
+          <span class="targetNS">http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics</span>
         </td>
       </tr>
       <tr>
         <th>Version</th>
-        <td>xaif 1.0</td>
+        <td>xaif (noninlinable intrinsics) 1.0</td>
       </tr>
       <tr>
         <th>Element and Attribute Namespaces</th>
@@ -636,14 +652,6 @@ function viewDocumentation(compDesc, compName, docTextArray) {
             <li>Global element and attribute declarations belong to this schema's target namespace.</li>
             <li>By default, local element declarations belong to this schema's target namespace.</li>
             <li>By default, local attribute declarations have no namespace.</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <th>Schema Composition</th>
-        <td>
-          <ul>
-            <li>This schema includes components from the following schema document(s):<ul><li>xaif_base.xsd</li></ul></li>
           </ul>
         </td>
       </tr>
@@ -656,30 +664,16 @@ function viewDocumentation(compDesc, compName, docTextArray) {
       </tr>
       <tr>
         <td>
-          <a name="ns_">Default namespace</a>
-        </td>
-        <td>
-          <span class="targetNS">http://www.mcs.anl.gov/XAIF</span>
-        </td>
-      </tr>
-      <tr>
-        <td>
           <a name="ns_xml">xml</a>
         </td>
         <td>http://www.w3.org/XML/1998/namespace</td>
       </tr>
       <tr>
         <td>
-          <a name="ns_xlink">xlink</a>
-        </td>
-        <td>http://www.w3.org/1999/xlink</td>
-      </tr>
-      <tr>
-        <td>
-          <a name="ns_xaif">xaif</a>
+          <a name="ns_xaifnii">xaifnii</a>
         </td>
         <td>
-          <span class="targetNS">http://www.mcs.anl.gov/XAIF</span>
+          <span class="targetNS">http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics</span>
         </td>
       </tr>
       <tr>
@@ -696,11 +690,139 @@ function viewDocumentation(compDesc, compName, docTextArray) {
       <tr>
         <td>
           <div id="schema_scbox" class="box" style="display: none;">
-            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:schema</span> <span class="scTag">targetNamespace</span>="<span class="scContent">http://www.mcs.anl.gov/XAIF</span>" <span class="scTag">version</span>="<span class="scContent">xaif 1.0</span>" <span class="scTag">elementFormDefault</span>="<span class="scContent">qualified</span>" <span class="scTag">attributeFormDefault</span>="<span class="scContent">unqualified</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:include</span> <span class="scTag">id</span>="<span class="scContent">xaif_base.xsd</span>" <span class="scTag">schemaLocation</span>="<span class="scContent">xaif_base.xsd</span>"/&gt;</div><div class="scContent" style="margin-left: 1.5em;">...</div>&lt;/<span class="scTag">xsd:schema</span>&gt;</div>
+            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:schema</span> <span class="scTag">targetNamespace</span>="<span class="scContent">http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics</span>" <span class="scTag">version</span>="<span class="scContent">xaif (noninlinable intrinsics) 1.0</span>" <span class="scTag">elementFormDefault</span>="<span class="scContent">qualified</span>" <span class="scTag">attributeFormDefault</span>="<span class="scContent">unqualified</span>"&gt;<div class="scContent" style="margin-left: 1.5em;">...</div>&lt;/<span class="scTag">xsd:schema</span>&gt;</div>
           </div>
           <script type="text/javascript">
 <!--
 setState('schema_scbox', false);
+// -->
+</script>
+        </td>
+      </tr>
+    </tbody></table>
+    <div style="text-align: right;">
+      <a href="#top">top</a>
+    </div>
+    <hr>
+    <h2>
+      <a name="SchemaDeclarations">Global Declarations</a>
+    </h2>
+    <h3>Element: <a name="element_NonInlinableIntrinsicDefinitions" class="name">NonInlinableIntrinsicDefinitions</a></h3>
+    <table class="properties">
+      <tbody><tr>
+        <th>Name</th>
+        <td>NonInlinableIntrinsicDefinitions</td>
+      </tr>
+      <tr>
+        <th>Type</th>
+        <td>Locally-defined complex type</td>
+      </tr>
+      <tr>
+        <th>
+          <a title="Look up 'Nillable' in glossary" href="#term_Nillable">Nillable</a>
+        </th>
+        <td>no</td>
+      </tr>
+      <tr>
+        <th>
+          <a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+        </th>
+        <td>no</td>
+      </tr>
+    </tbody></table>
+    <table class="sample">
+      <tbody><tr>
+        <th><input type="button" id="element_NonInlinableIntrinsicDefinitions_xibox_button" class="boxControl" onclick="switchState('element_NonInlinableIntrinsicDefinitions_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
+      </tr>
+      <tr>
+        <td>
+          <div id="element_NonInlinableIntrinsicDefinitions_xibox" class="box" style="display: block;">
+            <div style="margin-left: 0em;">&lt;<a href="#ns_xaifnii" title="Find out namespace of 'xaifnii' prefix">xaifnii</a>:NonInlinableIntrinsicDefinitions&gt; <div class="other" style="margin-left: 1.5em;">&lt;!-- <br><a title="Look up 'Uniqueness' in glossary" href="#term_Unique">Uniqueness</a> Constraint - <strong><a name="key_nii_unique">nii_unique</a></strong><br>Selector - <strong>xaifnii:NonInlinableIntrinsic</strong><br>Field(s) - <strong>@function</strong><br>--&gt;</div><br><div style="margin-left: 1.5em;">&lt;<a href="#ns_xaifnii" title="Find out namespace of 'xaifnii' prefix">xaifnii</a>:NonInlinableIntrinsic&gt; <span class="type"><a href="#ns_xaifnii" title="Find out namespace of 'xaifnii' prefix">xaifnii</a>:<a title="Jump to &quot;NonInlinableIntrinsicDefinitionType&quot; type definition." href="#type_NonInlinableIntrinsicDefinitionType">NonInlinableIntrinsicDefinitionType</a></span> &lt;/<a href="#ns_xaifnii" title="Find out namespace of 'xaifnii' prefix">xaifnii</a>:NonInlinableIntrinsic&gt; <span class="occurs">[1..*]</span></div>&lt;/<a href="#ns_xaifnii" title="Find out namespace of 'xaifnii' prefix">xaifnii</a>:NonInlinableIntrinsicDefinitions&gt;</div>
+          </div>
+          <script type="text/javascript">
+<!--
+setState('element_NonInlinableIntrinsicDefinitions_xibox', true);
+// -->
+</script>
+        </td>
+      </tr>
+    </tbody></table>
+    <table class="schemaComponent">
+      <tbody><tr>
+        <th><input type="button" id="element_NonInlinableIntrinsicDefinitions_scbox_button" class="boxControl" onclick="switchState('element_NonInlinableIntrinsicDefinitions_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
+      </tr>
+      <tr>
+        <td>
+          <div id="element_NonInlinableIntrinsicDefinitions_scbox" class="box" style="display: none;">
+            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>="<span class="scContent">NonInlinableIntrinsicDefinitions</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:complexType</span>&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:sequence</span>&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>="<span class="scContent">NonInlinableIntrinsic</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xaifnii" title="Find out namespace of 'xaifnii' prefix">xaifnii</a>:<a title="Jump to &quot;NonInlinableIntrinsicDefinitionType&quot; type definition." href="#type_NonInlinableIntrinsicDefinitionType">NonInlinableIntrinsicDefinitionType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">1</span>" <span class="scTag">maxOccurs</span>="<span class="scContent">unbounded</span>"/&gt;</div>&lt;/<span class="scTag">xsd:sequence</span>&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:unique</span> <span class="scTag">name</span>="<span class="scContent">nii_unique</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:selector</span> <span class="scTag">xpath</span>="<span class="scContent">xaifnii:NonInlinableIntrinsic</span>"/&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:field</span> <span class="scTag">xpath</span>="<span class="scContent">@function</span>"/&gt;</div>&lt;/<span class="scTag">xsd:unique</span>&gt;</div>&lt;/<span class="scTag">xsd:element</span>&gt;</div>
+          </div>
+          <script type="text/javascript">
+<!--
+setState('element_NonInlinableIntrinsicDefinitions_scbox', false);
+// -->
+</script>
+        </td>
+      </tr>
+    </tbody></table>
+    <div style="text-align: right;">
+      <a href="#top">top</a>
+    </div>
+    <hr>
+    <h2>
+      <a name="SchemaDefinitions">Global Definitions</a>
+    </h2>
+    <h3>Complex Type: <a name="type_NonInlinableIntrinsicDefinitionType" class="name">NonInlinableIntrinsicDefinitionType</a></h3>
+    <table class="hierarchy">
+      <tbody><tr>
+        <th>Super-types:</th>
+        <td>None</td>
+      </tr>
+      <tr>
+        <th>Sub-types:</th>
+        <td>None</td>
+      </tr>
+    </tbody></table>
+    <table class="properties">
+      <tbody><tr>
+        <th>Name</th>
+        <td>NonInlinableIntrinsicDefinitionType</td>
+      </tr>
+      <tr>
+        <th>
+          <a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+        </th>
+        <td>no</td>
+      </tr>
+    </tbody></table>
+    <table class="sample">
+      <tbody><tr>
+        <th><input type="button" id="type_NonInlinableIntrinsicDefinitionType_xibox_button" class="boxControl" onclick="switchState('type_NonInlinableIntrinsicDefinitionType_xibox'); return false;" style="display: inline;" value=" - "> XML Instance Representation</th>
+      </tr>
+      <tr>
+        <td>
+          <div id="type_NonInlinableIntrinsicDefinitionType_xibox" class="box" style="display: block;">
+            <div style="margin-left: 0em;">&lt;...<br><span style="margin-left: 0.5em;"> function="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> <span class="occurs">[1]</span>"</span><br><span style="margin-left: 0.5em;"> jacobian="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> <span class="occurs">[1]</span>"</span>&gt; <br><div style="margin-left: 1.5em;">&lt;<a href="#ns_xaifnii" title="Find out namespace of 'xaifnii' prefix">xaifnii</a>:Partial<br><span style="margin-left: 0.5em;"> dep="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span><br><span style="margin-left: 0.5em;"> indep="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span><br><span style="margin-left: 0.5em;"> partial="<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span> <span class="occurs">[1]</span>"</span>/&gt;  <span class="occurs">[1..*]</span></div>&lt;/...&gt;</div>
+          </div>
+          <script type="text/javascript">
+<!--
+setState('type_NonInlinableIntrinsicDefinitionType_xibox', true);
+// -->
+</script>
+        </td>
+      </tr>
+    </tbody></table>
+    <table class="schemaComponent">
+      <tbody><tr>
+        <th><input type="button" id="type_NonInlinableIntrinsicDefinitionType_scbox_button" class="boxControl" onclick="switchState('type_NonInlinableIntrinsicDefinitionType_scbox'); return false;" style="display: inline;" value=" + "> Schema Component Representation</th>
+      </tr>
+      <tr>
+        <td>
+          <div id="type_NonInlinableIntrinsicDefinitionType_scbox" class="box" style="display: none;">
+            <div style="margin-left: 0em;">&lt;<span class="scTag">xsd:complexType</span> <span class="scTag">name</span>="<span class="scContent">NonInlinableIntrinsicDefinitionType</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:sequence</span>&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:element</span> <span class="scTag">name</span>="<span class="scContent">Partial</span>" <span class="scTag">minOccurs</span>="<span class="scContent">1</span>" <span class="scTag">maxOccurs</span>="<span class="scContent">unbounded</span>"&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:complexType</span>&gt;<div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">dep</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">indep</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">partial</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:positiveInteger</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>&lt;/<span class="scTag">xsd:element</span>&gt;</div>&lt;/<span class="scTag">xsd:sequence</span>&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">function</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div><div style="margin-left: 1.5em;">&lt;<span class="scTag">xsd:attribute</span> <span class="scTag">name</span>="<span class="scContent">jacobian</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div>&lt;/<span class="scTag">xsd:complexType</span>&gt;</div>
+          </div>
+          <script type="text/javascript">
+<!--
+setState('type_NonInlinableIntrinsicDefinitionType_scbox', false);
 // -->
 </script>
         </td>
