@@ -132,14 +132,17 @@
        </xaif:Assignment> 
 
      </xaif:BasicBlock>     
+ 
+     <xaif:EndBranch vertex_id="5" annotation=""></xaif:EndBranch>
 
-     <xaif:Exit vertex_id="5" annotation=""></xaif:Exit>
+     <xaif:Exit vertex_id="6" annotation=""></xaif:Exit>
 
      <xaif:ControlFlowEdge edge_id="1" source="1" target="2" annotation=""></xaif:ControlFlowEdge>
      <xaif:ControlFlowEdge edge_id="2" source="2" target="3" annotation=""></xaif:ControlFlowEdge>
-     <xaif:ControlFlowEdge edge_id="3" source="4" target="2" annotation=""></xaif:ControlFlowEdge>
+     <xaif:ControlFlowEdge edge_id="3" source="2" target="4" annotation=""></xaif:ControlFlowEdge>
      <xaif:ControlFlowEdge edge_id="4" source="3" target="5" annotation=""></xaif:ControlFlowEdge>
      <xaif:ControlFlowEdge edge_id="5" source="4" target="5" annotation=""></xaif:ControlFlowEdge>
+     <xaif:ControlFlowEdge edge_id="6" source="5" target="6" annotation=""></xaif:ControlFlowEdge>
 
   </xaif:ControlFlowGraph>
 

@@ -702,14 +702,14 @@ is LHS, then DU, else UD.
   </xsd:annotation>
 
   <xsd:unique name="cfgv_unique">
-	  <xsd:selector xpath="BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop"/>
+	  <xsd:selector xpath="BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop|EndBranch|EndLoop"/>
       <xsd:field xpath="@vertex_id"/>
   </xsd:unique>
   <xsd:unique name="cfge_unique">
     <xsd:selector xpath="ControlFlowEdge"/><xsd:field xpath="@edge_id"/>
   </xsd:unique>
   <xsd:key name='cfg_vertexId'>
-	  <xsd:selector xpath="BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop"/>
+	  <xsd:selector xpath="BasicBlock|Entry|Exit|If|ForLoop|PreLoop|PostLoop|EndBranch|EndLoop"/>
       <xsd:field xpath="@vertex_id"/>
   </xsd:key>
   <xsd:keyref name="cfg_keyref1" refer='cfg_vertexId'>
@@ -947,6 +947,54 @@ is LHS, then DU, else UD.
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
 		Entry is a substitute for a control flow vertex.
+        </xsd:documentation>
+      </xsd:annotation>
+</xsd:element>
+
+<!-- *********************************************************** -->
+<!-- EndBranch -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="EndBranchType">
+  <xsd:complexContent>
+    <xsd:extension base="VertexType">    
+
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:extension>
+  </xsd:complexContent>   
+</xsd:complexType>
+
+<xsd:element name="EndBranch" type="EndBranchType"
+	substitutionGroup="ControlFlowVertex">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+        </xsd:documentation>
+      </xsd:annotation>
+</xsd:element>
+
+<!-- *********************************************************** -->
+<!-- EndLoop -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="EndLoopType">
+  <xsd:complexContent>
+    <xsd:extension base="VertexType">    
+
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:extension>
+  </xsd:complexContent>   
+</xsd:complexType>
+
+<xsd:element name="EndLoop" type="EndLoopType"
+	substitutionGroup="ControlFlowVertex">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
         </xsd:documentation>
       </xsd:annotation>
 </xsd:element>

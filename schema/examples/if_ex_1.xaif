@@ -153,14 +153,17 @@ end subroutine
        </xaif:Assignment> 
 
      </xaif:BasicBlock>     
+ 
+     <xaif:EndBranch vertex_id="5"/>
 
-     <xaif:Exit vertex_id="5"/>
+     <xaif:Exit vertex_id="6"/>
 
      <xaif:ControlFlowEdge edge_id="1" source="1" target="2"/>
      <xaif:ControlFlowEdge edge_id="2" source="2" target="3"/>
-     <xaif:ControlFlowEdge edge_id="3" source="4" target="2"/>
+     <xaif:ControlFlowEdge edge_id="3" source="2" target="4"/>
      <xaif:ControlFlowEdge edge_id="4" source="3" target="5"/>
      <xaif:ControlFlowEdge edge_id="5" source="4" target="5"/>
+     <xaif:ControlFlowEdge edge_id="6" source="5" target="6"/>
 
   </xaif:ControlFlowGraph>
 

@@ -138,12 +138,15 @@
 
      </xaif:BasicBlock>
 
-     <xaif:Exit vertex_id="4" annotation=""></xaif:Exit>
+     <xaif:EndLoop vertex_id="4" annotation=""></xaif:EndLoop>
+
+     <xaif:Exit vertex_id="5" annotation=""></xaif:Exit>
 
      <xaif:ControlFlowEdge edge_id="1" source="1" target="2" annotation=""></xaif:ControlFlowEdge>
      <xaif:ControlFlowEdge edge_id="2" source="2" target="3" annotation=""></xaif:ControlFlowEdge>
-     <xaif:ControlFlowEdge edge_id="3" source="3" target="2" annotation=""></xaif:ControlFlowEdge>
-     <xaif:ControlFlowEdge edge_id="4" source="2" target="4" annotation=""></xaif:ControlFlowEdge>
+     <xaif:ControlFlowEdge edge_id="3" source="3" target="4" annotation=""></xaif:ControlFlowEdge>
+     <xaif:ControlFlowEdge edge_id="4" source="4" target="2" annotation=""></xaif:ControlFlowEdge>
+     <xaif:ControlFlowEdge edge_id="5" source="2" target="5" annotation=""></xaif:ControlFlowEdge>
 
   </xaif:ControlFlowGraph>
 
