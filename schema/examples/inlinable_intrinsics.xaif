@@ -218,6 +218,32 @@
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
+<!-- Scalar Hyperbolic Sine -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="sinh_scal" nr_arguments="1">
+    <xaifii:Function type="builtin" builtin_name="sinh"/>
+    <xaifii:Partial partial_id="1">
+      <xaif:Intrinsic vertex_id="1" name="cosh_scal"/>
+      <xaifii:ArgumentReference vertex_id="2" argument="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
+    </xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- Scalar Hyperbolic Cosine -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="cosh_scal" nr_arguments="1">
+    <xaifii:Function type="builtin" builtin_name="cosh"/>
+    <xaifii:Partial partial_id="1">
+      <xaif:Intrinsic vertex_id="1" name="sinh_scal"/>
+      <xaifii:ArgumentReference vertex_id="2" argument="1"/> 
+      <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
+    </xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
 <!-- Scalar Exponential -->
 <!-- *********************************************************** -->
 
