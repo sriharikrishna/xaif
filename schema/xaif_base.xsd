@@ -112,11 +112,9 @@
 
   <xsd:restriction base="xsd:string">
     <xsd:enumeration value="void"/>
-    <xsd:enumeration value="real"/>
-    <xsd:enumeration value="double"/>
-    <xsd:enumeration value="active_real"/>
-    <xsd:enumeration value="active_double"/>
     <xsd:enumeration value="integer"/>
+    <xsd:enumeration value="real"/>
+    <xsd:enumeration value="complex"/>
     <xsd:enumeration value="bool"/>
     <xsd:enumeration value="char"/>
     <xsd:enumeration value="string"/>
@@ -160,6 +158,7 @@
       <xsd:attribute name="kind"   type="SymbolKindType" default="variable"/>
       <xsd:attribute name="type"   type="SymbolTypeType" default="real"/>
       <xsd:attribute name="shape"   type="SymbolShapeType" default="scalar"/>
+      <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
     </xsd:extension>       
   </xsd:complexContent>
 </xsd:complexType>
