@@ -24,7 +24,8 @@
 
   </xaif:ScopeHierarchy>
 
-    <xaif:Replacement vertex_id="1" template_name="template" placeholder="3" annotation="">
+  <xaif:ReplacementList vertex_id="1" template_name="template" symbol_id="sub1" scope_id="1" annotation="">
+    <xaif:Replacement placeholder="3">
       <xaif:BasicBlock vertex_id="1" scope_id="2" annotation="">
 
         <xaif:SubroutineCall statement_id="1" scope_id="1" symbol_id="sub2" active="true">
@@ -92,6 +93,7 @@
       </xaif:BasicBlock>
 
     </xaif:Replacement>
+  </xaif:ReplacementList>
 
   
 

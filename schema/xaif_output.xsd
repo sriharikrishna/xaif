@@ -100,31 +100,44 @@
 <xsd:element name="DerivativePropagator" type="xaif:DerivativePropagatorType"/>
 
 <!-- *********************************************************** -->
-<!-- Replacement                                                 -->
+<!-- List of Replacements                                        -->
 <!-- *********************************************************** -->
 
-<xsd:complexType name="ReplacementType">
+<xsd:complexType name="ReplacementListType">
   <xsd:complexContent>
     <xsd:extension base="xaif:VertexType">
-
-    <xsd:annotation>
-      <xsd:documentation xml:lang="en">
-        Code fragments to be inserted into templates
-      </xsd:documentation>
-    </xsd:annotation>
-     
-    <xsd:choice minOccurs="0" maxOccurs="unbounded">
-      <xsd:element ref="xaif:ControlFlowVertex"></xsd:element>
-      <xsd:element name="ControlFlowEdge" type="xaif:EdgeType"></xsd:element>
-    </xsd:choice>
-
-    <xsd:attribute name="template_name" type="xsd:string" use="required"/>
-    <xsd:attribute name="placeholder" type="xsd:string" use="required"/>
+      <xsd:sequence>
+        <xsd:element name="ArgumentList" type="xaif:ArgumentListType" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="Replacement" type="ReplacementType" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="template_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="symbol_id" type="xsd:string" use="required"/>
+      <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
     </xsd:extension>
   </xsd:complexContent>
 </xsd:complexType>
 
-<xsd:element name="Replacement" type="xaif:ReplacementType" substitutionGroup="xaif:CallGraphVertex"/>
+<xsd:element name="ReplacementList" type="xaif:ReplacementListType" substitutionGroup="xaif:CallGraphVertex"/>
+
+<!-- *********************************************************** -->
+<!-- Replacement                                                 -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="ReplacementType">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Code fragments to be inserted into templates
+    </xsd:documentation>
+  </xsd:annotation>
+   
+  <xsd:choice minOccurs="0" maxOccurs="unbounded">
+    <xsd:element ref="xaif:ControlFlowVertex"></xsd:element>
+    <xsd:element name="ControlFlowEdge" type="xaif:EdgeType"></xsd:element>
+  </xsd:choice>
+
+  <xsd:attribute name="placeholder" type="xsd:string" use="required"/>
+</xsd:complexType>
 
 <!-- *********************************************************** -->
 <!-- Inlinable subroutine call                                   -->
