@@ -83,7 +83,7 @@ class XAIFContentHandler(ContentHandler):
       
     ''' Control flow graph '''
     if self.nonsname == 'ControlFlowGraph':
-      self.cfg = self.parseVertexElement(attrs)
+      self.cfg = self.parseElement(attrs)
       self.parser.callGraph.addVertex(self.cfg)
       self.parentVertex = self.cfg
 

@@ -46,6 +46,7 @@ class XAIFVertex (XAIFObject):
     return self.id
   def setId(self, id):
     self.id = id
+    self.attr['vertex_id'] = id
     pass
 
   def getType(self):
@@ -121,8 +122,19 @@ class XAIFGraph(XAIFObject):
       self.clearEdges(vertex)
     pass
 
+  def addVertexWithId(self, vertex_id):
+    '''Add a vertex if it does not already exist in the vertex list
+       - Should be able to use Set in Python 2.3'''
+    if vertex_id is None: return
+    if not vertex_id in self.vertices.keys():
+      self.vertices[vertex_id] = XAIFVertex()
+      self.vertices[vertex_id].setId(vertex_id)
+      self.clearEdges(self.vertices[vertex_id])
+    pass
   def addEdge(self, edge):
     '''Add an XAIFEdge to the graph'''
+    self.addVertexWithId(edge.getSource())
+    self.addVertexWithId(edge.getTarget())
     src = self.vertices[edge.getSource()]
     tgt = self.vertices[edge.getTarget()]
     if not src in self.inEdges[tgt].keys(): self.inEdges[tgt][src] = None
