@@ -32,14 +32,7 @@
 
   </xaif:ScopeHierarchy>
 
-  <xaif:ControlFlowGraph vertex_id="1" symbol_id="sub1" scope_id="1">
-    
-    <xaif:ArgumentList>
-       <xaif:ArgumentSymbolReference position="1" symbol_id="x" scope_id="2"/>
-       <xaif:ArgumentSymbolReference position="2" symbol_id="y" scope_id="2"/>
-    </xaif:ArgumentList>
-
-    <xaif:Replacement template_name="template" placeholder="3">
+    <xaif:Replacement vertex_id="1" template_name="template" placeholder="3">
       <xaif:BasicBlock vertex_id="1" scope_id="2">
 <!-- call sub2(x,y,2,1) -->
         <xaif:SubroutineCall statement_id="1" scope_id="1" symbol_id="sub2">
@@ -108,8 +101,6 @@
       </xaif:BasicBlock>
 
     </xaif:Replacement>
-
-  </xaif:ControlFlowGraph>
 
   <!-- ETC. -->
 

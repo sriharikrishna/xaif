@@ -509,7 +509,7 @@ is LHS, then DU, else UD.
   </xsd:annotation>
 
   <xsd:unique name="cgv_unique">
-    <xsd:selector xpath="ControlFlowGraph"/><xsd:field xpath="@vertex_id"/>
+    <xsd:selector xpath="CallGraphVertex"/><xsd:field xpath="@vertex_id"/>
   </xsd:unique>
   <xsd:unique name="cge_unique">
     <xsd:selector xpath="CallGraphEdge"/><xsd:field xpath="@edge_id"/>

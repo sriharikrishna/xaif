@@ -26,12 +26,6 @@
     <xsd:element ref="xaif:InlinableSubroutineCall"/>
   </xsd:choice>
 </xsd:group>
-<xsd:group name="ControlFlowVertexAndEdgeGroup">
-  <xsd:choice>
-    <xsd:group ref="xaif:ControlFlowVertexAndEdgeGroup"/>
-    <xsd:element name="Replacement" type="xaif:ReplacementType"/>
-  </xsd:choice>
-</xsd:group>
 </xsd:redefine>
 
 <!-- *********************************************************** -->
@@ -110,6 +104,9 @@
 <!-- *********************************************************** -->
 
 <xsd:complexType name="ReplacementType">
+  <xsd:complexContent>
+    <xsd:extension base="xaif:VertexType">
+
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
         Code fragments to be inserted into templates
@@ -123,7 +120,11 @@
 
     <xsd:attribute name="template_name" type="xsd:string" use="required"/>
     <xsd:attribute name="placeholder" type="xsd:string" use="required"/>
+    </xsd:extension>
+  </xsd:complexContent>
 </xsd:complexType>
+
+<xsd:element name="Replacement" type="xaif:ReplacementType" substitutionGroup="xaif:CallGraphVertex"/>
 
 <!-- *********************************************************** -->
 <!-- Inlinable subroutine call                                   -->
