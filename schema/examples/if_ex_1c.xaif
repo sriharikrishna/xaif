@@ -3,7 +3,7 @@
 void head(int i, double x, double *y) {
   double t1, t2;
 
-  if (x < y) {
+  if (x < *y) {
     t1 = sin(x) * (*y);
     t2 = t1 * x + i;
     y = t1 + t2;
