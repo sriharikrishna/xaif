@@ -27,9 +27,10 @@
   </xsd:choice>
 </xsd:group>
 <xsd:group name="ControlFlowVertexAndEdgeGroup">
-  <xsd:sequence>
+  <xsd:choice>
+    <xsd:group ref="xaif:ControlFlowVertexAndEdgeGroup"/>
     <xsd:element name="Replacement" type="xaif:ReplacementType"/>
-  </xsd:sequence>
+  </xsd:choice>
 </xsd:group>
 </xsd:redefine>
 
