@@ -149,6 +149,7 @@ class XAIFContentHandler(ContentHandler):
     el = eval('XAIF' + self.nonsname + '(attributes=attrs)')
     el.setType(self.nonsname)
     #el.setAttributes(attrs)
+    ##print 'Parsed element ', el
     return el 
 
   def parseEdge(self, attrs):
@@ -156,7 +157,7 @@ class XAIFContentHandler(ContentHandler):
     Return an XAIFEdge corresponding to the edge element
     '''
     e = XAIFEdge(attrs.get('edge_id','-1'), attrs.get('source',''), attrs.get('target',''), attrs)
-    print 'Parsed edge', e
+    ##print 'Parsed edge', e
     return e
   
   def parseExpressionEdge(self, attrs):
