@@ -10,7 +10,7 @@
 <!-- Scalar Addition -->
 <!-- *********************************************************** -->
 
-  <xaifii:InlinableIntrinsic name="add_scal_scal" nr_arguments="2">
+  <xaifii:InlinableIntrinsic name="add_scal_scal" nr_arguments="2" return_type="real">
     <xaifii:Function type="builtin" builtin_name="+"/>
     <xaifii:Partial partial_id="1" partial_type="linear_one">
       <xaif:Constant type="integer" value="1"/>

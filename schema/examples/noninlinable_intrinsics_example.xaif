@@ -2,6 +2,7 @@
 
 <xaifnii:NonInlinableIntrinsicDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:xaifnii="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics"
+       xmlns:xaif="http://www.mcs.anl.gov/XAIF"
        xsi:schemaLocation="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics xaif_noninlinable_intrinsics.xsd">     
 
 <!-- *********************************************************** -->
@@ -11,7 +12,7 @@
                                                                  -->
 <!-- *********************************************************** -->
 
-  <xaifnii:NonInlinableIntrinsic function="myfun" jacobian="myjac">
+  <xaifnii:NonInlinableIntrinsic function="myfun" jacobian="myjac" return_type="real">
     <xaifnii:Partial dep="2" indep="1" partial="4"/>
     <xaifnii:Partial dep="2" indep="2" partial="5"/>
     <xaifnii:Partial dep="3" indep="1" partial="6"/>

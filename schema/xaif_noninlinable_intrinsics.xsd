@@ -8,10 +8,13 @@
 
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	    xmlns:xaifnii="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics"
+            xmlns:xaif="http://www.mcs.anl.gov/XAIF"
 	    targetNamespace="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics"
 	    version="xaif (noninlinable intrinsics) 1.0"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified">
+
+<xsd:import namespace="http://www.mcs.anl.gov/XAIF" schemaLocation="xaif.xsd"/>
 
 <!-- *********************************************************** -->
 <!-- Definition of a noninlinable intrinsic function -->
@@ -24,13 +27,12 @@
          <xsd:attribute name="dep" type="xsd:positiveInteger" use="required"/>
          <xsd:attribute name="indep" type="xsd:positiveInteger" use="required"/>
          <xsd:attribute name="partial" type="xsd:positiveInteger" use="required"/>
-         <xsd:attribute name="returnType" type="xaif:SymbolTypeType"
-use="optional"/>
        </xsd:complexType>
      </xsd:element> 
    </xsd:sequence>
    <xsd:attribute name="function" type="xsd:string" use="required"/>
    <xsd:attribute name="jacobian" type="xsd:string" use="required"/>
+   <xsd:attribute name="return_type" type="xaif:SymbolTypeType" use="optional"/>
 </xsd:complexType>
 
 <!-- *********************************************************** -->
