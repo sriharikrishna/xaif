@@ -1490,7 +1490,10 @@ is LHS, then DU, else UD.
 
 
 <!-- *********************************************************** -->
-<!-- Built-in operations. -->
+<!-- Built-in real operations. 
+     These operations are the two basic chain rule operations 
+     that the system has to rely on independent of what 
+     the intrinsic catalogue contains. -->
 <!-- *********************************************************** -->
 
 <xsd:simpleType name="BuiltinRealOperations">
@@ -1508,6 +1511,17 @@ is LHS, then DU, else UD.
   </xsd:restriction>
 </xsd:simpleType>
 
+<!-- *********************************************************** -->
+<!-- Built-in boolean operations. 
+     The first 6 boolean operations are of the type that 
+     we are most interested in since they can involve active 
+     variables. 
+     The last 4 operations are supposed to be applied to 
+     booleans of integer-like types. They are in here to be 
+     able to represent the complete boolean expression and 
+     not burden the front-end with additional canonicalizations. -->
+<!-- *********************************************************** -->
+
 <xsd:simpleType name="BuiltinBooleanOperations">
 
   <xsd:annotation>
@@ -1523,18 +1537,6 @@ is LHS, then DU, else UD.
     <xsd:enumeration value="greater_or_equal"/>
     <xsd:enumeration value="equal"/>
     <xsd:enumeration value="not_equal"/>
-  </xsd:restriction>
-</xsd:simpleType>
-
-<xsd:simpleType name="BuiltinLogicalOperations">
-
-  <xsd:annotation>
-    <xsd:documentation xml:lang="en">
-      Logical operations built into XAIF.
-    </xsd:documentation>
-  </xsd:annotation>
-
-  <xsd:restriction base="xsd:string">
     <xsd:enumeration value="and"/>
     <xsd:enumeration value="or"/>
     <xsd:enumeration value="not"/>
