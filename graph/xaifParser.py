@@ -11,7 +11,7 @@ previous = 'None'
 
 class XAIFParser(object):
   def __init__(self):
-    self.graph = XAIFGraph()
+    self.callGraph = XAIFCallGraph()
     self.parser = make_parser()
     self.handler = XAIFContentHandler(self)
     self.parser.setContentHandler(self.handler)
@@ -41,7 +41,10 @@ class XAIFParser(object):
     return
 
   def displayGraph(self):
-    self.graph.displaySorted()
+    print '======== Call Graph =========='
+    self.callGraph.displaySorted()
+    print '~~~~~~ Scope Hierarchy ~~~~~~~'
+    self.callGraph.scopeGraph.displaySorted()
     return
 
 
@@ -52,6 +55,8 @@ class XAIFContentHandler(ContentHandler):
     self.context = 'None'
     self.currentScopeId = -1
     self.parentVertex = None
+    self.vertexList = []    # current (sub)graph vertices
+    self.edgeList = []      # current (sub)graph edges
     ''' Set features for handler '''
     self.feature_validation = 1
     self.feature_external_ges = 1
@@ -64,25 +69,30 @@ class XAIFContentHandler(ContentHandler):
     v = None
 
     if self.nonsname == 'CallGraph':
-      v = self.parseElement(attrs)
+      v = self.parseGraphElement(attrs)
+      self.parser.callGraph = XAIFCallGraph()
 
     ''' Scope hierarchy and symbol tables '''
     if self.nonsname == 'ScopeHierarchy':
-      v = self.parseElement(attrs)
+      #v = self.parseElement(attrs, graph=self.parser.callGraph)
+      self.edgeList = []
 
     if self.nonsname == 'Scope':
-      v = self.parseElement(attrs, attrs.get('vertex_id','-1'))
+      v = self.parseElement(attrs, attrs.get('vertex_id','-1'), self.parser.callGraph.scopeGraph)
       self.currentScopeId = attrs.get('vertex_id','-1')
+      self.parentVertex = v
 
     if self.nonsname == 'ScopeEdge':
-      e = self.parseEdge(attrs)
+      self.edgeList.append(self.parseEdge(attrs))
 
     if self.nonsname == 'SymbolTable':
       v = self.parseElement(attrs, self.currentScopeId)
-
+      self.parentVertex.setSymbolTable(v)
+      
     ''' Control flow graph '''
     if self.nonsname == 'ControlFlowGraph':
       v = self.parseElement(attrs,attrs.get('vertex_id'))
+      self.parser.callGraph.addVertex(v)
 
     if self.nonsname == 'Assignment':
       v = self.parseElement(attrs,attrs.get('statement_id'))
@@ -109,24 +119,44 @@ class XAIFContentHandler(ContentHandler):
     return
 
   def endElement(self, name):
+    self.nonsname = re.match(r'xaif:(\w+)', name).group(1)
+    self.current = self.nonsname
+    v = None
+
+    ''' Scope hierarchy and symbol tables '''
+    if self.nonsname == 'ScopeHierarchy':
+      for edge in self.edgeList:
+        self.parser.callGraph.scopeGraph.addEdge(edge)
+      self.edgeList = []
+
     return
 
-  def parseElement(self, attrs, id='-1'):
+  def parseElement(self, attrs, id='-1', graph=None):
     ''' 
     Return an XAIFVertex corresponding to the element with (no-namespace) name
     self.nonsname, setting all attributes accordingly
     '''
-    print 'Parsing ' + self.nonsname
     v = eval('XAIF' + self.nonsname + '(\'' + id + '\')')
     v.setAttributes(self.parser.attributes[self.nonsname], attrs)
-    self.parser.graph.addVertex(v)
+    if not graph == None:
+      graph.addVertex(v)
+    return v
+
+  def parseGraphElement(self, attrs, graph=None):
+    ''' 
+    Return an XAIFVertex corresponding to the element with (no-namespace) name
+    self.nonsname, setting all attributes accordingly
+    '''
+    v = eval('XAIF' + self.nonsname + '()')
+    v.setAttributes(self.parser.attributes[self.nonsname], attrs)
+    if not graph == None:
+      graph.addVertex(v)
     return v
 
   def parseEdge(self, attrs):
     ''' 
     Return an XAIFEdge corresponding to the edge element
     '''
-    print 'Parsing ' + self.nonsname
     e = XAIFEdge(attrs.get('edge_id','-1'), attrs.get('source',''), attrs.get('target',''))
     return e
   
