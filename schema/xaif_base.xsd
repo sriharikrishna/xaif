@@ -14,6 +14,17 @@
             elementFormDefault="qualified"
             attributeFormDefault="unqualified">       
 
+<xsd:attributeGroup name="FrontEndAnnotations">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      This is used by the front-end to annotate elements in the
+      XAIF file.
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:attribute name="annotation" type="xsd:string" use="optional" default=""/>
+</xsd:attributeGroup>
+
 <!-- *********************************************************** -->
 <!-- Vertices -->
 <!-- *********************************************************** -->
@@ -31,6 +42,7 @@
   </xsd:annotation>
 
   <xsd:attribute name="vertex_id" type="xsd:positiveInteger" use="optional" default="1"/>
+  <xsd:attributeGroup ref="xaif:FrontEndAnnotations"/>
 </xsd:complexType>
 
 <!-- *********************************************************** -->
@@ -53,6 +65,7 @@
   <xsd:attribute name="edge_id" type="xsd:positiveInteger" use="optional" default="1"/>
   <xsd:attribute name="source" type="xsd:positiveInteger" use="required"/>
   <xsd:attribute name="target" type="xsd:positiveInteger" use="required"/>
+  <xsd:attributeGroup ref="xaif:FrontEndAnnotations"/>
 </xsd:complexType>
 
 <!-- *********************************************************** -->
@@ -130,7 +143,7 @@
   <xsd:attribute name="kind"   type="SymbolKindType" default="variable"/>
   <xsd:attribute name="type"   type="SymbolTypeType" default="real"/>
   <xsd:attribute name="shape"   type="SymbolShapeType" default="scalar"/>
-  <xsd:attribute name="frontend_tag" type="xsd:string" use="optional"/>
+  <xsd:attributeGroup ref="xaif:FrontEndAnnotations"/>
 </xsd:complexType>
 
 <!-- *********************************************************** -->
@@ -602,7 +615,6 @@
 		   minOccurs="0" maxOccurs="1"/>
       </xsd:sequence>
 
-      <xsd:attribute name="frontend_tag" type="xsd:string" use="optional"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
@@ -825,6 +837,7 @@
 
   </xsd:sequence>
   <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
+  <xsd:attributeGroup ref="xaif:FrontEndAnnotations"/>
 </xsd:complexType>
 
 <xsd:element name="Assignment" type="AssignmentType"></xsd:element>        
