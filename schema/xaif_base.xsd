@@ -1406,18 +1406,19 @@ is LHS, then DU, else UD.
 </xsd:simpleType>
 
 <xsd:complexType name="VariableReferenceType">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Variable references are special expressions. For the time being,
+      the only vertex type allowed are symbol references. This will be
+      extended to comprise array access operators. The corresponding
+      index expressions will become elements of the array access operator
+      itself.
+    </xsd:documentation>
+  </xsd:annotation>
+
   <xsd:complexContent>
     <xsd:extension base="VertexType">
-
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-		Variable references are special expressions. For the time being,
-		the only vertex type allowed are symbol references. This will be
-		extended to comprise array access operators. The corresponding
-		index expressions will become elements of the array access operator
-		itself.
-        </xsd:documentation>
-      </xsd:annotation>
 
       <xsd:sequence>
 
@@ -1425,9 +1426,9 @@ is LHS, then DU, else UD.
     			minOccurs="1" maxOccurs="unbounded">
 
           <xsd:annotation>
-		  <xsd:documentation xml:lang="en">
-			  Variable reference vertices are abstract placeholders
-			  for symbol references and array references (later).
+ 	    <xsd:documentation xml:lang="en">
+	       Variable reference vertices are abstract placeholders
+	       for symbol references and array references (later).
             </xsd:documentation>
           </xsd:annotation>
 
@@ -1437,8 +1438,8 @@ is LHS, then DU, else UD.
     			minOccurs="0" maxOccurs="unbounded">
 
           <xsd:annotation>
-		  <xsd:documentation xml:lang="en"> 
-			  Not used so far. Later used to access array elements.
+	    <xsd:documentation xml:lang="en"> 
+  	      Not used so far. Later used to access array elements.
             </xsd:documentation>
           </xsd:annotation>
 
@@ -1450,6 +1451,21 @@ is LHS, then DU, else UD.
       <xsd:attribute name="alias" type="xsd:integer" use="optional" default="0"/>
       <xsd:attribute name="du_ud" type="xsd:integer" use="optional" default="0"/>
       <xsd:attribute name="deriv" type="xsd:boolean" use="optional" default="false"/>
+
+      <xsd:attribute name="constant" type="xsd:boolean" use="optional" default="false">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+  	   The front-end uses constant propagation analysis to determine 
+	   which variable uses have a value that is a unique literal 
+	   constant in which case the flag is set to 'true'. 
+	   This allows to determine cases of constant use for 
+	   variables with non-constant type and distinguishes the case of 
+	   variables with constant type but non-literal initialization 
+	   (e.g. initialization from a subroutine parameter).
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+
     </xsd:extension>
   </xsd:complexContent>
 </xsd:complexType>

@@ -34,11 +34,11 @@
      <xaif:BasicBlock vertex_id="2" annotation="sth" scope_id="2">
 
        <xaif:Assignment statement_id="1" active="true">
-         <xaif:AssignmentLHS live="true" annotation="" deriv="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
+         <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
-           <xaif:VariableReference vertex_id="1" active="undefined" alias="0" du_ud="0" deriv="false" annotation="">
+           <xaif:VariableReference vertex_id="1" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="">
              <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2" annotation=""></xaif:SymbolReference>
              <xaif:ArrayElementReference vertex_id="2" annotation="">
                <xaif:Index>
@@ -50,7 +50,7 @@
 	     </xaif:ArrayElementReference>
 	     <xaif:VariableReferenceEdge edge_id="1" source="1" target="2" annotation=""></xaif:VariableReferenceEdge>
            </xaif:VariableReference>
-           <xaif:VariableReference vertex_id="2" active="undefined" alias="0" du_ud="0" deriv="false" annotation="">
+           <xaif:VariableReference vertex_id="2" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="">
              <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2" annotation=""></xaif:SymbolReference>
              <xaif:ArrayElementReference vertex_id="2" annotation="">
                <xaif:Index>

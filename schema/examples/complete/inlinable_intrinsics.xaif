@@ -174,4 +174,32 @@
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
+
+
+
+
+  <xaifii:InlinableIntrinsic name="int_scal" nr_arguments="1" return_type="real">
+    <xaifii:Function type="builtin" builtin_name="int"></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+
+
+
+
+  <xaifii:InlinableIntrinsic name="real_int_scal" nr_arguments="1" return_type="real">
+    <xaifii:Function type="builtin" builtin_name="real"></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+
+
+
+
+  <xaifii:InlinableIntrinsic name="mod_scal_scal" nr_arguments="2" return_type="real">
+    <xaifii:Function type="builtin" builtin_name="mod"></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive"></xaifii:Partial>
+    <xaifii:Partial partial_id="2" partial_type="passive"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
 </xaifii:InlinableIntrinsicDefinitions>
