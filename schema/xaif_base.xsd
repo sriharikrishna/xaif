@@ -206,20 +206,9 @@
 <!-- Scope Hierarchy -->
 <!-- *********************************************************** -->
 
-<xsd:complexType name="ScopeHierarchyType">
-
-  <xsd:annotation>
-	  <xsd:documentation xml:lang="en">
-		  The scope hierarchy is a tree with a root representing
-		  the global scope. The global scope usually contains
-		  the name of the top-level routine, the names of its
-		  arguments, and any global symbols. 
-    </xsd:documentation>
-  </xsd:annotation>
-
-  <xsd:sequence>
-
-    <xsd:element name="Scope" minOccurs="1" maxOccurs="unbounded">
+<xsd:group name="ScopeVertexAndEdgeGroup">
+  <xsd:choice>
+    <xsd:element name="Scope" minOccurs="0" maxOccurs="unbounded">
 
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -235,7 +224,7 @@
           <xsd:extension base="VertexType">
             <xsd:sequence>
               <xsd:element ref="SymbolTable" 
-    		   minOccurs="1" maxOccurs="1"/>
+    		   minOccurs="1" maxOccurs="unbounded"/>
             </xsd:sequence>
           </xsd:extension>
         </xsd:complexContent>
@@ -243,7 +232,7 @@
     </xsd:element>
 
     <xsd:element name="ScopeEdge" type="EdgeType" 
-    		   minOccurs="0" maxOccurs="unbounded">
+    		   minOccurs="0" maxOccurs="1">
 
       <xsd:annotation>
 	<xsd:documentation xml:lang="en">
@@ -255,7 +244,22 @@
       </xsd:annotation>
 
     </xsd:element>
+  </xsd:choice>
+</xsd:group>
 
+<xsd:complexType name="ScopeHierarchyType">
+
+  <xsd:annotation>
+	  <xsd:documentation xml:lang="en">
+		  The scope hierarchy is a tree with a root representing
+		  the global scope. The global scope usually contains
+		  the name of the top-level routine, the names of its
+		  arguments, and any global symbols. 
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:sequence>
+    <xsd:group ref="ScopeVertexAndEdgeGroup" minOccurs="0" maxOccurs="unbounded"/>
   </xsd:sequence>
 
 </xsd:complexType>
@@ -367,6 +371,34 @@
 <!-- *********************************************************** -->
 <!-- Call Graph -->
 <!-- *********************************************************** -->
+<xsd:group name="CallGraphVertexAndEdgeGroup">
+  <xsd:choice>
+    <xsd:element ref="CallGraphVertex"     
+    		   minOccurs="1" maxOccurs="unbounded">
+
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+		Call graph vertices are abstract base types for
+		control flow graphs that represent the subroutines 
+		in the program.
+        </xsd:documentation>
+      </xsd:annotation>
+
+    </xsd:element>
+
+    <xsd:element name="CallGraphEdge" type="EdgeType" 
+    		   minOccurs="0" maxOccurs="unbounded">
+
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          An edge connects two call graph vertices if the target is
+          called within the source.
+        </xsd:documentation>
+      </xsd:annotation>
+
+    </xsd:element>
+  </xsd:choice>
+</xsd:group>
 
 <xsd:complexType name="CallGraphType">
 
@@ -402,30 +434,7 @@
 
     </xsd:element> 
 
-    <xsd:element ref="CallGraphVertex"     
-    		   minOccurs="1" maxOccurs="unbounded">
-
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-		Call graph vertices are abstract base types for
-		control flow graphs that represent the subroutines 
-		in the program.
-        </xsd:documentation>
-      </xsd:annotation>
-
-    </xsd:element>
-
-    <xsd:element name="CallGraphEdge" type="EdgeType" 
-    		   minOccurs="0" maxOccurs="unbounded">
-
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          An edge connects two call graph vertices if the target is
-          called within the source.
-        </xsd:documentation>
-      </xsd:annotation>
-
-    </xsd:element>
+    <xsd:group ref="CallGraphVertexAndEdgeGroup" minOccurs="0" maxOccurs="unbounded"/>
 
   </xsd:sequence>
 
@@ -511,6 +520,37 @@
   <xsd:attribute name="intent" type="IntentType" use="optional" default="inout"/>
 </xsd:complexType>
 
+<xsd:group name="ControlFlowVertexAndEdgeGroup">
+  <xsd:choice>
+    <xsd:element ref="ControlFlowVertex" 
+    		   minOccurs="1" maxOccurs="unbounded">
+
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+		Control flow graph vertices represent the basic 
+		blocks or certain control flow statements contained 
+		within a subroutine. 
+        </xsd:documentation>
+      </xsd:annotation>
+
+    </xsd:element>
+
+    <xsd:element name="ControlFlowEdge" type="EdgeType" 
+    		   minOccurs="0" maxOccurs="unbounded">
+
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Control flow graph edges represent the flow of control within the
+	  corresponding subroutine. An edge connects two control flow graph 
+	  vertex substitutes i and j if there are values for the subroutine 
+	  arguments such that j is executed immediately after i.
+        </xsd:documentation>
+      </xsd:annotation>
+
+    </xsd:element>
+  </xsd:choice>
+</xsd:group>
+
 <xsd:complexType name="ControlFlowGraphType">
  <xsd:complexContent>
     <xsd:extension base="VertexType">       
@@ -543,32 +583,7 @@
       </xsd:complexType>
     </xsd:element>
 
-    <xsd:element ref="ControlFlowVertex" 
-    		   minOccurs="1" maxOccurs="unbounded">
-
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-		Control flow graph vertices represent the basic 
-		blocks or certain control flow statements contained 
-		within a subroutine. 
-        </xsd:documentation>
-      </xsd:annotation>
-
-    </xsd:element>
-
-    <xsd:element name="ControlFlowEdge" type="EdgeType" 
-    		   minOccurs="0" maxOccurs="unbounded">
-
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          Control flow graph edges represent the flow of control within the
-	  corresponding subroutine. An edge connects two control flow graph 
-	  vertex substitutes i and j if there are values for the subroutine 
-	  arguments such that j is executed immediately after i.
-        </xsd:documentation>
-      </xsd:annotation>
-
-    </xsd:element>
+    <xsd:group ref="ControlFlowVertexAndEdgeGroup" minOccurs="0" maxOccurs="unbounded"/>
 
   </xsd:sequence>
   <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
@@ -958,31 +973,8 @@
 <!-- *********************************************************** -->
 <!-- Expression -->
 <!-- *********************************************************** -->
-
-<xsd:complexType name="ExpressionEdgeType">
-
-  <xsd:annotation>
-    <xsd:documentation xml:lang="en">
-    </xsd:documentation>
-  </xsd:annotation>
-  <xsd:complexContent>
-    <xsd:extension base="EdgeType">
-      <xsd:attribute name="position" type="xsd:integer" use="required"/>
-    </xsd:extension>
-  </xsd:complexContent>               
-
-</xsd:complexType>
-
-<xsd:complexType name="ExpressionType">
-
-  <xsd:annotation>
-    <xsd:documentation xml:lang="en">
-      Expressions are dag's in the classical compiler sense.
-    </xsd:documentation>
-  </xsd:annotation>
-
-  <xsd:sequence>
-
+<xsd:group name="ExpressionVertexAndEdgeGroup">
+  <xsd:choice>
     <xsd:element ref="ExpressionVertex" 
 			minOccurs="0" maxOccurs="unbounded">
 
@@ -1008,6 +1000,35 @@
       </xsd:annotation>
 
     </xsd:element>
+  </xsd:choice>
+</xsd:group>
+
+<xsd:complexType name="ExpressionEdgeType">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:extension base="EdgeType">
+      <xsd:attribute name="position" type="xsd:integer" use="required"/>
+    </xsd:extension>
+  </xsd:complexContent>               
+
+</xsd:complexType>
+
+<xsd:complexType name="ExpressionType">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Expressions are dag's in the classical compiler sense.
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:sequence>
+
+    <xsd:group ref="ExpressionVertexAndEdgeGroup" 
+               minOccurs="0" maxOccurs="unbounded"/>
 
   </xsd:sequence>
 </xsd:complexType>
