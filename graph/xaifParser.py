@@ -9,7 +9,7 @@ import re
 position = 'None'
 previous = 'None'
 
-class XAIFParser(object):
+class XAIFParser:
   def __init__(self):
     self.callGraph = XAIFCallGraph()
     self.parser = make_parser()
