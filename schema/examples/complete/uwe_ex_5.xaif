@@ -42,8 +42,8 @@
   <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1" active="true" annotation="">
 
      <xaif:ArgumentList>
-       <xaif:ArgumentSymbolReference position="1" symbol_id="x" scope_id="2" active="true" deriv="false" intent="inout"></xaif:ArgumentSymbolReference>
-       <xaif:ArgumentSymbolReference position="2" symbol_id="y" scope_id="2" active="true" deriv="false" intent="inout"></xaif:ArgumentSymbolReference>
+       <xaif:ArgumentSymbolReference position="1" symbol_id="x" scope_id="2" active="true" deriv="false" intent="inout" annotation=""></xaif:ArgumentSymbolReference>
+       <xaif:ArgumentSymbolReference position="2" symbol_id="y" scope_id="2" active="true" deriv="false" intent="inout" annotation=""></xaif:ArgumentSymbolReference>
      </xaif:ArgumentList>
 
      <xaif:Entry vertex_id="1" annotation=""></xaif:Entry>

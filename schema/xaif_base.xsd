@@ -558,22 +558,24 @@ is LHS, then DU, else UD.
 </xsd:simpleType>
 
 <xsd:complexType name="ArgumentSymbolReferenceType">
-
-  <xsd:annotation>
-	  <xsd:documentation xml:lang="en">
-		  Arguments of subroutines are uniquely determined by their
-		  position within the argument list and by a reference to the
-		  corresponding symbol. Additionally, their activity status 
-		  (default: active) and intent (default: inout) can be specified.
-    </xsd:documentation>
-  </xsd:annotation>
-
-  <xsd:attribute name="position" type="xsd:positiveInteger" use="required"/>
-  <xsd:attribute name="symbol_id" type="xsd:string" use="required"/>
-  <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
-  <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
-  <xsd:attribute name="deriv" type="xsd:boolean" use="optional" default="false"/>
-  <xsd:attribute name="intent" type="IntentType" use="optional" default="inout"/>
+  <xsd:complexContent>
+    <xsd:extension base="FrontEndAnnotationType">       
+      <xsd:annotation>
+	 <xsd:documentation xml:lang="en">
+	    Arguments of subroutines are uniquely determined by their
+            position within the argument list and by a reference to the
+	    symbol. Additionally, their activity status 
+	    default : active) and intent (default: inout) can be specified.
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute name="position" type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="symbol_id" type="xsd:string" use="required"/>
+      <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="active" type="xsd:boolean" use="optional" default="true"/>
+      <xsd:attribute name="deriv" type="xsd:boolean" use="optional" default="false"/>
+      <xsd:attribute name="intent" type="IntentType" use="optional" default="inout"/>
+    </xsd:extension>       
+  </xsd:complexContent>
 </xsd:complexType>
 
 <xsd:group name="ControlFlowVertexAndEdgeGroup">
