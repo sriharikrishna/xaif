@@ -106,7 +106,9 @@ class XAIFGraph(XAIFObject):
     self.outEdges = {}
     self.roots = []
     self.leaves = []
-    map(self.addVertex, vertices)
+    ##map(self.addVertex, vertices)
+    for index in vertices.keys():
+      self.addVertex(vertices[index])
     pass
 
   def __str__(self):
@@ -196,13 +198,21 @@ class XAIFGraph(XAIFObject):
 
   def addSubgraph(self, graph):
     '''Add the vertices and edges of another graph into this one'''
-    map(self.addVertex, graph.vertices)
-    map(lambda v: apply(self.addEdges, (v,)+graph.getEdges(v)), graph.vertices)
+    ##map(self.addVertex, graph.vertices)
+    for index in graph.vertices.keys():
+      self.addVertex(vertices[index])
+
+    ##map(lambda v: apply(self.addEdges, (v,)+graph.getEdges(v)), graph.vertices)
+    for index in graph.vertices.keys():
+      f = lambda v: apply(self.addEdges, (v,)+graph.getEdges(v))
+      f(graph.vertices[index])
     pass
 
   def removeSubgraph(self, graph):
     '''Remove the vertices and edges of a subgraph, and all the edges connected to it'''
-    map(self.removeVertex, graph.vertices)
+    ##map(self.removeVertex, graph.vertices)
+    for index in graph.vertices.keys():
+      self.removeVertex(vertices[index])
     pass
 
   def printIndent(self, indent):
@@ -242,19 +252,19 @@ class XAIFGraph(XAIFObject):
       #print '('+str(self.vertices.index(vertex))+') '+str(vertex)+' in: '+str(map(self.vertices.index, self.inEdges[vertex]))+' out: '+str(map(self.vertices.index, self.outEdges[vertex]))
     pass
 
-  def appendGraph(self, graph):
-    '''Join every leaf of this graph to every root of the input graph, leaving the result in this graph'''
-    leaves = XAIFGraph.getLeaves(self)
-    self.addSubgraph(graph)
-    map(lambda v: self.addEdges(v, outputs = XAIFGraph.getRoots(graph)), leaves)
-    return self
+##  def appendGraph(self, graph):
+##    '''Join every leaf of this graph to every root of the input graph, leaving the result in this graph'''
+##    leaves = XAIFGraph.getLeaves(self)
+##    self.addSubgraph(graph)
+##    map(lambda v: self.addEdges(v, outputs = XAIFGraph.getRoots(graph)), leaves)
+##    return self
 
-  def prependGraph(self, graph):
-    '''Join every leaf of the input graph to every root of this graph, leaving the result in this graph'''
-    roots = XAIFGraph.getRoots(self)
-    self.addSubgraph(graph)
-    map(lambda v: self.addEdges(v, outputs = roots), XAIFGraph.getLeaves(graph))
-    return self
+##  def prependGraph(self, graph):
+##    '''Join every leaf of the input graph to every root of this graph, leaving the result in this graph'''
+##    roots = XAIFGraph.getRoots(self)
+##    self.addSubgraph(graph)
+##    map(lambda v: self.addEdges(v, outputs = roots), XAIFGraph.getLeaves(graph))
+##    return self
 
   def getRoots(graph):
     '''Return all the sources in the graph (nodes without entering edges)'''
