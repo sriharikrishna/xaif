@@ -265,7 +265,7 @@ class XAIFGraph(XAIFObject):
         graph.roots.append(v)
     return graph.roots
     #return filter(lambda v: not len(graph.getEdges(v)[0]), graph.vertices)
-  getRoots = staticmethod(getRoots)
+  ##getRoots = staticmethod(getRoots)
 
   def getLeaves(graph):
     '''Return all the sinks in the graph (nodes without exiting edges)'''
@@ -276,7 +276,7 @@ class XAIFGraph(XAIFObject):
         graph.leaves.append(v)
     return graph.leaves
     #return filter(lambda v: not len(graph.getEdges(v)[1]), graph.vertices)
-  getLeaves = staticmethod(getLeaves)
+  ##getLeaves = staticmethod(getLeaves)
 
 ##  def depthFirstVisit(graph, vertex, seen = None, returnFinished = 0):
 ##    '''This is a generator returning vertices in a depth-first traversal only for the subtree rooted at vertex'''
