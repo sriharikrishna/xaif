@@ -20,7 +20,10 @@ end subroutine
     <xaif:Scope vertex_id="1">
       <xaif:SymbolTable>
         <xaif:Symbol symbol_id="head" kind="subroutine" type="void"/>
-        <xaif:Symbol symbol_id="x" shape="matrix"/>
+        <xaif:Symbol symbol_id="x" shape="matrix">
+	  <xaif:DimensionBounds lower="1" upper="10"/>
+	  <xaif:DimensionBounds lower="1" upper="10"/>
+	</xaif:Symbol>
         <xaif:Symbol symbol_id="y"/>
       </xaif:SymbolTable>
     </xaif:Scope>

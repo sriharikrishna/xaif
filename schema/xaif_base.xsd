@@ -148,8 +148,35 @@
 
 </xsd:simpleType>
 
+<xsd:complexType name="DimensionBoundsType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+       For vectors, matrices, etc that have fixed dimensions 
+       we provide dimension bounds.
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:attribute name="lower"  type="xsd:integer" use="required"/>
+  <xsd:attribute name="upper"  type="xsd:integer" use="required"/>
+</xsd:complexType>
+
+<xsd:group name="DimensionBoundsGroup">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+       The sequence of dimension bounds. Since we only go up to 
+       four_tensor for now it is limited to 4 entries. The order 
+       in the list implies dimension bounds starting from the 
+       top level.
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:sequence>
+    <xsd:element name="DimensionBounds" type="DimensionBoundsType" 
+       minOccurs="0" maxOccurs="4">
+    </xsd:element>  
+  </xsd:sequence>
+</xsd:group>
+
 <xsd:complexType name="SymbolType">
- <xsd:complexContent>
+  <xsd:complexContent>
     <xsd:extension base="FrontEndAnnotationType">       
       <xsd:annotation>
 	  <xsd:documentation xml:lang="en">
@@ -157,15 +184,20 @@
 		  identified within the current scope (the current symbol 
 		  table) by their symbol_id. Furthermore, we store their
 		  kind, type, and shape. By default, we consider real scalar
-    		  variables.
+    		  variables. Vectors, matrices etc. can have variable dimensions
+                  and then there is nothing in the DimensionBoundsGroup.
+		  But if they are fixed we assume we have fixed bounds for ALL 
+                  dimensions and expect a list of (max 4, because we only have 
+	          four_tensor right now) all dimension bounds.  
         </xsd:documentation>
       </xsd:annotation>
-      <xsd:attribute name="symbol_id" type="xsd:string"      use="required"/>
-      <xsd:attribute name="kind"      type="SymbolKindType"  use="optional" default="variable"/>
-      <xsd:attribute name="type"      type="SymbolTypeType"  use="optional" default="real"/>
-      <xsd:attribute name="shape"     type="SymbolShapeType" use="optional" default="scalar"/>
-      <xsd:attribute name="active"    type="xsd:boolean"     use="optional" default="true"/>
-      <xsd:attribute name="temp"      type="xsd:boolean"     use="optional" default="false"/>
+      <xsd:group ref="DimensionBoundsGroup" minOccurs="0" maxOccurs="1"/>
+      <xsd:attribute name="symbol_id"          type="xsd:string"      use="required"/>
+      <xsd:attribute name="kind"               type="SymbolKindType"  use="optional" default="variable"/>
+      <xsd:attribute name="type"               type="SymbolTypeType"  use="optional" default="real"/>
+      <xsd:attribute name="shape"              type="SymbolShapeType" use="optional" default="scalar"/>
+      <xsd:attribute name="active"             type="xsd:boolean"     use="optional" default="true"/>
+      <xsd:attribute name="temp"               type="xsd:boolean"     use="optional" default="false"/>
     </xsd:extension>       
   </xsd:complexContent>
 </xsd:complexType>

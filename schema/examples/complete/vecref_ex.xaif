@@ -6,7 +6,10 @@
     <xaif:Scope vertex_id="1" annotation="">
       <xaif:SymbolTable>
         <xaif:Symbol symbol_id="head" kind="subroutine" type="void" annotation="" shape="scalar" temp="false" active="true"></xaif:Symbol>
-        <xaif:Symbol symbol_id="x" shape="matrix" annotation="" type="real" kind="variable" temp="false" active="true"></xaif:Symbol>
+        <xaif:Symbol symbol_id="x" shape="matrix" annotation="" type="real" kind="variable" temp="false" active="true">
+	  <xaif:DimensionBounds lower="1" upper="10"></xaif:DimensionBounds>
+	  <xaif:DimensionBounds lower="1" upper="10"></xaif:DimensionBounds>
+	</xaif:Symbol>
         <xaif:Symbol symbol_id="y" annotation="" type="real" shape="scalar" kind="variable" temp="false" active="true"></xaif:Symbol>
       </xaif:SymbolTable>
     </xaif:Scope>
