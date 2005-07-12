@@ -144,6 +144,7 @@
     <xsd:enumeration value="matrix"/>
     <xsd:enumeration value="three_tensor"/>
     <xsd:enumeration value="four_tensor"/>
+    <xsd:enumeration value="five_tensor"/>
   </xsd:restriction>
 
 </xsd:simpleType>
@@ -163,14 +164,14 @@
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
        The sequence of dimension bounds. Since we only go up to 
-       four_tensor for now it is limited to 4 entries. The order 
+       five_tensor for now it is limited to 5 entries. The order 
        in the list implies dimension bounds starting from the 
        top level.
     </xsd:documentation>
   </xsd:annotation>
   <xsd:sequence>
     <xsd:element name="DimensionBounds" type="DimensionBoundsType" 
-       minOccurs="0" maxOccurs="4">
+       minOccurs="0" maxOccurs="5">
     </xsd:element>  
   </xsd:sequence>
 </xsd:group>
@@ -187,8 +188,8 @@
     		  variables. Vectors, matrices etc. can have variable dimensions
                   and then there is nothing in the DimensionBoundsGroup.
 		  But if they are fixed we assume we have fixed bounds for ALL 
-                  dimensions and expect a list of (max 4, because we only have 
-	          four_tensor right now) all dimension bounds.  
+                  dimensions and expect a list of (max 5, because we only have 
+	          five_tensor right now) all dimension bounds.  
         </xsd:documentation>
       </xsd:annotation>
       <xsd:group ref="DimensionBoundsGroup" minOccurs="0" maxOccurs="1"/>
