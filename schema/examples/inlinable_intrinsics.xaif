@@ -244,6 +244,24 @@
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
+<!-- Scalar Hyperbolic tangens -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="tanh_scal" nr_arguments="1">
+    <xaifii:Function type="builtin" builtin_name="tanh"/>
+    <xaifii:Partial partial_id="1">
+      <xaif:Constant            vertex_id="1" type="integer" value="1"/>
+      <xaifii:ArgumentReference vertex_id="2" argument="0"/> 
+      <xaif:Intrinsic           vertex_id="3" name="mul_scal_scal"/>
+      <xaif:Intrinsic           vertex_id="4" name="sub_scal_scal"/>
+      <xaif:ExpressionEdge edge_id="1" source="1" target="4" position="1"/> 
+      <xaif:ExpressionEdge edge_id="2" source="2" target="3" position="1"/> 
+      <xaif:ExpressionEdge edge_id="3" source="2" target="3" position="2"/> 
+      <xaif:ExpressionEdge edge_id="4" source="3" target="4" position="2"/> 
+    </xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
 <!-- Scalar Exponential -->
 <!-- *********************************************************** -->
 

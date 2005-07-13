@@ -1426,13 +1426,15 @@
 <xsd:complexType name="SubroutineArgumentType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
-	An argument may either be a variable or 
-	constant (but no expression).
+	An argument may either be a single variable or 
+	a single constant. More complex 
+	expressions are supposed to be hoisted 
+	by canonicalization.
     </xsd:documentation>
   </xsd:annotation>
   <xsd:choice minOccurs="1" maxOccurs="1">
-    <xsd:element name="VarArg" type="VariableReferenceType" minOccurs="0" maxOccurs="1"/>
-    <xsd:element name="ConstArg" type="ConstantType" minOccurs="0" maxOccurs="1"/>
+    <xsd:element name="VariableReference" type="VariableReferenceType" minOccurs="0" maxOccurs="1"/>
+    <xsd:element name="Constant" type="ConstantType" minOccurs="0" maxOccurs="1"/>
   </xsd:choice>               
   <xsd:attribute name="position" type="xsd:positiveInteger" use="required"/>
 </xsd:complexType>
