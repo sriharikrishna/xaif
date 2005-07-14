@@ -161,14 +161,12 @@
 <xsd:complexType name="InlinableSubroutineCallType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
-      Take the body of *subroutine_name and substitute given expressions
+      Take the body of *subroutine_name and substitute given arguments
       for the corresponding dummy arguments
     </xsd:documentation>
   </xsd:annotation>
-
   <xsd:sequence>
-      <xsd:element name="ArgumentSubstitute" type="ArgumentSubstituteType"
-        minOccurs="0" maxOccurs="unbounded"/>
+    <xsd:element name="Argument" type="SubroutineArgumentType" minOccurs="0" maxOccurs="unbounded"/>
   </xsd:sequence>
   <xsd:attribute name="subroutine_name" type="xsd:string" use="required"/>
   <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
