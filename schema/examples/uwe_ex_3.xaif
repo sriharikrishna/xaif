@@ -141,13 +141,19 @@
        <xaif:SubroutineCall statement_id="my_add_1"
                             symbol_id="my_add" scope_id="1">
          <xaif:Argument position="1">
+           <xaif:VariableReference vertex_id="1">
              <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2"/>
+           </xaif:VariableReference>
          </xaif:Argument>
          <xaif:Argument position="2">
+           <xaif:VariableReference vertex_id="1">
              <xaif:SymbolReference vertex_id="1" symbol_id="t2" scope_id="2"/>
+           </xaif:VariableReference>
          </xaif:Argument>
          <xaif:Argument position="3">
+           <xaif:VariableReference vertex_id="1">
              <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
+           </xaif:VariableReference>
          </xaif:Argument>
        </xaif:SubroutineCall>
 
