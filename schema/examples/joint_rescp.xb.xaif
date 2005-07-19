@@ -43,22 +43,30 @@
     </xaif:DUUDSet>
   </xaif:DUUDSetList>
 
-  <xaif:ReplacementList vertex_id="1" template_name="template" symbol_id="sub1" scope_id="1">
+  <xaif:ReplacementList vertex_id="1" template_name="template" symbol_id="sub1" scope_id="1" controlflowgraph_scope_id="2">
     <xaif:Replacement placeholder="3">
       <xaif:BasicBlock vertex_id="1" scope_id="2">
 <!-- call sub2(x,y,2,1) -->
         <xaif:SubroutineCall statement_id="1" scope_id="1" symbol_id="sub2">
           <xaif:Argument position="1">
-            <xaif:SymbolReference vertex_id="1" scope_id="2" symbol_id="x"/>
+            <xaif:VariableReference vertex_id="1">
+             <xaif:SymbolReference vertex_id="1" scope_id="2" symbol_id="x"/>
+            </xaif:VariableReference>
           </xaif:Argument>
           <xaif:Argument position="2">
-            <xaif:SymbolReference vertex_id="1" scope_id="2" symbol_id="y"/>
+            <xaif:VariableReference vertex_id="1">
+              <xaif:SymbolReference vertex_id="1" scope_id="2" symbol_id="y"/>
+            </xaif:VariableReference>
           </xaif:Argument>
           <xaif:Argument position="3">
-            <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="TWO"/>        
+            <xaif:VariableReference vertex_id="1">
+              <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="TWO"/>        
+            </xaif:VariableReference>
           </xaif:Argument>
           <xaif:Argument position="4">
-            <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="ONE"/>        
+            <xaif:VariableReference vertex_id="1">
+              <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="ONE"/>        
+            </xaif:VariableReference>
           </xaif:Argument>
         </xaif:SubroutineCall>
 
@@ -80,9 +88,11 @@
 
 <!-- call push_partial(partial_1) -->
         <xaif:InlinableSubroutineCall subroutine_name="push_partial" statement_id="inline_1">
-          <xaif:ArgumentSubstitute position="1">
-            <xaif:SymbolReference vertex_id="1" symbol_id="partial_1" scope_id="2"/>
-          </xaif:ArgumentSubstitute>
+          <xaif:Argument position="1">
+            <xaif:VariableReference vertex_id="1">
+              <xaif:SymbolReference vertex_id="1" symbol_id="partial_1" scope_id="2"/>
+            </xaif:VariableReference>
+          </xaif:Argument>
         </xaif:InlinableSubroutineCall>
 
  <!-- y%v=cos(y%v)

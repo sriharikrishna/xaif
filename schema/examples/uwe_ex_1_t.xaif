@@ -41,7 +41,7 @@
     </xaif:DUUDSet>
   </xaif:DUUDSetList>
 
-  <xaif:ReplacementList vertex_id="1" template_name="test" symbol_id="head" scope_id="1"> 
+  <xaif:ReplacementList vertex_id="1" template_name="test" symbol_id="head" controlflowgraph_scope_id="2" scope_id="1"> 
      <xaif:Replacement placeholder="whatever"> 
        <xaif:Entry vertex_id="1"/>
 
@@ -63,15 +63,19 @@
 <!-- x=y via pushes and pops -->
          
          <xaif:InlinableSubroutineCall subroutine_name="push" statement_id="inline_1">
-           <xaif:ArgumentSubstitute position="1">
-             <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
-           </xaif:ArgumentSubstitute>
+           <xaif:Argument position="1">
+             <xaif:VariableReference vertex_id="1">
+                <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
+              </xaif:VariableReference>
+           </xaif:Argument>
          </xaif:InlinableSubroutineCall>
          
          <xaif:InlinableSubroutineCall subroutine_name="pop" statement_id="inline_2">
-           <xaif:ArgumentSubstitute position="1">
-             <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
-           </xaif:ArgumentSubstitute>
+           <xaif:Argument position="1">
+             <xaif:VariableReference vertex_id="1">
+                <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
+              </xaif:VariableReference>
+           </xaif:Argument>
          </xaif:InlinableSubroutineCall>
   
          <xaif:Assignment statement_id="sage_2">
