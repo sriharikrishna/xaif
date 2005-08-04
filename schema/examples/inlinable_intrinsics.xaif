@@ -349,6 +349,22 @@
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
+<!-- Array bounds -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="lbound" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name="lbound"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+  <xaifii:InlinableIntrinsic name="ubound" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name="ubound"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
 <!-- Remainder of x and y (MOD(x,y)) as in x-INT(x/y)*y          -->
 <!-- *********************************************************** -->
 
