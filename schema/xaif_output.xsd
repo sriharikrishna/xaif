@@ -1,10 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- *********************************************************** -->
-<!-- XAIF Schema Definition (template handling)                  -->
-<!-- Uwe Naumann                                                 -->
-<!-- MCS, ANL, 2004                                              -->
-<!-- *********************************************************** -->
+<!--
+  ========== begin copyright notice ==============
+  This file is part of
+  ---------------
+  xaif
+  ---------------
+  
+  DISCLAIMER
+  
+  THIS INFORMATION IS PROVIDED WITHOUT ANY EXPRESS OR
+  IMPLIED WARRANTY. IN PARTICULAR, THERE IS NO WARRANTY
+  OF ANY KIND CONCERNING THE FITNESS OF THIS INFORMATION
+  FOR ANY PARTICULAR PURPOSE.
+  
+  General Information:
+  The xaif schema is intended for an xml base 
+  intermediate representation of numerical programs. 
+  Its scope is reduced to represent the numerical 
+  kernel of the programs as relevant to a semantic 
+  transformation of the numerical computations. 
+  It is part of the OpenAD framework.
+  The main application is automatic
+  differentiation, i.e. the generation of code for
+  the computation of derivatives.
+  The following people are the principal authors of the
+  current version:
+    Uwe Naumann
+    Boyana Norris
+    Jean Utke
+  
+  For more details about xaif and its use in OpenAD please visit:
+    http://www.mcs.anl.gov/openad
+  
+  This work is partially supported by:
+    NSF-ITR grant OCE-0205590
+  ========== end copyright notice ==============
+-->
 
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	    xmlns:xaif="http://www.mcs.anl.gov/XAIF"
