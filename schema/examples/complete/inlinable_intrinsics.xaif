@@ -347,6 +347,22 @@
 
 
 
+  <xaifii:InlinableIntrinsic name="lbound" nr_arguments="2" return_type="real">
+    <xaifii:Function type="builtin" builtin_name="lbound"></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive"></xaifii:Partial>
+    <xaifii:Partial partial_id="2" partial_type="passive"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+  <xaifii:InlinableIntrinsic name="ubound" nr_arguments="2" return_type="real">
+    <xaifii:Function type="builtin" builtin_name="ubound"></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive"></xaifii:Partial>
+    <xaifii:Partial partial_id="2" partial_type="passive"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+
+
+
+
   <xaifii:InlinableIntrinsic name="mod_scal_scal" nr_arguments="2" return_type="real">
     <xaifii:Function type="builtin" builtin_name="mod"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="linear_one">
