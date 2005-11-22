@@ -1783,6 +1783,33 @@
 
 
 <!-- *********************************************************** -->
+<!-- Symbol Reference Properties -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="SymbolReferencePropertyType">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      A name-value pair for arbitrary symbol reference properties.
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:attribute name="name" type="xsd:string" use="required"/>
+  <xsd:attribute name="value" type="xsd:string" use="required"/>
+</xsd:complexType>
+
+<xsd:element name="SymbolReferenceProperty" type="SymbolReferencePropertyType">
+  <xsd:annotation>
+     <xsd:documentation xml:lang="en">
+       The optional symbol reference properties appear inside symbol
+       references and can be used to annotate them in arbitrary module-specific
+       ways. Some commonly used properties should be considered for  
+       definition as SymbolReference attributes. 
+    </xsd:documentation>
+  </xsd:annotation>
+</xsd:element>
+
+<!-- *********************************************************** -->
 <!-- Symbol Reference -->
 <!-- *********************************************************** -->
 
@@ -1796,6 +1823,10 @@
 
   <xsd:complexContent>
     <xsd:extension base="VertexType">
+      <xsd:sequence>
+        <xsd:element ref="SymbolReferenceProperty"
+                     minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
       <xsd:attribute name="symbol_id" type="xsd:string" use="required"/>
       <xsd:attribute name="scope_id" type="xsd:positiveInteger" use="required"/>
     </xsd:extension>

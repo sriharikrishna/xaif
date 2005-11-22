@@ -18,7 +18,7 @@ filename = sys.argv[1]
 print 'File is', filename
 
 parser = XAIFParser()
-parser.validate("uwe_ex_1.xaif")
+parser.validate(filename)
 #parser.parse("../schema/examples/uwe_ex_3.xaif")
 #parser.displayGraph()
   

@@ -83,7 +83,9 @@ end subroutine
 
        <xaif:Assignment statement_id="ass1">
          <xaif:AssignmentLHS du_ud="1">
-           <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2"/>
+           <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2">
+	     <xaif:SymbolReferenceProperty name="prop_name" value="prop_value"/>
+	   </xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
            <xaif:VariableReference vertex_id="1">
