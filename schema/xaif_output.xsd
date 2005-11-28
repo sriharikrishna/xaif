@@ -140,7 +140,7 @@
     <xsd:extension base="xaif:VertexType">
       <xsd:sequence>
         <xsd:element name="ArgumentList" type="xaif:ArgumentListType" minOccurs="0" maxOccurs="1"/>
-        <xsd:element name="Replacement" type="ReplacementType" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element name="Replacement" type="xaif:ReplacementType" minOccurs="0" maxOccurs="unbounded"/>
       </xsd:sequence>
       <xsd:attribute name="template_name" type="xsd:string" use="required"/>
       <xsd:attribute name="symbol_id" type="xsd:string" use="required"/>
@@ -198,7 +198,7 @@
     </xsd:documentation>
   </xsd:annotation>
   <xsd:sequence>
-    <xsd:element name="Argument" type="SubroutineArgumentType" minOccurs="0" maxOccurs="unbounded"/>
+    <xsd:element name="Argument" type="xaif:SubroutineArgumentType" minOccurs="0" maxOccurs="unbounded"/>
   </xsd:sequence>
   <xsd:attribute name="subroutine_name" type="xsd:string" use="required"/>
   <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
