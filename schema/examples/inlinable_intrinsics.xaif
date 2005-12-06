@@ -403,6 +403,15 @@
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
+<!-- String length -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="len" nr_arguments="1">
+    <xaifii:Function type="builtin" builtin_name="len"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
 <!-- Remainder of x and y (MOD(x,y)) as in x-INT(x/y)*y          -->
 <!-- *********************************************************** -->
 
