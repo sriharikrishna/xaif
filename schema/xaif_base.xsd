@@ -968,9 +968,8 @@
          <xsd:element name="Update" type="AssignmentType"
 		   minOccurs="0" maxOccurs="1"/>
       </xsd:sequence>
-
       <xsd:attribute name="reversal" type="xaif:ForLoopReversalType" use="optional" default="anonymous"/>
-
+      <xsd:attribute name="lineNumber" type="xsd:nonNegativeInteger" use="optional" default="0"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
@@ -1002,6 +1001,7 @@
          <xsd:element name="Condition" type="ExpressionType"
    		   minOccurs="0" maxOccurs="1"/>
       </xsd:sequence>
+      <xsd:attribute name="lineNumber" type="xsd:nonNegativeInteger" use="optional" default="0"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
@@ -1033,6 +1033,7 @@
          <xsd:element name="Condition" type="ExpressionType"
 		   minOccurs="0" maxOccurs="1"/>
       </xsd:sequence>
+      <xsd:attribute name="lineNumber" type="xsd:nonNegativeInteger" use="optional" default="0"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
@@ -1063,6 +1064,7 @@
          <xsd:element name="Condition" type="ExpressionType"
 		   minOccurs="0" maxOccurs="1"/>
       </xsd:sequence>
+      <xsd:attribute name="lineNumber" type="xsd:nonNegativeInteger" use="optional" default="0"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
@@ -1094,6 +1096,7 @@
          <xsd:element name="Condition" type="ExpressionType"
 		   minOccurs="0" maxOccurs="1"/>
       </xsd:sequence>
+      <xsd:attribute name="lineNumber" type="xsd:nonNegativeInteger" use="optional" default="0"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
@@ -1340,6 +1343,7 @@
   <xsd:complexContent>
     <xsd:extension base="AssignmentType">
       <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
+      <xsd:attribute name="lineNumber" type="xsd:nonNegativeInteger" use="optional" default="0"/>
     </xsd:extension>       
   </xsd:complexContent>
 </xsd:complexType>
@@ -1491,6 +1495,7 @@
       <xsd:attribute name="symbol_id" type="xsd:string"/>
       <xsd:attribute name="scope_id" type="xsd:positiveInteger"/>
       <xsd:attribute name="active" type="xaif:ActiveUseType" use="optional" default="undefined"/>
+      <xsd:attribute name="lineNumber" type="xsd:nonNegativeInteger" use="optional" default="0"/>
 </xsd:complexType> 
 
 <xsd:element name="SubroutineCall" type="SubroutineCallType"/>

@@ -43,7 +43,7 @@
 
      <xaif:Entry vertex_id="1" annotation=""></xaif:Entry>
 
-     <xaif:ForLoop vertex_id="2" reversal="anonymous" annotation="">
+     <xaif:ForLoop vertex_id="2" lineNumber="7" reversal="anonymous" annotation="">
 
        <xaif:Initialization>
          <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
@@ -83,7 +83,7 @@
 
      <xaif:BasicBlock vertex_id="3" scope_id="2" annotation="">
 
-       <xaif:Assignment statement_id="sage_1">
+       <xaif:Assignment statement_id="sage_1" lineNumber="8">
          <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
@@ -102,7 +102,7 @@
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
 
-       <xaif:Assignment statement_id="sage_2">
+       <xaif:Assignment statement_id="sage_2" lineNumber="9">
          <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="t2" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
@@ -125,7 +125,7 @@
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
 
-       <xaif:Assignment statement_id="sage_3">
+       <xaif:Assignment statement_id="sage_3" lineNumber="10">
          <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>

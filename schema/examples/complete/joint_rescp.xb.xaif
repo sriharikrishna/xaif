@@ -39,7 +39,7 @@
     <xaif:Replacement placeholder="3">
       <xaif:BasicBlock vertex_id="1" scope_id="2" annotation="">
 
-        <xaif:SubroutineCall statement_id="1" scope_id="1" symbol_id="sub2" active="undefined">
+        <xaif:SubroutineCall statement_id="1" scope_id="1" symbol_id="sub2" active="undefined" lineNumber="0">
           <xaif:Argument position="1">
             <xaif:VariableReference vertex_id="1" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="">
              <xaif:SymbolReference vertex_id="1" scope_id="2" symbol_id="x" annotation=""></xaif:SymbolReference>
@@ -62,7 +62,7 @@
           </xaif:Argument>
         </xaif:SubroutineCall>
 
-       <xaif:Assignment statement_id="partial_1">
+       <xaif:Assignment statement_id="partial_1" lineNumber="0">
          <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="partial_1" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>

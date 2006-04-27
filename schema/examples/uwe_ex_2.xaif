@@ -63,7 +63,7 @@ end subroutine
 
      <xaif:Entry vertex_id="1"/>
 
-     <xaif:ForLoop vertex_id="2">
+     <xaif:ForLoop vertex_id="2" lineNumber="7">
 
        <xaif:Initialization>
          <xaif:AssignmentLHS>
@@ -103,7 +103,7 @@ end subroutine
 
      <xaif:BasicBlock vertex_id="3" scope_id="2">
 
-       <xaif:Assignment statement_id="sage_1">
+       <xaif:Assignment statement_id="sage_1" lineNumber="8">
          <xaif:AssignmentLHS>
            <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2"/>
          </xaif:AssignmentLHS>
@@ -122,7 +122,7 @@ end subroutine
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
 
-       <xaif:Assignment statement_id="sage_2">
+       <xaif:Assignment statement_id="sage_2" lineNumber="9">
          <xaif:AssignmentLHS>
            <xaif:SymbolReference vertex_id="1" symbol_id="t2" scope_id="2"/>
          </xaif:AssignmentLHS>
@@ -145,7 +145,7 @@ end subroutine
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
 
-       <xaif:Assignment statement_id="sage_3">
+       <xaif:Assignment statement_id="sage_3" lineNumber="10">
          <xaif:AssignmentLHS>
            <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
          </xaif:AssignmentLHS>

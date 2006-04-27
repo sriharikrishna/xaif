@@ -44,7 +44,7 @@
 
      <xaif:Entry vertex_id="1" annotation=""></xaif:Entry>
 
-     <xaif:If vertex_id="2" annotation="">
+     <xaif:If vertex_id="2" lineNumber="0" annotation="">
        <xaif:Condition>
          <xaif:BooleanOperation vertex_id="1" name="less_than" annotation=""></xaif:BooleanOperation>
          <xaif:VariableReference vertex_id="2" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="">
@@ -60,7 +60,7 @@
 
      <xaif:BasicBlock vertex_id="3" scope_id="2" annotation="">
 
-       <xaif:Assignment statement_id="sage_1">   
+       <xaif:Assignment statement_id="sage_1" lineNumber="0">   
          <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
@@ -79,7 +79,7 @@
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
 
-       <xaif:Assignment statement_id="sage_2">   
+       <xaif:Assignment statement_id="sage_2" lineNumber="0">   
          <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="t2" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
@@ -102,7 +102,7 @@
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
 
-       <xaif:Assignment statement_id="sage_3">  
+       <xaif:Assignment statement_id="sage_3" lineNumber="0">  
          <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
@@ -123,7 +123,7 @@
  
      <xaif:BasicBlock vertex_id="4" scope_id="2" annotation="">
 
-       <xaif:Assignment statement_id="sage_2">   
+       <xaif:Assignment statement_id="sage_2" lineNumber="0">   
          <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
