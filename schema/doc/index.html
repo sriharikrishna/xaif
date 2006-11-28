@@ -1,31 +1,46 @@
-  <HTML>
-    <head>
-      <title>XAIF 1.0 Information</title>
-    </head>
-    <BODY BACKGROUND="images/captext.gif" VLINK="#0000FF" TEXT="#000000" LINK="#0000FF" ALINK="#FF0000">
-      <H2 ALIGN="center">XAIF 1.0 Schemas Documentation</H2>
-    </CENTER>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+  <title>XAIF 1.0 Information</title>
 
-      <CENTER>
-	<IMG ALIGN="center" SRC="images/divider.gif">
-      </CENTER>
-      <P>
-	<H4 ALIGN="center"><I><FONT COLOR="red">Note:</FONT> While the schemas' definitions are current, the documentation may be slightly behind.</I></H4>
-      </P>
-      <P>
-	<UL>
-	  <LI>Top-level XAIF schema: [<a href="../xaif.xsd">xaif.xsd</a>], [<a href="xaif.xsd.html">documentation</a>]</LI>
-	  <LI>Base XAIF schema: [<a href="../xaif_base.xsd">xaif_base.xsd</a>], [<a href="xaif_base.xsd.html">documentation</a>]</LI>
-	  <LI>Inlinable intrinsics XAIF schema: [<a href="../xaif_inlinable_intrinsics.xsd">xaif_inlinable_intrinsics.xsd</a>], [<a href="xaif_inlinable_intrinsics.xsd.html">documentation</a>]</LI>
-	  <LI>Noninlinable intrinsics XAIF schema: [<a href="../xaif_noninlinable_intrinsics.xsd">xaif_noninlinable_intrinsics.xsd</a>], [<a href="xaif_noninlinable_intrinsics.xsd.html">documentation</a>]</LI>
-	  <LI>XAIF derivative propagation schema: [<a href="../xaif_derivative_propagator.xsd">xaif_derivative_propagator.xsd</a>], [<a href="xaif_derivative_propagator.xsd.html">documentation</a>]</LI>
-	  <LI>schema for code replacement and inlinable subroutines: [<a href="../xaif_output.xsd">xaif_output.xsd</a>], [<a href="xaif_output.xsd.html">documentation</a>]</LI>
-	</UL>
-      </P>
-      <hr>
-<!-- hhmts start -->
-Last modified: Thu May 19 00:16:18 CDT 2005
+
+</head>
+  
+    <body style="color: rgb(0, 0, 0); background-image: url(images/captext.gif);" alink="#ff0000" link="#0000ff" vlink="#0000ff">
+
+<h2 align="center">XAIF 1.0 Schemas Documentation</h2>
+
+<center> <img src="images/divider.gif" align="middle">
+</center>
+
+<ul>
+
+  <li><a href="xaif/index.html">Top-level schema</a>:
+this defines the input to xaifBooster; definitions&nbsp;are
+in&nbsp; <a href="../xaif.xsd">xaif.xsd</a>
+and&nbsp;<a href="../xaif_base.xsd">xaif_base.xsd</a></li>
+
+  <li><a href="xaif_inlinable_intrinsics/index.html">Inlinable
+intrinsics schema</a>: this&nbsp;describes (language
+specific) inlinable intrinsics and their partial derivatives read by
+xaifBooster;&nbsp;&nbsp;definitions are in&nbsp;&nbsp;<a href="../xaif_inlinable_intrinsics.xsd">xaif_inlinable_intrinsics.xsd</a></li>
+
+  <li><a href="xaif_output/index.html">Transformation
+output schema</a>: this is the basic XAIF schema extended
+by&nbsp;derivative propagators (see in particular &nbsp;<a href="../xaif_derivative_propagator.xsd">xaif_derivative_propagator.xsd</a>)
+&nbsp;and elements for inlinable subroutines as well as code
+replacement in templates; definitions are in&nbsp;<a href="../xaif_output.xsd">xaif_output.xsd</a></li>
+
+  <li><a href="xaif_noninlinable_intrinsics/index.html">Noninlinable
+intrinsics&nbsp;schema</a>: this is an as of incomplete
+schema to handle black-box routines; definitions are in&nbsp; <a href="../xaif_noninlinable_intrinsics.xsd">xaif_noninlinable_intrinsics.xsd</a></li>
+
+</ul>
+
+<hr><!-- hhmts start -->
 <!-- hhmts end -->
-	<address><a href="mailto:autodiff@mcs.anl.gov">autodiff@mcs.anl.gov</a></address>
-    </BODY>
-  </HTML>
+<address><a href="mailto:autodiff@mcs.anl.gov">autodiff@mcs.anl.gov</a></address>
+
+</body>
+</html>
