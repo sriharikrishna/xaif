@@ -802,6 +802,7 @@
        - The edge_id's of control flow graph vertex substitutes must be unique with
          the current control flow graph. (cfge_unique)
        - Both the source (cfg_keyref1) and the target (cfg_keyref2) of an edge must be vertex_id's.
+       - statement IDs must be unique within a CFG
     </xsd:documentation>
   </xsd:annotation>
 
@@ -827,6 +828,11 @@
   <xsd:keyref name="cfg_keyref2" refer="xaif:cfg_vertexId">
     <xsd:selector xpath="xaif:ControlFlowEdge"/><xsd:field xpath="@target"/>  
   </xsd:keyref>
+
+  <xsd:unique name="statement_unique">
+    <xsd:selector xpath="xaif:BasicBlock/xaif:Assignment|xaif:BasicBlock/xaif:SubroutineCall|xaif:BasicBlock/xaif:Marker|xaif:ForLoop/xaif:Initialization|xaif:ForLoop/xaif:Update"/>
+     <xsd:field xpath="@statement_id"/>
+  </xsd:unique>
 
 </xsd:element> 
 
@@ -912,14 +918,8 @@
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
 		Basic blocks are substitutes for control flow vertices.
-		Single statements within basic blocks must have a unique
-		statement_id.
         </xsd:documentation>
       </xsd:annotation>
-  <xsd:unique name="statement_unique">
-    <xsd:selector xpath="Assignment | SubroutineCall | Marker"/>
-     <xsd:field xpath="@statement_id"/>
-  </xsd:unique>
 </xsd:element>
 
 <!-- *********************************************************** -->
@@ -1264,17 +1264,15 @@
 <!-- Assignment -->
 <!-- *********************************************************** -->
 
-<xsd:complexType name="AssignmentType">
+<xsd:complexType name="AssignmentBaseType">
       <xsd:annotation>
-    	  <xsd:documentation xml:lang="en">
+    	<xsd:documentation xml:lang="en">
 		  Assignments consist of a variable reference on the lhs
 		  and an expression on the rhs. Within the current basic
 		  block they are uniquely identified by their statement_id.
         </xsd:documentation>
       </xsd:annotation>
-
       <xsd:sequence>
-
         <xsd:element name="AssignmentLHS" minOccurs="1" maxOccurs="1">
           <xsd:complexType>
             <xsd:complexContent>
@@ -1312,9 +1310,7 @@
             <xsd:field xpath="@target"/>  
           </xsd:keyref>
         </xsd:element>
-
-        <xsd:element name="AssignmentRHS" type="ExpressionType" 
-                  minOccurs="1" maxOccurs="1">
+        <xsd:element name="AssignmentRHS" type="ExpressionType" minOccurs="1" maxOccurs="1">
           <xsd:unique name="rhsv_unique">
             <xsd:selector xpath="VariableReference|Constant|Intrinsic|FunctionCall|BooleanOperation"/>
              <xsd:field xpath="@vertex_id"/>
@@ -1335,14 +1331,20 @@
             <xsd:field xpath="@target"/>  
           </xsd:keyref>
         </xsd:element>
-
       </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="AssignmentType">
+  <xsd:complexContent>
+    <xsd:extension base="AssignmentBaseType">
+      <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
+    </xsd:extension>       
+  </xsd:complexContent>
 </xsd:complexType>
 
 <xsd:complexType name="BasicBlockAssignmentType">
   <xsd:complexContent>
     <xsd:extension base="AssignmentType">
-      <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
       <xsd:attribute name="lineNumber" type="xsd:nonNegativeInteger" use="optional" default="0"/>
     </xsd:extension>       
   </xsd:complexContent>

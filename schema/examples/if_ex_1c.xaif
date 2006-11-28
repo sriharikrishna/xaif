@@ -141,7 +141,7 @@ void head(int i, double x, double *y) {
  
      <xaif:BasicBlock vertex_id="4" scope_id="2">
 
-       <xaif:Assignment statement_id="sage_2">   <!-- *y = cos(x) * (*y) -->
+       <xaif:Assignment statement_id="sage_4">   <!-- *y = cos(x) * (*y) -->
          <xaif:AssignmentLHS>
            <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2"/>
          </xaif:AssignmentLHS>
