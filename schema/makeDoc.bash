@@ -2,10 +2,10 @@
 for i in `ls *.xsd`
 do
   basename=${i%%.xsd}
-  if [ ! -d ./doc/${basename} ] 
+  if [ ! -d ./docNew/${basename} ] 
   then 
-    mkdir -p ./doc/${basename}
+    mkdir -p ./docNew/${basename}
   fi
-  xsddoc -t "${basename}" -o ./doc/${basename} -verbose $i
+  xsddoc -t "${basename}" -o ./docNew/${basename} -verbose $i
 done
 
