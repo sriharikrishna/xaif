@@ -1859,25 +1859,35 @@
 <!-- Array Element Reference -->
 <!-- *********************************************************** -->
 
+<xsd:complexType name="IndexTripletType">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      index triplet allowing for simple indices 
+      using just "Index" but also for slicing using 
+      the second position "Bound" as well as "Stride". 
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:sequence>
+    <xsd:element name="Index" type="ExpressionType" minOccurs="1" maxOccurs="1"/>
+    <xsd:element name="Bound" type="ExpressionType" minOccurs="0" maxOccurs="1"/>
+    <xsd:element name="Stride" type="ExpressionType" minOccurs="0" maxOccurs="1"/>
+  </xsd:sequence>
+</xsd:complexType>
+
 <xsd:complexType name="ArrayElementReferenceType">
 
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
-      
+      a reference to an array element or array slice using subscripts. 
     </xsd:documentation>
   </xsd:annotation>
 
   <xsd:complexContent>
     <xsd:extension base="VertexType">
       <xsd:sequence>
-        <xsd:element name="Index" type="ExpressionType" 
-        	minOccurs="1" maxOccurs="unbounded">
-
-          <xsd:annotation>
-            <xsd:documentation xml:lang="en"> 
-            </xsd:documentation>
-          </xsd:annotation>
-
+        <xsd:element name="IndexTriplet" type="IndexTripletType" minOccurs="1" maxOccurs="unbounded">
         </xsd:element>
       </xsd:sequence>
     </xsd:extension>
