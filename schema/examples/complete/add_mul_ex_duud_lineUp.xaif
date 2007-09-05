@@ -54,7 +54,7 @@
 
        <xaif:Marker statement_id="nop1" annotation="test nop to be ignored"></xaif:Marker>
 
-       <xaif:Assignment statement_id="a1" lineNumber="0">
+       <xaif:Assignment statement_id="a1" lineNumber="0" do_key="0">
          <xaif:AssignmentLHS du_ud="1" live="true" annotation="" deriv="false" constant="false" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
@@ -71,7 +71,7 @@
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
 
-       <xaif:Assignment statement_id="a2" lineNumber="0">
+       <xaif:Assignment statement_id="a2" lineNumber="0" do_key="0">
          <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
              <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>

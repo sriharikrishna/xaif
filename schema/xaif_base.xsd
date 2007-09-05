@@ -393,7 +393,7 @@
       DU: For LHS of assignments it contains the statement ids of possible uses. 
       UD: For VariablesReferences on RHS it contains statement ids of possible definitions. 
       The 'key' attribute is the unique index into the map.
-      Key '0' is a dummy entry that should be there to satisfy the default du_ud values  
+      Key '0' is a dummy entry that should be there to satisfy the default key values  
       in VariableReference and AssignmentLHS. 
       A '0' key means we do not have any du/ud information. 
       The chain can be empty.
@@ -1342,6 +1342,15 @@
   <xsd:complexContent>
     <xsd:extension base="AssignmentBaseType">
       <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
+      <xsd:attribute name="do_key" type="xsd:integer" use="optional" default="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Key into DOSet for a chain of statements overwriting 
+            the LHS of this assignment. Note, there is no placeholder for 
+            the LHS going out of scope (and subsequent overwrite by reuse) 
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
     </xsd:extension>       
   </xsd:complexContent>
 </xsd:complexType>

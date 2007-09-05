@@ -62,7 +62,7 @@
           </xaif:Argument>
         </xaif:SubroutineCall>
 
-       <xaif:Assignment statement_id="partial_1" lineNumber="0">
+       <xaif:Assignment statement_id="partial_1" lineNumber="0" do_key="0">
          <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
            <xaif:SymbolReference vertex_id="1" symbol_id="partial_1" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
