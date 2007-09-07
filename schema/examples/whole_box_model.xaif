@@ -454,7 +454,7 @@
 
   </xaif:ScopeHierarchy>
 
-  <xaif:AliasSetList>
+  <xaif:AliasSetMap>
     <xaif:AliasSet key="0">
       <xaif:AliasRange from_virtual_address="1" to_virtual_address="1"/>
     </xaif:AliasSet>
@@ -839,163 +839,163 @@
     <xaif:AliasSet key="127">
       <xaif:AliasRange from_virtual_address="9" to_virtual_address="10" partial="1"/>
     </xaif:AliasSet>
-  </xaif:AliasSetList>
+  </xaif:AliasSetMap>
 
-  <xaif:DUUDSetList>
-    <xaif:DUUDSet key="0"/>
-    <xaif:DUUDSet key="1"/>
-    <xaif:DUUDSet key="2">
+  <xaif:DUUDSetMap>
+    <xaif:StmtIdSet key="0"/>
+    <xaif:StmtIdSet key="1"/>
+    <xaif:StmtIdSet key="2">
       <xaif:StatementId idRef=""/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="3">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="3">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="11"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="4">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="4">
       <xaif:StatementId idRef="21"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="5">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="5">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="27"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="6">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="6">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="47"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="7">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="7">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="67"/>
       <xaif:StatementId idRef="87"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="8">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="8">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="32"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="9">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="9">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="88"/>
       <xaif:StatementId idRef="94"/>
       <xaif:StatementId idRef="100"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="10">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="10">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="106"/>
       <xaif:StatementId idRef="112"/>
       <xaif:StatementId idRef="118"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="11">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="11">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="88"/>
       <xaif:StatementId idRef="94"/>
       <xaif:StatementId idRef="100"/>
       <xaif:StatementId idRef="154"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="12">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="12">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="106"/>
       <xaif:StatementId idRef="112"/>
       <xaif:StatementId idRef="118"/>
       <xaif:StatementId idRef="170"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="13">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="13">
       <xaif:StatementId idRef="84"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="14">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="14">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="49"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="15">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="15">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="260"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="16">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="16">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="154"/>
       <xaif:StatementId idRef="200"/>
       <xaif:StatementId idRef="220"/>
       <xaif:StatementId idRef="240"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="17">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="17">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="170"/>
       <xaif:StatementId idRef="210"/>
       <xaif:StatementId idRef="230"/>
       <xaif:StatementId idRef="250"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="18">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="18">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="200"/>
       <xaif:StatementId idRef="220"/>
       <xaif:StatementId idRef="240"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="19">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="19">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="210"/>
       <xaif:StatementId idRef="230"/>
       <xaif:StatementId idRef="250"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="20">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="20">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="10"/>
       <xaif:StatementId idRef="16"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="21">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="21">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="32"/>
       <xaif:StatementId idRef="38"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="22">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="22">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="32"/>
       <xaif:StatementId idRef="38"/>
       <xaif:StatementId idRef="44"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="23">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="23">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="10"/>
       <xaif:StatementId idRef="16"/>
       <xaif:StatementId idRef="22"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="24">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="24">
       <xaif:StatementId idRef="79"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="25">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="25">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="81"/>
       <xaif:StatementId idRef="93"/>
       <xaif:StatementId idRef="105"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="26">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="26">
       <xaif:StatementId idRef="178"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="27">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="27">
       <xaif:StatementId idRef="184"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="28">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="28">
       <xaif:StatementId idRef="196"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="29">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="29">
       <xaif:StatementId idRef="180"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="30">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="30">
       <xaif:StatementId idRef="231"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="31">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="31">
       <xaif:StatementId idRef="227"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="32">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="32">
       <xaif:StatementId idRef="176"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="33">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="33">
       <xaif:StatementId idRef="192"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="34">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="34">
       <xaif:StatementId idRef="60"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="35">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="35">
       <xaif:StatementId idRef="194"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="36">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="36">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="292"/>
       <xaif:StatementId idRef="300"/>
@@ -1003,16 +1003,16 @@
       <xaif:StatementId idRef="318"/>
       <xaif:StatementId idRef="327"/>
       <xaif:StatementId idRef="333"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="37">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="37">
       <xaif:StatementId idRef="186"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="38">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="38">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="388"/>
       <xaif:StatementId idRef="401"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="39">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="39">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="292"/>
       <xaif:StatementId idRef="300"/>
@@ -1021,27 +1021,27 @@
       <xaif:StatementId idRef="327"/>
       <xaif:StatementId idRef="333"/>
       <xaif:StatementId idRef="357"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="40">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="40">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="394"/>
       <xaif:StatementId idRef="407"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="41">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="41">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="517"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="42">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="42">
       <xaif:StatementId idRef="535"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="43">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="43">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="22"/>
       <xaif:StatementId idRef="81"/>
       <xaif:StatementId idRef="93"/>
       <xaif:StatementId idRef="105"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="44">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="44">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="44"/>
       <xaif:StatementId idRef="60"/>
@@ -1049,29 +1049,29 @@
       <xaif:StatementId idRef="133"/>
       <xaif:StatementId idRef="156"/>
       <xaif:StatementId idRef="204"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="45">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="45">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="60"/>
       <xaif:StatementId idRef="117"/>
       <xaif:StatementId idRef="133"/>
       <xaif:StatementId idRef="156"/>
       <xaif:StatementId idRef="204"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="46">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="46">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="292"/>
       <xaif:StatementId idRef="307"/>
       <xaif:StatementId idRef="318"/>
       <xaif:StatementId idRef="333"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="47">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="47">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="117"/>
       <xaif:StatementId idRef="133"/>
       <xaif:StatementId idRef="156"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="48">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="48">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="244"/>
       <xaif:StatementId idRef="252"/>
@@ -1079,86 +1079,86 @@
       <xaif:StatementId idRef="268"/>
       <xaif:StatementId idRef="276"/>
       <xaif:StatementId idRef="284"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="49">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="49">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="180"/>
       <xaif:StatementId idRef="198"/>
       <xaif:StatementId idRef="204"/>
       <xaif:StatementId idRef="223"/>
       <xaif:StatementId idRef="227"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="50">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="50">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="231"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="51">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="51">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="186"/>
       <xaif:StatementId idRef="357"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="52">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="52">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="357"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="53">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="53">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="292"/>
       <xaif:StatementId idRef="300"/>
       <xaif:StatementId idRef="307"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="54">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="54">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="318"/>
       <xaif:StatementId idRef="327"/>
       <xaif:StatementId idRef="333"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="55">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="55">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="204"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="56">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="56">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="235"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="57">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="57">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="357"/>
       <xaif:StatementId idRef="425"/>
       <xaif:StatementId idRef="441"/>
       <xaif:StatementId idRef="517"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="58">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="58">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="425"/>
       <xaif:StatementId idRef="441"/>
       <xaif:StatementId idRef="517"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="59">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="59">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="425"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="60">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="60">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="441"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="61">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="61">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="561"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="62">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="62">
       <xaif:StatementId idRef="12"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="63">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="63">
       <xaif:StatementId idRef="69"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="64">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="64">
       <xaif:StatementId idRef="52"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="65">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="65">
       <xaif:StatementId idRef="77"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="66">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="66">
       <xaif:StatementId idRef=""/>
       <xaif:StatementId idRef="20"/>
       <xaif:StatementId idRef="73"/>
@@ -1166,11 +1166,18 @@
       <xaif:StatementId idRef="152"/>
       <xaif:StatementId idRef="205"/>
       <xaif:StatementId idRef="258"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="67">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="67">
       <xaif:StatementId idRef="284"/>
-    </xaif:DUUDSet>
-  </xaif:DUUDSetList>
+    </xaif:StmtIdSet>
+  </xaif:DUUDSetMap>
+
+  <xaif:DOSetMap>
+    <xaif:StmtIdSet key="0">
+    </xaif:StmtIdSet>
+  </xaif:DOSetMap>
+
+
 
   <!-- ******************************************************************** -->
   <xaif:ControlFlowGraph vertex_id="1" scope_id="1" symbol_id="all_globals_mod__20" annotation="{PU_Id#1}" controlflowgraph_scope_id="2">

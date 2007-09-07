@@ -39,15 +39,15 @@
 -->
 
 <xsd:schema xmlns="http://www.mcs.anl.gov/XAIF"
-	    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	    targetNamespace="http://www.mcs.anl.gov/XAIF"
-	    xmlns:xaif="http://www.mcs.anl.gov/XAIF"
-            version="xaif 1.0"
-            elementFormDefault="qualified"
-            attributeFormDefault="unqualified">       
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.mcs.anl.gov/XAIF"
+  xmlns:xaif="http://www.mcs.anl.gov/XAIF"
+  version="xaif 1.0"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">       
 
 <!-- *********************************************************** -->
-<!-- Front-end tags -->
+<!-- Front-end tags                                              -->
 <!-- *********************************************************** -->
 
 <xsd:complexType name="FrontEndAnnotationType">
@@ -387,12 +387,40 @@
   <xsd:attribute name="idRef" type="xsd:string"/>
 </xsd:complexType>
 
-<xsd:complexType name="DUUDSetType">
+<xsd:complexType name="StmtIdSetWithKeyType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      a set of statement IDs
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:sequence>
+      <xsd:element name="StatementId" type="StatementIdRefType" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+  <xsd:attribute name="key" type="xsd:nonNegativeInteger">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        a unique key into a map consisting of StmtIdSetWithKeyType instances
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:attribute>
+</xsd:complexType>
+
+<xsd:complexType name="StmtIdSetMapType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      a map of StmtIdSet elements
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:sequence>
+    <xsd:element name="StmtIdSet" type="StmtIdSetWithKeyType" minOccurs="1" maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:element name="DUUDSetMap" type="StmtIdSetMapType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
       DU: For LHS of assignments it contains the statement ids of possible uses. 
       UD: For VariablesReferences on RHS it contains statement ids of possible definitions. 
-      The 'key' attribute is the unique index into the map.
       Key '0' is a dummy entry that should be there to satisfy the default key values  
       in VariableReference and AssignmentLHS. 
       A '0' key means we do not have any du/ud information. 
@@ -403,45 +431,32 @@
       or at most the control flow graph in which the variable reference occurs.  
     </xsd:documentation>
   </xsd:annotation>
-
-  <xsd:sequence>
-      <xsd:element name="StatementId" type="StatementIdRefType" minOccurs="0" maxOccurs="unbounded"/>
-  </xsd:sequence>
-  <xsd:attribute name="key" type="xsd:nonNegativeInteger"/>
-</xsd:complexType>
-
-<xsd:complexType name="DUUDSetListType">
-
-  <xsd:annotation>
-    <xsd:documentation xml:lang="en">
-      Each VariableReference has a key into this table. 
-      If VariableReference is LHS, then DU, else UD.
-      The 1 minimal occurence is for the dummy set with key 0.
-    </xsd:documentation>
-  </xsd:annotation>
-
-  <xsd:sequence>
-    <xsd:element name="DUUDSet" type="DUUDSetType" minOccurs="1" maxOccurs="unbounded"/>
-  </xsd:sequence>
-</xsd:complexType>
-
-<xsd:element name="DUUDSetList" type="DUUDSetListType">
-
-  <xsd:annotation>
-    <xsd:documentation xml:lang="en">
-	The DUUDSetList is associated with CallGraph, 
-	the top level element. 
-    </xsd:documentation>
-  </xsd:annotation>
-
   <xsd:unique name="duud_unique">
-    <xsd:selector xpath="xaif:DUUDSet"/><xsd:field xpath="@key"/>
+    <xsd:selector xpath="xaif:StmtIdSet"/><xsd:field xpath="@key"/>
   </xsd:unique>
-
   <xsd:key name="duud_key">
-    <xsd:selector xpath="xaif:DUUDSet"/><xsd:field xpath="@key"/>
+    <xsd:selector xpath="xaif:StmtIdSet"/><xsd:field xpath="@key"/>
   </xsd:key>
+</xsd:element>  
 
+<xsd:element name="DOSetMap" type="StmtIdSetMapType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      For the LHS defined by an assignment it contains the statement ids of possible overwritin statements. 
+      Key '0' is a dummy entry that should be there to satisfy the default key values.
+      A '0' key means we do not have any du/ud information. 
+      The chain can be empty.
+      An empty StatementId in the chain, i.e. "", signifies an overwrite outside of 
+      the scope of interest. The scope of interest can either be the basic block 
+      or at most the control flow graph in which the variable reference occurs.  
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:unique name="do_unique">
+    <xsd:selector xpath="xaif:StmtIdSet"/><xsd:field xpath="@key"/>
+  </xsd:unique>
+  <xsd:key name="do_key">
+    <xsd:selector xpath="xaif:StmtIdSet"/><xsd:field xpath="@key"/>
+  </xsd:key>
 </xsd:element>  
 
 <!-- *********************************************************** -->
@@ -491,7 +506,7 @@
   <xsd:attribute name="key" type="xsd:nonNegativeInteger"/>
 </xsd:complexType>
 
-<xsd:complexType name="AliasSetListType">
+<xsd:complexType name="AliasSetMapType">
 
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
@@ -505,11 +520,11 @@
   </xsd:sequence>
 </xsd:complexType>
 
-<xsd:element name="AliasSetList" type="AliasSetListType">
+<xsd:element name="AliasSetMap" type="AliasSetMapType">
 
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
-	The AliasSetList is associated with CallGraph, 
+	The AliasSetMap is associated with CallGraph, 
 	the top level element. 
     </xsd:documentation>
   </xsd:annotation>
@@ -534,29 +549,22 @@
 <!-- *********************************************************** -->
 <xsd:group name="CallGraphVertexAndEdgeGroup">
   <xsd:choice>
-    <xsd:element ref="CallGraphVertex"     
-    		   minOccurs="1" maxOccurs="unbounded">
-
+    <xsd:element ref="CallGraphVertex" minOccurs="1" maxOccurs="unbounded">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-		Call graph vertices are abstract base types for
-		control flow graphs that represent the subroutines 
-		in the program.
+  	  Call graph vertices are abstract base types for
+	  control flow graphs that represent the subroutines 
+	  in the program.
         </xsd:documentation>
       </xsd:annotation>
-
     </xsd:element>
-
-    <xsd:element name="CallGraphEdge" type="EdgeType" 
-    		   minOccurs="0" maxOccurs="unbounded">
-
+    <xsd:element name="CallGraphEdge" type="EdgeType" minOccurs="0" maxOccurs="unbounded">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           An edge connects two call graph vertices if the target is
           called within the source.
         </xsd:documentation>
       </xsd:annotation>
-
     </xsd:element>
   </xsd:choice>
 </xsd:group>
@@ -564,7 +572,7 @@
 <xsd:group name="CallGraphContentGroup">
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
-	We group the ScopeHierarchy, the Alias and DUUD SetLists, and 
+	We group the ScopeHierarchy, the various SetMaps, and 
 	the VertexEdgeGroup to ensure the VertexEdgeGroup comes last. 
 	The order between the other elements does not really matter 
 	but the schema does not allow to grouping with a partial order. 
@@ -578,27 +586,9 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element> 
-      <xsd:element ref="AliasSetList" minOccurs="1" maxOccurs="1">
-        <xsd:annotation>
-	  <xsd:documentation xml:lang="en">
-            The list of alias sets for all variable references. Because there 
- 	    is an alias key referential integrity check and the alias keys default 
-	    to '0' we have to have at least the '0' element in the list and therefore 
-	    the list has to exist. The '0' element represents 'aliased to all'.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element> 
-      <xsd:element ref="DUUDSetList" minOccurs="1" maxOccurs="1">
-        <xsd:annotation>
-	  <xsd:documentation xml:lang="en">
-            The list of Du/Ud chains for all variable references. Because there 
- 	    is an alias key referential integrity check and the duud keys default 
-	    to '0' we have to have at least the '0' element in the list and therefore 
-	    the list has to exist. The '0' element represents a duud chain containing all 
-            statements. 
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element> 
+      <xsd:element ref="AliasSetMap" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="DUUDSetMap" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="DOSetMap" minOccurs="1" maxOccurs="1"/>
       <xsd:group ref="CallGraphVertexAndEdgeGroup" minOccurs="0" maxOccurs="unbounded"/>
   </xsd:sequence>
 </xsd:group>

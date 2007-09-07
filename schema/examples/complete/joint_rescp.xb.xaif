@@ -24,16 +24,23 @@
 
   </xaif:ScopeHierarchy>
 
-  <xaif:AliasSetList>
+  <xaif:AliasSetMap>
     <xaif:AliasSet key="0">
       <xaif:AliasRange from_virtual_address="1" to_virtual_address="1" partial="true"></xaif:AliasRange>
     </xaif:AliasSet>
-  </xaif:AliasSetList>
+  </xaif:AliasSetMap>
 
-  <xaif:DUUDSetList>
-    <xaif:DUUDSet key="0">
-    </xaif:DUUDSet>
-  </xaif:DUUDSetList>
+  <xaif:DUUDSetMap>
+    <xaif:StmtIdSet key="0">
+    </xaif:StmtIdSet>
+  </xaif:DUUDSetMap>
+
+  <xaif:DOSetMap>
+    <xaif:StmtIdSet key="0">
+    </xaif:StmtIdSet>
+  </xaif:DOSetMap>
+
+
 
   <xaif:ReplacementList vertex_id="1" template_name="template" symbol_id="sub1" scope_id="1" controlflowgraph_scope_id="2" annotation="">
     <xaif:Replacement placeholder="3">
@@ -63,7 +70,7 @@
         </xaif:SubroutineCall>
 
        <xaif:Assignment statement_id="partial_1" lineNumber="0" do_key="0">
-         <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
+         <xaif:AssignmentLHS live="true" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" vertex_id="uwe" annotation="">
            <xaif:SymbolReference vertex_id="1" symbol_id="partial_1" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
@@ -95,16 +102,16 @@
           <xaif:Sax>
             <xaif:AX>
               <xaif:A>
-                <xaif:VariableReference active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="" vertex_id="uwe">
-                  <xaif:SymbolReference symbol_id="local_partial" scope_id="2" annotation="" vertex_id="uwe"></xaif:SymbolReference>
+                <xaif:VariableReference active="undefined" alias="0" du_ud="0" deriv="false" constant="false" vertex_id="uwe" annotation="">
+                  <xaif:SymbolReference symbol_id="local_partial" scope_id="2" vertex_id="uwe" annotation=""></xaif:SymbolReference>
                 </xaif:VariableReference>
               </xaif:A>
-              <xaif:X active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="" vertex_id="uwe">
-                <xaif:SymbolReference symbol_id="y" scope_id="2" annotation="" vertex_id="uwe"></xaif:SymbolReference>
+              <xaif:X active="undefined" alias="0" du_ud="0" deriv="false" constant="false" vertex_id="uwe" annotation="">
+                <xaif:SymbolReference symbol_id="y" scope_id="2" vertex_id="uwe" annotation=""></xaif:SymbolReference>
               </xaif:X>
             </xaif:AX>
-            <xaif:Y active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="" vertex_id="uwe">
-              <xaif:SymbolReference symbol_id="y" scope_id="2" annotation="" vertex_id="uwe"></xaif:SymbolReference>
+            <xaif:Y active="undefined" alias="0" du_ud="0" deriv="false" constant="false" vertex_id="uwe" annotation="">
+              <xaif:SymbolReference symbol_id="y" scope_id="2" vertex_id="uwe" annotation=""></xaif:SymbolReference>
             </xaif:Y>
           </xaif:Sax>
         </xaif:DerivativePropagator>

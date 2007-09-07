@@ -8,7 +8,7 @@ foreach $file (@files) {
  if (-e "complete/$file") {
    unlink "complete/$file";
  } 
- $command = "SAX2Print -f -p $file > complete/$file";
+ $command = "SAX2Print -v=always -f -p $file > complete/$file";
  print "$command\n";
  system($command);
 }

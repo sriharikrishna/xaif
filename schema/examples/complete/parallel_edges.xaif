@@ -35,7 +35,7 @@
 
   
 
-  <xaif:AliasSetList>
+  <xaif:AliasSetMap>
     <xaif:AliasSet key="1">
       <xaif:AliasRange from_virtual_address="1" to_virtual_address="1" partial="true"></xaif:AliasRange>
       <xaif:AliasRange from_virtual_address="3" to_virtual_address="7" partial="true"></xaif:AliasRange>
@@ -45,12 +45,19 @@
       <xaif:AliasRange from_virtual_address="3" to_virtual_address="7" partial="true"></xaif:AliasRange>
       <xaif:AliasRange from_virtual_address="9" to_virtual_address="12" partial="true"></xaif:AliasRange>
     </xaif:AliasSet>
-  </xaif:AliasSetList>
+  </xaif:AliasSetMap>
 
-  <xaif:DUUDSetList>
-    <xaif:DUUDSet key="0">
-    </xaif:DUUDSet>
-  </xaif:DUUDSetList>
+  <xaif:DUUDSetMap>
+    <xaif:StmtIdSet key="0">
+    </xaif:StmtIdSet>
+  </xaif:DUUDSetMap>
+
+  <xaif:DOSetMap>
+    <xaif:StmtIdSet key="0">
+    </xaif:StmtIdSet>
+  </xaif:DOSetMap>
+
+
 
   <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1" controlflowgraph_scope_id="2" active="true" annotation="">
 
@@ -67,7 +74,7 @@
 
 	       
 
-         <xaif:AssignmentLHS alias="0" live="false" annotation="" deriv="false" constant="false" du_ud="0" vertex_id="uwe" active="undefined">
+         <xaif:AssignmentLHS alias="0" live="false" active="undefined" du_ud="0" deriv="false" constant="false" vertex_id="uwe" annotation="">
 		 <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
@@ -76,7 +83,7 @@
        </xaif:Assignment>      
 
        <xaif:Assignment statement_id="sage_1" lineNumber="0" do_key="0">
-         <xaif:AssignmentLHS live="false" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
+         <xaif:AssignmentLHS live="false" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" vertex_id="uwe" annotation="">
            <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
@@ -96,7 +103,7 @@
        </xaif:Assignment>      
 
        <xaif:Assignment statement_id="sage_2" lineNumber="0" do_key="0">
-         <xaif:AssignmentLHS live="false" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
+         <xaif:AssignmentLHS live="false" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" vertex_id="uwe" annotation="">
            <xaif:SymbolReference vertex_id="1" symbol_id="t2" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
@@ -116,7 +123,7 @@
        </xaif:Assignment>      
 
        <xaif:Assignment statement_id="sage_3" lineNumber="0" do_key="0">
-         <xaif:AssignmentLHS live="true" annotation="" deriv="false" constant="false" du_ud="0" alias="0" vertex_id="uwe" active="undefined">
+         <xaif:AssignmentLHS live="true" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" vertex_id="uwe" annotation="">
            <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>

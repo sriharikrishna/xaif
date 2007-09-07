@@ -32,16 +32,23 @@
 
   </xaif:ScopeHierarchy>
 
-  <xaif:AliasSetList>
+  <xaif:AliasSetMap>
     <xaif:AliasSet key="0">
       <xaif:AliasRange from_virtual_address="1" to_virtual_address="1"/>
     </xaif:AliasSet>
-  </xaif:AliasSetList>
+  </xaif:AliasSetMap>
 
-  <xaif:DUUDSetList>
-    <xaif:DUUDSet key="0">
-    </xaif:DUUDSet>
-  </xaif:DUUDSetList>
+  <xaif:DUUDSetMap>
+    <xaif:StmtIdSet key="0">
+    </xaif:StmtIdSet>
+  </xaif:DUUDSetMap>
+
+  <xaif:DOSetMap>
+    <xaif:StmtIdSet key="0">
+    </xaif:StmtIdSet>
+  </xaif:DOSetMap>
+
+
 
   <xaif:ReplacementList vertex_id="1" template_name="template" symbol_id="sub1" scope_id="1" controlflowgraph_scope_id="2">
     <xaif:Replacement placeholder="3">

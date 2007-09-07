@@ -54,7 +54,7 @@ end subroutine
 
   <!-- For syntax demo only -->
 
-  <xaif:AliasSetList>
+  <xaif:AliasSetMap>
     <xaif:AliasSet key="1">
       <xaif:AliasRange from_virtual_address="1" to_virtual_address="1"/>
       <xaif:AliasRange from_virtual_address="3" to_virtual_address="7"/>
@@ -64,12 +64,19 @@ end subroutine
       <xaif:AliasRange from_virtual_address="3" to_virtual_address="7"/>
       <xaif:AliasRange from_virtual_address="9" to_virtual_address="12"/>
     </xaif:AliasSet>
-  </xaif:AliasSetList>
+  </xaif:AliasSetMap>
 
-  <xaif:DUUDSetList>
-    <xaif:DUUDSet key="0">
-    </xaif:DUUDSet>
-  </xaif:DUUDSetList>
+  <xaif:DUUDSetMap>
+    <xaif:StmtIdSet key="0">
+    </xaif:StmtIdSet>
+  </xaif:DUUDSetMap>
+
+  <xaif:DOSetMap>
+    <xaif:StmtIdSet key="0">
+    </xaif:StmtIdSet>
+  </xaif:DOSetMap>
+
+
 
   <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1" controlflowgraph_scope_id="2">
 
@@ -101,7 +108,7 @@ end subroutine
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
 		 <!-- demo syntax alias info
-		 1 = key in AliasSetList -->
+		 1 = key in AliasSetMap -->
 		 <xaif:VariableReference vertex_id="1" alias="3">
              <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2"/>
            </xaif:VariableReference>

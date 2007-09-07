@@ -41,32 +41,39 @@ end subroutine
 
   </xaif:ScopeHierarchy>
 
-  <xaif:AliasSetList>
+  <xaif:AliasSetMap>
     <xaif:AliasSet key="0">
       <xaif:AliasRange from_virtual_address="1" to_virtual_address="1"/>
     </xaif:AliasSet>
-  </xaif:AliasSetList>
+  </xaif:AliasSetMap>
 
-  <xaif:DUUDSetList>
-    <xaif:DUUDSet key="0">
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="1">
+  <xaif:DUUDSetMap>
+    <xaif:StmtIdSet key="0">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="1">
       <xaif:StatementId idRef="sage_2"/>
       <xaif:StatementId idRef="sage_3"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="2">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="2">
       <xaif:StatementId idRef="ass1"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="3">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="3">
       <xaif:StatementId idRef="sage_3"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="4">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="4">
       <xaif:StatementId idRef="ass1"/>
-    </xaif:DUUDSet>
-    <xaif:DUUDSet key="5">
+    </xaif:StmtIdSet>
+    <xaif:StmtIdSet key="5">
       <xaif:StatementId idRef="sage_2"/>
-    </xaif:DUUDSet>
-  </xaif:DUUDSetList>
+    </xaif:StmtIdSet>
+  </xaif:DUUDSetMap>
+
+  <xaif:DOSetMap>
+    <xaif:StmtIdSet key="0">
+    </xaif:StmtIdSet>
+  </xaif:DOSetMap>
+
+
 
   <xaif:ControlFlowGraph vertex_id="1" symbol_id="head" scope_id="1" controlflowgraph_scope_id="2">
 
