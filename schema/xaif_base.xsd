@@ -656,6 +656,10 @@
     <xsd:selector xpath="xaif:ControlFlowGraph/xaif:BasicBlock/xaif:Assignment/xaif:AssignmentLHS"/><xsd:field xpath="@du_ud"/>  
   </xsd:keyref>
 
+  <xsd:keyref name="do_keyref1" refer="xaif:do_key">
+    <xsd:selector xpath="xaif:ControlFlowGraph/xaif:BasicBlock/xaif:Assignment"/><xsd:field xpath="@do_chain"/>  
+  </xsd:keyref>
+
 </xsd:element>  
 
 <xsd:element name="CallGraphVertex" type="VertexType">
@@ -1332,7 +1336,7 @@
   <xsd:complexContent>
     <xsd:extension base="AssignmentBaseType">
       <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
-      <xsd:attribute name="do_key" type="xsd:integer" use="optional" default="0">
+      <xsd:attribute name="do_chain" type="xsd:integer" use="optional" default="0">
         <xsd:annotation>
           <xsd:documentation>
             Key into DOSet for a chain of statements overwriting 
