@@ -62,7 +62,7 @@
      </xaif:PreLoop>
 
      <xaif:BasicBlock vertex_id="3" scope_id="2" annotation="">
-       <xaif:Assignment statement_id="1" lineNumber="0" do_key="0"> 
+       <xaif:Assignment statement_id="1" lineNumber="0" do_chain="0"> 
          <xaif:AssignmentLHS live="true" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" vertex_id="uwe" annotation="">
            <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
@@ -81,7 +81,7 @@
      <xaif:Goto vertex_id="4" annotation=""></xaif:Goto>
 
      <xaif:BasicBlock vertex_id="5" scope_id="2" annotation="">
-       <xaif:Assignment statement_id="2" lineNumber="0" do_key="0"> 
+       <xaif:Assignment statement_id="2" lineNumber="0" do_chain="0"> 
          <xaif:AssignmentLHS live="true" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" vertex_id="uwe" annotation="">
            <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
