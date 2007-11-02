@@ -1869,6 +1869,9 @@
       index triplet allowing for simple indices 
       using just "Index" but also for slicing using 
       the second position "Bound" as well as "Stride". 
+      An empty expression indicates unknown information 
+      as would be the case when it is implicitly given 
+      by the context. 
     </xsd:documentation>
   </xsd:annotation>
 
