@@ -5,19 +5,19 @@
 
     <xaif:Scope vertex_id="1" annotation="">
       <xaif:SymbolTable>
-        <xaif:Symbol symbol_id="head" kind="subroutine" type="void" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
-        <xaif:Symbol symbol_id="x" shape="matrix" kind="variable" type="real" active="true" temp="false" annotation="">
+        <xaif:Symbol symbol_id="head" kind="subroutine" type="void" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="x" shape="matrix" kind="variable" type="real" feType="" active="true" temp="false" annotation="">
 	  <xaif:DimensionBounds lower="1" upper="10"></xaif:DimensionBounds>
 	  <xaif:DimensionBounds lower="1" upper="10"></xaif:DimensionBounds>
 	</xaif:Symbol>
-        <xaif:Symbol symbol_id="y" kind="variable" type="real" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="y" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
       </xaif:SymbolTable>
     </xaif:Scope>
 
     <xaif:Scope vertex_id="2" annotation="">
       <xaif:SymbolTable>
-        <xaif:Symbol symbol_id="x" shape="matrix" kind="variable" type="real" active="true" temp="false" annotation=""></xaif:Symbol>
-        <xaif:Symbol symbol_id="y" kind="variable" type="real" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="x" shape="matrix" kind="variable" type="real" feType="" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="y" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -64,18 +64,18 @@
              <xaif:ArrayElementReference vertex_id="2" annotation="">
                <xaif:IndexTriplet>
                  <xaif:Index>	
-	  	   <xaif:Constant vertex_id="1" type="integer" value="1" annotation=""></xaif:Constant>
+	  	   <xaif:Constant vertex_id="1" type="integer" value="1" feType="" annotation=""></xaif:Constant>
 	         </xaif:Index>
                </xaif:IndexTriplet>
                <xaif:IndexTriplet>
                  <xaif:Index>
-		   <xaif:Constant vertex_id="1" type="integer" value="1" annotation=""></xaif:Constant>
+		   <xaif:Constant vertex_id="1" type="integer" value="1" feType="" annotation=""></xaif:Constant>
 	         </xaif:Index>
                  <xaif:Bound>
-		   <xaif:Constant vertex_id="1" type="integer" value="2" annotation=""></xaif:Constant>
+		   <xaif:Constant vertex_id="1" type="integer" value="2" feType="" annotation=""></xaif:Constant>
 	         </xaif:Bound>
                  <xaif:Stride>
-		   <xaif:Constant vertex_id="1" type="integer" value="1" annotation=""></xaif:Constant>
+		   <xaif:Constant vertex_id="1" type="integer" value="1" feType="" annotation=""></xaif:Constant>
 	         </xaif:Stride>
                </xaif:IndexTriplet>
 	     </xaif:ArrayElementReference>
@@ -86,12 +86,12 @@
              <xaif:ArrayElementReference vertex_id="2" annotation="">
                <xaif:IndexTriplet>
                  <xaif:Index>
-	    	   <xaif:Constant vertex_id="1" type="integer" value="2" annotation=""></xaif:Constant>
+	    	   <xaif:Constant vertex_id="1" type="integer" value="2" feType="" annotation=""></xaif:Constant>
 	         </xaif:Index>
                </xaif:IndexTriplet>
                <xaif:IndexTriplet>
                  <xaif:Index>
-		   <xaif:Constant vertex_id="1" type="integer" value="3" annotation=""></xaif:Constant>
+		   <xaif:Constant vertex_id="1" type="integer" value="3" feType="" annotation=""></xaif:Constant>
 	         </xaif:Index>
                </xaif:IndexTriplet>
 	     </xaif:ArrayElementReference>

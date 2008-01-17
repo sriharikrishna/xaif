@@ -5,19 +5,19 @@
 
     <xaif:Scope vertex_id="1" annotation="">
       <xaif:SymbolTable>
-        <xaif:Symbol symbol_id="head" kind="subroutine" type="void" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
-        <xaif:Symbol symbol_id="x" kind="variable" type="real" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
-        <xaif:Symbol symbol_id="y" kind="variable" type="real" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="head" kind="subroutine" type="void" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="x" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="y" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
       </xaif:SymbolTable>
     </xaif:Scope>
 
     <xaif:Scope vertex_id="2" annotation="">
       <xaif:SymbolTable>
-        <xaif:Symbol symbol_id="x" kind="variable" type="real" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
-        <xaif:Symbol symbol_id="y" kind="variable" type="real" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
-        <xaif:Symbol symbol_id="t1" kind="variable" type="real" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
-        <xaif:Symbol symbol_id="t2" kind="variable" type="real" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
-        <xaif:Symbol symbol_id="i" type="integer" active="false" kind="variable" shape="scalar" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="x" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="y" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="t1" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="t2" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="i" type="integer" active="false" kind="variable" feType="" shape="scalar" temp="false" annotation=""></xaif:Symbol>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -25,7 +25,7 @@
 
     <xaif:Scope vertex_id="3" annotation="">   
       <xaif:SymbolTable>
-        <xaif:Symbol symbol_id="v" kind="variable" type="real" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="v" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
       </xaif:SymbolTable>
     </xaif:Scope>
 
@@ -78,7 +78,7 @@
 		 <xaif:SymbolReference vertex_id="1" symbol_id="i" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
-           <xaif:Constant vertex_id="1" type="integer" value="1" annotation=""></xaif:Constant>
+           <xaif:Constant vertex_id="1" type="integer" value="1" feType="" annotation=""></xaif:Constant>
          </xaif:AssignmentRHS>
        </xaif:Assignment>      
 

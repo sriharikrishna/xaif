@@ -177,6 +177,8 @@
     <xsd:enumeration value="three_tensor"/>
     <xsd:enumeration value="four_tensor"/>
     <xsd:enumeration value="five_tensor"/>
+    <xsd:enumeration value="six_tensor"/>
+    <xsd:enumeration value="seven_tensor"/>
   </xsd:restriction>
 
 </xsd:simpleType>
@@ -217,7 +219,8 @@
 		  identified within the current scope (the current symbol 
 		  table) by their symbol_id. Furthermore, we store their
 		  kind, type, and shape. By default, we consider real scalar
-    		  variables. Vectors, matrices etc. can have variable dimensions
+    		  variables.  
+                  Vectors, matrices etc. can have variable dimensions
                   and then there is nothing in the DimensionBoundsGroup.
 		  But if they are fixed we assume we have fixed bounds for ALL 
                   dimensions and expect a list of (max 5, because we only have 
@@ -228,6 +231,17 @@
       <xsd:attribute name="symbol_id"          type="xsd:string"      use="required"/>
       <xsd:attribute name="kind"               type="SymbolKindType"  use="optional" default="variable"/>
       <xsd:attribute name="type"               type="SymbolTypeType"  use="optional" default="real"/>
+      <xsd:attribute name="feType"             type="xsd:string"      use="optional" default="">      
+        <xsd:annotation>
+	  <xsd:documentation xml:lang="en">
+             For cases where the front-end distinguishes 
+             machine dependent types, e.g. sizes in bytes, the front-end 
+             can use the optional fe_type attribute. We do not assign 
+             any particular meaning to values other than the empty 
+             string which means unspecified.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>       
       <xsd:attribute name="shape"              type="SymbolShapeType" use="optional" default="scalar"/>
       <xsd:attribute name="active"             type="xsd:boolean"     use="optional" default="true"/>
       <xsd:attribute name="temp"               type="xsd:boolean"     use="optional" default="false"/>
@@ -1941,8 +1955,19 @@
 
   <xsd:complexContent>
     <xsd:extension base="VertexType">
-      <xsd:attribute name="type" type="ConstantTypeType" use="required"/>
-      <xsd:attribute name="value" type="xsd:string" use="required"/>
+      <xsd:attribute name="type"      type="ConstantTypeType" use="required"/>
+      <xsd:attribute name="feType"    type="xsd:string"       use="optional" default="">      
+        <xsd:annotation>
+	  <xsd:documentation xml:lang="en">
+             For cases where the front-end distinguishes 
+             machine dependent types, e.g. sizes in bytes, the front-end 
+             can use the optional fe_type attribute. We do not assign 
+             any particular meaning to values other than the empty 
+             string which means unspecified.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>       
+      <xsd:attribute name="value"     type="xsd:string"       use="required"/>
     </xsd:extension>
   </xsd:complexContent>
 </xsd:complexType>
