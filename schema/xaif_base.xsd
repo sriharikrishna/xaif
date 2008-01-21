@@ -492,8 +492,8 @@
     </xsd:documentation>
   </xsd:annotation>
 
-  <xsd:attribute name="from_virtual_address" type="xsd:positiveInteger"/>
-  <xsd:attribute name="to_virtual_address" type="xsd:positiveInteger"/>
+  <xsd:attribute name="from_virtual_address" use="required" type="xsd:positiveInteger"/>
+  <xsd:attribute name="to_virtual_address" use="required" type="xsd:positiveInteger"/>
   <xsd:attribute name="partial" type="xsd:boolean" use="optional" default="true"/>
 
 </xsd:complexType>
@@ -503,19 +503,22 @@
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
 	A set of alias information consisting of 
-	ranges of virtual addresses and single 
-	virtual addresses. The "0" key entry 
+	ranges of virtual addresses.
+	The "0" key entry 
 	signifies the "alias all". This entry 
-	is the only one that can and should be empty and 
-	it needs to exist to satisfy the referential 
-	integrity constraints (as_keyref1/2) for "alias" foreign 
-	key attributes defaulting to "0" in case 
-	no actual alias information is available.
+	may or may not be empty, its content is irrelevant.
+        It needs to exist to satisfy the referential
+        integrity constraints (as_keyref1/2) for "alias" foreign
+        key attributes defaulting to "0" in case
+        no actual alias information is available.
+	There may be empty AliasSets, for instance for the 
+	case of "address being taken", i.e. a computed 
+	value that does not have a storage location.
     </xsd:documentation>
   </xsd:annotation>
 
   <xsd:sequence> 
-    <xsd:element name="AliasRange" type="AliasRangeType" minOccurs="1" maxOccurs="unbounded"/>
+    <xsd:element name="AliasRange" type="AliasRangeType" minOccurs="0" maxOccurs="unbounded"/>
   </xsd:sequence>
   <xsd:attribute name="key" type="xsd:nonNegativeInteger"/>
 </xsd:complexType>
