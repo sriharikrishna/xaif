@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="LATIN1"?>
-<xaif:CallGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xaif="http://www.mcs.anl.gov/XAIF" xsi:schemaLocation="http://www.mcs.anl.gov/XAIF ../xaif.xsd" program_name="***myprog***" prefix="OpenAD_">
+<xaif:CallGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xaif="http://www.mcs.anl.gov/XAIF" xsi:schemaLocation="http://www.mcs.anl.gov/XAIF  ../xaif.xsd" program_name="***myprog***" prefix="OpenAD_">
   <xaif:ScopeHierarchy>
     <xaif:Scope vertex_id="1" annotation="{SymTab_Id#1}">
       <xaif:SymbolTable>
@@ -1944,9 +1944,7 @@
 
     <xaif:BasicBlock vertex_id="9" scope_id="3" annotation=""></xaif:BasicBlock>
 
-    <xaif:BasicBlock vertex_id="12" scope_id="3" annotation="">
-      <xaif:Marker statement_id="116" annotation="{WHIRL_Id#116} [passive: OPR_RETURN]"></xaif:Marker>
-    </xaif:BasicBlock>
+    <xaif:BasicBlock vertex_id="12" scope_id="3" annotation=""></xaif:BasicBlock>
 
     <xaif:Exit vertex_id="13" annotation=""></xaif:Exit>
 
@@ -2114,9 +2112,7 @@
 
     <xaif:EndLoop vertex_id="403" annotation=""></xaif:EndLoop>
 
-    <xaif:BasicBlock vertex_id="98" scope_id="8" annotation="">
-      <xaif:Marker statement_id="43" annotation="{WHIRL_Id#43} [passive: OPR_RETURN]"></xaif:Marker>
-    </xaif:BasicBlock>
+    <xaif:BasicBlock vertex_id="98" scope_id="8" annotation=""></xaif:BasicBlock>
 
     <xaif:Exit vertex_id="99" annotation=""></xaif:Exit>
 
@@ -2244,7 +2240,6 @@
           <xaif:ExpressionEdge edge_id="13" source="2" target="1" position="1" annotation=""></xaif:ExpressionEdge>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
-      <xaif:Marker statement_id="39" annotation="{WHIRL_Id#39} [passive: OPR_RETURN]"></xaif:Marker>
     </xaif:BasicBlock>
 
     <xaif:Exit vertex_id="102" annotation=""></xaif:Exit>
@@ -2673,7 +2668,6 @@
           </xaif:VariableReference>
         </xaif:Argument>
       </xaif:SubroutineCall>
-      <xaif:Marker statement_id="294" annotation="{WHIRL_Id#294} [passive: OPR_RETURN]"></xaif:Marker>
     </xaif:BasicBlock>
 
     <xaif:Exit vertex_id="129" annotation=""></xaif:Exit>
@@ -3178,9 +3172,7 @@
 
     <xaif:EndLoop vertex_id="404" annotation=""></xaif:EndLoop>
 
-    <xaif:BasicBlock vertex_id="108" scope_id="10" annotation="">
-      <xaif:Marker statement_id="56" annotation="{WHIRL_Id#56} [passive: OPR_RETURN]"></xaif:Marker>
-    </xaif:BasicBlock>
+    <xaif:BasicBlock vertex_id="108" scope_id="10" annotation=""></xaif:BasicBlock>
 
     <xaif:Exit vertex_id="109" annotation=""></xaif:Exit>
 
@@ -3420,9 +3412,7 @@
 
     <xaif:EndLoop vertex_id="405" annotation=""></xaif:EndLoop>
 
-    <xaif:BasicBlock vertex_id="115" scope_id="11" annotation="">
-      <xaif:Marker statement_id="60" annotation="{WHIRL_Id#60} [passive: OPR_RETURN]"></xaif:Marker>
-    </xaif:BasicBlock>
+    <xaif:BasicBlock vertex_id="115" scope_id="11" annotation=""></xaif:BasicBlock>
 
     <xaif:Exit vertex_id="116" annotation=""></xaif:Exit>
 
@@ -3635,9 +3625,7 @@
 
     <xaif:EndLoop vertex_id="389" annotation=""></xaif:EndLoop>
 
-    <xaif:BasicBlock vertex_id="23" scope_id="4" annotation="">
-      <xaif:Marker statement_id="60" annotation="{WHIRL_Id#60} [passive: OPR_RETURN]"></xaif:Marker>
-    </xaif:BasicBlock>
+    <xaif:BasicBlock vertex_id="23" scope_id="4" annotation=""></xaif:BasicBlock>
 
     <xaif:Exit vertex_id="24" annotation=""></xaif:Exit>
 
@@ -4611,7 +4599,6 @@
           </xaif:VariableReference>
         </xaif:AssignmentRHS>
       </xaif:Assignment>
-      <xaif:Marker statement_id="262" annotation="{WHIRL_Id#262} [passive: OPR_RETURN]"></xaif:Marker>
     </xaif:BasicBlock>
 
     <xaif:Exit vertex_id="39" annotation=""></xaif:Exit>
@@ -6594,9 +6581,7 @@
 
     <xaif:EndLoop vertex_id="70" annotation=""></xaif:EndLoop>
 
-    <xaif:BasicBlock vertex_id="72" scope_id="6" annotation="">
-      <xaif:Marker statement_id="577" annotation="{WHIRL_Id#577} [passive: OPR_RETURN]"></xaif:Marker>
-    </xaif:BasicBlock>
+    <xaif:BasicBlock vertex_id="72" scope_id="6" annotation=""></xaif:BasicBlock>
 
     <xaif:Exit vertex_id="73" annotation=""></xaif:Exit>
 
@@ -6842,9 +6827,7 @@
 
     <xaif:EndBranch vertex_id="91" annotation=""></xaif:EndBranch>
 
-    <xaif:BasicBlock vertex_id="402" scope_id="7" annotation="">
-      <xaif:Marker statement_id="88" annotation="{WHIRL_Id#88} [passive: OPR_RETURN]"></xaif:Marker>
-    </xaif:BasicBlock>
+    <xaif:BasicBlock vertex_id="402" scope_id="7" annotation=""></xaif:BasicBlock>
 
     <xaif:Exit vertex_id="92" annotation=""></xaif:Exit>
 
@@ -7149,9 +7132,7 @@
 
     <xaif:EndLoop vertex_id="406" annotation=""></xaif:EndLoop>
 
-    <xaif:BasicBlock vertex_id="122" scope_id="12" annotation="">
-      <xaif:Marker statement_id="43" annotation="{WHIRL_Id#43} [passive: OPR_RETURN]"></xaif:Marker>
-    </xaif:BasicBlock>
+    <xaif:BasicBlock vertex_id="122" scope_id="12" annotation=""></xaif:BasicBlock>
 
     <xaif:Exit vertex_id="123" annotation=""></xaif:Exit>
 
