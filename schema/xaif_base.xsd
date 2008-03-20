@@ -714,16 +714,6 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:enumeration>
-    <xsd:enumeration value="inOnEntry">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          The value assigned insight may not be
-          passed back, i.e. this can be passed by value
-	  but the value is required on entry, e.g. 
-	  for dimension expressions in declarations.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:enumeration>
     <xsd:enumeration value="out">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -739,16 +729,6 @@
         <xsd:documentation xml:lang="en">
           The values on entry an exit are passed either 
 	  by reference or by copy.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:enumeration>
-    <xsd:enumeration value="inoutOnEntry">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          The values on entry an exit are passed either  
-          by reference or by copy. 
-          but the value is required on entry, e.g.
-          for dimension expressions in declarations.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:enumeration>
@@ -835,6 +815,9 @@
           Mod:       modifications in this subroutine and its callees
           ReadLocal: reads in this subroutine
           Read:      reads in this subroutine and its callees	
+          and one list provided by the front-end:
+          OnEntry:   reads in this subroutine that have to be 
+                     set on entry, e.g. because of uses in the declaration block
 	  The control flow graph itself is contained in ControlFlowVertexAndEdgeGroup.
         </xsd:documentation>
       </xsd:annotation>
@@ -844,6 +827,7 @@
         <xsd:element name="Mod"          type="SideEffectListType" minOccurs="0" maxOccurs="1"/> 
         <xsd:element name="ReadLocal"    type="SideEffectListType" minOccurs="0" maxOccurs="1"/> 
         <xsd:element name="Read"         type="SideEffectListType" minOccurs="0" maxOccurs="1"/> 
+        <xsd:element name="OnEntry"      type="SideEffectListType" minOccurs="0" maxOccurs="1"/> 
         <xsd:group ref="ControlFlowVertexAndEdgeGroup" minOccurs="0" maxOccurs="unbounded"/>
       </xsd:sequence>
       <xsd:attribute name="active"                    type="xsd:boolean"         use="optional" default="true"/>
