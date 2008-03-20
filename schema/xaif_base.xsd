@@ -701,13 +701,57 @@
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
       The intent of subroutine arguments, in concept similar 
-      to the an intent qualifier found in Fortran90 but n
+      to the an intent qualifier found in Fortran but not 
+      restricted to it.
     </xsd:documentation>
   </xsd:annotation>
   <xsd:restriction base="xsd:string">
-    <xsd:enumeration value="in"/>
-    <xsd:enumeration value="out"/>
-    <xsd:enumeration value="inout"/>
+    <xsd:enumeration value="in">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The value assigned insight may not be 
+	  passed back, i.e. this can be pass by value.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:enumeration>
+    <xsd:enumeration value="inOnEntry">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The value assigned insight may not be
+          passed back, i.e. this can be passed by value
+	  but the value is required on entry, e.g. 
+	  for dimension expressions in declarations.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:enumeration>
+    <xsd:enumeration value="out">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The value assigned will be
+          passed back, i.e. this can be pass by value 
+	  or copy return value but the value 
+	  on entry may not be copied in.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:enumeration>
+    <xsd:enumeration value="inout">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The values on entry an exit are passed either 
+	  by reference or by copy.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:enumeration>
+    <xsd:enumeration value="inoutOnEntry">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The values on entry an exit are passed either  
+          by reference or by copy. 
+          but the value is required on entry, e.g.
+          for dimension expressions in declarations.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:enumeration>
   </xsd:restriction>
 </xsd:simpleType>
 
