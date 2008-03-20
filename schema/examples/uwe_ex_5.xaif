@@ -46,6 +46,8 @@ end subroutine
   <!-- For syntax demo only -->
 
   <xaif:AliasSetMap>
+    <xaif:AliasSet key="0">
+    </xaif:AliasSet>
     <xaif:AliasSet key="1">
       <xaif:AliasRange from_virtual_address="1" to_virtual_address="1"/>
       <xaif:AliasRange from_virtual_address="3" to_virtual_address="7"/>
