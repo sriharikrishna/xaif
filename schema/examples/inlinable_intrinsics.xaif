@@ -175,14 +175,14 @@
   <xaifii:InlinableIntrinsic name="tan_scal" nr_arguments="1">
     <xaifii:Function type="builtin" builtin_name="tan"/>
     <xaifii:Partial partial_id="1">
-      <xaif:Intrinsic vertex_id="1" name="plus_scal"/>
+      <xaifii:ArgumentReference vertex_id="0" argument="0"/> 
+      <xaif:Intrinsic vertex_id="1" name="mul_scal_scal"/>
       <xaif:Constant vertex_id="2" type="integer" value="1"/>
-      <xaif:Intrinsic vertex_id="3" name="mul_scal_scal"/>
-      <xaifii:ArgumentReference vertex_id="4" argument="0"/> 
-      <xaif:ExpressionEdge edge_id="1" source="4" target="3" position="1"/> 
-      <xaif:ExpressionEdge edge_id="2" source="4" target="3" position="2"/> 
-      <xaif:ExpressionEdge edge_id="3" source="3" target="2" position="2"/> 
-      <xaif:ExpressionEdge edge_id="4" source="2" target="1" position="1"/> 
+      <xaif:Intrinsic vertex_id="3" name="add_scal_scal"/>
+      <xaif:ExpressionEdge edge_id="1" source="0" target="1" position="1"/> 
+      <xaif:ExpressionEdge edge_id="2" source="0" target="1" position="2"/> 
+      <xaif:ExpressionEdge edge_id="3" source="1" target="3" position="1"/> 
+      <xaif:ExpressionEdge edge_id="4" source="2" target="3" position="2"/> 
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
