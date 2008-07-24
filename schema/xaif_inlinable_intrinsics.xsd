@@ -160,15 +160,13 @@
 
 <xsd:complexType name="InlinableIntrinsicDefinitionType">
    <xsd:sequence>
-
      <xsd:element ref="xaifii:Function" minOccurs="1" maxOccurs="1"/>
      <xsd:element ref="xaifii:Partial" minOccurs="1" maxOccurs="unbounded"/>
-
    </xsd:sequence>
-   <xsd:attribute name="name" type="xsd:string" use="required"/>
+   <xsd:attribute name="name"         type="xsd:string"          use="required"/>
    <xsd:attribute name="nr_arguments" type="xsd:positiveInteger" use="required"/>
-   <xsd:attribute name="return_type" type="xaif:SymbolTypeType" use="optional" default="real"/>
-   
+   <xsd:attribute name="return_type"  type="xaif:SymbolTypeType" use="optional" default="real"/>
+   <xsd:attribute name="nonSmooth"    type="xsd:boolean"         use="optional" default="false"/>
 </xsd:complexType>
 
 <xsd:simpleType name="LanguageType">
@@ -189,12 +187,10 @@
  
 </xsd:simpleType>           
 
-<xsd:element name="InlinableIntrinsic" 
-	type="xaifii:InlinableIntrinsicDefinitionType"/>
+<xsd:element name="InlinableIntrinsic" type="xaifii:InlinableIntrinsicDefinitionType"/>
 
 <xsd:complexType name="InlinableIntrinsicDefinitionsType">
    <xsd:sequence>
-
      <xsd:element ref="xaifii:InlinableIntrinsic" minOccurs="1" maxOccurs="unbounded"/>
    </xsd:sequence>
    <xsd:attribute name="language"   type="xaifii:LanguageType" use="required"/>
@@ -205,7 +201,7 @@
 <!-- *********************************************************** -->
 
 <xsd:element name="InlinableIntrinsicDefinitions" type="xaifii:InlinableIntrinsicDefinitionsType">
-	<xsd:unique name="ii_unique">
+  <xsd:unique name="ii_unique">
     <xsd:selector xpath="xaifii:InlinableIntrinsic"/>
     <xsd:field xpath="@name"/>
   </xsd:unique>

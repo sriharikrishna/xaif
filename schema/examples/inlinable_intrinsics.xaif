@@ -172,7 +172,7 @@
 <!-- Scalar Tangens -->
 <!-- *********************************************************** -->
 
-  <xaifii:InlinableIntrinsic name="tan_scal" nr_arguments="1">
+  <xaifii:InlinableIntrinsic name="tan_scal" nr_arguments="1" nonSmooth="true">
     <xaifii:Function type="builtin" builtin_name="tan"/>
     <xaifii:Partial partial_id="1">
       <xaifii:ArgumentReference vertex_id="0" argument="0"/> 
@@ -367,7 +367,7 @@
 <!-- Conversion to integer -->
 <!-- *********************************************************** -->
 
-  <xaifii:InlinableIntrinsic name="int_scal" nr_arguments="1">
+  <xaifii:InlinableIntrinsic name="int_scal" nr_arguments="1" nonSmooth="true">
     <xaifii:Function type="builtin" builtin_name="int"/>
     <xaifii:Partial partial_id="1" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
@@ -381,7 +381,7 @@
 <!-- Conversion to real from integer -->
 <!-- *********************************************************** -->
 
-  <xaifii:InlinableIntrinsic name="real_int_scal" nr_arguments="1">
+  <xaifii:InlinableIntrinsic name="real_int_scal" nr_arguments="1" nonSmooth="true">
     <xaifii:Function type="builtin" builtin_name="real"/>
     <xaifii:Partial partial_id="1" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
@@ -421,7 +421,7 @@
 <!-- Remainder of x and y (MOD(x,y)) as in x-INT(x/y)*y          -->
 <!-- *********************************************************** -->
 
-  <xaifii:InlinableIntrinsic name="mod_scal_scal" nr_arguments="2">
+  <xaifii:InlinableIntrinsic name="mod_scal_scal" nr_arguments="2" nonSmooth="true">
     <xaifii:Function type="builtin" builtin_name="mod"/>
     <xaifii:Partial partial_id="1" partial_type="linear_one">
       <xaif:Constant type="integer" value="1"/>
@@ -443,7 +443,7 @@
 <!-- Absolute Value -->
 <!-- *********************************************************** -->
 
-  <xaifii:InlinableIntrinsic name="abs_scal" nr_arguments="1">
+  <xaifii:InlinableIntrinsic name="abs_scal" nr_arguments="1" nonSmooth="true">
     <xaifii:Function type="builtin" builtin_name="abs"/>
     <xaifii:Partial partial_id="1">
       <xaif:Intrinsic vertex_id="1" name="sign_scal_scal"/>
@@ -460,7 +460,7 @@
 <!-- and 0 for the second partial                                -->
 <!-- *********************************************************** -->
 
-  <xaifii:InlinableIntrinsic name="sign_scal_scal" nr_arguments="2">
+  <xaifii:InlinableIntrinsic name="sign_scal_scal" nr_arguments="2" nonSmooth="true">
     <xaifii:Function type="builtin" builtin_name="sign"/>
     <xaifii:Partial partial_id="1">
       <xaif:Intrinsic vertex_id="1" name="mul_scal_scal"/>
