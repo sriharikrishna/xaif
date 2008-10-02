@@ -72,7 +72,7 @@
        <xaif:Marker statement_id="nop1" annotation="test nop to be ignored"></xaif:Marker>
 
        <xaif:Assignment statement_id="ass1" lineNumber="0" do_chain="0">
-         <xaif:AssignmentLHS du_ud="1" live="true" active="undefined" alias="0" deriv="false" constant="false" vertex_id="uwe" annotation="">
+         <xaif:AssignmentLHS du_ud="1" live="true" active="undefined" alias="0" deriv="false" constant="false" vertex_id="1" annotation="">
            <xaif:SymbolReference vertex_id="1" symbol_id="t1" scope_id="2" annotation="">
 	     <xaif:SymbolReferenceProperty name="prop_name" value="prop_value"></xaif:SymbolReferenceProperty>
 	   </xaif:SymbolReference>
@@ -91,7 +91,7 @@
        </xaif:Assignment>      
 
        <xaif:Assignment statement_id="sage_2" lineNumber="0" do_chain="0">
-         <xaif:AssignmentLHS du_ud="3" live="true" active="undefined" alias="0" deriv="false" constant="false" vertex_id="uwe" annotation="">
+         <xaif:AssignmentLHS du_ud="3" live="true" active="undefined" alias="0" deriv="false" constant="false" vertex_id="1" annotation="">
            <xaif:SymbolReference vertex_id="1" symbol_id="t2" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
@@ -114,7 +114,7 @@
        </xaif:Assignment>      
 
        <xaif:Assignment statement_id="sage_3" lineNumber="0" do_chain="0">
-         <xaif:AssignmentLHS live="true" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" vertex_id="uwe" annotation="">
+         <xaif:AssignmentLHS live="true" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" vertex_id="1" annotation="">
            <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>

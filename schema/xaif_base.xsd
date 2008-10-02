@@ -81,7 +81,7 @@
         </xsd:documentation>
       </xsd:annotation>
 
-      <xsd:attribute name="vertex_id" type="xsd:string" use="optional" default="uwe"/>
+      <xsd:attribute name="vertex_id" type="xsd:string" use="optional" default="1"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
