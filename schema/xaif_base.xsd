@@ -81,7 +81,7 @@
         </xsd:documentation>
       </xsd:annotation>
 
-      <xsd:attribute name="vertex_id" type="xsd:string" use="optional" default="uwe"/>
+      <xsd:attribute name="vertex_id" type="xsd:string" use="optional" default="1"/>
     </xsd:extension>
   </xsd:complexContent>   
 </xsd:complexType>
@@ -200,12 +200,12 @@
        The sequence of dimension bounds. Since we only go up to 
        five_tensor for now it is limited to 5 entries. The order 
        in the list implies dimension bounds starting from the 
-       top level.
+       top level, e.g. reverse of the index order in column major mode.
     </xsd:documentation>
   </xsd:annotation>
   <xsd:sequence>
     <xsd:element name="DimensionBounds" type="DimensionBoundsType" 
-       minOccurs="0" maxOccurs="5">
+       minOccurs="0" maxOccurs="7">
     </xsd:element>  
   </xsd:sequence>
 </xsd:group>
