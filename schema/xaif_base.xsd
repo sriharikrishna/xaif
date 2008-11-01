@@ -1431,6 +1431,8 @@
 		the result of the subdag induced by the source is an argument of 
 		the operation represented by the target. 
 		Leafs are always variable references or constants. 
+		The orientation is always operator to operand, e.g. for 
+	        sin(x) it is "x" -> "sin".
         </xsd:documentation>
       </xsd:annotation>
 
@@ -1600,11 +1602,8 @@
 
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
-      Variable references are special expressions. For the time being,
-      the only vertex type allowed are symbol references. This will be
-      extended to comprise array access operators. The corresponding
-      index expressions will become elements of the array access operator
-      itself.
+      Variable references are in essence representing expressions
+      for address computations. 
     </xsd:documentation>
   </xsd:annotation>
 
@@ -1619,7 +1618,7 @@
           <xsd:annotation>
  	    <xsd:documentation xml:lang="en">
 	       Variable reference vertices are abstract placeholders
-	       for symbol references and array references (later).
+	       for symbol references, array references etc.
             </xsd:documentation>
           </xsd:annotation>
 
@@ -1630,7 +1629,10 @@
 
           <xsd:annotation>
 	    <xsd:documentation xml:lang="en"> 
-  	      Not used so far. Later used to access array elements.
+  	      The edge orientation is to be from the operand
+	      to the operator, e.g. for A[i] from the symbol reference "A" -> "[i]", 
+	      the array reference vertex. Note that this is the 
+	      reverse of the direction prescribed for ExpressionEdges.
             </xsd:documentation>
           </xsd:annotation>
 
