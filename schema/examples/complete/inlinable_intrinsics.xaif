@@ -378,6 +378,15 @@
 
 
 
+  <xaifii:InlinableIntrinsic name="trim" nr_arguments="1" return_type="real" nonSmooth="false">
+    <xaifii:Function type="builtin" builtin_name="trim"></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+
+
+
+
   <xaifii:InlinableIntrinsic name="mod_scal_scal" nr_arguments="2" nonSmooth="true" return_type="real">
     <xaifii:Function type="builtin" builtin_name="mod"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="linear_one">

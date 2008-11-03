@@ -418,6 +418,15 @@
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
+<!-- String trim -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="trim" nr_arguments="1">
+    <xaifii:Function type="builtin" builtin_name="trim"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
 <!-- Remainder of x and y (MOD(x,y)) as in x-INT(x/y)*y          -->
 <!-- *********************************************************** -->
 
