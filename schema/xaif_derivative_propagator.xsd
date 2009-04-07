@@ -51,16 +51,15 @@
  
 <xsd:redefine schemaLocation="xaif_base.xsd">
 <xsd:group name="BasicBlockBody">
-          <xsd:choice>
-            <xsd:group ref="xaif:BasicBlockBody"/>
-            <xsd:element ref="xaif:DerivativePropagator"/>
-          </xsd:choice>
+  <xsd:choice>
+    <xsd:group ref="xaif:BasicBlockBody"/>
+    <xsd:element ref="xaif:DerivativePropagator"/>
+  </xsd:choice>
 </xsd:group>
 </xsd:redefine>
 
-
 <!-- *********************************************************** -->
-<!-- Deriv(Tgt)=Deriv(Src) -->
+<!-- SetDeriv: Deriv(Tgt) = Deriv(Src) -->
 <!-- *********************************************************** -->
 
 <xsd:complexType name="SetDerivType">
@@ -86,7 +85,7 @@
 </xsd:complexType>
 
 <!-- *********************************************************** -->
-<!-- Y=A1*X1+A2*X2+... -->
+<!-- SAX: Y = A1*X1 + A2*X2 + ... -->
 <!-- *********************************************************** -->
 
 <xsd:complexType name="SaxType">
@@ -99,7 +98,7 @@
 </xsd:complexType>
 
 <!-- *********************************************************** -->
-<!-- Y=A1*X1+A2*X2+...+Y -->
+<!-- SAXPY: Y = A1*X1 + A2*X2 + ... + Y -->
 <!-- *********************************************************** -->
 
 <xsd:complexType name="SaxpyType">
