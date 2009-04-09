@@ -59,6 +59,45 @@
 </xsd:complexType>
 
 <!-- *********************************************************** -->
+<!-- SetNegDeriv: Deriv(Tgt) = -Deriv(Src) -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="SetNegDerivType">
+   <xsd:sequence>
+     <xsd:element name="Tgt" type="xaif:VariableReferenceType"
+                  minOccurs="1" maxOccurs="1"/>
+     <xsd:element name="Src" type="xaif:VariableReferenceType" 
+                  minOccurs="1" maxOccurs="1"/>
+   </xsd:sequence>
+</xsd:complexType>
+
+<!-- *********************************************************** -->
+<!-- IncDeriv: Deriv(Tgt) += Deriv(Src) -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="IncDerivType">
+   <xsd:sequence>
+     <xsd:element name="Tgt" type="xaif:VariableReferenceType"
+                  minOccurs="1" maxOccurs="1"/>
+     <xsd:element name="Src" type="xaif:VariableReferenceType" 
+                  minOccurs="1" maxOccurs="1"/>
+   </xsd:sequence>
+</xsd:complexType>
+
+<!-- *********************************************************** -->
+<!-- DecDeriv: Deriv(Tgt) -= Deriv(Src) -->
+<!-- *********************************************************** -->
+
+<xsd:complexType name="DecDerivType">
+   <xsd:sequence>
+     <xsd:element name="Tgt" type="xaif:VariableReferenceType"
+                  minOccurs="1" maxOccurs="1"/>
+     <xsd:element name="Src" type="xaif:VariableReferenceType" 
+                  minOccurs="1" maxOccurs="1"/>
+   </xsd:sequence>
+</xsd:complexType>
+
+<!-- *********************************************************** -->
 <!-- A*X -->
 <!-- *********************************************************** -->
 
@@ -106,6 +145,9 @@
 
      <xsd:choice minOccurs="0" maxOccurs="unbounded">
        <xsd:element name="SetDeriv" type="xaif:SetDerivType"/>
+       <xsd:element name="SetNegDeriv" type="xaif:SetNegDerivType"/>
+       <xsd:element name="IncDeriv" type="xaif:IncDerivType"/>
+       <xsd:element name="DecDeriv" type="xaif:DecDerivType"/>
        <xsd:element name="Sax" type="xaif:SaxType"/>
        <xsd:element name="Saxpy" type="xaif:SaxpyType"/>
        <xsd:element name="ZeroDeriv" type="xaif:VariableReferenceType"/>
