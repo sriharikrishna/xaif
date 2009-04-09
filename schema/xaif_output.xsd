@@ -45,8 +45,10 @@
             elementFormDefault="qualified"
             attributeFormDefault="unqualified">
 
+<xsd:include id="xaif_derivative_propagator.xsd" schemaLocation="xaif_derivative_propagator.xsd"/>
+
 <!-- *********************************************************** -->
-<!-- Differentiated Subroutine                                   -->
+<!-- Differentiated Basic Block                                  -->
 <!-- *********************************************************** -->
  
 <xsd:redefine schemaLocation="xaif_base.xsd">
@@ -58,77 +60,6 @@
   </xsd:choice>
 </xsd:group>
 </xsd:redefine>
-
-<!-- *********************************************************** -->
-<!-- SetDeriv: Deriv(Tgt) = Deriv(Src) -->
-<!-- *********************************************************** -->
-
-<xsd:complexType name="SetDerivType">
-   <xsd:sequence>
-     <xsd:element name="Tgt" type="xaif:VariableReferenceType"
-                  minOccurs="1" maxOccurs="1"/>
-     <xsd:element name="Src" type="xaif:VariableReferenceType" 
-                  minOccurs="1" maxOccurs="1"/>
-   </xsd:sequence>
-</xsd:complexType>
-
-<!-- *********************************************************** -->
-<!-- A*X -->
-<!-- *********************************************************** -->
-
-<xsd:complexType name="AXType">
-   <xsd:sequence>
-      <xsd:element name="A" type="xaif:ExpressionType"
-                   minOccurs="1" maxOccurs="1"/>
-      <xsd:element name="X" type="xaif:VariableReferenceType"
-                   minOccurs="1" maxOccurs="1"/>
-   </xsd:sequence>
-</xsd:complexType>
-
-<!-- *********************************************************** -->
-<!-- SAX: Y = A1*X1 + A2*X2 + ... -->
-<!-- *********************************************************** -->
-
-<xsd:complexType name="SaxType">
-   <xsd:sequence>
-      <xsd:element name="AX" type="xaif:AXType"
-                   minOccurs="1" maxOccurs="unbounded"/>
-      <xsd:element name="Y" type="xaif:VariableReferenceType"
-                   minOccurs="1" maxOccurs="1"/>
-   </xsd:sequence>
-</xsd:complexType>
-
-<!-- *********************************************************** -->
-<!-- SAXPY: Y = A1*X1 + A2*X2 + ... + Y -->
-<!-- *********************************************************** -->
-
-<xsd:complexType name="SaxpyType">
-   <xsd:sequence>
-     <xsd:element name="AX" type="xaif:AXType"
-                  minOccurs="1" maxOccurs="unbounded"/>
-     <xsd:element name="Y" type="xaif:VariableReferenceType"
-                  minOccurs="1" maxOccurs="1"/>
-   </xsd:sequence>
-</xsd:complexType>
-
-<!-- *********************************************************** -->
-<!-- Derivative propagator -->
-<!-- *********************************************************** -->
-
-<xsd:complexType name="DerivativePropagatorType">
-   <xsd:sequence>
-
-     <xsd:choice minOccurs="0" maxOccurs="unbounded">
-       <xsd:element name="SetDeriv" type="xaif:SetDerivType"/>
-       <xsd:element name="Sax" type="xaif:SaxType"/>
-       <xsd:element name="Saxpy" type="xaif:SaxpyType"/>
-       <xsd:element name="ZeroDeriv" type="xaif:VariableReferenceType"/>
-     </xsd:choice>
-
-   </xsd:sequence>
-</xsd:complexType>
-
-<xsd:element name="DerivativePropagator" type="xaif:DerivativePropagatorType"/>
 
 <!-- *********************************************************** -->
 <!-- List of Replacements                                        -->

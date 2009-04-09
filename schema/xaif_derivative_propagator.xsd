@@ -46,19 +46,6 @@
             attributeFormDefault="unqualified">
 
 <!-- *********************************************************** -->
-<!-- Differentiated Basic Block -->
-<!-- *********************************************************** -->
- 
-<xsd:redefine schemaLocation="xaif_base.xsd">
-<xsd:group name="BasicBlockBody">
-  <xsd:choice>
-    <xsd:group ref="xaif:BasicBlockBody"/>
-    <xsd:element ref="xaif:DerivativePropagator"/>
-  </xsd:choice>
-</xsd:group>
-</xsd:redefine>
-
-<!-- *********************************************************** -->
 <!-- SetDeriv: Deriv(Tgt) = Deriv(Src) -->
 <!-- *********************************************************** -->
 
