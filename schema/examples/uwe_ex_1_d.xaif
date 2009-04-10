@@ -5,7 +5,7 @@
 
 <xaif:CallGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:xaif="http://www.mcs.anl.gov/XAIF"
-       xsi:schemaLocation="http://www.mcs.anl.gov/XAIF ../xaif_derivative_propagator.xsd"
+       xsi:schemaLocation="http://www.mcs.anl.gov/XAIF ../xaif_output.xsd"
        program_name="slp_head">
 
   <xaif:ScopeHierarchy>
