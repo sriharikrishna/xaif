@@ -245,6 +245,7 @@
       <xsd:attribute name="shape"              type="SymbolShapeType" use="optional" default="scalar"/>
       <xsd:attribute name="active"             type="xsd:boolean"     use="optional" default="true"/>
       <xsd:attribute name="temp"               type="xsd:boolean"     use="optional" default="false"/>
+      <xsd:attribute name="pointer"            type="xsd:boolean"     use="optional" default="false"/>
     </xsd:extension>       
   </xsd:complexContent>
 </xsd:complexType>
