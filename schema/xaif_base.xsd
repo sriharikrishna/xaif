@@ -1925,7 +1925,7 @@
   </xsd:annotation>
 
   <xsd:sequence>
-    <xsd:element name="Index" type="ExpressionType" minOccurs="1" maxOccurs="1"/>
+    <xsd:element name="Index" type="ExpressionType" minOccurs="0" maxOccurs="1"/>
     <xsd:element name="Bound" type="ExpressionType" minOccurs="0" maxOccurs="1"/>
     <xsd:element name="Stride" type="ExpressionType" minOccurs="0" maxOccurs="1"/>
   </xsd:sequence>
