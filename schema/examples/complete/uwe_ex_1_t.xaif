@@ -5,17 +5,17 @@
 
     <xaif:Scope vertex_id="1" annotation="">
       <xaif:SymbolTable>
-        <xaif:Symbol symbol_id="head" kind="subroutine" type="void" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
-        <xaif:Symbol symbol_id="x" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
-        <xaif:Symbol symbol_id="y" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="head" kind="subroutine" type="void" feType="" shape="scalar" active="true" temp="false" pointer="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="x" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" pointer="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="y" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" pointer="false" annotation=""></xaif:Symbol>
       </xaif:SymbolTable>
     </xaif:Scope>
 
     <xaif:Scope vertex_id="2" annotation="">
       <xaif:SymbolTable>
-        <xaif:Symbol symbol_id="x" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
-        <xaif:Symbol symbol_id="y" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
-        <xaif:Symbol symbol_id="dydx" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="x" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" pointer="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="y" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" pointer="false" annotation=""></xaif:Symbol>
+        <xaif:Symbol symbol_id="dydx" kind="variable" type="real" feType="" shape="scalar" active="true" temp="false" pointer="false" annotation=""></xaif:Symbol>
       </xaif:SymbolTable>
     </xaif:Scope>
 
