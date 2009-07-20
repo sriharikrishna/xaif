@@ -101,6 +101,27 @@
 
 
 
+  <xaifii:InlinableIntrinsic name="log10" nr_arguments="1" return_type="real" nonSmooth="false">
+    <xaifii:Function type="builtin" builtin_name="log10"></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="nonlinear">
+      <xaif:Intrinsic vertex_id="1" name="div_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Constant vertex_id="2" type="integer" value="1" feType="" annotation=""></xaif:Constant>
+      <xaifii:ArgumentReference vertex_id="3" argument="1" annotation=""></xaifii:ArgumentReference> 
+      <xaif:Intrinsic vertex_id="4" name="mul_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="5" name="ln_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Constant vertex_id="6" type="real" value="10.0" feType="" annotation=""></xaif:Constant>
+      <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1" annotation=""></xaif:ExpressionEdge> 
+      <xaif:ExpressionEdge edge_id="2" source="4" target="1" position="2" annotation=""></xaif:ExpressionEdge> 
+      <xaif:ExpressionEdge edge_id="3" source="6" target="5" position="1" annotation=""></xaif:ExpressionEdge> 
+      <xaif:ExpressionEdge edge_id="4" source="5" target="4" position="2" annotation=""></xaif:ExpressionEdge> 
+      <xaif:ExpressionEdge edge_id="5" source="3" target="4" position="1" annotation=""></xaif:ExpressionEdge> 
+    </xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+
+
+
+
   <xaifii:InlinableIntrinsic name="sin_scal" nr_arguments="1" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name="sin"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
