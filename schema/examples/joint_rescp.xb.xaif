@@ -54,7 +54,7 @@
     <xaif:Replacement placeholder="3">
       <xaif:BasicBlock vertex_id="1" scope_id="2">
 <!-- call sub2(x,y,2,1) -->
-        <xaif:SubroutineCall statement_id="1" scope_id="1" symbol_id="sub2">
+        <xaif:SubroutineCall statement_id="1" scope_id="1" symbol_id="sub2" formalArgCount="4">
           <xaif:Argument position="1">
             <xaif:VariableReference vertex_id="1">
              <xaif:SymbolReference vertex_id="1" scope_id="2" symbol_id="x"/>
