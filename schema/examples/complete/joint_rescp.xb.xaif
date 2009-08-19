@@ -47,22 +47,22 @@
       <xaif:BasicBlock vertex_id="1" scope_id="2" annotation="">
 
         <xaif:SubroutineCall statement_id="1" scope_id="1" symbol_id="sub2" formalArgCount="4" active="undefined" lineNumber="0">
-          <xaif:Argument position="1">
+          <xaif:Argument position="1" annotation="">
             <xaif:VariableReference vertex_id="1" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="">
              <xaif:SymbolReference vertex_id="1" scope_id="2" symbol_id="x" annotation=""></xaif:SymbolReference>
             </xaif:VariableReference>
           </xaif:Argument>
-          <xaif:Argument position="2">
+          <xaif:Argument position="2" annotation="">
             <xaif:VariableReference vertex_id="1" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="">
               <xaif:SymbolReference vertex_id="1" scope_id="2" symbol_id="y" annotation=""></xaif:SymbolReference>
             </xaif:VariableReference>
           </xaif:Argument>
-          <xaif:Argument position="3">
+          <xaif:Argument position="3" annotation="">
             <xaif:VariableReference vertex_id="1" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="">
               <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="TWO" annotation=""></xaif:SymbolReference>        
             </xaif:VariableReference>
           </xaif:Argument>
-          <xaif:Argument position="4">
+          <xaif:Argument position="4" annotation="">
             <xaif:VariableReference vertex_id="1" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="">
               <xaif:SymbolReference vertex_id="1" scope_id="1" symbol_id="ONE" annotation=""></xaif:SymbolReference>        
             </xaif:VariableReference>
@@ -87,7 +87,7 @@
 
 
         <xaif:InlinableSubroutineCall subroutine_name="push_partial" statement_id="inline_1">
-          <xaif:Argument position="1">
+          <xaif:Argument position="1" annotation="">
             <xaif:VariableReference vertex_id="1" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="">
               <xaif:SymbolReference vertex_id="1" symbol_id="partial_1" scope_id="2" annotation=""></xaif:SymbolReference>
             </xaif:VariableReference>

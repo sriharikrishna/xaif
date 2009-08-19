@@ -1539,19 +1539,23 @@
 	by canonicalization.
     </xsd:documentation>
   </xsd:annotation>
-  <xsd:choice minOccurs="1" maxOccurs="1">
-    <xsd:element name="VariableReference" type="VariableReferenceType" minOccurs="0" maxOccurs="1"/>
-    <xsd:element name="Constant" type="ConstantType" minOccurs="0" maxOccurs="1"/>
-  </xsd:choice>               
-  <xsd:attribute name="position" type="xsd:positiveInteger" use="required">
-    <xsd:annotation>
-      <xsd:documentation xml:lang="en">
-        To cover possible optional arguments we identify each actual argument 
-        by its respective position in the formal (ordered) argument list.
-        The position must be greater than 0 and less than or equal SubroutineCallType:formalArgCount
-      </xsd:documentation>
-    </xsd:annotation>
-  </xsd:attribute>
+  <xsd:complexContent>
+    <xsd:extension base="FrontEndAnnotationType">       
+      <xsd:choice minOccurs="1" maxOccurs="1">
+        <xsd:element name="VariableReference" type="VariableReferenceType" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="Constant" type="ConstantType" minOccurs="0" maxOccurs="1"/>
+      </xsd:choice>               
+      <xsd:attribute name="position" type="xsd:positiveInteger" use="required">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            To cover possible optional arguments we identify each actual argument 
+            by its respective position in the formal (ordered) argument list.
+            The position must be greater than 0 and less than or equal SubroutineCallType:formalArgCount
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:extension>
+  </xsd:complexContent>
 </xsd:complexType>
 
 <xsd:complexType name="SubroutineCallType">
@@ -1595,10 +1599,6 @@
 <xsd:complexType name="MarkerType">
   <xsd:complexContent>
     <xsd:extension base="FrontEndAnnotationType">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-        </xsd:documentation>
-      </xsd:annotation>
       <xsd:attribute name="statement_id" type="xsd:string" use="required"/>
     </xsd:extension>
   </xsd:complexContent>
