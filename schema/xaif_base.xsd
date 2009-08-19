@@ -742,7 +742,8 @@
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
 	  An argument of a subroutine is a SymbolReference augmented 
-	  by its position within the argument list.
+	  by its position within the argument list where 
+          position is greater than 0 and less or equal number of elements in ArgumentListType.
 	  Additionally, its intent (default: inout) may be specified.
         </xsd:documentation>
       </xsd:annotation>
@@ -1542,7 +1543,15 @@
     <xsd:element name="VariableReference" type="VariableReferenceType" minOccurs="0" maxOccurs="1"/>
     <xsd:element name="Constant" type="ConstantType" minOccurs="0" maxOccurs="1"/>
   </xsd:choice>               
-  <xsd:attribute name="position" type="xsd:positiveInteger" use="required"/>
+  <xsd:attribute name="position" type="xsd:positiveInteger" use="required">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        To cover possible optional arguments we identify each actual argument 
+        by its respective position in the formal (ordered) argument list.
+        The position must be greater than 0 and less than or equal SubroutineCallType:formalArgCount
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:attribute>
 </xsd:complexType>
 
 <xsd:complexType name="SubroutineCallType">
@@ -1566,6 +1575,15 @@
       <xsd:attribute name="scope_id" type="xsd:positiveInteger"/>
       <xsd:attribute name="active" type="xaif:ActiveUseType" use="optional" default="undefined"/>
       <xsd:attribute name="lineNumber" type="xsd:nonNegativeInteger" use="optional" default="0"/>
+      <xsd:attribute name="formalArgCount"  type="xsd:nonNegativeInteger" use="required">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+	    The number of formal arguments including optional ones that are not present in this call
+            Therefore the number of actual arguments (i.e. Argument elements) may be less.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+
 </xsd:complexType> 
 
 <xsd:element name="SubroutineCall" type="SubroutineCallType"/>
