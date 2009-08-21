@@ -100,6 +100,18 @@
   </xsd:choice>
 
   <xsd:attribute name="placeholder" type="xsd:string" use="required"/>
+  <xsd:attribute name="structured"  type="xsd:boolean" use="optional" default="true">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The control flow graph is considered structured if loops and branches 
+        are nested or arranged in a sequence so that for every loop and branch node
+        there is corresponding end node so that each  control flow path through
+        a given loop or branch has to traverse the corresponding endLoop or endBranch
+        node.  This excludes early returns, alternative entries, ...
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:attribute>
+
 </xsd:complexType>
 
 <!-- *********************************************************** -->
