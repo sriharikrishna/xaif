@@ -479,4 +479,16 @@
     <xaifii:Partial partial_id="2" partial_type="passive"></xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
+
+
+
+
+
+  <xaifii:InlinableIntrinsic name="transpose_arr" nr_arguments="1" return_type="real" nonSmooth="false">
+    <xaifii:Function type="builtin" builtin_name="transpose"></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="linear_one">
+      <xaif:Constant type="integer" value="1" feType="" vertex_id="1" annotation=""></xaif:Constant>
+    </xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
 </xaifii:InlinableIntrinsicDefinitions>
