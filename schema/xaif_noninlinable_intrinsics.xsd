@@ -39,20 +39,21 @@
 -->
 
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	    xmlns:xaifnii="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics"
+            xmlns:xaifnii="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics"
             xmlns:xaif="http://www.mcs.anl.gov/XAIF"
 	    targetNamespace="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics"
-	    version="xaif (noninlinable intrinsics) 1.0"
+	    version="xaif 1.0 (noninlinable intrinsics)"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified">
 
 <xsd:import namespace="http://www.mcs.anl.gov/XAIF" schemaLocation="xaif.xsd"/>
 
-<!-- *********************************************************** -->
-<!-- Definition of a noninlinable intrinsic function -->
-<!-- *********************************************************** -->
 
-<xsd:complexType name="NonInlinableIntrinsicDefinitionType">
+<!-- ************************************ -->
+<!-- Definition with an explicit Jacobian -->
+<!-- ************************************ -->
+
+<xsd:complexType name="ExplicitJacobianType">
    <xsd:sequence>
      <xsd:element name="Partial" minOccurs="1" maxOccurs="unbounded"> 
        <xsd:complexType>
@@ -67,6 +68,26 @@
    <xsd:attribute name="return_type" type="xaif:SymbolTypeType" use="optional" default="real"/>
 </xsd:complexType>
 
+<!-- ************************************************* -->
+<!-- Definition with a direct action on the derivative -->
+<!-- ************************************************* -->
+
+<xsd:complexType name="DirectActionType">
+   <xsd:attribute name="function" type="xsd:string" use="required"/>
+   <xsd:attribute name="derivAction" type="xsd:string" use="required"/>
+</xsd:complexType>
+
+<!-- *********************************************** -->
+<!-- Definition of a noninlinable intrinsic function -->
+<!-- *********************************************** -->
+
+<xsd:group name="NonInlinableIntrinsicDefinitionGroup">
+   <xsd:choice>
+     <xsd:element name="ExplicitJacobian" type="xaifnii:ExplicitJacobianType"/>
+     <xsd:element name="DirectAction" type="xaifnii:DirectActionType"/>
+   </xsd:choice>               
+</xsd:group>
+
 <!-- *********************************************************** -->
 <!-- Top level element -->
 <!-- *********************************************************** -->
@@ -74,16 +95,13 @@
 <xsd:element name="NonInlinableIntrinsicDefinitions">
   <xsd:complexType>      
     <xsd:sequence>
-      <xsd:element name="NonInlinableIntrinsic" 
-                   type="xaifnii:NonInlinableIntrinsicDefinitionType" 
-        minOccurs="1" maxOccurs="unbounded"/> 
+      <xsd:group ref="xaifnii:NonInlinableIntrinsicDefinitionGroup" minOccurs="0" maxOccurs="unbounded"/> 
     </xsd:sequence>
   </xsd:complexType>      
   <xsd:unique name="nii_unique">
-	  <xsd:selector xpath="xaifnii:NonInlinableIntrinsic"/>
+    <xsd:selector xpath="xaifnii:ExplicitJacobian|xaifnii:DirectAction"/>
     <xsd:field xpath="@function"/>
   </xsd:unique>
-
 </xsd:element>
 
 </xsd:schema>

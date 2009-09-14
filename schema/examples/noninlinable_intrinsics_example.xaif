@@ -5,30 +5,36 @@
        xmlns:xaif="http://www.mcs.anl.gov/XAIF"
        xsi:schemaLocation="http://www.mcs.anl.gov/XAIFNonInlinableIntrinsics ../xaif_noninlinable_intrinsics.xsd">     
 
-<!-- *********************************************************** -->
-<!-- Example 
-     Consider myfun(x1,x2,x3) where x1 and x2 are inputs and
-     x2 and x3 are outputs. Let myjac(x1,x2,x3,j21,j22,j31,j32)
-                                                                 -->
-<!-- *********************************************************** -->
-
-  <xaifnii:NonInlinableIntrinsic function="myfun" jacobian="myjac" return_type="real">
+  <!-- *********************************************************** -->
+  <!-- Example 
+       Consider myEJfun(x1,x2,x3) where x1 and x2 are inputs and
+       x2 and x3 are outputs. Let myEJjac(x1,x2,x3,j21,j22,j31,j32)
+                                                                   -->
+  <!-- *********************************************************** -->
+  <xaifnii:ExplicitJacobian function="myEJfun" jacobian="myEJjac" return_type="real">
     <xaifnii:Partial dep="2" indep="1" partial="4"/>
     <xaifnii:Partial dep="2" indep="2" partial="5"/>
     <xaifnii:Partial dep="3" indep="1" partial="6"/>
     <xaifnii:Partial dep="3" indep="2" partial="7"/>
-  </xaifnii:NonInlinableIntrinsic>
+  </xaifnii:ExplicitJacobian>
 
-<!-- *********************************************************** -->
-<!-- Example 
-     Consider y=myotherfun(x1,x2) where x1 and x2 are inputs and
-     y is output. Let myotherjac(x1,x2,j12,j13)
-                                                                 -->
-<!-- *********************************************************** -->
-
-<xaifnii:NonInlinableIntrinsic function="myotherfun" jacobian="myotherjac">
+  <!-- *********************************************************** -->
+  <!-- Example 
+       Consider y=myEJfun2(x1,x2) where x1 and x2 are inputs and
+       y is output. Let myEJjac2(x1,x2,j12,j13)
+                                                                   -->
+  <!-- *********************************************************** -->
+  <xaifnii:ExplicitJacobian function="myEJfun2" jacobian="myEJjac2">
     <xaifnii:Partial dep="1" indep="2" partial="3"/>
     <xaifnii:Partial dep="1" indep="3" partial="4"/>
-  </xaifnii:NonInlinableIntrinsic>
+  </xaifnii:ExplicitJacobian>	
+
+  <!-- *********************************************************** -->
+  <!-- Example 
+       Consider y=transpose(x); for the derivatives it is 
+       also transpose(x)
+                                                                   -->
+  <!-- *********************************************************** -->
+  <xaifnii:DirectAction function="transpose" derivAction="transpose"/>
 
 </xaifnii:NonInlinableIntrinsicDefinitions>
