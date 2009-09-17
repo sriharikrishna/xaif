@@ -166,7 +166,13 @@
    <xsd:attribute name="name"         type="xsd:string"          use="required"/>
    <xsd:attribute name="nr_arguments" type="xsd:positiveInteger" use="required"/>
    <xsd:attribute name="return_type"  type="xaif:SymbolTypeType" use="optional" default="real"/>
-   <xsd:attribute name="nonSmooth"    type="xsd:boolean"         use="optional" default="false"/>
+   <xsd:attribute name="nonSmooth"    type="xsd:boolean"         use="optional" default="false">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        is it non smooth?
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:attribute>
 </xsd:complexType>
 
 <xsd:simpleType name="LanguageType">

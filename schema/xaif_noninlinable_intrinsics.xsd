@@ -48,24 +48,48 @@
 
 <xsd:import namespace="http://www.mcs.anl.gov/XAIF" schemaLocation="xaif.xsd"/>
 
+<xsd:complexType name="NonInlinableIntrinsicBaseType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      base for representation of noninlinable intrinsics
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:attribute name="name" type="xsd:string" use="required">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        the name of the noninlable intrinsic
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:attribute>
+  <xsd:attribute name="nonSmooth" type="xsd:boolean" use="optional" default="false">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        is it non smooth?
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:attribute>
+</xsd:complexType>
 
 <!-- ************************************ -->
 <!-- Definition with an explicit Jacobian -->
 <!-- ************************************ -->
 
 <xsd:complexType name="ExplicitJacobianType">
-   <xsd:sequence>
-     <xsd:element name="Partial" minOccurs="1" maxOccurs="unbounded"> 
-       <xsd:complexType>
-         <xsd:attribute name="dep" type="xsd:positiveInteger" use="required"/>
-         <xsd:attribute name="indep" type="xsd:positiveInteger" use="required"/>
-         <xsd:attribute name="partial" type="xsd:positiveInteger" use="required"/>
-       </xsd:complexType>
-     </xsd:element> 
-   </xsd:sequence>
-   <xsd:attribute name="function" type="xsd:string" use="required"/>
-   <xsd:attribute name="jacobian" type="xsd:string" use="required"/>
-   <xsd:attribute name="return_type" type="xaif:SymbolTypeType" use="optional" default="real"/>
+  <xsd:complexContent>
+    <xsd:extension base="xaifnii:NonInlinableIntrinsicBaseType">
+      <xsd:sequence>
+        <xsd:element name="Partial" minOccurs="1" maxOccurs="unbounded"> 
+          <xsd:complexType>
+            <xsd:attribute name="dep" type="xsd:positiveInteger" use="required"/>
+            <xsd:attribute name="indep" type="xsd:positiveInteger" use="required"/>
+            <xsd:attribute name="partial" type="xsd:positiveInteger" use="required"/>
+          </xsd:complexType>
+        </xsd:element> 
+      </xsd:sequence>
+      <xsd:attribute name="jacobian" type="xsd:string" use="required"/>
+      <xsd:attribute name="return_type" type="xaif:SymbolTypeType" use="optional" default="real"/>
+    </xsd:extension>
+  </xsd:complexContent>  
 </xsd:complexType>
 
 <!-- ************************************************* -->
@@ -73,8 +97,11 @@
 <!-- ************************************************* -->
 
 <xsd:complexType name="DirectActionType">
-   <xsd:attribute name="function" type="xsd:string" use="required"/>
-   <xsd:attribute name="derivAction" type="xsd:string" use="required"/>
+  <xsd:complexContent>
+    <xsd:extension base="xaifnii:NonInlinableIntrinsicBaseType">
+      <xsd:attribute name="derivAction" type="xsd:string" use="required"/>
+    </xsd:extension>
+  </xsd:complexContent>  
 </xsd:complexType>
 
 <!-- *********************************************** -->

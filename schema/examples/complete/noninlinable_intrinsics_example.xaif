@@ -4,7 +4,7 @@
   
   
   
-  <xaifnii:ExplicitJacobian function="myEJfun" jacobian="myEJjac" return_type="real">
+  <xaifnii:ExplicitJacobian name="myEJfun" jacobian="myEJjac" return_type="real" nonSmooth="false">
     <xaifnii:Partial dep="2" indep="1" partial="4"></xaifnii:Partial>
     <xaifnii:Partial dep="2" indep="2" partial="5"></xaifnii:Partial>
     <xaifnii:Partial dep="3" indep="1" partial="6"></xaifnii:Partial>
@@ -14,7 +14,7 @@
   
   
   
-  <xaifnii:ExplicitJacobian function="myEJfun2" jacobian="myEJjac2" return_type="real">
+  <xaifnii:ExplicitJacobian name="myEJfun2" jacobian="myEJjac2" return_type="real" nonSmooth="false">
     <xaifnii:Partial dep="1" indep="2" partial="3"></xaifnii:Partial>
     <xaifnii:Partial dep="1" indep="3" partial="4"></xaifnii:Partial>
   </xaifnii:ExplicitJacobian>	
@@ -22,6 +22,6 @@
   
   
   
-  <xaifnii:DirectAction function="transpose" derivAction="transpose"></xaifnii:DirectAction>
+  <xaifnii:DirectAction name="transpose" derivAction="transpose" nonSmooth="false"></xaifnii:DirectAction>
 
 </xaifnii:NonInlinableIntrinsicDefinitions>

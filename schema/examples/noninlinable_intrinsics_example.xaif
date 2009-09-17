@@ -11,7 +11,7 @@
        x2 and x3 are outputs. Let myEJjac(x1,x2,x3,j21,j22,j31,j32)
                                                                    -->
   <!-- *********************************************************** -->
-  <xaifnii:ExplicitJacobian function="myEJfun" jacobian="myEJjac" return_type="real">
+  <xaifnii:ExplicitJacobian name="myEJfun" jacobian="myEJjac" return_type="real">
     <xaifnii:Partial dep="2" indep="1" partial="4"/>
     <xaifnii:Partial dep="2" indep="2" partial="5"/>
     <xaifnii:Partial dep="3" indep="1" partial="6"/>
@@ -24,7 +24,7 @@
        y is output. Let myEJjac2(x1,x2,j12,j13)
                                                                    -->
   <!-- *********************************************************** -->
-  <xaifnii:ExplicitJacobian function="myEJfun2" jacobian="myEJjac2">
+  <xaifnii:ExplicitJacobian name="myEJfun2" jacobian="myEJjac2">
     <xaifnii:Partial dep="1" indep="2" partial="3"/>
     <xaifnii:Partial dep="1" indep="3" partial="4"/>
   </xaifnii:ExplicitJacobian>	
@@ -35,6 +35,6 @@
        also transpose(x)
                                                                    -->
   <!-- *********************************************************** -->
-  <xaifnii:DirectAction function="transpose" derivAction="transpose"/>
+  <xaifnii:DirectAction name="transpose" derivAction="transpose"/>
 
 </xaifnii:NonInlinableIntrinsicDefinitions>
