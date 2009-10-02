@@ -97,7 +97,7 @@
 	     </xaif:ArrayElementReference>
 	     <xaif:VariableReferenceEdge edge_id="1" source="1" target="2" annotation=""></xaif:VariableReferenceEdge>
            </xaif:VariableReference>
-           <xaif:Intrinsic vertex_id="3" name="mul_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+           <xaif:Intrinsic vertex_id="3" name="mul_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
 	   <xaif:ExpressionEdge edge_id="1" source="1" target="3" position="1" annotation=""></xaif:ExpressionEdge>
            <xaif:ExpressionEdge edge_id="2" source="2" target="3" position="2" annotation=""></xaif:ExpressionEdge>
          </xaif:AssignmentRHS>

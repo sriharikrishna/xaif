@@ -51,16 +51,16 @@
   <xaifii:InlinableIntrinsic name="div_scal_scal" nr_arguments="2" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name="/"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="div_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="div_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaif:Constant vertex_id="2" type="integer" value="1" feType="" annotation=""></xaif:Constant>
       <xaifii:ArgumentReference vertex_id="3" argument="2" annotation=""></xaifii:ArgumentReference> 
       <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1" annotation=""></xaif:ExpressionEdge> 
       <xaif:ExpressionEdge edge_id="2" source="3" target="1" position="2" annotation=""></xaif:ExpressionEdge> 
     </xaifii:Partial>
     <xaifii:Partial partial_id="2" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="minus_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="2" name="div_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="3" name="mul_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="minus_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="2" name="div_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="3" name="mul_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaifii:ArgumentReference vertex_id="4" argument="2" annotation=""></xaifii:ArgumentReference> 
       <xaifii:ArgumentReference vertex_id="5" argument="1" annotation=""></xaifii:ArgumentReference> 
       <xaif:ExpressionEdge edge_id="1" source="4" target="3" position="1" annotation=""></xaif:ExpressionEdge> 
@@ -89,7 +89,7 @@
   <xaifii:InlinableIntrinsic name="ln_scal" nr_arguments="1" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name="log"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="div_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="div_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaif:Constant vertex_id="2" type="integer" value="1" feType="" annotation=""></xaif:Constant>
       <xaifii:ArgumentReference vertex_id="3" argument="1" annotation=""></xaifii:ArgumentReference> 
       <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1" annotation=""></xaif:ExpressionEdge> 
@@ -104,11 +104,11 @@
   <xaifii:InlinableIntrinsic name="log10" nr_arguments="1" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name="log10"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="div_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="div_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaif:Constant vertex_id="2" type="integer" value="1" feType="" annotation=""></xaif:Constant>
       <xaifii:ArgumentReference vertex_id="3" argument="1" annotation=""></xaifii:ArgumentReference> 
-      <xaif:Intrinsic vertex_id="4" name="mul_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="5" name="ln_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="4" name="mul_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="5" name="ln_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaif:Constant vertex_id="6" type="real" value="10.0" feType="" annotation=""></xaif:Constant>
       <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1" annotation=""></xaif:ExpressionEdge> 
       <xaif:ExpressionEdge edge_id="2" source="4" target="1" position="2" annotation=""></xaif:ExpressionEdge> 
@@ -125,7 +125,7 @@
   <xaifii:InlinableIntrinsic name="sin_scal" nr_arguments="1" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name="sin"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="cos_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="cos_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaifii:ArgumentReference vertex_id="2" argument="1" annotation=""></xaifii:ArgumentReference> 
       <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1" annotation=""></xaif:ExpressionEdge> 
     </xaifii:Partial>
@@ -138,8 +138,8 @@
   <xaifii:InlinableIntrinsic name="cos_scal" nr_arguments="1" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name="cos"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="minus_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="2" name="sin_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="minus_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="2" name="sin_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaifii:ArgumentReference vertex_id="3" argument="1" annotation=""></xaifii:ArgumentReference> 
       <xaif:ExpressionEdge edge_id="1" source="3" target="2" position="1" annotation=""></xaif:ExpressionEdge> 
       <xaif:ExpressionEdge edge_id="2" source="2" target="1" position="1" annotation=""></xaif:ExpressionEdge> 
@@ -154,9 +154,9 @@
     <xaifii:Function type="builtin" builtin_name="tan"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
       <xaifii:ArgumentReference vertex_id="0" argument="0" annotation=""></xaifii:ArgumentReference> 
-      <xaif:Intrinsic vertex_id="1" name="mul_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="mul_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaif:Constant vertex_id="2" type="integer" value="1" feType="" annotation=""></xaif:Constant>
-      <xaif:Intrinsic vertex_id="3" name="add_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="3" name="add_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaif:ExpressionEdge edge_id="1" source="0" target="1" position="1" annotation=""></xaif:ExpressionEdge> 
       <xaif:ExpressionEdge edge_id="2" source="0" target="1" position="2" annotation=""></xaif:ExpressionEdge> 
       <xaif:ExpressionEdge edge_id="3" source="1" target="3" position="1" annotation=""></xaif:ExpressionEdge> 
@@ -171,11 +171,11 @@
   <xaifii:InlinableIntrinsic name="arcsin_scal" nr_arguments="1" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name="asin"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="div_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="div_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaif:Constant vertex_id="2" type="integer" value="1" feType="" annotation=""></xaif:Constant>
-      <xaif:Intrinsic vertex_id="3" name="sqrt_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="4" name="sub_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="5" name="mul_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="3" name="sqrt_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="4" name="sub_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="5" name="mul_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaifii:ArgumentReference vertex_id="6" argument="1" annotation=""></xaifii:ArgumentReference> 
       <xaif:ExpressionEdge edge_id="1" source="6" target="5" position="1" annotation=""></xaif:ExpressionEdge> 
       <xaif:ExpressionEdge edge_id="2" source="6" target="5" position="2" annotation=""></xaif:ExpressionEdge> 
@@ -194,13 +194,13 @@
   <xaifii:InlinableIntrinsic name="arccos_scal" nr_arguments="1" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name="acos"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="div_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="div_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaif:Constant vertex_id="2" type="integer" value="1" feType="" annotation=""></xaif:Constant>
-      <xaif:Intrinsic vertex_id="3" name="sqrt_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="4" name="sub_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="5" name="mul_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="3" name="sqrt_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="4" name="sub_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="5" name="mul_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaifii:ArgumentReference vertex_id="6" argument="1" annotation=""></xaifii:ArgumentReference> 
-      <xaif:Intrinsic vertex_id="7" name="minus_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="7" name="minus_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaif:ExpressionEdge edge_id="1" source="6" target="5" position="1" annotation=""></xaif:ExpressionEdge> 
       <xaif:ExpressionEdge edge_id="2" source="6" target="5" position="2" annotation=""></xaif:ExpressionEdge> 
       <xaif:ExpressionEdge edge_id="3" source="2" target="4" position="1" annotation=""></xaif:ExpressionEdge> 
@@ -219,10 +219,10 @@
   <xaifii:InlinableIntrinsic name="arctan_scal" nr_arguments="1" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name="atan"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="div_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="div_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaif:Constant vertex_id="2" type="integer" value="1" feType="" annotation=""></xaif:Constant>
-      <xaif:Intrinsic vertex_id="3" name="add_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="4" name="mul_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="3" name="add_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="4" name="mul_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaifii:ArgumentReference vertex_id="5" argument="1" annotation=""></xaifii:ArgumentReference> 
       <xaif:ExpressionEdge edge_id="1" source="5" target="4" position="1" annotation=""></xaif:ExpressionEdge> 
       <xaif:ExpressionEdge edge_id="2" source="5" target="4" position="2" annotation=""></xaif:ExpressionEdge> 
@@ -240,7 +240,7 @@
   <xaifii:InlinableIntrinsic name="sinh_scal" nr_arguments="1" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name="sinh"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="cosh_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="cosh_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaifii:ArgumentReference vertex_id="2" argument="1" annotation=""></xaifii:ArgumentReference> 
       <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1" annotation=""></xaif:ExpressionEdge> 
     </xaifii:Partial>
@@ -253,7 +253,7 @@
   <xaifii:InlinableIntrinsic name="cosh_scal" nr_arguments="1" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name="cosh"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="sinh_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="sinh_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaifii:ArgumentReference vertex_id="2" argument="1" annotation=""></xaifii:ArgumentReference> 
       <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1" annotation=""></xaif:ExpressionEdge> 
     </xaifii:Partial>
@@ -268,8 +268,8 @@
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
       <xaif:Constant vertex_id="1" type="integer" value="1" feType="" annotation=""></xaif:Constant>
       <xaifii:ArgumentReference vertex_id="2" argument="0" annotation=""></xaifii:ArgumentReference> 
-      <xaif:Intrinsic vertex_id="3" name="mul_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="4" name="sub_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="3" name="mul_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="4" name="sub_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaif:ExpressionEdge edge_id="1" source="1" target="4" position="1" annotation=""></xaif:ExpressionEdge> 
       <xaif:ExpressionEdge edge_id="2" source="2" target="3" position="1" annotation=""></xaif:ExpressionEdge> 
       <xaif:ExpressionEdge edge_id="3" source="2" target="3" position="2" annotation=""></xaif:ExpressionEdge> 
@@ -284,7 +284,7 @@
   <xaifii:InlinableIntrinsic name="exp_scal" nr_arguments="1" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name="exp"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="exp_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="exp_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaifii:ArgumentReference vertex_id="2" argument="1" annotation=""></xaifii:ArgumentReference> 
       <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1" annotation=""></xaif:ExpressionEdge> 
     </xaifii:Partial>
@@ -297,7 +297,7 @@
   <xaifii:InlinableIntrinsic name="sqrt_scal" nr_arguments="1" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name="sqrt"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="div_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="div_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaifii:ArgumentReference vertex_id="2" argument="0" annotation=""></xaifii:ArgumentReference> 
       <xaif:Constant vertex_id="3" type="real" value="0.5" feType="" annotation=""></xaif:Constant>
       <xaif:ExpressionEdge edge_id="1" source="3" target="1" position="1" annotation=""></xaif:ExpressionEdge> 
@@ -314,10 +314,10 @@
     <xaifii:Function type="builtin" builtin_name="pow">
     </xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="mul_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="2" name="pow_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="mul_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="2" name="pow_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaifii:ArgumentReference vertex_id="3" argument="1" annotation=""></xaifii:ArgumentReference> 
-      <xaif:Intrinsic vertex_id="4" name="sub_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="4" name="sub_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaifii:ArgumentReference vertex_id="5" argument="2" annotation=""></xaifii:ArgumentReference> 
       <xaif:Constant vertex_id="6" type="integer" value="1" feType="" annotation=""></xaif:Constant>
       <xaif:ExpressionEdge edge_id="1" source="5" target="4" position="1" annotation=""></xaif:ExpressionEdge> 
@@ -328,9 +328,9 @@
       <xaif:ExpressionEdge edge_id="6" source="2" target="1" position="2" annotation=""></xaif:ExpressionEdge> 
     </xaifii:Partial>
     <xaifii:Partial partial_id="2" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="mul_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="2" name="ln_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="3" name="pow_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="mul_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="2" name="ln_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="3" name="pow_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaifii:ArgumentReference vertex_id="4" argument="1" annotation=""></xaifii:ArgumentReference> 
       <xaifii:ArgumentReference vertex_id="5" argument="2" annotation=""></xaifii:ArgumentReference> 
       <xaif:ExpressionEdge edge_id="1" source="4" target="3" position="1" annotation=""></xaif:ExpressionEdge> 
@@ -416,9 +416,9 @@
       <xaif:Constant type="integer" value="1" feType="" vertex_id="1" annotation=""></xaif:Constant>
     </xaifii:Partial>
     <xaifii:Partial partial_id="2" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="minus_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="2" name="int_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="3" name="div_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="minus_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="2" name="int_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="3" name="div_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaifii:ArgumentReference vertex_id="4" argument="1" annotation=""></xaifii:ArgumentReference> 
       <xaifii:ArgumentReference vertex_id="5" argument="2" annotation=""></xaifii:ArgumentReference> 
       <xaif:ExpressionEdge edge_id="1" source="4" target="3" position="1" annotation=""></xaif:ExpressionEdge> 
@@ -435,7 +435,7 @@
   <xaifii:InlinableIntrinsic name="abs_scal" nr_arguments="1" nonSmooth="true" return_type="real">
     <xaifii:Function type="builtin" builtin_name="abs"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="sign_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="sign_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaif:Constant vertex_id="2" type="real" value="1.0" feType="" annotation=""></xaif:Constant>
       <xaifii:ArgumentReference vertex_id="3" argument="1" annotation=""></xaifii:ArgumentReference> 
       <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1" annotation=""></xaif:ExpressionEdge> 
@@ -452,9 +452,9 @@
   <xaifii:InlinableIntrinsic name="sign_scal_scal" nr_arguments="2" nonSmooth="true" return_type="real">
     <xaifii:Function type="builtin" builtin_name="sign"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="nonlinear">
-      <xaif:Intrinsic vertex_id="1" name="mul_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="2" name="sign_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-      <xaif:Intrinsic vertex_id="3" name="sign_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="1" name="mul_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="2" name="sign_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+      <xaif:Intrinsic vertex_id="3" name="sign_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
       <xaif:Constant vertex_id="4" type="real" value="1.0" feType="" annotation=""></xaif:Constant>
       <xaifii:ArgumentReference vertex_id="5" argument="1" annotation=""></xaifii:ArgumentReference> 
       <xaifii:ArgumentReference vertex_id="6" argument="2" annotation=""></xaifii:ArgumentReference> 

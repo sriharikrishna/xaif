@@ -74,8 +74,8 @@
            <xaif:SymbolReference vertex_id="1" symbol_id="partial_1" scope_id="2" annotation=""></xaif:SymbolReference>
          </xaif:AssignmentLHS>
          <xaif:AssignmentRHS>
-            <xaif:Intrinsic vertex_id="1" name="minus_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-            <xaif:Intrinsic vertex_id="2" name="sin_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+            <xaif:Intrinsic vertex_id="1" name="minus_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+            <xaif:Intrinsic vertex_id="2" name="sin_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
             <xaif:VariableReference vertex_id="3" deriv="false" active="undefined" alias="0" du_ud="0" constant="false" annotation="">
               <xaif:SymbolReference vertex_id="1" symbol_id="y" scope_id="2" annotation=""></xaif:SymbolReference>
             </xaif:VariableReference>

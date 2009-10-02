@@ -59,7 +59,7 @@
              <xaif:SymbolReference vertex_id="1" symbol_id="x" scope_id="2" annotation=""></xaif:SymbolReference>
            </xaif:VariableReference>
            <xaif:Constant vertex_id="2" type="integer" value="1" feType="" annotation=""></xaif:Constant>
-           <xaif:Intrinsic vertex_id="3" name="add_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+           <xaif:Intrinsic vertex_id="3" name="add_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
            <xaif:ExpressionEdge edge_id="1" source="1" target="3" position="1" annotation=""></xaif:ExpressionEdge>
            <xaif:ExpressionEdge edge_id="2" source="2" target="3" position="2" annotation=""></xaif:ExpressionEdge>
          </xaif:AssignmentRHS>

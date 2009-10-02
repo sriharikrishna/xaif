@@ -68,10 +68,10 @@
            <xaif:VariableReference vertex_id="3" active="undefined" alias="0" du_ud="0" deriv="false" constant="false" annotation="">
              <xaif:SymbolReference vertex_id="1" symbol_id="z" scope_id="2" annotation=""></xaif:SymbolReference>
            </xaif:VariableReference>
-           <xaif:Intrinsic vertex_id="4" name="mul_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-           <xaif:Intrinsic vertex_id="5" name="mul_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-           <xaif:Intrinsic vertex_id="6" name="mul_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
-           <xaif:Intrinsic vertex_id="7" name="add_scal_scal" type="inlinable" annotation=""></xaif:Intrinsic>
+           <xaif:Intrinsic vertex_id="4" name="mul_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+           <xaif:Intrinsic vertex_id="5" name="mul_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+           <xaif:Intrinsic vertex_id="6" name="mul_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
+           <xaif:Intrinsic vertex_id="7" name="add_scal_scal" type="inlinable" rType="real" rShape="scalar" annotation=""></xaif:Intrinsic>
            <xaif:ExpressionEdge edge_id="1" source="1" target="4" position="1" annotation=""></xaif:ExpressionEdge>
            <xaif:ExpressionEdge edge_id="2" source="2" target="4" position="2" annotation=""></xaif:ExpressionEdge>
            <xaif:ExpressionEdge edge_id="3" source="3" target="5" position="1" annotation=""></xaif:ExpressionEdge>
