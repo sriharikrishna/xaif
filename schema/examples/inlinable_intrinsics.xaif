@@ -383,6 +383,16 @@
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
+<!-- transfer, i.e. fortran equivalent of a bitwise  cast -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="transfer" nr_arguments="2" nonSmooth="true">
+    <xaifii:Function type="builtin" builtin_name="transfer"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
 <!-- Array bounds -->
 <!-- *********************************************************** -->
 

@@ -370,6 +370,16 @@
 
 
 
+  <xaifii:InlinableIntrinsic name="transfer" nr_arguments="2" nonSmooth="true" return_type="real">
+    <xaifii:Function type="builtin" builtin_name="transfer"></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive"></xaifii:Partial>
+    <xaifii:Partial partial_id="2" partial_type="passive"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+
+
+
+
   <xaifii:InlinableIntrinsic name="lbound" nr_arguments="2" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name="lbound"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="passive"></xaifii:Partial>
