@@ -300,9 +300,7 @@
   <xaifii:InlinableIntrinsic name="exp_scal" nr_arguments="1">
     <xaifii:Function type="builtin" builtin_name="exp"/>
     <xaifii:Partial partial_id="1">
-      <xaif:Intrinsic vertex_id="1" name="exp_scal"/>
-      <xaifii:ArgumentReference vertex_id="2" argument="1"/> 
-      <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
+      <xaifii:ArgumentReference vertex_id="0" argument="0"/> 
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
