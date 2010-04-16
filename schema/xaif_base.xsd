@@ -1938,6 +1938,9 @@
       An empty expression indicates unknown information 
       as would be the case when it is implicitly given 
       by the context. 
+      The assumption in xaifBooster is that anything that is not a 
+      scalar dereference should have at least either 
+      Bound or Stride specified.
     </xsd:documentation>
   </xsd:annotation>
 
