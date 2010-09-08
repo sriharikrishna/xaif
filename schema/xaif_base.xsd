@@ -1591,6 +1591,11 @@
                   1. "undefined" - no information available; 
                   2. "true" - the use of the symbol is active
 		  3. "false" - the use of the symbol is passive 
+		  The setting has to be consistent with the active attribute 
+		  specified in the corresponding Symbol element, 
+		  that is a setting of "true" here
+		  requires that in the corresponding Symbol:active be set to 
+		  true as well.
     </xsd:documentation>
   </xsd:annotation>
 
