@@ -497,7 +497,7 @@
 <!-- it should be removed after activity analysis is complete    -->
 <!-- *********************************************************** -->
 
-  <xaifii:InlinableIntrinsic name="string_eq" nr_arguments="2">
+  <xaifii:InlinableIntrinsic name="string_eq_scal_scal" nr_arguments="2">
     <xaifii:Function type="builtin" builtin_name=".eq."/>
     <xaifii:Partial partial_id="1" partial_type="passive"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>

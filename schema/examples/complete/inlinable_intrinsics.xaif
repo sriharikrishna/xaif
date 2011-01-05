@@ -481,7 +481,7 @@
 
 
 
-  <xaifii:InlinableIntrinsic name="string_eq" nr_arguments="2" return_type="real" nonSmooth="false">
+  <xaifii:InlinableIntrinsic name="string_eq_scal_scal" nr_arguments="2" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name=".eq."></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
     <xaifii:Partial partial_id="2" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
