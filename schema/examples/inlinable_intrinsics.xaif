@@ -493,8 +493,7 @@
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
-<!-- String equality, we shouldn't see this at all,              -->
-<!-- it should be removed after activity analysis is complete    -->
+<!-- String comparisons                                          -->
 <!-- *********************************************************** -->
 
   <xaifii:InlinableIntrinsic name="string_eq_scal_scal" nr_arguments="2">
@@ -503,6 +502,49 @@
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
+  <xaifii:InlinableIntrinsic name="string_ne_scal_scal" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name=".eq."/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+  <xaifii:InlinableIntrinsic name="string_ge_scal_scal" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name=".eq."/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+  <xaifii:InlinableIntrinsic name="string_le_scal_scal" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name=".eq."/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+  <xaifii:InlinableIntrinsic name="string_lt_scal_scal" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name=".eq."/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- non-canonicalized min; e.g. for integer                     -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="nc_min_scal_scal" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name=".eq."/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- non-canonicalized max; e.g. for integer                     -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="nc_max_scal_scal" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name=".eq."/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
 <!-- transpose -->

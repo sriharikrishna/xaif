@@ -480,13 +480,55 @@
 
 
 
-
   <xaifii:InlinableIntrinsic name="string_eq_scal_scal" nr_arguments="2" return_type="real" nonSmooth="false">
     <xaifii:Function type="builtin" builtin_name=".eq."></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
     <xaifii:Partial partial_id="2" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
+  <xaifii:InlinableIntrinsic name="string_ne_scal_scal" nr_arguments="2" return_type="real" nonSmooth="false">
+    <xaifii:Function type="builtin" builtin_name=".eq."></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+    <xaifii:Partial partial_id="2" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+  <xaifii:InlinableIntrinsic name="string_ge_scal_scal" nr_arguments="2" return_type="real" nonSmooth="false">
+    <xaifii:Function type="builtin" builtin_name=".eq."></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+    <xaifii:Partial partial_id="2" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+  <xaifii:InlinableIntrinsic name="string_le_scal_scal" nr_arguments="2" return_type="real" nonSmooth="false">
+    <xaifii:Function type="builtin" builtin_name=".eq."></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+    <xaifii:Partial partial_id="2" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+  <xaifii:InlinableIntrinsic name="string_lt_scal_scal" nr_arguments="2" return_type="real" nonSmooth="false">
+    <xaifii:Function type="builtin" builtin_name=".eq."></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+    <xaifii:Partial partial_id="2" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+
+
+
+
+  <xaifii:InlinableIntrinsic name="nc_min_scal_scal" nr_arguments="2" return_type="real" nonSmooth="false">
+    <xaifii:Function type="builtin" builtin_name=".eq."></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+    <xaifii:Partial partial_id="2" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+
+
+
+
+  <xaifii:InlinableIntrinsic name="nc_max_scal_scal" nr_arguments="2" return_type="real" nonSmooth="false">
+    <xaifii:Function type="builtin" builtin_name=".eq."></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+    <xaifii:Partial partial_id="2" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
 
 
 
