@@ -396,19 +396,19 @@
 
   <xaifii:InlinableIntrinsic name="lbound" nr_arguments="2">
     <xaifii:Function type="builtin" builtin_name="lbound"/>
-    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="true"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
   <xaifii:InlinableIntrinsic name="ubound" nr_arguments="2">
     <xaifii:Function type="builtin" builtin_name="ubound"/>
-    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="true"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
   <xaifii:InlinableIntrinsic name="size" nr_arguments="2">
     <xaifii:Function type="builtin" builtin_name="size"/>
-    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="true"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
@@ -418,7 +418,7 @@
 
   <xaifii:InlinableIntrinsic name="len" nr_arguments="1">
     <xaifii:Function type="builtin" builtin_name="len"/>
-    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="true"/>
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->

@@ -120,6 +120,13 @@
     <xsd:extension base="xaif:ExpressionType">
       <xsd:attribute name="partial_id" type="xsd:positiveInteger" use="required"/>
       <xsd:attribute name="partial_type" type="xaifii:PartialTypeType" use="optional" default="nonlinear"/>
+      <xsd:attribute name="nonValueInquiry" type="xsd:boolean" use="optional" default="false">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            true when an argument value is not referenced, e.g. sizeof, ubound
+          </xsd:documentation>
+        </xsd:annotation> 
+      </xsd:attribute>    
     </xsd:extension>
   </xsd:complexContent>  
 
