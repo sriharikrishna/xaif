@@ -406,7 +406,7 @@
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
-  <xaifii:InlinableIntrinsic name="size" nr_arguments="2">
+  <xaifii:InlinableIntrinsic name="size" nr_arguments="2" shapeChange="scalar">
     <xaifii:Function type="builtin" builtin_name="size"/>
     <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="true"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
@@ -544,6 +544,15 @@
     <xaifii:Function type="builtin" builtin_name=".eq."/>
     <xaifii:Partial partial_id="1" partial_type="passive"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- maxloc intrinsic                                            -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="maxloc_arr" nr_arguments="1" shapeChange="rank">
+    <xaifii:Function type="builtin" builtin_name="maxloc"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->

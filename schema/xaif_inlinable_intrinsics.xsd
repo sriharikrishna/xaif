@@ -138,18 +138,53 @@
 <!-- Definition of an intrinsic function -->
 <!-- *********************************************************** -->
 
+<xsd:simpleType name="ShapeChangeType">
+ 
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Types of shape change
+    </xsd:documentation>
+  </xsd:annotation>
+ 
+  <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="no_change"/>
+    <xsd:enumeration value="scalar">
+     <xsd:annotation>
+       <xsd:documentation xml:lang="en">
+         scalar output 
+       </xsd:documentation>
+     </xsd:annotation>
+    </xsd:enumeration>
+    <xsd:enumeration value="rank">
+     <xsd:annotation>
+       <xsd:documentation xml:lang="en">
+         output is vector with length equal to the rank of the input
+       </xsd:documentation>
+     </xsd:annotation>
+    </xsd:enumeration>
+  </xsd:restriction>
+ 
+</xsd:simpleType>           
+
 <xsd:complexType name="InlinableIntrinsicDefinitionType">
    <xsd:sequence>
      <xsd:element ref="xaifii:Function" minOccurs="1" maxOccurs="1"/>
      <xsd:element ref="xaifii:Partial" minOccurs="1" maxOccurs="unbounded"/>
    </xsd:sequence>
-   <xsd:attribute name="name"         type="xsd:string"          use="required"/>
-   <xsd:attribute name="nr_arguments" type="xsd:positiveInteger" use="required"/>
-   <xsd:attribute name="return_type"  type="xaif:SymbolTypeType" use="optional" default="real"/>
-   <xsd:attribute name="nonSmooth"    type="xsd:boolean"         use="optional" default="false">
+   <xsd:attribute name="name"         type="xsd:string"             use="required"/>
+   <xsd:attribute name="nr_arguments" type="xsd:positiveInteger"    use="required"/>
+   <xsd:attribute name="return_type"  type="xaif:SymbolTypeType"    use="optional" default="real"/>
+   <xsd:attribute name="nonSmooth"    type="xsd:boolean"            use="optional" default="false">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        is it non smooth?
+        flags non smooth intrinsic 
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:attribute>
+   <xsd:attribute name="shapeChange"  type="xaifii:ShapeChangeType" use="optional" default="no_change">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        implied kind of shape change 
       </xsd:documentation>
     </xsd:annotation>
   </xsd:attribute>
