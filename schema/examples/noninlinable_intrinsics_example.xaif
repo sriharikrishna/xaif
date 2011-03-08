@@ -35,6 +35,6 @@
        also transpose(x)
                                                                    -->
   <!-- *********************************************************** -->
-  <xaifnii:DirectAction name="transpose" derivAction="transpose"/>
+  <xaifnii:DirectAction name="transpose_arr" derivAction="transpose_arr"/>
 
 </xaifnii:NonInlinableIntrinsicDefinitions>
