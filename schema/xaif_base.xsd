@@ -1777,25 +1777,6 @@
      intrinsics. The latter are specified in a different file. -->
 <!-- *********************************************************** -->
 
-<xsd:simpleType name="IntrinsicTypeName">
-
-  <xsd:annotation>
-	  <xsd:documentation xml:lang="en">
-		  Intrinsics are either inlinable or not. If inlinable then the code
-		  for the local partial derivatives can be looked up in a separate
-		  XML file (see xaif_inlinable_intrinsics.xsd). If they are not
-		  inlinable, then some precompiled derivative routine is called, whose
-		  name and partial derivative signature is given in a separate XML file
-		  (see xaif_noninlinable_intrinsics.xsd).
-    </xsd:documentation>
-  </xsd:annotation>
-
-  <xsd:restriction base="xsd:string">
-    <xsd:enumeration value="inlinable"/>
-    <xsd:enumeration value="non-inlinable"/>
-  </xsd:restriction>
-</xsd:simpleType>
-
 <xsd:complexType name="IntrinsicType">
 
   <xsd:annotation>
