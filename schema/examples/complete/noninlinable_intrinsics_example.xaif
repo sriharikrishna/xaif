@@ -22,6 +22,6 @@
   
   
   
-  <xaifnii:DirectAction name="transpose" derivAction="transpose" nonSmooth="false"></xaifnii:DirectAction>
+  <xaifnii:DirectAction name="transpose_arr" derivAction="transpose_arr" nonSmooth="false"></xaifnii:DirectAction>
 
 </xaifnii:NonInlinableIntrinsicDefinitions>
