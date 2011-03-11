@@ -537,6 +537,15 @@
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
+<!-- non-canonicalized minval; e.g. for integer                  -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="nc_minval" nr_arguments="1">
+    <xaifii:Function type="builtin" builtin_name="minval"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
 <!-- non-canonicalized max; e.g. for integer                     -->
 <!-- *********************************************************** -->
 
@@ -544,6 +553,15 @@
     <xaifii:Function type="builtin" builtin_name=".eq."/>
     <xaifii:Partial partial_id="1" partial_type="passive"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- non-canonicalized maxval; e.g. for integer                  -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="nc_maxval" nr_arguments="1">
+    <xaifii:Function type="builtin" builtin_name="maxval"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
