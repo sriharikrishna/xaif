@@ -514,7 +514,7 @@
 
 
 
-  <xaifii:InlinableIntrinsic name="nc_min_scal_scal" nr_arguments="2" return_type="real" nonSmooth="false" shapeChange="no_change">
+  <xaifii:InlinableIntrinsic name="nc_min_scal_scal" nr_arguments="2" nonSmooth="true" return_type="real" shapeChange="no_change">
     <xaifii:Function type="builtin" builtin_name=".eq."></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
     <xaifii:Partial partial_id="2" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
@@ -524,7 +524,7 @@
 
 
 
-  <xaifii:InlinableIntrinsic name="nc_minval" nr_arguments="1" return_type="real" nonSmooth="false" shapeChange="no_change">
+  <xaifii:InlinableIntrinsic name="nc_minval" nr_arguments="1" nonSmooth="true" return_type="real" shapeChange="no_change">
     <xaifii:Function type="builtin" builtin_name="minval"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
   </xaifii:InlinableIntrinsic>
@@ -533,7 +533,7 @@
 
 
 
-  <xaifii:InlinableIntrinsic name="nc_max_scal_scal" nr_arguments="2" return_type="real" nonSmooth="false" shapeChange="no_change">
+  <xaifii:InlinableIntrinsic name="nc_max_scal_scal" nr_arguments="2" nonSmooth="true" return_type="real" shapeChange="no_change">
     <xaifii:Function type="builtin" builtin_name=".eq."></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
     <xaifii:Partial partial_id="2" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
@@ -543,7 +543,7 @@
 
 
 
-  <xaifii:InlinableIntrinsic name="nc_maxval" nr_arguments="1" return_type="real" nonSmooth="false" shapeChange="no_change">
+  <xaifii:InlinableIntrinsic name="nc_maxval" nr_arguments="1" nonSmooth="true" return_type="real" shapeChange="no_change">
     <xaifii:Function type="builtin" builtin_name="maxval"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
   </xaifii:InlinableIntrinsic>
