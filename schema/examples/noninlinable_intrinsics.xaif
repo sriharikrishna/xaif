@@ -8,4 +8,7 @@
   <!-- transpose *************************************************** -->
   <xaifnii:DirectAction name="transpose_arr" derivAction="transpose_arr"/>
 
+  <!-- reshape *************************************************** -->
+  <xaifnii:DirectAction name="reshape_arr" derivAction="reshape_arr"/>
+
 </xaifnii:NonInlinableIntrinsicDefinitions>

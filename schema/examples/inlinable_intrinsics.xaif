@@ -591,5 +591,14 @@
     <xaifii:Partial partial_id="1" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
+<!-- *********************************************************** -->
+<!-- shape intrinsic                                             -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="shape_arr" nr_arguments="1" shapeChange="rank">
+    <xaifii:Function type="builtin" builtin_name="shape"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
 </xaifii:InlinableIntrinsicDefinitions>
 
