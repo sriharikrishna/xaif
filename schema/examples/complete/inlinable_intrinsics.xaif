@@ -557,4 +557,31 @@
     <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
+
+
+
+
+  <xaifii:InlinableIntrinsic name="minloc_arr" nr_arguments="1" shapeChange="rank" return_type="real" nonSmooth="false">
+    <xaifii:Function type="builtin" builtin_name="minloc"></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+
+
+
+
+  <xaifii:InlinableIntrinsic name="sum_arr" nr_arguments="1" shapeChange="rank" return_type="real" nonSmooth="false">
+    <xaifii:Function type="builtin" builtin_name="sum"></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+
+
+
+
+  <xaifii:InlinableIntrinsic name="shape_arr" nr_arguments="1" shapeChange="rank" return_type="real" nonSmooth="false">
+    <xaifii:Function type="builtin" builtin_name="shape"></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
 </xaifii:InlinableIntrinsicDefinitions>

@@ -4,4 +4,7 @@
   
   <xaifnii:DirectAction name="transpose_arr" derivAction="transpose_arr" nonSmooth="false"></xaifnii:DirectAction>
 
+  
+  <xaifnii:DirectAction name="reshape_arr" derivAction="reshape_arr" nonSmooth="false"></xaifnii:DirectAction>
+
 </xaifnii:NonInlinableIntrinsicDefinitions>
