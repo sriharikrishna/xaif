@@ -600,5 +600,14 @@
     <xaifii:Partial partial_id="1" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
+<!-- *********************************************************** -->
+<!-- ichar intrinsic                                             -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="ichar" nr_arguments="1" shapeChange="rank">
+    <xaifii:Function type="builtin" builtin_name="ichar"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
 </xaifii:InlinableIntrinsicDefinitions>
 
