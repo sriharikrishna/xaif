@@ -503,25 +503,25 @@
   </xaifii:InlinableIntrinsic>
 
   <xaifii:InlinableIntrinsic name="string_ne_scal_scal" nr_arguments="2">
-    <xaifii:Function type="builtin" builtin_name=".eq."/>
+    <xaifii:Function type="builtin" builtin_name=".ne."/>
     <xaifii:Partial partial_id="1" partial_type="passive"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
   <xaifii:InlinableIntrinsic name="string_ge_scal_scal" nr_arguments="2">
-    <xaifii:Function type="builtin" builtin_name=".eq."/>
+    <xaifii:Function type="builtin" builtin_name=".ge."/>
     <xaifii:Partial partial_id="1" partial_type="passive"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
   <xaifii:InlinableIntrinsic name="string_le_scal_scal" nr_arguments="2">
-    <xaifii:Function type="builtin" builtin_name=".eq."/>
+    <xaifii:Function type="builtin" builtin_name=".le."/>
     <xaifii:Partial partial_id="1" partial_type="passive"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
   <xaifii:InlinableIntrinsic name="string_lt_scal_scal" nr_arguments="2">
-    <xaifii:Function type="builtin" builtin_name=".eq."/>
+    <xaifii:Function type="builtin" builtin_name=".lt."/>
     <xaifii:Partial partial_id="1" partial_type="passive"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
@@ -531,7 +531,7 @@
 <!-- *********************************************************** -->
 
   <xaifii:InlinableIntrinsic name="nc_min_scal_scal" nr_arguments="2" nonSmooth="true">
-    <xaifii:Function type="builtin" builtin_name=".eq."/>
+    <xaifii:Function type="builtin" builtin_name="min"/>
     <xaifii:Partial partial_id="1" partial_type="passive"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
@@ -550,7 +550,7 @@
 <!-- *********************************************************** -->
 
   <xaifii:InlinableIntrinsic name="nc_max_scal_scal" nr_arguments="2" nonSmooth="true">
-    <xaifii:Function type="builtin" builtin_name=".eq."/>
+    <xaifii:Function type="builtin" builtin_name="max"/>
     <xaifii:Partial partial_id="1" partial_type="passive"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
