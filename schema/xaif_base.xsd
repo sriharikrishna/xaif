@@ -97,12 +97,14 @@
 		  We distinguish between the following kinds of symbols:
 		  1. "subroutine" - the name of a subroutine
 		  2. "variable" - the name of a variable
+		  3. "pointer" - the name of a pointer
     </xsd:documentation>
   </xsd:annotation>
 
   <xsd:restriction base="xsd:string">
     <xsd:enumeration value="subroutine"/>
     <xsd:enumeration value="variable"/>
+    <xsd:enumeration value="pointer"/>
   </xsd:restriction>
 </xsd:simpleType>
 
@@ -144,6 +146,7 @@
   </xsd:annotation>
 
   <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="void"/>
     <xsd:enumeration value="scalar"/>
     <xsd:enumeration value="vector"/>
     <xsd:enumeration value="matrix"/>
