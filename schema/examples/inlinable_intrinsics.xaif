@@ -300,9 +300,7 @@
   <xaifii:InlinableIntrinsic name="exp_scal" nr_arguments="1">
     <xaifii:Function type="builtin" builtin_name="exp"/>
     <xaifii:Partial partial_id="1">
-      <xaif:Intrinsic vertex_id="1" name="exp_scal"/>
-      <xaifii:ArgumentReference vertex_id="2" argument="1"/> 
-      <xaif:ExpressionEdge edge_id="1" source="2" target="1" position="1"/> 
+      <xaifii:ArgumentReference vertex_id="0" argument="0"/> 
     </xaifii:Partial>
   </xaifii:InlinableIntrinsic>
 
@@ -423,19 +421,19 @@
 
   <xaifii:InlinableIntrinsic name="lbound" nr_arguments="2">
     <xaifii:Function type="builtin" builtin_name="lbound"/>
-    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="true"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
   <xaifii:InlinableIntrinsic name="ubound" nr_arguments="2">
     <xaifii:Function type="builtin" builtin_name="ubound"/>
-    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="true"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
-  <xaifii:InlinableIntrinsic name="size" nr_arguments="2">
+  <xaifii:InlinableIntrinsic name="size" nr_arguments="2" shapeChange="scalar">
     <xaifii:Function type="builtin" builtin_name="size"/>
-    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="true"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
@@ -445,7 +443,7 @@
 
   <xaifii:InlinableIntrinsic name="len" nr_arguments="1">
     <xaifii:Function type="builtin" builtin_name="len"/>
-    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="true"/>
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
@@ -520,26 +518,120 @@
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
-<!-- String equality, we shouldn't see this at all,              -->
-<!-- it should be removed after activity analysis is complete    -->
+<!-- String comparisons                                          -->
 <!-- *********************************************************** -->
 
-  <xaifii:InlinableIntrinsic name="string_eq" nr_arguments="2">
+  <xaifii:InlinableIntrinsic name="string_eq_scal_scal" nr_arguments="2">
     <xaifii:Function type="builtin" builtin_name=".eq."/>
     <xaifii:Partial partial_id="1" partial_type="passive"/>
     <xaifii:Partial partial_id="2" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
+  <xaifii:InlinableIntrinsic name="string_ne_scal_scal" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name=".ne."/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+  <xaifii:InlinableIntrinsic name="string_ge_scal_scal" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name=".ge."/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+  <xaifii:InlinableIntrinsic name="string_le_scal_scal" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name=".le."/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+  <xaifii:InlinableIntrinsic name="string_lt_scal_scal" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name=".lt."/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
-<!-- transpose -->
+<!-- non-canonicalized min; e.g. for integer                     -->
 <!-- *********************************************************** -->
 
-  <xaifii:InlinableIntrinsic name="transpose_arr" nr_arguments="1">
-    <xaifii:Function type="builtin" builtin_name="transpose"/>
-    <xaifii:Partial partial_id="1" partial_type="linear_one">
-      <xaif:Constant type="integer" value="1"/>
-    </xaifii:Partial>
+  <xaifii:InlinableIntrinsic name="nc_min_scal_scal" nr_arguments="2" nonSmooth="true">
+    <xaifii:Function type="builtin" builtin_name="min"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- non-canonicalized minval; e.g. for integer                  -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="nc_minval" nr_arguments="1" nonSmooth="true">
+    <xaifii:Function type="builtin" builtin_name="minval"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- non-canonicalized max; e.g. for integer                     -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="nc_max_scal_scal" nr_arguments="2" nonSmooth="true">
+    <xaifii:Function type="builtin" builtin_name="max"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- non-canonicalized maxval; e.g. for integer                  -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="nc_maxval" nr_arguments="1" nonSmooth="true">
+    <xaifii:Function type="builtin" builtin_name="maxval"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- maxloc intrinsic                                            -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="maxloc_arr" nr_arguments="1" shapeChange="rank">
+    <xaifii:Function type="builtin" builtin_name="maxloc"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- minloc intrinsic                                            -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="minloc_arr" nr_arguments="1" shapeChange="rank">
+    <xaifii:Function type="builtin" builtin_name="minloc"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- sum intrinsic                                            -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="sum_arr" nr_arguments="1" shapeChange="rank">
+    <xaifii:Function type="builtin" builtin_name="sum"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- shape intrinsic                                             -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="shape_arr" nr_arguments="1" shapeChange="rank">
+    <xaifii:Function type="builtin" builtin_name="shape"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
+<!-- ichar intrinsic                                             -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="ichar" nr_arguments="1" shapeChange="rank">
+    <xaifii:Function type="builtin" builtin_name="ichar"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
   </xaifii:InlinableIntrinsic>
 
 </xaifii:InlinableIntrinsicDefinitions>

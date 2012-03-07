@@ -97,12 +97,14 @@
 		  We distinguish between the following kinds of symbols:
 		  1. "subroutine" - the name of a subroutine
 		  2. "variable" - the name of a variable
+		  3. "pointer" - the name of a pointer
     </xsd:documentation>
   </xsd:annotation>
 
   <xsd:restriction base="xsd:string">
     <xsd:enumeration value="subroutine"/>
     <xsd:enumeration value="variable"/>
+    <xsd:enumeration value="pointer"/>
   </xsd:restriction>
 </xsd:simpleType>
 
@@ -144,6 +146,7 @@
   </xsd:annotation>
 
   <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="void"/>
     <xsd:enumeration value="scalar"/>
     <xsd:enumeration value="vector"/>
     <xsd:enumeration value="matrix"/>
@@ -1591,6 +1594,11 @@
                   1. "undefined" - no information available; 
                   2. "true" - the use of the symbol is active
 		  3. "false" - the use of the symbol is passive 
+		  The setting has to be consistent with the active attribute 
+		  specified in the corresponding Symbol element, 
+		  that is a setting of "true" here
+		  requires that in the corresponding Symbol:active be set to 
+		  true as well.
     </xsd:documentation>
   </xsd:annotation>
 
@@ -1772,25 +1780,6 @@
      intrinsics. The latter are specified in a different file. -->
 <!-- *********************************************************** -->
 
-<xsd:simpleType name="IntrinsicTypeName">
-
-  <xsd:annotation>
-	  <xsd:documentation xml:lang="en">
-		  Intrinsics are either inlinable or not. If inlinable then the code
-		  for the local partial derivatives can be looked up in a separate
-		  XML file (see xaif_inlinable_intrinsics.xsd). If they are not
-		  inlinable, then some precompiled derivative routine is called, whose
-		  name and partial derivative signature is given in a separate XML file
-		  (see xaif_noninlinable_intrinsics.xsd).
-    </xsd:documentation>
-  </xsd:annotation>
-
-  <xsd:restriction base="xsd:string">
-    <xsd:enumeration value="inlinable"/>
-    <xsd:enumeration value="non-inlinable"/>
-  </xsd:restriction>
-</xsd:simpleType>
-
 <xsd:complexType name="IntrinsicType">
 
   <xsd:annotation>
@@ -1938,6 +1927,9 @@
       An empty expression indicates unknown information 
       as would be the case when it is implicitly given 
       by the context. 
+      The assumption in xaifBooster is that anything that is not a 
+      scalar dereference should have at least either 
+      Bound or Stride specified.
     </xsd:documentation>
   </xsd:annotation>
 
