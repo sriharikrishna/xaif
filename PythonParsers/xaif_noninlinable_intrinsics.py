@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 
 #
-# Generated Mon Jun 27 09:05:44 2011 by generateDS.py version 2.5b.
+# Generated Wed Mar  7 09:10:09 2012 by generateDS.py version 2.7b.
 #
 
 import sys
@@ -147,6 +147,20 @@ except ImportError, exp:
             if tag:
                 path_list.append(tag)
             self.get_path_list_(node.getparent(), path_list)
+        def get_class_obj_(self, node, default_class=None):
+            class_obj1 = default_class
+            if 'xsi' in node.nsmap:
+                classname = node.get('{%s}type' % node.nsmap['xsi'])
+                if classname is not None:
+                    names = classname.split(':')
+                    if len(names) == 2:
+                        classname = names[1]
+                    class_obj2 = globals().get(classname)
+                    if class_obj2 is not None:
+                        class_obj1 = class_obj2
+            return class_obj1
+        def gds_build_any(self, node, type_name=None):
+            return None
 
 
 #
@@ -170,7 +184,8 @@ except ImportError, exp:
 
 ExternalEncoding = 'ascii'
 Tag_pattern_ = re_.compile(r'({.*})?(.*)')
-STRING_CLEANUP_PAT = re_.compile(r"[\n\r\s]+")
+String_cleanup_pat_ = re_.compile(r"[\n\r\s]+")
+Namespace_extract_pat_ = re_.compile(r'{(.*)}(.*)')
 
 #
 # Support/utility functions.
@@ -232,15 +247,15 @@ def get_all_text_(node):
 
 def find_attr_value_(attr_name, node):
     attrs = node.attrib
-    # First try with no namespace.
-    value = attrs.get(attr_name)
-    if value is None:
-        # Now try the other possible namespaces.
-        namespaces = node.nsmap.itervalues()
-        for namespace in namespaces:
-            value = attrs.get('{%s}%s' % (namespace, attr_name, ))
-            if value is not None:
-                break
+    attr_parts = attr_name.split(':')
+    value = None
+    if len(attr_parts) == 1:
+        value = attrs.get(attr_name)
+    elif len(attr_parts) == 2:
+        prefix, name = attr_parts
+        namespace = node.nsmap.get(prefix)
+        if namespace is not None:
+            value = attrs.get('{%s}%s' % (namespace, name, ))
     return value
 
 
@@ -355,10 +370,10 @@ class NonInlinableIntrinsicBaseType(GeneratedsSuper):
     noninlable intrinsic is it non smooth?"""
     subclass = None
     superclass = None
-    def __init__(self, nonSmooth=False, name=None, valueOf_=None):
+    def __init__(self, nonSmooth=False, name=None, extensiontype_=None):
         self.nonSmooth = _cast(bool, nonSmooth)
         self.name = _cast(None, name)
-        pass
+        self.extensiontype_ = extensiontype_
     def factory(*args_, **kwargs_):
         if NonInlinableIntrinsicBaseType.subclass:
             return NonInlinableIntrinsicBaseType.subclass(*args_, **kwargs_)
@@ -369,6 +384,8 @@ class NonInlinableIntrinsicBaseType(GeneratedsSuper):
     def set_nonSmooth(self, nonSmooth): self.nonSmooth = nonSmooth
     def get_name(self): return self.name
     def set_name(self, name): self.name = name
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
     def export(self, outfile, level, namespace_='xaifnii:', name_='NonInlinableIntrinsicBaseType', namespacedef_=''):
         showIndent(outfile, level)
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
@@ -387,6 +404,10 @@ class NonInlinableIntrinsicBaseType(GeneratedsSuper):
         if self.name is not None and 'name' not in already_processed:
             already_processed.append('name')
             outfile.write(' name=%s' % (self.gds_format_string(quote_attrib(self.name).encode(ExternalEncoding), input_name='name'), ))
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.append('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            outfile.write(' xsi:type="%s"' % self.extensiontype_)
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='NonInlinableIntrinsicBaseType', fromsubclass_=False):
         pass
     def hasContent_(self):
@@ -431,6 +452,10 @@ class NonInlinableIntrinsicBaseType(GeneratedsSuper):
         if value is not None and 'name' not in already_processed:
             already_processed.append('name')
             self.name = value
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.append('xsi:type')
+            self.extensiontype_ = value
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         pass
 # end class NonInlinableIntrinsicBaseType
@@ -439,7 +464,7 @@ class NonInlinableIntrinsicBaseType(GeneratedsSuper):
 class ExplicitJacobianType(NonInlinableIntrinsicBaseType):
     subclass = None
     superclass = NonInlinableIntrinsicBaseType
-    def __init__(self, nonSmooth=False, name=None, return_type='real', jacobian=None, Partial=None, valueOf_=None):
+    def __init__(self, nonSmooth=False, name=None, return_type='real', jacobian=None, Partial=None):
         super(ExplicitJacobianType, self).__init__(nonSmooth, name, )
         self.return_type = _cast(None, return_type)
         self.jacobian = _cast(None, jacobian)
@@ -466,9 +491,6 @@ class ExplicitJacobianType(NonInlinableIntrinsicBaseType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='ExplicitJacobianType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="ExplicitJacobianType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -552,7 +574,7 @@ class ExplicitJacobianType(NonInlinableIntrinsicBaseType):
 class DirectActionType(NonInlinableIntrinsicBaseType):
     subclass = None
     superclass = NonInlinableIntrinsicBaseType
-    def __init__(self, nonSmooth=False, name=None, derivAction=None, valueOf_=None):
+    def __init__(self, nonSmooth=False, name=None, derivAction=None):
         super(DirectActionType, self).__init__(nonSmooth, name, )
         self.derivAction = _cast(None, derivAction)
         pass
@@ -569,9 +591,6 @@ class DirectActionType(NonInlinableIntrinsicBaseType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='DirectActionType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="DirectActionType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -627,7 +646,7 @@ class DirectActionType(NonInlinableIntrinsicBaseType):
 class NonInlinableIntrinsicDefinitions(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, ExplicitJacobian=None, DirectAction=None, valueOf_=None):
+    def __init__(self, ExplicitJacobian=None, DirectAction=None):
         if ExplicitJacobian is None:
             self.ExplicitJacobian = []
         else:
@@ -732,9 +751,9 @@ class FrontEndAnnotationType(GeneratedsSuper):
     """This is used by the front-end to annotate elements in the XAIF file."""
     subclass = None
     superclass = None
-    def __init__(self, annotation='', valueOf_=None):
+    def __init__(self, annotation='', extensiontype_=None):
         self.annotation = _cast(None, annotation)
-        pass
+        self.extensiontype_ = extensiontype_
     def factory(*args_, **kwargs_):
         if FrontEndAnnotationType.subclass:
             return FrontEndAnnotationType.subclass(*args_, **kwargs_)
@@ -743,6 +762,8 @@ class FrontEndAnnotationType(GeneratedsSuper):
     factory = staticmethod(factory)
     def get_annotation(self): return self.annotation
     def set_annotation(self, annotation): self.annotation = annotation
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
     def export(self, outfile, level, namespace_='xaifnii:', name_='FrontEndAnnotationType', namespacedef_=''):
         showIndent(outfile, level)
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
@@ -758,6 +779,10 @@ class FrontEndAnnotationType(GeneratedsSuper):
         if self.annotation is not None and 'annotation' not in already_processed:
             already_processed.append('annotation')
             outfile.write(' annotation=%s' % (self.gds_format_string(quote_attrib(self.annotation).encode(ExternalEncoding), input_name='annotation'), ))
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.append('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            outfile.write(' xsi:type="%s"' % self.extensiontype_)
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='FrontEndAnnotationType', fromsubclass_=False):
         pass
     def hasContent_(self):
@@ -789,6 +814,10 @@ class FrontEndAnnotationType(GeneratedsSuper):
         if value is not None and 'annotation' not in already_processed:
             already_processed.append('annotation')
             self.annotation = value
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.append('xsi:type')
+            self.extensiontype_ = value
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         pass
 # end class FrontEndAnnotationType
@@ -802,10 +831,10 @@ class VertexType(FrontEndAnnotationType):
     "1" is used."""
     subclass = None
     superclass = FrontEndAnnotationType
-    def __init__(self, annotation='', vertex_id='1', valueOf_=None):
-        super(VertexType, self).__init__(annotation, )
+    def __init__(self, annotation='', vertex_id='1', extensiontype_=None):
+        super(VertexType, self).__init__(annotation, extensiontype_, )
         self.vertex_id = _cast(None, vertex_id)
-        pass
+        self.extensiontype_ = extensiontype_
     def factory(*args_, **kwargs_):
         if VertexType.subclass:
             return VertexType.subclass(*args_, **kwargs_)
@@ -814,14 +843,13 @@ class VertexType(FrontEndAnnotationType):
     factory = staticmethod(factory)
     def get_vertex_id(self): return self.vertex_id
     def set_vertex_id(self, vertex_id): self.vertex_id = vertex_id
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
     def export(self, outfile, level, namespace_='xaifnii:', name_='VertexType', namespacedef_=''):
         showIndent(outfile, level)
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='VertexType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="VertexType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -833,6 +861,10 @@ class VertexType(FrontEndAnnotationType):
         if self.vertex_id is not None and 'vertex_id' not in already_processed:
             already_processed.append('vertex_id')
             outfile.write(' vertex_id=%s' % (self.gds_format_string(quote_attrib(self.vertex_id).encode(ExternalEncoding), input_name='vertex_id'), ))
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.append('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            outfile.write(' xsi:type="%s"' % self.extensiontype_)
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='VertexType', fromsubclass_=False):
         super(VertexType, self).exportChildren(outfile, level, namespace_, name_, True)
         pass
@@ -867,6 +899,10 @@ class VertexType(FrontEndAnnotationType):
         if value is not None and 'vertex_id' not in already_processed:
             already_processed.append('vertex_id')
             self.vertex_id = value
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.append('xsi:type')
+            self.extensiontype_ = value
         super(VertexType, self).buildAttributes(node, attrs, already_processed)
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         super(VertexType, self).buildChildren(child_, node, nodeName_, True)
@@ -883,12 +919,12 @@ class EdgeType(FrontEndAnnotationType):
     corresponding XAIF graph."""
     subclass = None
     superclass = FrontEndAnnotationType
-    def __init__(self, annotation='', source=None, target=None, edge_id=None, valueOf_=None):
-        super(EdgeType, self).__init__(annotation, )
+    def __init__(self, annotation='', source=None, target=None, edge_id=None, extensiontype_=None):
+        super(EdgeType, self).__init__(annotation, extensiontype_, )
         self.source = _cast(None, source)
         self.target = _cast(None, target)
         self.edge_id = _cast(None, edge_id)
-        pass
+        self.extensiontype_ = extensiontype_
     def factory(*args_, **kwargs_):
         if EdgeType.subclass:
             return EdgeType.subclass(*args_, **kwargs_)
@@ -901,14 +937,13 @@ class EdgeType(FrontEndAnnotationType):
     def set_target(self, target): self.target = target
     def get_edge_id(self): return self.edge_id
     def set_edge_id(self, edge_id): self.edge_id = edge_id
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
     def export(self, outfile, level, namespace_='xaifnii:', name_='EdgeType', namespacedef_=''):
         showIndent(outfile, level)
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='EdgeType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="EdgeType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -926,6 +961,10 @@ class EdgeType(FrontEndAnnotationType):
         if self.edge_id is not None and 'edge_id' not in already_processed:
             already_processed.append('edge_id')
             outfile.write(' edge_id=%s' % (self.gds_format_string(quote_attrib(self.edge_id).encode(ExternalEncoding), input_name='edge_id'), ))
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.append('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            outfile.write(' xsi:type="%s"' % self.extensiontype_)
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='EdgeType', fromsubclass_=False):
         super(EdgeType, self).exportChildren(outfile, level, namespace_, name_, True)
         pass
@@ -976,6 +1015,10 @@ class EdgeType(FrontEndAnnotationType):
         if value is not None and 'edge_id' not in already_processed:
             already_processed.append('edge_id')
             self.edge_id = value
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.append('xsi:type')
+            self.extensiontype_ = value
         super(EdgeType, self).buildAttributes(node, attrs, already_processed)
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         super(EdgeType, self).buildChildren(child_, node, nodeName_, True)
@@ -988,7 +1031,7 @@ class DimensionBoundsType(GeneratedsSuper):
     dimension bounds."""
     subclass = None
     superclass = None
-    def __init__(self, upper=None, lower=None, valueOf_=None):
+    def __init__(self, upper=None, lower=None):
         self.upper = _cast(int, upper)
         self.lower = _cast(int, lower)
         pass
@@ -1086,7 +1129,7 @@ class SymbolType(FrontEndAnnotationType):
     unspecified."""
     subclass = None
     superclass = FrontEndAnnotationType
-    def __init__(self, annotation='', kind='variable', symbol_id=None, temp=False, feType='', shape='scalar', active=True, type_='real', pointer=False, DimensionBounds=None, valueOf_=None):
+    def __init__(self, annotation='', kind='variable', symbol_id=None, temp=False, feType='', shape='scalar', active=True, type_='real', pointer=False, DimensionBounds=None):
         super(SymbolType, self).__init__(annotation, )
         self.kind = _cast(None, kind)
         self.symbol_id = _cast(None, symbol_id)
@@ -1135,9 +1178,6 @@ class SymbolType(FrontEndAnnotationType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='SymbolType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="SymbolType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -1173,7 +1213,7 @@ class SymbolType(FrontEndAnnotationType):
             outfile.write(' pointer="%s"' % self.gds_format_boolean(self.gds_str_lower(str(self.pointer)), input_name='pointer'))
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='SymbolType', fromsubclass_=False):
         super(SymbolType, self).exportChildren(outfile, level, namespace_, name_, True)
-        if self.DimensionBounds:
+        if self.DimensionBounds is not None:
             self.DimensionBounds.export(outfile, level, namespace_, name_='DimensionBounds')
     def hasContent_(self):
         if (
@@ -1300,7 +1340,7 @@ class SymbolTableType(GeneratedsSuper):
     """The symbol table is a list of one or more symbols."""
     subclass = None
     superclass = None
-    def __init__(self, Symbol=None, valueOf_=None):
+    def __init__(self, Symbol=None):
         if Symbol is None:
             self.Symbol = []
         else:
@@ -1381,7 +1421,7 @@ class ScopeHierarchyType(GeneratedsSuper):
     symbols."""
     subclass = None
     superclass = None
-    def __init__(self, Scope=None, ScopeEdge=None, valueOf_=None):
+    def __init__(self, Scope=None, ScopeEdge=None):
         if Scope is None:
             self.Scope = []
         else:
@@ -1476,7 +1516,8 @@ class ScopeHierarchyType(GeneratedsSuper):
             obj_.build(child_)
             self.Scope.append(obj_)
         elif nodeName_ == 'ScopeEdge':
-            obj_ = EdgeType.factory()
+            class_obj_ = self.get_class_obj_(child_, EdgeType)
+            obj_ = class_obj_.factory()
             obj_.build(child_)
             self.ScopeEdge.append(obj_)
 # end class ScopeHierarchyType
@@ -1487,7 +1528,7 @@ class StatementIdRefType(GeneratedsSuper):
     string if we refer to an out-of-scope Assignment"""
     subclass = None
     superclass = None
-    def __init__(self, idRef=None, valueOf_=None):
+    def __init__(self, idRef=None):
         self.idRef = _cast(None, idRef)
         pass
     def factory(*args_, **kwargs_):
@@ -1554,7 +1595,7 @@ class StmtIdSetWithKeyType(GeneratedsSuper):
     StmtIdSetWithKeyType instances"""
     subclass = None
     superclass = None
-    def __init__(self, key=None, StatementId=None, valueOf_=None):
+    def __init__(self, key=None, StatementId=None):
         self.key = _cast(int, key)
         if StatementId is None:
             self.StatementId = []
@@ -1648,7 +1689,7 @@ class StmtIdSetMapType(GeneratedsSuper):
     """a map of StmtIdSet elements"""
     subclass = None
     superclass = None
-    def __init__(self, StmtIdSet=None, valueOf_=None):
+    def __init__(self, StmtIdSet=None):
         if StmtIdSet is None:
             self.StmtIdSet = []
         else:
@@ -1731,7 +1772,7 @@ class AliasRangeType(GeneratedsSuper):
     the entire vector is read or written."""
     subclass = None
     superclass = None
-    def __init__(self, from_virtual_address=None, to_virtual_address=None, partial=True, valueOf_=None):
+    def __init__(self, from_virtual_address=None, to_virtual_address=None, partial=True):
         self.from_virtual_address = _cast(int, from_virtual_address)
         self.to_virtual_address = _cast(int, to_virtual_address)
         self.partial = _cast(bool, partial)
@@ -1848,7 +1889,7 @@ class AliasSetType(GeneratedsSuper):
     location."""
     subclass = None
     superclass = None
-    def __init__(self, key=None, AliasRange=None, valueOf_=None):
+    def __init__(self, key=None, AliasRange=None):
         self.key = _cast(int, key)
         if AliasRange is None:
             self.AliasRange = []
@@ -1943,7 +1984,7 @@ class AliasSetMapType(GeneratedsSuper):
     from variables."""
     subclass = None
     superclass = None
-    def __init__(self, AliasSet=None, valueOf_=None):
+    def __init__(self, AliasSet=None):
         if AliasSet is None:
             self.AliasSet = []
         else:
@@ -2028,7 +2069,7 @@ class CallGraphType(GeneratedsSuper):
     and it will be changed to 'required'."""
     subclass = None
     superclass = None
-    def __init__(self, program_name=None, prefix='GetRidOfThisDefault', ScopeHierarchy=None, AliasSetMap=None, DUUDSetMap=None, DOSetMap=None, CallGraphVertex=None, CallGraphEdge=None, valueOf_=None):
+    def __init__(self, program_name=None, prefix='GetRidOfThisDefault', ScopeHierarchy=None, AliasSetMap=None, DUUDSetMap=None, DOSetMap=None, CallGraphVertex=None, CallGraphEdge=None):
         self.program_name = _cast(None, program_name)
         self.prefix = _cast(None, prefix)
         self.ScopeHierarchy = ScopeHierarchy
@@ -2079,17 +2120,17 @@ class CallGraphType(GeneratedsSuper):
             already_processed.append('prefix')
             outfile.write(' prefix=%s' % (self.gds_format_string(quote_attrib(self.prefix).encode(ExternalEncoding), input_name='prefix'), ))
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='CallGraphType', fromsubclass_=False):
-        if self.ScopeHierarchy:
+        if self.ScopeHierarchy is not None:
             self.ScopeHierarchy.export(outfile, level, namespace_, name_='ScopeHierarchy', )
-        if self.AliasSetMap:
+        if self.AliasSetMap is not None:
             self.AliasSetMap.export(outfile, level, namespace_, name_='AliasSetMap', )
-        if self.DUUDSetMap:
+        if self.DUUDSetMap is not None:
             self.DUUDSetMap.export(outfile, level, namespace_, name_='DUUDSetMap', )
-        if self.DOSetMap:
+        if self.DOSetMap is not None:
             self.DOSetMap.export(outfile, level, namespace_, name_='DOSetMap', )
-        if self.CallGraphVertex:
+        if self.CallGraphVertex is not None:
             self.CallGraphVertex.export(outfile, level, namespace_, name_='CallGraphVertex', )
-        if self.CallGraphEdge:
+        if self.CallGraphEdge is not None:
             self.CallGraphEdge.export(outfile, level, namespace_, name_='CallGraphEdge', )
     def hasContent_(self):
         if (
@@ -2186,7 +2227,8 @@ class CallGraphType(GeneratedsSuper):
             obj_.build(child_)
             self.set_DOSetMap(obj_)
         elif nodeName_ == 'CallGraphVertex':
-            obj_ = VertexType.factory()
+            class_obj_ = self.get_class_obj_(child_, VertexType)
+            obj_ = class_obj_.factory()
             obj_.build(child_)
             self.set_CallGraphVertex(obj_)
         elif nodeName_ == 'ControlFlowGraph':
@@ -2194,7 +2236,8 @@ class CallGraphType(GeneratedsSuper):
             obj_.build(child_)
             self.set_CallGraphVertex(obj_)
         elif nodeName_ == 'CallGraphEdge':
-            obj_ = EdgeType.factory()
+            class_obj_ = self.get_class_obj_(child_, EdgeType)
+            obj_ = class_obj_.factory()
             obj_.build(child_)
             self.set_CallGraphEdge(obj_)
 # end class CallGraphType
@@ -2207,7 +2250,7 @@ class ArgumentSymbolReferenceType(FrontEndAnnotationType):
     Additionally, its intent (default: inout) may be specified."""
     subclass = None
     superclass = FrontEndAnnotationType
-    def __init__(self, annotation='', position=None, scope_id=None, symbol_id=None, intent='inout', deriv=False, valueOf_=None):
+    def __init__(self, annotation='', position=None, scope_id=None, symbol_id=None, intent='inout', deriv=False):
         super(ArgumentSymbolReferenceType, self).__init__(annotation, )
         self.position = _cast(int, position)
         self.scope_id = _cast(int, scope_id)
@@ -2239,9 +2282,6 @@ class ArgumentSymbolReferenceType(FrontEndAnnotationType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='ArgumentSymbolReferenceType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="ArgumentSymbolReferenceType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -2358,7 +2398,7 @@ class ArgumentListType(GeneratedsSuper):
     """The argument list."""
     subclass = None
     superclass = None
-    def __init__(self, ArgumentSymbolReference=None, valueOf_=None):
+    def __init__(self, ArgumentSymbolReference=None):
         if ArgumentSymbolReference is None:
             self.ArgumentSymbolReference = []
         else:
@@ -2437,7 +2477,7 @@ class SideEffectListType(GeneratedsSuper):
     analysis."""
     subclass = None
     superclass = None
-    def __init__(self, SideEffectReference=None, valueOf_=None):
+    def __init__(self, SideEffectReference=None):
         if SideEffectReference is None:
             self.SideEffectReference = []
         else:
@@ -2505,7 +2545,8 @@ class SideEffectListType(GeneratedsSuper):
         pass
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'SideEffectReference':
-            obj_ = VariableReferenceType.factory()
+            class_obj_ = self.get_class_obj_(child_, VariableReferenceType)
+            obj_ = class_obj_.factory()
             obj_.build(child_)
             self.SideEffectReference.append(obj_)
 # end class SideEffectListType
@@ -2531,7 +2572,7 @@ class ControlFlowGraphType(VertexType):
     alternative entries, ..."""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', active=True, structured=True, scope_id=None, symbol_id=None, controlflowgraph_scope_id=None, ArgumentList=None, ModLocal=None, Mod=None, ReadLocal=None, Read=None, OnEntry=None, ControlFlowVertex=None, ControlFlowEdge=None, valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', active=True, structured=True, scope_id=None, symbol_id=None, controlflowgraph_scope_id=None, ArgumentList=None, ModLocal=None, Mod=None, ReadLocal=None, Read=None, OnEntry=None, ControlFlowVertex=None, ControlFlowEdge=None):
         super(ControlFlowGraphType, self).__init__(annotation, vertex_id, )
         self.active = _cast(bool, active)
         self.structured = _cast(bool, structured)
@@ -2593,9 +2634,6 @@ class ControlFlowGraphType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='ControlFlowGraphType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="ControlFlowGraphType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -2622,17 +2660,17 @@ class ControlFlowGraphType(VertexType):
             outfile.write(' controlflowgraph_scope_id="%s"' % self.gds_format_integer(self.controlflowgraph_scope_id, input_name='controlflowgraph_scope_id'))
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='ControlFlowGraphType', fromsubclass_=False):
         super(ControlFlowGraphType, self).exportChildren(outfile, level, namespace_, name_, True)
-        if self.ArgumentList:
+        if self.ArgumentList is not None:
             self.ArgumentList.export(outfile, level, namespace_, name_='ArgumentList')
-        if self.ModLocal:
+        if self.ModLocal is not None:
             self.ModLocal.export(outfile, level, namespace_, name_='ModLocal')
-        if self.Mod:
+        if self.Mod is not None:
             self.Mod.export(outfile, level, namespace_, name_='Mod')
-        if self.ReadLocal:
+        if self.ReadLocal is not None:
             self.ReadLocal.export(outfile, level, namespace_, name_='ReadLocal')
-        if self.Read:
+        if self.Read is not None:
             self.Read.export(outfile, level, namespace_, name_='Read')
-        if self.OnEntry:
+        if self.OnEntry is not None:
             self.OnEntry.export(outfile, level, namespace_, name_='OnEntry')
         for ControlFlowVertex_ in self.ControlFlowVertex:
             ControlFlowVertex_.export(outfile, level, namespace_, name_='ControlFlowVertex')
@@ -2815,7 +2853,8 @@ class ControlFlowGraphType(VertexType):
             obj_.build(child_)
             self.set_OnEntry(obj_)
         elif nodeName_ == 'ControlFlowVertex':
-            obj_ = VertexType.factory()
+            class_obj_ = self.get_class_obj_(child_, VertexType)
+            obj_ = class_obj_.factory()
             obj_.build(child_)
             self.ControlFlowVertex.append(obj_)
         elif nodeName_ == 'BasicBlock':
@@ -2875,10 +2914,9 @@ class ControlFlowGraphType(VertexType):
 
 
 class ControlFlowEdgeType(EdgeType):
-    """"""
     subclass = None
     superclass = EdgeType
-    def __init__(self, annotation='', source=None, target=None, edge_id=None, condition_value=1, has_condition_value=False, valueOf_=None):
+    def __init__(self, annotation='', source=None, target=None, edge_id=None, condition_value=1, has_condition_value=False):
         super(ControlFlowEdgeType, self).__init__(annotation, source, target, edge_id, )
         self.condition_value = _cast(int, condition_value)
         self.has_condition_value = _cast(bool, has_condition_value)
@@ -2898,9 +2936,6 @@ class ControlFlowEdgeType(EdgeType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='ControlFlowEdgeType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="ControlFlowEdgeType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -2973,10 +3008,9 @@ class ControlFlowEdgeType(EdgeType):
 
 
 class BasicBlockElementType(FrontEndAnnotationType):
-    """"""
     subclass = None
     superclass = FrontEndAnnotationType
-    def __init__(self, annotation='', valueOf_=None):
+    def __init__(self, annotation=''):
         super(BasicBlockElementType, self).__init__(annotation, )
         pass
     def factory(*args_, **kwargs_):
@@ -2990,9 +3024,6 @@ class BasicBlockElementType(FrontEndAnnotationType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='BasicBlockElementType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="BasicBlockElementType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -3038,7 +3069,7 @@ class BasicBlockType(VertexType):
     """Basic blocks are sequences of assignments and subroutine calls."""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', scope_id=None, Assignment=None, SubroutineCall=None, Marker=None, valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', scope_id=None, Assignment=None, SubroutineCall=None, Marker=None):
         super(BasicBlockType, self).__init__(annotation, vertex_id, )
         self.scope_id = _cast(int, scope_id)
         if Assignment is None:
@@ -3078,9 +3109,6 @@ class BasicBlockType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='BasicBlockType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="BasicBlockType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -3197,7 +3225,7 @@ class ForLoopType(VertexType):
     """For loops with a single initialization, condition, and update."""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', reversal='anonymous', lineNumber=0, Initialization=None, Condition=None, Update=None, valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', reversal='anonymous', lineNumber=0, Initialization=None, Condition=None, Update=None):
         super(ForLoopType, self).__init__(annotation, vertex_id, )
         self.reversal = _cast(None, reversal)
         self.lineNumber = _cast(int, lineNumber)
@@ -3225,9 +3253,6 @@ class ForLoopType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='ForLoopType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="ForLoopType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -3245,11 +3270,11 @@ class ForLoopType(VertexType):
             outfile.write(' lineNumber="%s"' % self.gds_format_integer(self.lineNumber, input_name='lineNumber'))
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='ForLoopType', fromsubclass_=False):
         super(ForLoopType, self).exportChildren(outfile, level, namespace_, name_, True)
-        if self.Initialization:
+        if self.Initialization is not None:
             self.Initialization.export(outfile, level, namespace_, name_='Initialization')
-        if self.Condition:
+        if self.Condition is not None:
             self.Condition.export(outfile, level, namespace_, name_='Condition')
-        if self.Update:
+        if self.Update is not None:
             self.Update.export(outfile, level, namespace_, name_='Update')
     def hasContent_(self):
         if (
@@ -3318,7 +3343,8 @@ class ForLoopType(VertexType):
         super(ForLoopType, self).buildAttributes(node, attrs, already_processed)
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'Initialization':
-            obj_ = AssignmentType.factory()
+            class_obj_ = self.get_class_obj_(child_, AssignmentType)
+            obj_ = class_obj_.factory()
             obj_.build(child_)
             self.set_Initialization(obj_)
         elif nodeName_ == 'Condition':
@@ -3326,7 +3352,8 @@ class ForLoopType(VertexType):
             obj_.build(child_)
             self.set_Condition(obj_)
         elif nodeName_ == 'Update':
-            obj_ = AssignmentType.factory()
+            class_obj_ = self.get_class_obj_(child_, AssignmentType)
+            obj_ = class_obj_.factory()
             obj_.build(child_)
             self.set_Update(obj_)
         super(ForLoopType, self).buildChildren(child_, node, nodeName_, True)
@@ -3337,7 +3364,7 @@ class PreLoopType(VertexType):
     """Loops with test of condition before first execution of loop body."""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', lineNumber=0, Condition=None, valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', lineNumber=0, Condition=None):
         super(PreLoopType, self).__init__(annotation, vertex_id, )
         self.lineNumber = _cast(int, lineNumber)
         self.Condition = Condition
@@ -3356,9 +3383,6 @@ class PreLoopType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='PreLoopType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="PreLoopType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -3373,7 +3397,7 @@ class PreLoopType(VertexType):
             outfile.write(' lineNumber="%s"' % self.gds_format_integer(self.lineNumber, input_name='lineNumber'))
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='PreLoopType', fromsubclass_=False):
         super(PreLoopType, self).exportChildren(outfile, level, namespace_, name_, True)
-        if self.Condition:
+        if self.Condition is not None:
             self.Condition.export(outfile, level, namespace_, name_='Condition')
     def hasContent_(self):
         if (
@@ -3431,7 +3455,7 @@ class PostLoopType(VertexType):
     """Loops with test of condition after first execution of loop body."""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', lineNumber=0, Condition=None, valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', lineNumber=0, Condition=None):
         super(PostLoopType, self).__init__(annotation, vertex_id, )
         self.lineNumber = _cast(int, lineNumber)
         self.Condition = Condition
@@ -3450,9 +3474,6 @@ class PostLoopType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='PostLoopType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="PostLoopType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -3467,7 +3488,7 @@ class PostLoopType(VertexType):
             outfile.write(' lineNumber="%s"' % self.gds_format_integer(self.lineNumber, input_name='lineNumber'))
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='PostLoopType', fromsubclass_=False):
         super(PostLoopType, self).exportChildren(outfile, level, namespace_, name_, True)
-        if self.Condition:
+        if self.Condition is not None:
             self.Condition.export(outfile, level, namespace_, name_='Condition')
     def hasContent_(self):
         if (
@@ -3522,10 +3543,9 @@ class PostLoopType(VertexType):
 
 
 class BranchType(VertexType):
-    """"""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', lineNumber=0, Condition=None, valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', lineNumber=0, Condition=None):
         super(BranchType, self).__init__(annotation, vertex_id, )
         self.lineNumber = _cast(int, lineNumber)
         self.Condition = Condition
@@ -3544,9 +3564,6 @@ class BranchType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='BranchType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="BranchType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -3561,7 +3578,7 @@ class BranchType(VertexType):
             outfile.write(' lineNumber="%s"' % self.gds_format_integer(self.lineNumber, input_name='lineNumber'))
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='BranchType', fromsubclass_=False):
         super(BranchType, self).exportChildren(outfile, level, namespace_, name_, True)
-        if self.Condition:
+        if self.Condition is not None:
             self.Condition.export(outfile, level, namespace_, name_='Condition')
     def hasContent_(self):
         if (
@@ -3619,7 +3636,7 @@ class IfType(VertexType):
     """If tests in control flow graph."""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', lineNumber=0, Condition=None, valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', lineNumber=0, Condition=None):
         super(IfType, self).__init__(annotation, vertex_id, )
         self.lineNumber = _cast(int, lineNumber)
         self.Condition = Condition
@@ -3638,9 +3655,6 @@ class IfType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='IfType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="IfType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -3655,7 +3669,7 @@ class IfType(VertexType):
             outfile.write(' lineNumber="%s"' % self.gds_format_integer(self.lineNumber, input_name='lineNumber'))
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='IfType', fromsubclass_=False):
         super(IfType, self).exportChildren(outfile, level, namespace_, name_, True)
-        if self.Condition:
+        if self.Condition is not None:
             self.Condition.export(outfile, level, namespace_, name_='Condition')
     def hasContent_(self):
         if (
@@ -3713,7 +3727,7 @@ class EntryType(VertexType):
     """Unique entry node of control flow graph."""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1'):
         super(EntryType, self).__init__(annotation, vertex_id, )
         pass
     def factory(*args_, **kwargs_):
@@ -3727,9 +3741,6 @@ class EntryType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='EntryType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="EntryType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -3772,10 +3783,9 @@ class EntryType(VertexType):
 
 
 class EndBranchType(VertexType):
-    """"""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1'):
         super(EndBranchType, self).__init__(annotation, vertex_id, )
         pass
     def factory(*args_, **kwargs_):
@@ -3789,9 +3799,6 @@ class EndBranchType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='EndBranchType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="EndBranchType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -3834,10 +3841,9 @@ class EndBranchType(VertexType):
 
 
 class GotoType(VertexType):
-    """"""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1'):
         super(GotoType, self).__init__(annotation, vertex_id, )
         pass
     def factory(*args_, **kwargs_):
@@ -3851,9 +3857,6 @@ class GotoType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='GotoType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="GotoType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -3896,10 +3899,9 @@ class GotoType(VertexType):
 
 
 class LabelType(VertexType):
-    """"""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1'):
         super(LabelType, self).__init__(annotation, vertex_id, )
         pass
     def factory(*args_, **kwargs_):
@@ -3913,9 +3915,6 @@ class LabelType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='LabelType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="LabelType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -3958,10 +3957,9 @@ class LabelType(VertexType):
 
 
 class EndLoopType(VertexType):
-    """"""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1'):
         super(EndLoopType, self).__init__(annotation, vertex_id, )
         pass
     def factory(*args_, **kwargs_):
@@ -3975,9 +3973,6 @@ class EndLoopType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='EndLoopType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="EndLoopType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -4023,7 +4018,7 @@ class ExitType(VertexType):
     """Unique exit node in control flow graph."""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1'):
         super(ExitType, self).__init__(annotation, vertex_id, )
         pass
     def factory(*args_, **kwargs_):
@@ -4037,9 +4032,6 @@ class ExitType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='ExitType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="ExitType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -4087,9 +4079,10 @@ class AssignmentBaseType(GeneratedsSuper):
     uniquely identified by their statement_id."""
     subclass = None
     superclass = None
-    def __init__(self, AssignmentLHS=None, AssignmentRHS=None, valueOf_=None):
+    def __init__(self, AssignmentLHS=None, AssignmentRHS=None, extensiontype_=None):
         self.AssignmentLHS = AssignmentLHS
         self.AssignmentRHS = AssignmentRHS
+        self.extensiontype_ = extensiontype_
     def factory(*args_, **kwargs_):
         if AssignmentBaseType.subclass:
             return AssignmentBaseType.subclass(*args_, **kwargs_)
@@ -4100,6 +4093,8 @@ class AssignmentBaseType(GeneratedsSuper):
     def set_AssignmentLHS(self, AssignmentLHS): self.AssignmentLHS = AssignmentLHS
     def get_AssignmentRHS(self): return self.AssignmentRHS
     def set_AssignmentRHS(self, AssignmentRHS): self.AssignmentRHS = AssignmentRHS
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
     def export(self, outfile, level, namespace_='xaifnii:', name_='AssignmentBaseType', namespacedef_=''):
         showIndent(outfile, level)
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
@@ -4113,11 +4108,15 @@ class AssignmentBaseType(GeneratedsSuper):
         else:
             outfile.write('/>\n')
     def exportAttributes(self, outfile, level, already_processed, namespace_='xaifnii:', name_='AssignmentBaseType'):
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.append('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            outfile.write(' xsi:type="%s"' % self.extensiontype_)
         pass
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='AssignmentBaseType', fromsubclass_=False):
-        if self.AssignmentLHS:
+        if self.AssignmentLHS is not None:
             self.AssignmentLHS.export(outfile, level, namespace_, name_='AssignmentLHS', )
-        if self.AssignmentRHS:
+        if self.AssignmentRHS is not None:
             self.AssignmentRHS.export(outfile, level, namespace_, name_='AssignmentRHS', )
     def hasContent_(self):
         if (
@@ -4153,7 +4152,10 @@ class AssignmentBaseType(GeneratedsSuper):
             nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
             self.buildChildren(child, node, nodeName_)
     def buildAttributes(self, node, attrs, already_processed):
-        pass
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.append('xsi:type')
+            self.extensiontype_ = value
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'AssignmentLHS':
             obj_ = AssignmentLHSType.factory()
@@ -4172,11 +4174,11 @@ class AssignmentType(AssignmentBaseType):
     of scope (and subsequent overwrite by reuse)"""
     subclass = None
     superclass = AssignmentBaseType
-    def __init__(self, AssignmentLHS=None, AssignmentRHS=None, statement_id=None, do_chain=0, valueOf_=None):
-        super(AssignmentType, self).__init__(AssignmentLHS, AssignmentRHS, )
+    def __init__(self, AssignmentLHS=None, AssignmentRHS=None, statement_id=None, do_chain=0, extensiontype_=None):
+        super(AssignmentType, self).__init__(AssignmentLHS, AssignmentRHS, extensiontype_, )
         self.statement_id = _cast(None, statement_id)
         self.do_chain = _cast(int, do_chain)
-        pass
+        self.extensiontype_ = extensiontype_
     def factory(*args_, **kwargs_):
         if AssignmentType.subclass:
             return AssignmentType.subclass(*args_, **kwargs_)
@@ -4187,14 +4189,13 @@ class AssignmentType(AssignmentBaseType):
     def set_statement_id(self, statement_id): self.statement_id = statement_id
     def get_do_chain(self): return self.do_chain
     def set_do_chain(self, do_chain): self.do_chain = do_chain
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
     def export(self, outfile, level, namespace_='xaifnii:', name_='AssignmentType', namespacedef_=''):
         showIndent(outfile, level)
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='AssignmentType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="AssignmentType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -4210,6 +4211,10 @@ class AssignmentType(AssignmentBaseType):
         if self.do_chain is not None and 'do_chain' not in already_processed:
             already_processed.append('do_chain')
             outfile.write(' do_chain="%s"' % self.gds_format_integer(self.do_chain, input_name='do_chain'))
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.append('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            outfile.write(' xsi:type="%s"' % self.extensiontype_)
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='AssignmentType', fromsubclass_=False):
         super(AssignmentType, self).exportChildren(outfile, level, namespace_, name_, True)
     def hasContent_(self):
@@ -4253,6 +4258,10 @@ class AssignmentType(AssignmentBaseType):
                 self.do_chain = int(value)
             except ValueError, exp:
                 raise_parse_error(node, 'Bad integer attribute: %s' % exp)
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.append('xsi:type')
+            self.extensiontype_ = value
         super(AssignmentType, self).buildAttributes(node, attrs, already_processed)
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         super(AssignmentType, self).buildChildren(child_, node, nodeName_, True)
@@ -4263,7 +4272,7 @@ class AssignmentType(AssignmentBaseType):
 class BasicBlockAssignmentType(AssignmentType):
     subclass = None
     superclass = AssignmentType
-    def __init__(self, AssignmentLHS=None, AssignmentRHS=None, statement_id=None, do_chain=0, lineNumber=0, valueOf_=None):
+    def __init__(self, AssignmentLHS=None, AssignmentRHS=None, statement_id=None, do_chain=0, lineNumber=0):
         super(BasicBlockAssignmentType, self).__init__(AssignmentLHS, AssignmentRHS, statement_id, do_chain, )
         self.lineNumber = _cast(int, lineNumber)
         pass
@@ -4280,9 +4289,6 @@ class BasicBlockAssignmentType(AssignmentType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='BasicBlockAssignmentType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="BasicBlockAssignmentType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -4340,10 +4346,9 @@ class BasicBlockAssignmentType(AssignmentType):
 
 
 class ExpressionEdgeType(EdgeType):
-    """"""
     subclass = None
     superclass = EdgeType
-    def __init__(self, annotation='', source=None, target=None, edge_id=None, position=None, valueOf_=None):
+    def __init__(self, annotation='', source=None, target=None, edge_id=None, position=None):
         super(ExpressionEdgeType, self).__init__(annotation, source, target, edge_id, )
         self.position = _cast(int, position)
         pass
@@ -4360,9 +4365,6 @@ class ExpressionEdgeType(EdgeType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='ExpressionEdgeType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="ExpressionEdgeType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -4422,7 +4424,7 @@ class ExpressionType(GeneratedsSuper):
     """Expressions are dag's in the classical compiler sense."""
     subclass = None
     superclass = None
-    def __init__(self, ExpressionVertex=None, ExpressionEdge=None, valueOf_=None):
+    def __init__(self, ExpressionVertex=None, ExpressionEdge=None):
         if ExpressionVertex is None:
             self.ExpressionVertex = []
         else:
@@ -4513,11 +4515,13 @@ class ExpressionType(GeneratedsSuper):
         pass
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'ExpressionVertex':
-            obj_ = VertexType.factory()
+            class_obj_ = self.get_class_obj_(child_, VertexType)
+            obj_ = class_obj_.factory()
             obj_.build(child_)
             self.ExpressionVertex.append(obj_)
         elif nodeName_ == 'VariableReference':
-            obj_ = VariableReferenceType.factory()
+            class_obj_ = self.get_class_obj_(child_, VariableReferenceType)
+            obj_ = class_obj_.factory()
             obj_.build(child_)
             self.ExpressionVertex.append(obj_)
         elif nodeName_ == 'Intrinsic':
@@ -4552,7 +4556,7 @@ class SubroutineArgumentType(FrontEndAnnotationType):
     than 0 and less than or equal SubroutineCallType:formalArgCount"""
     subclass = None
     superclass = FrontEndAnnotationType
-    def __init__(self, annotation='', position=None, VariableReference=None, Constant=None, valueOf_=None):
+    def __init__(self, annotation='', position=None, VariableReference=None, Constant=None):
         super(SubroutineArgumentType, self).__init__(annotation, )
         self.position = _cast(int, position)
         self.VariableReference = VariableReference
@@ -4574,9 +4578,6 @@ class SubroutineArgumentType(FrontEndAnnotationType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='SubroutineArgumentType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="SubroutineArgumentType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -4591,9 +4592,9 @@ class SubroutineArgumentType(FrontEndAnnotationType):
             outfile.write(' position="%s"' % self.gds_format_integer(self.position, input_name='position'))
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='SubroutineArgumentType', fromsubclass_=False):
         super(SubroutineArgumentType, self).exportChildren(outfile, level, namespace_, name_, True)
-        if self.VariableReference:
+        if self.VariableReference is not None:
             self.VariableReference.export(outfile, level, namespace_, name_='VariableReference')
-        if self.Constant:
+        if self.Constant is not None:
             self.Constant.export(outfile, level, namespace_, name_='Constant')
     def hasContent_(self):
         if (
@@ -4647,7 +4648,8 @@ class SubroutineArgumentType(FrontEndAnnotationType):
         super(SubroutineArgumentType, self).buildAttributes(node, attrs, already_processed)
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'VariableReference':
-            obj_ = VariableReferenceType.factory()
+            class_obj_ = self.get_class_obj_(child_, VariableReferenceType)
+            obj_ = class_obj_.factory()
             obj_.build(child_)
             self.set_VariableReference(obj_)
         elif nodeName_ == 'Constant':
@@ -4670,7 +4672,7 @@ class SubroutineCallType(GeneratedsSuper):
     (i.e. Argument elements) may be less."""
     subclass = None
     superclass = None
-    def __init__(self, statement_id=None, formalArgCount=None, scope_id=None, lineNumber=0, active='undefined', symbol_id=None, Argument=None, valueOf_=None):
+    def __init__(self, statement_id=None, formalArgCount=None, scope_id=None, lineNumber=0, active='undefined', symbol_id=None, Argument=None):
         self.statement_id = _cast(None, statement_id)
         self.formalArgCount = _cast(int, formalArgCount)
         self.scope_id = _cast(int, scope_id)
@@ -4843,7 +4845,7 @@ class SubroutineCallType(GeneratedsSuper):
 class MarkerType(FrontEndAnnotationType):
     subclass = None
     superclass = FrontEndAnnotationType
-    def __init__(self, annotation='', statement_id=None, valueOf_=None):
+    def __init__(self, annotation='', statement_id=None):
         super(MarkerType, self).__init__(annotation, )
         self.statement_id = _cast(None, statement_id)
         pass
@@ -4860,9 +4862,6 @@ class MarkerType(FrontEndAnnotationType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='MarkerType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="MarkerType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -4926,8 +4925,8 @@ class VariableReferenceType(VertexType):
     initialization from a subroutine parameter)."""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', active='undefined', alias=0, du_ud=0, constant=False, deriv=False, VariableReferenceVertex=None, VariableReferenceEdge=None, valueOf_=None):
-        super(VariableReferenceType, self).__init__(annotation, vertex_id, )
+    def __init__(self, annotation='', vertex_id='1', active='undefined', alias=0, du_ud=0, constant=False, deriv=False, VariableReferenceVertex=None, VariableReferenceEdge=None, extensiontype_=None):
+        super(VariableReferenceType, self).__init__(annotation, vertex_id, extensiontype_, )
         self.active = _cast(None, active)
         self.alias = _cast(int, alias)
         self.du_ud = _cast(int, du_ud)
@@ -4941,6 +4940,7 @@ class VariableReferenceType(VertexType):
             self.VariableReferenceEdge = []
         else:
             self.VariableReferenceEdge = VariableReferenceEdge
+        self.extensiontype_ = extensiontype_
     def factory(*args_, **kwargs_):
         if VariableReferenceType.subclass:
             return VariableReferenceType.subclass(*args_, **kwargs_)
@@ -4965,14 +4965,13 @@ class VariableReferenceType(VertexType):
     def set_constant(self, constant): self.constant = constant
     def get_deriv(self): return self.deriv
     def set_deriv(self, deriv): self.deriv = deriv
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
     def export(self, outfile, level, namespace_='xaifnii:', name_='VariableReferenceType', namespacedef_=''):
         showIndent(outfile, level)
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='VariableReferenceType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="VariableReferenceType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -4997,6 +4996,10 @@ class VariableReferenceType(VertexType):
         if self.deriv is not None and 'deriv' not in already_processed:
             already_processed.append('deriv')
             outfile.write(' deriv="%s"' % self.gds_format_boolean(self.gds_str_lower(str(self.deriv)), input_name='deriv'))
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.append('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            outfile.write(' xsi:type="%s"' % self.extensiontype_)
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='VariableReferenceType', fromsubclass_=False):
         super(VariableReferenceType, self).exportChildren(outfile, level, namespace_, name_, True)
         for VariableReferenceVertex_ in self.get_VariableReferenceVertex():
@@ -5107,6 +5110,10 @@ class VariableReferenceType(VertexType):
                 self.deriv = False
             else:
                 raise_parse_error(node, 'Bad boolean attribute')
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.append('xsi:type')
+            self.extensiontype_ = value
         super(VariableReferenceType, self).buildAttributes(node, attrs, already_processed)
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'VariableReferenceVertex':
@@ -5135,7 +5142,8 @@ class VariableReferenceType(VertexType):
             obj_.build(child_)
             self.VariableReferenceVertex.append(obj_)
         elif nodeName_ == 'VariableReferenceEdge':
-            obj_ = EdgeType.factory()
+            class_obj_ = self.get_class_obj_(child_, EdgeType)
+            obj_ = class_obj_.factory()
             obj_.build(child_)
             self.VariableReferenceEdge.append(obj_)
         super(VariableReferenceType, self).buildChildren(child_, node, nodeName_, True)
@@ -5148,7 +5156,7 @@ class IntrinsicType(VertexType):
     intrinsic return value"""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', rShape='scalar', type_='inlinable', name=None, rType='real', valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', rShape='scalar', type_='inlinable', name=None, rType='real'):
         super(IntrinsicType, self).__init__(annotation, vertex_id, )
         self.rShape = _cast(None, rShape)
         self.type_ = _cast(None, type_)
@@ -5180,9 +5188,6 @@ class IntrinsicType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='IntrinsicType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="IntrinsicType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -5274,7 +5279,7 @@ class BooleanOperationType(VertexType):
     """Boolean operations that are built into XAIF."""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', name=None, valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', name=None):
         super(BooleanOperationType, self).__init__(annotation, vertex_id, )
         self.name = _cast(None, name)
         pass
@@ -5294,9 +5299,6 @@ class BooleanOperationType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='BooleanOperationType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="BooleanOperationType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -5354,7 +5356,7 @@ class SymbolReferencePropertyType(GeneratedsSuper):
     """A name-value pair for arbitrary symbol reference properties."""
     subclass = None
     superclass = None
-    def __init__(self, name=None, value=None, valueOf_=None):
+    def __init__(self, name=None, value=None):
         self.name = _cast(None, name)
         self.value = _cast(None, value)
         pass
@@ -5434,7 +5436,7 @@ class SymbolReferenceType(VertexType):
     """A symbol is referenced uniquely by its id inside a given scope."""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', scope_id=None, symbol_id=None, SymbolReferenceProperty=None, valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', scope_id=None, symbol_id=None, SymbolReferenceProperty=None):
         super(SymbolReferenceType, self).__init__(annotation, vertex_id, )
         self.scope_id = _cast(int, scope_id)
         self.symbol_id = _cast(None, symbol_id)
@@ -5461,9 +5463,6 @@ class SymbolReferenceType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='SymbolReferenceType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="SymbolReferenceType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -5559,7 +5558,7 @@ class IndexTripletType(GeneratedsSuper):
     specified."""
     subclass = None
     superclass = None
-    def __init__(self, Index=None, Bound=None, Stride=None, valueOf_=None):
+    def __init__(self, Index=None, Bound=None, Stride=None):
         self.Index = Index
         self.Bound = Bound
         self.Stride = Stride
@@ -5590,11 +5589,11 @@ class IndexTripletType(GeneratedsSuper):
     def exportAttributes(self, outfile, level, already_processed, namespace_='xaifnii:', name_='IndexTripletType'):
         pass
     def exportChildren(self, outfile, level, namespace_='xaifnii:', name_='IndexTripletType', fromsubclass_=False):
-        if self.Index:
+        if self.Index is not None:
             self.Index.export(outfile, level, namespace_, name_='Index')
-        if self.Bound:
+        if self.Bound is not None:
             self.Bound.export(outfile, level, namespace_, name_='Bound')
-        if self.Stride:
+        if self.Stride is not None:
             self.Stride.export(outfile, level, namespace_, name_='Stride')
     def hasContent_(self):
         if (
@@ -5658,7 +5657,7 @@ class ArrayElementReferenceType(VertexType):
     """a reference to an array element or array slice using subscripts."""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', IndexTriplet=None, valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', IndexTriplet=None):
         super(ArrayElementReferenceType, self).__init__(annotation, vertex_id, )
         if IndexTriplet is None:
             self.IndexTriplet = []
@@ -5679,9 +5678,6 @@ class ArrayElementReferenceType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='ArrayElementReferenceType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="ArrayElementReferenceType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -5748,7 +5744,7 @@ class ConstantType(VertexType):
     means unspecified."""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', feType='', type_=None, value=None, valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', feType='', type_=None, value=None):
         super(ConstantType, self).__init__(annotation, vertex_id, )
         self.feType = _cast(None, feType)
         self.type_ = _cast(None, type_)
@@ -5774,9 +5770,6 @@ class ConstantType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='ConstantType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="ConstantType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -5859,7 +5852,7 @@ class FunctionCallType(VertexType):
     canonicalized by the front-end."""
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', scope_id=None, symbol_id=None, Argument=None, valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', scope_id=None, symbol_id=None, Argument=None):
         super(FunctionCallType, self).__init__(annotation, vertex_id, )
         self.scope_id = _cast(int, scope_id)
         self.symbol_id = _cast(None, symbol_id)
@@ -5886,9 +5879,6 @@ class FunctionCallType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='FunctionCallType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="FunctionCallType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -5967,7 +5957,8 @@ class FunctionCallType(VertexType):
         super(FunctionCallType, self).buildAttributes(node, attrs, already_processed)
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'Argument':
-            obj_ = VariableReferenceType.factory()
+            class_obj_ = self.get_class_obj_(child_, VariableReferenceType)
+            obj_ = class_obj_.factory()
             obj_.build(child_)
             self.Argument.append(obj_)
         super(FunctionCallType, self).buildChildren(child_, node, nodeName_, True)
@@ -5977,7 +5968,7 @@ class FunctionCallType(VertexType):
 class PartialType(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, dep=None, indep=None, partial=None, valueOf_=None):
+    def __init__(self, dep=None, indep=None, partial=None):
         self.dep = _cast(int, dep)
         self.indep = _cast(int, indep)
         self.partial = _cast(int, partial)
@@ -6085,7 +6076,7 @@ class PartialType(GeneratedsSuper):
 class ScopeType(VertexType):
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', SymbolTable=None, valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', SymbolTable=None):
         super(ScopeType, self).__init__(annotation, vertex_id, )
         if SymbolTable is None:
             self.SymbolTable = []
@@ -6106,9 +6097,6 @@ class ScopeType(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='ScopeType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="ScopeType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -6170,7 +6158,7 @@ class ScopeType(VertexType):
 class ScopeType1(VertexType):
     subclass = None
     superclass = VertexType
-    def __init__(self, annotation='', vertex_id='1', SymbolTable=None, valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', SymbolTable=None):
         super(ScopeType1, self).__init__(annotation, vertex_id, )
         if SymbolTable is None:
             self.SymbolTable = []
@@ -6191,9 +6179,6 @@ class ScopeType1(VertexType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='ScopeType1')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="ScopeType1"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
@@ -6258,7 +6243,7 @@ class AssignmentLHSType(VariableReferenceType):
     block or at the next Marker, whichever is closest."""
     subclass = None
     superclass = VariableReferenceType
-    def __init__(self, annotation='', vertex_id='1', active='undefined', alias=0, du_ud=0, constant=False, deriv=False, VariableReferenceVertex=None, VariableReferenceEdge=None, live=True, valueOf_=None):
+    def __init__(self, annotation='', vertex_id='1', active='undefined', alias=0, du_ud=0, constant=False, deriv=False, VariableReferenceVertex=None, VariableReferenceEdge=None, live=True):
         super(AssignmentLHSType, self).__init__(annotation, vertex_id, active, alias, du_ud, constant, deriv, VariableReferenceVertex, VariableReferenceEdge, )
         self.live = _cast(bool, live)
         pass
@@ -6275,9 +6260,6 @@ class AssignmentLHSType(VariableReferenceType):
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = []
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='AssignmentLHSType')
-        outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        if 'xsi:type' not in already_processed:
-            outfile.write(' xsi:type="AssignmentLHSType"')
         if self.hasContent_():
             outfile.write('>\n')
             self.exportChildren(outfile, level + 1, namespace_, name_)
