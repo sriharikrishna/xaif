@@ -456,6 +456,16 @@
   </xaifii:InlinableIntrinsic>
 
 <!-- *********************************************************** -->
+<!-- String scan -->
+<!-- *********************************************************** -->
+
+  <xaifii:InlinableIntrinsic name="scan" nr_arguments="2">
+    <xaifii:Function type="builtin" builtin_name="scan"/>
+    <xaifii:Partial partial_id="1" partial_type="passive"/>
+    <xaifii:Partial partial_id="2" partial_type="passive"/>
+  </xaifii:InlinableIntrinsic>
+
+<!-- *********************************************************** -->
 <!-- Remainder of x and y (MOD(x,y)) as in x-INT(x/y)*y          -->
 <!-- *********************************************************** -->
 

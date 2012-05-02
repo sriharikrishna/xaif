@@ -443,6 +443,16 @@
 
 
 
+  <xaifii:InlinableIntrinsic name="scan" nr_arguments="2" return_type="real" nonSmooth="false" shapeChange="no_change">
+    <xaifii:Function type="builtin" builtin_name="scan"></xaifii:Function>
+    <xaifii:Partial partial_id="1" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+    <xaifii:Partial partial_id="2" partial_type="passive" nonValueInquiry="false"></xaifii:Partial>
+  </xaifii:InlinableIntrinsic>
+
+
+
+
+
   <xaifii:InlinableIntrinsic name="mod_scal_scal" nr_arguments="2" nonSmooth="true" return_type="real" shapeChange="no_change">
     <xaifii:Function type="builtin" builtin_name="mod"></xaifii:Function>
     <xaifii:Partial partial_id="1" partial_type="linear_one" nonValueInquiry="false">
