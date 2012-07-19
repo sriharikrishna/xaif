@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 
 #
-# Generated Mon Jul  2 09:37:31 2012 by generateDS.py version 2.7b.
+# Generated Thu Jul 19 10:13:15 2012 by generateDS.py version 2.7b.
 #
 
 import sys
@@ -622,6 +622,94 @@ class InlinableIntrinsicDefinitionsType(GeneratedsSuper):
             obj_.build(child_)
             self.InlinableIntrinsic.append(obj_)
 # end class InlinableIntrinsicDefinitionsType
+
+
+class InlinableIntrinsicDefinitions(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, language=None, InlinableIntrinsic=None):
+        self.language = _cast(None, language)
+        if InlinableIntrinsic is None:
+            self.InlinableIntrinsic = []
+        else:
+            self.InlinableIntrinsic = InlinableIntrinsic
+    def factory(*args_, **kwargs_):
+        if InlinableIntrinsicDefinitions.subclass:
+            return InlinableIntrinsicDefinitions.subclass(*args_, **kwargs_)
+        else:
+            return InlinableIntrinsicDefinitions(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_InlinableIntrinsic(self): return self.InlinableIntrinsic
+    def set_InlinableIntrinsic(self, InlinableIntrinsic): self.InlinableIntrinsic = InlinableIntrinsic
+    def add_InlinableIntrinsic(self, value): self.InlinableIntrinsic.append(value)
+    def insert_InlinableIntrinsic(self, index, value): self.InlinableIntrinsic[index] = value
+    def get_language(self): return self.language
+    def set_language(self, language): self.language = language
+    def export(self, outfile, level, namespace_='xaifii:', name_='InlinableIntrinsicDefinitions', namespacedef_=''):
+        showIndent(outfile, level)
+        outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = []
+        self.exportAttributes(outfile, level, already_processed, namespace_, name_='InlinableIntrinsicDefinitions')
+        if self.hasContent_():
+            outfile.write('>\n')
+            self.exportChildren(outfile, level + 1, namespace_, name_)
+            showIndent(outfile, level)
+            outfile.write('</%s%s>\n' % (namespace_, name_))
+        else:
+            outfile.write('/>\n')
+    def exportAttributes(self, outfile, level, already_processed, namespace_='xaifii:', name_='InlinableIntrinsicDefinitions'):
+        if self.language is not None and 'language' not in already_processed:
+            already_processed.append('language')
+            outfile.write(' language=%s' % (quote_attrib(self.language), ))
+    def exportChildren(self, outfile, level, namespace_='xaifii:', name_='InlinableIntrinsicDefinitions', fromsubclass_=False):
+        for InlinableIntrinsic_ in self.InlinableIntrinsic:
+            InlinableIntrinsic_.export(outfile, level, namespace_, name_='InlinableIntrinsic')
+    def hasContent_(self):
+        if (
+            self.InlinableIntrinsic
+            ):
+            return True
+        else:
+            return False
+    def exportLiteral(self, outfile, level, name_='InlinableIntrinsicDefinitions'):
+        level += 1
+        self.exportLiteralAttributes(outfile, level, [], name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.language is not None and 'language' not in already_processed:
+            already_processed.append('language')
+            showIndent(outfile, level)
+            outfile.write('language = %s,\n' % (self.language,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        showIndent(outfile, level)
+        outfile.write('InlinableIntrinsic=[\n')
+        level += 1
+        for InlinableIntrinsic_ in self.InlinableIntrinsic:
+            showIndent(outfile, level)
+            outfile.write('model_.InlinableIntrinsic(\n')
+            InlinableIntrinsic_.exportLiteral(outfile, level)
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+    def build(self, node):
+        self.buildAttributes(node, node.attrib, [])
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+    def buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('language', node)
+        if value is not None and 'language' not in already_processed:
+            already_processed.append('language')
+            self.language = value
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'InlinableIntrinsic':
+            obj_ = InlinableIntrinsicDefinitionType.factory()
+            obj_.build(child_)
+            self.InlinableIntrinsic.append(obj_)
+# end class InlinableIntrinsicDefinitions
 
 
 class FrontEndAnnotationType(GeneratedsSuper):
@@ -6501,6 +6589,7 @@ __all__ = [
     "IfType",
     "IndexTripletType",
     "InlinableIntrinsicDefinitionType",
+    "InlinableIntrinsicDefinitions",
     "InlinableIntrinsicDefinitionsType",
     "IntrinsicType",
     "LabelType",
